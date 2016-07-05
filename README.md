@@ -1,9 +1,13 @@
-Ionic My Apps Base
-==================
+Snowball App
+============
 
-React with Material UI was used in this project.
+This project is created to practice the use of a few technologies:
+* Ionic/Cordova
+* React
+* Material UI with React
+
 This project will show how we may hack/integrate Ionic framework with React. 
-It will also provide some useful componenets for Ionic.
+It will also add some useful componenets for Ionic in the future.
 
 ## command line for the project
 - npm run dev (development) - starts watching .scss files, .jsx files and reloads browser on port :3000
