@@ -21,8 +21,9 @@ export default class DrawerUndockedExample extends React.Component {
 					open={this.props.open}
 					onRequestChange={(open) => this.props.handleClose({open})}
 					>
-					<MenuItem onTouchTap={this.props.handleClose}><Link to="/"><MenuItem primaryText="Home" /></Link></MenuItem>
+					<MenuItem onTouchTap={this.props.handleClose}><Link to="/home"><MenuItem primaryText="Home" /></Link></MenuItem>
 					<MenuItem onTouchTap={this.props.handleClose}><Link to="/about"><MenuItem primaryText="About" /></Link></MenuItem>
+					<MenuItem onTouchTap={this.props.handleClose}><Link to="/gridlist"><MenuItem primaryText="GridList" /></Link></MenuItem>
 				</Drawer>
 			</div>
 		);

@@ -22,7 +22,7 @@ import { browserHistory } from 'react-router';
 //colors
 import {cyan500} from 'material-ui/styles/colors';
 
-class AboutPage extends React.Component {
+class HomePage extends React.Component {
 
 	constructor(props) {
 		super(props);
@@ -45,10 +45,10 @@ class AboutPage extends React.Component {
 
 		return (
 			<div>
-				<div className="content">This is content of about page</div>
+				<div className="content">This is content of Home page</div>
 			</div>
 		);
 	}
 }
 
-export default AboutPage;
+export default HomePage;

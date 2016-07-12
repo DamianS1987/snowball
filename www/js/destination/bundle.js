@@ -20618,6 +20618,14 @@
 
 	var _About2 = _interopRequireDefault(_About);
 
+	var _Home = __webpack_require__(414);
+
+	var _Home2 = _interopRequireDefault(_Home);
+
+	var _GridList = __webpack_require__(415);
+
+	var _GridList2 = _interopRequireDefault(_GridList);
+
 	var _Main = __webpack_require__(411);
 
 	var _Main2 = _interopRequireDefault(_Main);
@@ -20672,7 +20680,9 @@
 					_react2.default.createElement(
 						_reactRouter.Route,
 						{ path: '/', component: _Main2.default },
-						_react2.default.createElement(_reactRouter.Route, { path: '/about', component: _About2.default })
+						_react2.default.createElement(_reactRouter.Route, { path: '/about', component: _About2.default }),
+						_react2.default.createElement(_reactRouter.Route, { path: '/home', component: _Home2.default }),
+						_react2.default.createElement(_reactRouter.Route, { path: '/gridlist', component: _GridList2.default })
 					)
 				);
 			}
@@ -39310,7 +39320,7 @@
 					_react2.default.createElement(
 						'div',
 						{ className: 'content' },
-						'aaa'
+						'This is content of about page'
 					)
 				);
 			}
@@ -39394,7 +39404,7 @@
 							{ onTouchTap: this.props.handleClose },
 							_react2.default.createElement(
 								_reactRouter.Link,
-								{ to: '/' },
+								{ to: '/home' },
 								_react2.default.createElement(_MenuItem2.default, { primaryText: 'Home' })
 							)
 						),
@@ -39405,6 +39415,15 @@
 								_reactRouter.Link,
 								{ to: '/about' },
 								_react2.default.createElement(_MenuItem2.default, { primaryText: 'About' })
+							)
+						),
+						_react2.default.createElement(
+							_MenuItem2.default,
+							{ onTouchTap: this.props.handleClose },
+							_react2.default.createElement(
+								_reactRouter.Link,
+								{ to: '/gridlist' },
+								_react2.default.createElement(_MenuItem2.default, { primaryText: 'GridList' })
 							)
 						)
 					)
@@ -45591,6 +45610,262 @@
 	};
 
 	exports.default = Events;
+
+/***/ },
+/* 414 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactDom = __webpack_require__(33);
+
+	var _reactRouter = __webpack_require__(176);
+
+	var _getMuiTheme = __webpack_require__(237);
+
+	var _getMuiTheme2 = _interopRequireDefault(_getMuiTheme);
+
+	var _MuiThemeProvider = __webpack_require__(331);
+
+	var _MuiThemeProvider2 = _interopRequireDefault(_MuiThemeProvider);
+
+	var _drawer = __webpack_require__(377);
+
+	var _drawer2 = _interopRequireDefault(_drawer);
+
+	var _header = __webpack_require__(403);
+
+	var _header2 = _interopRequireDefault(_header);
+
+	var _AppBar = __webpack_require__(404);
+
+	var _AppBar2 = _interopRequireDefault(_AppBar);
+
+	var _IconMenu = __webpack_require__(407);
+
+	var _IconMenu2 = _interopRequireDefault(_IconMenu);
+
+	var _IconButton = __webpack_require__(337);
+
+	var _IconButton2 = _interopRequireDefault(_IconButton);
+
+	var _MenuItem = __webpack_require__(385);
+
+	var _MenuItem2 = _interopRequireDefault(_MenuItem);
+
+	var _moreVert = __webpack_require__(409);
+
+	var _moreVert2 = _interopRequireDefault(_moreVert);
+
+	var _close = __webpack_require__(410);
+
+	var _close2 = _interopRequireDefault(_close);
+
+	var _colors = __webpack_require__(247);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	//theme components
+
+
+	//drawer
+
+
+	//App bar
+
+
+	//colors
+
+
+	var HomePage = function (_React$Component) {
+		_inherits(HomePage, _React$Component);
+
+		function HomePage(props) {
+			_classCallCheck(this, HomePage);
+
+			var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(HomePage).call(this, props));
+
+			_this.leftButtonTapPress = _this.leftButtonTapPress.bind(_this);
+			return _this;
+		}
+
+		_createClass(HomePage, [{
+			key: 'componentWillMount',
+			value: function componentWillMount() {
+				if (!this.state || !this.state.openDrawer) {
+					this.state = {};
+					this.state.openDrawer = false;
+				}
+			}
+		}, {
+			key: 'leftButtonTapPress',
+			value: function leftButtonTapPress() {
+				this.setState({ openDrawer: true });
+			}
+		}, {
+			key: 'render',
+			value: function render() {
+
+				return _react2.default.createElement(
+					'div',
+					null,
+					_react2.default.createElement(
+						'div',
+						{ className: 'content' },
+						'This is content of Home page'
+					)
+				);
+			}
+		}]);
+
+		return HomePage;
+	}(_react2.default.Component);
+
+	exports.default = HomePage;
+
+/***/ },
+/* 415 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactDom = __webpack_require__(33);
+
+	var _reactRouter = __webpack_require__(176);
+
+	var _GridList = __webpack_require__(333);
+
+	var _IconButton = __webpack_require__(337);
+
+	var _IconButton2 = _interopRequireDefault(_IconButton);
+
+	var _Subheader = __webpack_require__(363);
+
+	var _Subheader2 = _interopRequireDefault(_Subheader);
+
+	var _starBorder = __webpack_require__(365);
+
+	var _starBorder2 = _interopRequireDefault(_starBorder);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var styles = {
+		root: {
+			display: 'flex',
+			flexWrap: 'wrap',
+			justifyContent: 'space-around'
+		},
+		gridList: {
+			width: '100%',
+			height: window.innerHeight - 64 + 'px',
+			overflowY: 'auto',
+			marginBottom: 24
+		}
+	};
+
+	var tilesData = [{
+		img: 'img/grid-list/00-52-29-429_640.jpg',
+		title: 'Breakfast',
+		author: 'jill111'
+	}, {
+		img: 'img/grid-list/burger-827309_640.jpg',
+		title: 'Tasty burger',
+		author: 'pashminu'
+	}, {
+		img: 'img/grid-list/camera-813814_640.jpg',
+		title: 'Camera',
+		author: 'Danson67'
+	}, {
+		img: 'img/grid-list/morning-819362_640.jpg',
+		title: 'Morning',
+		author: 'fancycrave1'
+	}, {
+		img: 'img/grid-list/hats-829509_640.jpg',
+		title: 'Hats',
+		author: 'Hans'
+	}, {
+		img: 'img/grid-list/honey-823614_640.jpg',
+		title: 'Honey',
+		author: 'fancycravel'
+	}, {
+		img: 'img/grid-list/vegetables-790022_640.jpg',
+		title: 'Vegetables',
+		author: 'jill111'
+	}, {
+		img: 'img/grid-list/water-plant-821293_640.jpg',
+		title: 'Water plant',
+		author: 'BkrmadtyaKarki'
+	}];
+
+	var GridListExampleSimple = function GridListExampleSimple() {
+		return _react2.default.createElement(
+			'div',
+			{ style: styles.root },
+			_react2.default.createElement(
+				_GridList.GridList,
+				{
+					cellHeight: 200,
+					style: styles.gridList
+				},
+				_react2.default.createElement(
+					_Subheader2.default,
+					null,
+					'December'
+				),
+				tilesData.map(function (tile) {
+					return _react2.default.createElement(
+						_GridList.GridTile,
+						{
+							key: tile.img,
+							title: tile.title,
+							subtitle: _react2.default.createElement(
+								'span',
+								null,
+								'by ',
+								_react2.default.createElement(
+									'b',
+									null,
+									tile.author
+								)
+							),
+							actionIcon: _react2.default.createElement(
+								_IconButton2.default,
+								null,
+								_react2.default.createElement(_starBorder2.default, { color: 'white' })
+							)
+						},
+						_react2.default.createElement('img', { src: tile.img })
+					);
+				})
+			)
+		);
+	};
+
+	exports.default = GridListExampleSimple;
 
 /***/ }
 /******/ ]);
