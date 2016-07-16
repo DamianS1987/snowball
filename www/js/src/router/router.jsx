@@ -16,6 +16,7 @@ import GridListExampleSimple from '../components/ScrollableList/scrollablelist.j
 import About from '../components/About/About.jsx';
 import Home from '../components/Home/Home.jsx';
 import GridList from '../components/GridList/GridList.jsx';
+import AvatarExampleSimple from '../components/Avatar/Avatar.jsx';
 import Main from '../components/Main/Main.jsx';
 
 // This replaces the textColor value on the palette
@@ -45,6 +46,7 @@ class App_Router extends React.Component {
 					<Route path="/about" component={About}></Route>
 					<Route path="/home" component={Home}></Route>
 					<Route path="/gridlist" component={GridList}></Route>
+					<Route path="/avatar" component={AvatarExampleSimple}></Route>
 
 				</Route>
 

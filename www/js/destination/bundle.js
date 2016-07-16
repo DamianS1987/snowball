@@ -20566,7 +20566,7 @@
 
 	var _router2 = _interopRequireDefault(_router);
 
-	var _Events = __webpack_require__(413);
+	var _Events = __webpack_require__(415);
 
 	var _Events2 = _interopRequireDefault(_Events);
 
@@ -20618,15 +20618,19 @@
 
 	var _About2 = _interopRequireDefault(_About);
 
-	var _Home = __webpack_require__(414);
+	var _Home = __webpack_require__(411);
 
 	var _Home2 = _interopRequireDefault(_Home);
 
-	var _GridList = __webpack_require__(415);
+	var _GridList = __webpack_require__(412);
 
 	var _GridList2 = _interopRequireDefault(_GridList);
 
-	var _Main = __webpack_require__(411);
+	var _Avatar = __webpack_require__(416);
+
+	var _Avatar2 = _interopRequireDefault(_Avatar);
+
+	var _Main = __webpack_require__(413);
 
 	var _Main2 = _interopRequireDefault(_Main);
 
@@ -20682,7 +20686,8 @@
 						{ path: '/', component: _Main2.default },
 						_react2.default.createElement(_reactRouter.Route, { path: '/about', component: _About2.default }),
 						_react2.default.createElement(_reactRouter.Route, { path: '/home', component: _Home2.default }),
-						_react2.default.createElement(_reactRouter.Route, { path: '/gridlist', component: _GridList2.default })
+						_react2.default.createElement(_reactRouter.Route, { path: '/gridlist', component: _GridList2.default }),
+						_react2.default.createElement(_reactRouter.Route, { path: '/avatar', component: _Avatar2.default })
 					)
 				);
 			}
@@ -39425,6 +39430,15 @@
 								{ to: '/gridlist' },
 								_react2.default.createElement(_MenuItem2.default, { primaryText: 'GridList' })
 							)
+						),
+						_react2.default.createElement(
+							_MenuItem2.default,
+							{ onTouchTap: this.props.handleClose },
+							_react2.default.createElement(
+								_reactRouter.Link,
+								{ to: '/avatar' },
+								_react2.default.createElement(_MenuItem2.default, { primaryText: 'Avatar' })
+							)
 						)
 					)
 				);
@@ -45363,6 +45377,262 @@
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactDom = __webpack_require__(33);
+
+	var _reactRouter = __webpack_require__(176);
+
+	var _getMuiTheme = __webpack_require__(237);
+
+	var _getMuiTheme2 = _interopRequireDefault(_getMuiTheme);
+
+	var _MuiThemeProvider = __webpack_require__(331);
+
+	var _MuiThemeProvider2 = _interopRequireDefault(_MuiThemeProvider);
+
+	var _drawer = __webpack_require__(377);
+
+	var _drawer2 = _interopRequireDefault(_drawer);
+
+	var _header = __webpack_require__(403);
+
+	var _header2 = _interopRequireDefault(_header);
+
+	var _AppBar = __webpack_require__(404);
+
+	var _AppBar2 = _interopRequireDefault(_AppBar);
+
+	var _IconMenu = __webpack_require__(407);
+
+	var _IconMenu2 = _interopRequireDefault(_IconMenu);
+
+	var _IconButton = __webpack_require__(337);
+
+	var _IconButton2 = _interopRequireDefault(_IconButton);
+
+	var _MenuItem = __webpack_require__(385);
+
+	var _MenuItem2 = _interopRequireDefault(_MenuItem);
+
+	var _moreVert = __webpack_require__(409);
+
+	var _moreVert2 = _interopRequireDefault(_moreVert);
+
+	var _close = __webpack_require__(410);
+
+	var _close2 = _interopRequireDefault(_close);
+
+	var _colors = __webpack_require__(247);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	//theme components
+
+
+	//drawer
+
+
+	//App bar
+
+
+	//colors
+
+
+	var HomePage = function (_React$Component) {
+		_inherits(HomePage, _React$Component);
+
+		function HomePage(props) {
+			_classCallCheck(this, HomePage);
+
+			var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(HomePage).call(this, props));
+
+			_this.leftButtonTapPress = _this.leftButtonTapPress.bind(_this);
+			return _this;
+		}
+
+		_createClass(HomePage, [{
+			key: 'componentWillMount',
+			value: function componentWillMount() {
+				if (!this.state || !this.state.openDrawer) {
+					this.state = {};
+					this.state.openDrawer = false;
+				}
+			}
+		}, {
+			key: 'leftButtonTapPress',
+			value: function leftButtonTapPress() {
+				this.setState({ openDrawer: true });
+			}
+		}, {
+			key: 'render',
+			value: function render() {
+
+				return _react2.default.createElement(
+					'div',
+					null,
+					_react2.default.createElement(
+						'div',
+						{ className: 'content' },
+						'This is content of Home page'
+					)
+				);
+			}
+		}]);
+
+		return HomePage;
+	}(_react2.default.Component);
+
+	exports.default = HomePage;
+
+/***/ },
+/* 412 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactDom = __webpack_require__(33);
+
+	var _reactRouter = __webpack_require__(176);
+
+	var _GridList = __webpack_require__(333);
+
+	var _IconButton = __webpack_require__(337);
+
+	var _IconButton2 = _interopRequireDefault(_IconButton);
+
+	var _Subheader = __webpack_require__(363);
+
+	var _Subheader2 = _interopRequireDefault(_Subheader);
+
+	var _starBorder = __webpack_require__(365);
+
+	var _starBorder2 = _interopRequireDefault(_starBorder);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var styles = {
+		root: {
+			display: 'flex',
+			flexWrap: 'wrap',
+			justifyContent: 'space-around'
+		},
+		gridList: {
+			width: '100%',
+			height: window.innerHeight - 64 + 'px',
+			overflowY: 'auto',
+			marginBottom: 24
+		}
+	};
+
+	var tilesData = [{
+		img: 'img/grid-list/00-52-29-429_640.jpg',
+		title: 'Breakfast',
+		author: 'jill111'
+	}, {
+		img: 'img/grid-list/burger-827309_640.jpg',
+		title: 'Tasty burger',
+		author: 'pashminu'
+	}, {
+		img: 'img/grid-list/camera-813814_640.jpg',
+		title: 'Camera',
+		author: 'Danson67'
+	}, {
+		img: 'img/grid-list/morning-819362_640.jpg',
+		title: 'Morning',
+		author: 'fancycrave1'
+	}, {
+		img: 'img/grid-list/hats-829509_640.jpg',
+		title: 'Hats',
+		author: 'Hans'
+	}, {
+		img: 'img/grid-list/honey-823614_640.jpg',
+		title: 'Honey',
+		author: 'fancycravel'
+	}, {
+		img: 'img/grid-list/vegetables-790022_640.jpg',
+		title: 'Vegetables',
+		author: 'jill111'
+	}, {
+		img: 'img/grid-list/water-plant-821293_640.jpg',
+		title: 'Water plant',
+		author: 'BkrmadtyaKarki'
+	}];
+
+	var GridListExampleSimple = function GridListExampleSimple() {
+		return _react2.default.createElement(
+			'div',
+			{ style: styles.root },
+			_react2.default.createElement(
+				_GridList.GridList,
+				{
+					cellHeight: 200,
+					style: styles.gridList
+				},
+				_react2.default.createElement(
+					_Subheader2.default,
+					null,
+					'December'
+				),
+				tilesData.map(function (tile) {
+					return _react2.default.createElement(
+						_GridList.GridTile,
+						{
+							key: tile.img,
+							title: tile.title,
+							subtitle: _react2.default.createElement(
+								'span',
+								null,
+								'by ',
+								_react2.default.createElement(
+									'b',
+									null,
+									tile.author
+								)
+							),
+							actionIcon: _react2.default.createElement(
+								_IconButton2.default,
+								null,
+								_react2.default.createElement(_starBorder2.default, { color: 'white' })
+							)
+						},
+						_react2.default.createElement('img', { src: tile.img })
+					);
+				})
+			)
+		);
+	};
+
+	exports.default = GridListExampleSimple;
+
+/***/ },
+/* 413 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
 
@@ -45376,7 +45646,7 @@
 
 	var _reactRouter = __webpack_require__(176);
 
-	var _MainStore = __webpack_require__(412);
+	var _MainStore = __webpack_require__(414);
 
 	var _MainStore2 = _interopRequireDefault(_MainStore);
 
@@ -45546,7 +45816,7 @@
 	exports.default = Main;
 
 /***/ },
-/* 412 */
+/* 414 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -45582,7 +45852,7 @@
 		};
 	};
 
-	var _Events = __webpack_require__(413);
+	var _Events = __webpack_require__(415);
 
 	var _Events2 = _interopRequireDefault(_Events);
 
@@ -45594,7 +45864,7 @@
 	var event = new Event(CHANGE_EV);
 
 /***/ },
-/* 413 */
+/* 415 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -45612,7 +45882,7 @@
 	exports.default = Events;
 
 /***/ },
-/* 414 */
+/* 416 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -45621,59 +45891,185 @@
 		value: true
 	});
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	var _react = __webpack_require__(1);
 
 	var _react2 = _interopRequireDefault(_react);
 
 	var _reactDom = __webpack_require__(33);
 
-	var _reactRouter = __webpack_require__(176);
+	var _Avatar = __webpack_require__(417);
 
-	var _getMuiTheme = __webpack_require__(237);
+	var _Avatar2 = _interopRequireDefault(_Avatar);
 
-	var _getMuiTheme2 = _interopRequireDefault(_getMuiTheme);
+	var _folder = __webpack_require__(419);
 
-	var _MuiThemeProvider = __webpack_require__(331);
+	var _folder2 = _interopRequireDefault(_folder);
 
-	var _MuiThemeProvider2 = _interopRequireDefault(_MuiThemeProvider);
+	var _FontIcon = __webpack_require__(360);
 
-	var _drawer = __webpack_require__(377);
+	var _FontIcon2 = _interopRequireDefault(_FontIcon);
 
-	var _drawer2 = _interopRequireDefault(_drawer);
+	var _List = __webpack_require__(397);
 
-	var _header = __webpack_require__(403);
+	var _List2 = _interopRequireDefault(_List);
 
-	var _header2 = _interopRequireDefault(_header);
+	var _ListItem = __webpack_require__(393);
 
-	var _AppBar = __webpack_require__(404);
-
-	var _AppBar2 = _interopRequireDefault(_AppBar);
-
-	var _IconMenu = __webpack_require__(407);
-
-	var _IconMenu2 = _interopRequireDefault(_IconMenu);
-
-	var _IconButton = __webpack_require__(337);
-
-	var _IconButton2 = _interopRequireDefault(_IconButton);
-
-	var _MenuItem = __webpack_require__(385);
-
-	var _MenuItem2 = _interopRequireDefault(_MenuItem);
-
-	var _moreVert = __webpack_require__(409);
-
-	var _moreVert2 = _interopRequireDefault(_moreVert);
-
-	var _close = __webpack_require__(410);
-
-	var _close2 = _interopRequireDefault(_close);
+	var _ListItem2 = _interopRequireDefault(_ListItem);
 
 	var _colors = __webpack_require__(247);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var style = { margin: 5 };
+
+	/**
+	 * Examples of `Avatar` using an image, [Font Icon](/#/components/font-icon), [SVG Icon](/#/components/svg-icon)
+	 * and "Letter" (string), with and without custom colors at the default size (`40dp`) and an alternate size (`30dp`).
+	 */
+	var AvatarExampleSimple = function AvatarExampleSimple() {
+		return _react2.default.createElement(
+			_List2.default,
+			null,
+			_react2.default.createElement(
+				_ListItem2.default,
+				{
+					disabled: true,
+					leftAvatar: _react2.default.createElement(_Avatar2.default, { src: 'img/avatar/avatarOne.png' })
+				},
+				'Image Avatar'
+			),
+			_react2.default.createElement(
+				_ListItem2.default,
+				{
+					disabled: true,
+					leftAvatar: _react2.default.createElement(_Avatar2.default, {
+						src: 'img/avatar/avatarTwo.png',
+						size: 30,
+						style: style
+					})
+				},
+				'Image Avatar with custom size'
+			),
+			_react2.default.createElement(
+				_ListItem2.default,
+				{
+					leftAvatar: _react2.default.createElement(_Avatar2.default, { icon: _react2.default.createElement(_FontIcon2.default, { className: 'muidocs-icon-action-home' }) })
+				},
+				'FontIcon Avatar'
+			),
+			_react2.default.createElement(
+				_ListItem2.default,
+				{
+					disabled: true,
+					leftAvatar: _react2.default.createElement(_Avatar2.default, {
+						icon: _react2.default.createElement(_FontIcon2.default, { className: 'muidocs-icon-action-home' }),
+						size: 30,
+						style: style
+					})
+				},
+				'FontIcon Avatar with custom colors and size dfdf'
+			),
+			_react2.default.createElement(
+				_ListItem2.default,
+				{
+					disabled: true,
+					leftAvatar: _react2.default.createElement(_Avatar2.default, { icon: _react2.default.createElement(_folder2.default, null) })
+				},
+				'SvgIcon Avatar'
+			),
+			_react2.default.createElement(
+				_ListItem2.default,
+				{
+					disabled: true,
+					leftAvatar: _react2.default.createElement(_Avatar2.default, {
+						icon: _react2.default.createElement(_folder2.default, null),
+						color: _colors.orange200,
+						backgroundColor: _colors.pink400,
+						size: 30,
+						style: style
+					})
+				},
+				'SvgIcon Avatar with custom colors and size'
+			),
+			_react2.default.createElement(
+				_ListItem2.default,
+				{
+					disabled: true,
+					leftAvatar: _react2.default.createElement(
+						_Avatar2.default,
+						null,
+						'A'
+					)
+				},
+				'Letter Avatar'
+			),
+			_react2.default.createElement(
+				_ListItem2.default,
+				{
+					disabled: true,
+					leftAvatar: _react2.default.createElement(
+						_Avatar2.default,
+						{
+							color: _colors.deepOrange300,
+							backgroundColor: _colors.purple500,
+							size: 30,
+							style: style
+						},
+						'A'
+					)
+				},
+				'Letter Avatar with custom colors and size'
+			)
+		);
+	};
+
+	exports.default = AvatarExampleSimple;
+
+/***/ },
+/* 417 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = undefined;
+
+	var _Avatar = __webpack_require__(418);
+
+	var _Avatar2 = _interopRequireDefault(_Avatar);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = _Avatar2.default;
+
+/***/ },
+/* 418 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _simpleAssign = __webpack_require__(335);
+
+	var _simpleAssign2 = _interopRequireDefault(_simpleAssign);
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -45681,191 +46077,176 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	//theme components
+	function getStyles(props, context) {
+	  var backgroundColor = props.backgroundColor;
+	  var color = props.color;
+	  var size = props.size;
+	  var src = props.src;
+	  var avatar = context.muiTheme.avatar;
 
 
-	//drawer
+	  var styles = {
+	    root: {
+	      color: color || avatar.color,
+	      backgroundColor: backgroundColor || avatar.backgroundColor,
+	      userSelect: 'none',
+	      display: 'inline-block',
+	      textAlign: 'center',
+	      lineHeight: size + 'px',
+	      fontSize: size / 2,
+	      borderRadius: '50%',
+	      height: size,
+	      width: size
+	    },
+	    icon: {
+	      color: color || avatar.color,
+	      width: size * 0.6,
+	      height: size * 0.6,
+	      fontSize: size * 0.6,
+	      margin: size * 0.2
+	    }
+	  };
 
+	  if (src && avatar.borderColor) {
+	    (0, _simpleAssign2.default)(styles.root, {
+	      background: 'url(' + src + ')',
+	      backgroundSize: size,
+	      backgroundOrigin: 'border-box',
+	      border: 'solid 1px ' + avatar.borderColor,
+	      height: size - 2,
+	      width: size - 2
+	    });
+	  }
 
-	//App bar
+	  return styles;
+	}
 
+	var Avatar = function (_Component) {
+	  _inherits(Avatar, _Component);
 
-	//colors
+	  function Avatar() {
+	    _classCallCheck(this, Avatar);
 
+	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Avatar).apply(this, arguments));
+	  }
 
-	var HomePage = function (_React$Component) {
-		_inherits(HomePage, _React$Component);
+	  _createClass(Avatar, [{
+	    key: 'render',
+	    value: function render() {
+	      var _props = this.props;
+	      var icon = _props.icon;
+	      var src = _props.src;
+	      var style = _props.style;
+	      var className = _props.className;
 
-		function HomePage(props) {
-			_classCallCheck(this, HomePage);
+	      var other = _objectWithoutProperties(_props, ['icon', 'src', 'style', 'className']);
 
-			var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(HomePage).call(this, props));
+	      var prepareStyles = this.context.muiTheme.prepareStyles;
 
-			_this.leftButtonTapPress = _this.leftButtonTapPress.bind(_this);
-			return _this;
-		}
+	      var styles = getStyles(this.props, this.context);
 
-		_createClass(HomePage, [{
-			key: 'componentWillMount',
-			value: function componentWillMount() {
-				if (!this.state || !this.state.openDrawer) {
-					this.state = {};
-					this.state.openDrawer = false;
-				}
-			}
-		}, {
-			key: 'leftButtonTapPress',
-			value: function leftButtonTapPress() {
-				this.setState({ openDrawer: true });
-			}
-		}, {
-			key: 'render',
-			value: function render() {
+	      if (src) {
+	        return _react2.default.createElement('div', _extends({}, other, {
+	          style: prepareStyles((0, _simpleAssign2.default)(styles.root, style)),
+	          className: className
+	        }));
+	      } else {
+	        return _react2.default.createElement(
+	          'div',
+	          _extends({}, other, {
+	            style: prepareStyles((0, _simpleAssign2.default)(styles.root, style)),
+	            className: className
+	          }),
+	          icon && _react2.default.cloneElement(icon, {
+	            color: styles.icon.color,
+	            style: (0, _simpleAssign2.default)(styles.icon, icon.props.style)
+	          }),
+	          this.props.children
+	        );
+	      }
+	    }
+	  }]);
 
-				return _react2.default.createElement(
-					'div',
-					null,
-					_react2.default.createElement(
-						'div',
-						{ className: 'content' },
-						'This is content of Home page'
-					)
-				);
-			}
-		}]);
+	  return Avatar;
+	}(_react.Component);
 
-		return HomePage;
-	}(_react2.default.Component);
-
-	exports.default = HomePage;
+	Avatar.propTypes = {
+	  /**
+	   * The backgroundColor of the avatar. Does not apply to image avatars.
+	   */
+	  backgroundColor: _react.PropTypes.string,
+	  /**
+	   * Can be used, for instance, to render a letter inside the avatar.
+	   */
+	  children: _react.PropTypes.node,
+	  /**
+	   * The css class name of the root `div` or `img` element.
+	   */
+	  className: _react.PropTypes.string,
+	  /**
+	   * The icon or letter's color.
+	   */
+	  color: _react.PropTypes.string,
+	  /**
+	   * This is the SvgIcon or FontIcon to be used inside the avatar.
+	   */
+	  icon: _react.PropTypes.element,
+	  /**
+	   * This is the size of the avatar in pixels.
+	   */
+	  size: _react.PropTypes.number,
+	  /**
+	   * If passed in, this component will render an img element. Otherwise, a div will be rendered.
+	   */
+	  src: _react.PropTypes.string,
+	  /**
+	   * Override the inline-styles of the root element.
+	   */
+	  style: _react.PropTypes.object
+	};
+	Avatar.defaultProps = {
+	  size: 40
+	};
+	Avatar.contextTypes = {
+	  muiTheme: _react.PropTypes.object.isRequired
+	};
+	exports.default = Avatar;
 
 /***/ },
-/* 415 */
+/* 419 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
-		value: true
+	  value: true
 	});
 
 	var _react = __webpack_require__(1);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(33);
+	var _pure = __webpack_require__(366);
 
-	var _reactRouter = __webpack_require__(176);
+	var _pure2 = _interopRequireDefault(_pure);
 
-	var _GridList = __webpack_require__(333);
+	var _SvgIcon = __webpack_require__(374);
 
-	var _IconButton = __webpack_require__(337);
-
-	var _IconButton2 = _interopRequireDefault(_IconButton);
-
-	var _Subheader = __webpack_require__(363);
-
-	var _Subheader2 = _interopRequireDefault(_Subheader);
-
-	var _starBorder = __webpack_require__(365);
-
-	var _starBorder2 = _interopRequireDefault(_starBorder);
+	var _SvgIcon2 = _interopRequireDefault(_SvgIcon);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var styles = {
-		root: {
-			display: 'flex',
-			flexWrap: 'wrap',
-			justifyContent: 'space-around'
-		},
-		gridList: {
-			width: '100%',
-			height: window.innerHeight - 64 + 'px',
-			overflowY: 'auto',
-			marginBottom: 24
-		}
+	var FileFolder = function FileFolder(props) {
+	  return _react2.default.createElement(
+	    _SvgIcon2.default,
+	    props,
+	    _react2.default.createElement('path', { d: 'M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z' })
+	  );
 	};
+	FileFolder = (0, _pure2.default)(FileFolder);
+	FileFolder.displayName = 'FileFolder';
 
-	var tilesData = [{
-		img: 'img/grid-list/00-52-29-429_640.jpg',
-		title: 'Breakfast',
-		author: 'jill111'
-	}, {
-		img: 'img/grid-list/burger-827309_640.jpg',
-		title: 'Tasty burger',
-		author: 'pashminu'
-	}, {
-		img: 'img/grid-list/camera-813814_640.jpg',
-		title: 'Camera',
-		author: 'Danson67'
-	}, {
-		img: 'img/grid-list/morning-819362_640.jpg',
-		title: 'Morning',
-		author: 'fancycrave1'
-	}, {
-		img: 'img/grid-list/hats-829509_640.jpg',
-		title: 'Hats',
-		author: 'Hans'
-	}, {
-		img: 'img/grid-list/honey-823614_640.jpg',
-		title: 'Honey',
-		author: 'fancycravel'
-	}, {
-		img: 'img/grid-list/vegetables-790022_640.jpg',
-		title: 'Vegetables',
-		author: 'jill111'
-	}, {
-		img: 'img/grid-list/water-plant-821293_640.jpg',
-		title: 'Water plant',
-		author: 'BkrmadtyaKarki'
-	}];
-
-	var GridListExampleSimple = function GridListExampleSimple() {
-		return _react2.default.createElement(
-			'div',
-			{ style: styles.root },
-			_react2.default.createElement(
-				_GridList.GridList,
-				{
-					cellHeight: 200,
-					style: styles.gridList
-				},
-				_react2.default.createElement(
-					_Subheader2.default,
-					null,
-					'December'
-				),
-				tilesData.map(function (tile) {
-					return _react2.default.createElement(
-						_GridList.GridTile,
-						{
-							key: tile.img,
-							title: tile.title,
-							subtitle: _react2.default.createElement(
-								'span',
-								null,
-								'by ',
-								_react2.default.createElement(
-									'b',
-									null,
-									tile.author
-								)
-							),
-							actionIcon: _react2.default.createElement(
-								_IconButton2.default,
-								null,
-								_react2.default.createElement(_starBorder2.default, { color: 'white' })
-							)
-						},
-						_react2.default.createElement('img', { src: tile.img })
-					);
-				})
-			)
-		);
-	};
-
-	exports.default = GridListExampleSimple;
+	exports.default = FileFolder;
 
 /***/ }
 /******/ ]);
