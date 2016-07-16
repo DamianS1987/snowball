@@ -20566,7 +20566,7 @@
 
 	var _router2 = _interopRequireDefault(_router);
 
-	var _Events = __webpack_require__(415);
+	var _Events = __webpack_require__(419);
 
 	var _Events2 = _interopRequireDefault(_Events);
 
@@ -20626,11 +20626,11 @@
 
 	var _GridList2 = _interopRequireDefault(_GridList);
 
-	var _Avatar = __webpack_require__(416);
+	var _Avatar = __webpack_require__(413);
 
 	var _Avatar2 = _interopRequireDefault(_Avatar);
 
-	var _Main = __webpack_require__(413);
+	var _Main = __webpack_require__(417);
 
 	var _Main2 = _interopRequireDefault(_Main);
 
@@ -45633,261 +45633,6 @@
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactDom = __webpack_require__(33);
-
-	var _reactRouter = __webpack_require__(176);
-
-	var _MainStore = __webpack_require__(414);
-
-	var _MainStore2 = _interopRequireDefault(_MainStore);
-
-	var _getMuiTheme = __webpack_require__(237);
-
-	var _getMuiTheme2 = _interopRequireDefault(_getMuiTheme);
-
-	var _MuiThemeProvider = __webpack_require__(331);
-
-	var _MuiThemeProvider2 = _interopRequireDefault(_MuiThemeProvider);
-
-	var _drawer = __webpack_require__(377);
-
-	var _drawer2 = _interopRequireDefault(_drawer);
-
-	var _header = __webpack_require__(403);
-
-	var _header2 = _interopRequireDefault(_header);
-
-	var _AppBar = __webpack_require__(404);
-
-	var _AppBar2 = _interopRequireDefault(_AppBar);
-
-	var _IconMenu = __webpack_require__(407);
-
-	var _IconMenu2 = _interopRequireDefault(_IconMenu);
-
-	var _IconButton = __webpack_require__(337);
-
-	var _IconButton2 = _interopRequireDefault(_IconButton);
-
-	var _MenuItem = __webpack_require__(385);
-
-	var _MenuItem2 = _interopRequireDefault(_MenuItem);
-
-	var _moreVert = __webpack_require__(409);
-
-	var _moreVert2 = _interopRequireDefault(_moreVert);
-
-	var _close = __webpack_require__(410);
-
-	var _close2 = _interopRequireDefault(_close);
-
-	var _colors = __webpack_require__(247);
-
-	var _scrollablelist = __webpack_require__(332);
-
-	var _scrollablelist2 = _interopRequireDefault(_scrollablelist);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	//flux store
-
-
-	//theme components
-
-
-	//drawer
-
-
-	//App bar
-
-
-	//colors
-
-
-	//scrollable list
-
-
-	var Main = function (_React$Component) {
-	    _inherits(Main, _React$Component);
-
-	    function Main(props) {
-	        _classCallCheck(this, Main);
-
-	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Main).call(this, props));
-
-	        _this.leftButtonTapPress = _this.leftButtonTapPress.bind(_this);
-	        _this.storeChangeEmitted = _this.storeChangeEmitted.bind(_this);
-	        _this.handleClose = _this.handleClose.bind(_this);
-
-	        _this.store = (0, _MainStore2.default)();
-	        return _this;
-	    }
-
-	    _createClass(Main, [{
-	        key: 'componentWillMount',
-	        value: function componentWillMount() {
-	            if (!this.state || !this.state.openDrawer) {
-	                this.state = {};
-	                this.state.openDrawer = false;
-	            }
-	            this.store.addChangeEventListener(this.storeChangeEmitted);
-	        }
-	    }, {
-	        key: 'storeChangeEmitted',
-	        value: function storeChangeEmitted() {
-	            alert('storeChangeEmitted');
-	        }
-	    }, {
-	        key: 'componentWillUnmount',
-	        value: function componentWillUnmount() {
-	            console.log('component will unmount');
-
-	            this.store.removeChangeEventListener(this.storeChangeEmitted);
-	        }
-	    }, {
-	        key: 'handleClose',
-	        value: function handleClose() {
-	            this.setState({ openDrawer: false });
-	        }
-	    }, {
-	        key: 'leftButtonTapPress',
-	        value: function leftButtonTapPress() {
-	            this.setState({ openDrawer: true });
-	        }
-	    }, {
-	        key: 'render',
-	        value: function render() {
-	            return _react2.default.createElement(
-	                'div',
-	                null,
-	                _react2.default.createElement(
-	                    _MuiThemeProvider2.default,
-	                    { muiTheme: (0, _getMuiTheme2.default)() },
-	                    _react2.default.createElement(_AppBar2.default, { title: 'My AppBar',
-	                        onLeftIconButtonTouchTap: this.leftButtonTapPress,
-	                        iconElementRight: _react2.default.createElement(
-	                            _IconMenu2.default,
-	                            {
-	                                iconButtonElement: _react2.default.createElement(
-	                                    _IconButton2.default,
-	                                    null,
-	                                    _react2.default.createElement(_moreVert2.default, null)
-	                                ),
-	                                targetOrigin: { horizontal: 'right', vertical: 'top' },
-	                                anchorOrigin: { horizontal: 'right', vertical: 'top' }
-	                            },
-	                            _react2.default.createElement(_MenuItem2.default, { primaryText: 'Help' }),
-	                            _react2.default.createElement(_MenuItem2.default, { primaryText: 'Sign out' })
-	                        )
-	                    })
-	                ),
-	                _react2.default.createElement(
-	                    _MuiThemeProvider2.default,
-	                    { muiTheme: (0, _getMuiTheme2.default)() },
-	                    _react2.default.createElement(_drawer2.default, { open: this.state.openDrawer, handleClose: this.handleClose })
-	                ),
-	                _react2.default.createElement(
-	                    _MuiThemeProvider2.default,
-	                    { muiTheme: (0, _getMuiTheme2.default)() },
-	                    this.props.children
-	                )
-	            );
-	        }
-	    }]);
-
-	    return Main;
-	}(_react2.default.Component);
-
-	exports.default = Main;
-
-/***/ },
-/* 414 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-
-	exports.default = function () {
-
-		//add event listener for Spacebar
-		document.addEventListener(eventInst.SPACE, function () {
-			emitChange();
-		});
-
-		function addChangeEvent(callback) {
-			document.addEventListener(CHANGE_EV, callback);
-		}
-
-		function removeChangeEvent(callback) {
-			console.log('remove ev');
-
-			document.removeEventListener(CHANGE_EV, callback);
-		}
-
-		function emitChange() {
-			document.dispatchEvent(event);
-		}
-
-		return {
-			addChangeEventListener: addChangeEvent,
-			removeChangeEventListener: removeChangeEvent
-		};
-	};
-
-	var _Events = __webpack_require__(415);
-
-	var _Events2 = _interopRequireDefault(_Events);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var CHANGE_EV = 'store_change';
-
-	var eventInst = new _Events2.default();
-	var event = new Event(CHANGE_EV);
-
-/***/ },
-/* 415 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-	//for the use of Pub / Sub pattern
-	var Events = function Events() {
-		return {
-			'SPACE': 'SPACE'
-		};
-	};
-
-	exports.default = Events;
-
-/***/ },
-/* 416 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
 
@@ -45897,11 +45642,11 @@
 
 	var _reactDom = __webpack_require__(33);
 
-	var _Avatar = __webpack_require__(417);
+	var _Avatar = __webpack_require__(414);
 
 	var _Avatar2 = _interopRequireDefault(_Avatar);
 
-	var _folder = __webpack_require__(419);
+	var _folder = __webpack_require__(416);
 
 	var _folder2 = _interopRequireDefault(_folder);
 
@@ -46027,7 +45772,7 @@
 	exports.default = AvatarExampleSimple;
 
 /***/ },
-/* 417 */
+/* 414 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -46037,7 +45782,7 @@
 	});
 	exports.default = undefined;
 
-	var _Avatar = __webpack_require__(418);
+	var _Avatar = __webpack_require__(415);
 
 	var _Avatar2 = _interopRequireDefault(_Avatar);
 
@@ -46046,7 +45791,7 @@
 	exports.default = _Avatar2.default;
 
 /***/ },
-/* 418 */
+/* 415 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -46213,7 +45958,7 @@
 	exports.default = Avatar;
 
 /***/ },
-/* 419 */
+/* 416 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -46247,6 +45992,261 @@
 	FileFolder.displayName = 'FileFolder';
 
 	exports.default = FileFolder;
+
+/***/ },
+/* 417 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactDom = __webpack_require__(33);
+
+	var _reactRouter = __webpack_require__(176);
+
+	var _MainStore = __webpack_require__(418);
+
+	var _MainStore2 = _interopRequireDefault(_MainStore);
+
+	var _getMuiTheme = __webpack_require__(237);
+
+	var _getMuiTheme2 = _interopRequireDefault(_getMuiTheme);
+
+	var _MuiThemeProvider = __webpack_require__(331);
+
+	var _MuiThemeProvider2 = _interopRequireDefault(_MuiThemeProvider);
+
+	var _drawer = __webpack_require__(377);
+
+	var _drawer2 = _interopRequireDefault(_drawer);
+
+	var _header = __webpack_require__(403);
+
+	var _header2 = _interopRequireDefault(_header);
+
+	var _AppBar = __webpack_require__(404);
+
+	var _AppBar2 = _interopRequireDefault(_AppBar);
+
+	var _IconMenu = __webpack_require__(407);
+
+	var _IconMenu2 = _interopRequireDefault(_IconMenu);
+
+	var _IconButton = __webpack_require__(337);
+
+	var _IconButton2 = _interopRequireDefault(_IconButton);
+
+	var _MenuItem = __webpack_require__(385);
+
+	var _MenuItem2 = _interopRequireDefault(_MenuItem);
+
+	var _moreVert = __webpack_require__(409);
+
+	var _moreVert2 = _interopRequireDefault(_moreVert);
+
+	var _close = __webpack_require__(410);
+
+	var _close2 = _interopRequireDefault(_close);
+
+	var _colors = __webpack_require__(247);
+
+	var _scrollablelist = __webpack_require__(332);
+
+	var _scrollablelist2 = _interopRequireDefault(_scrollablelist);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	//flux store
+
+
+	//theme components
+
+
+	//drawer
+
+
+	//App bar
+
+
+	//colors
+
+
+	//scrollable list
+
+
+	var Main = function (_React$Component) {
+	    _inherits(Main, _React$Component);
+
+	    function Main(props) {
+	        _classCallCheck(this, Main);
+
+	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Main).call(this, props));
+
+	        _this.leftButtonTapPress = _this.leftButtonTapPress.bind(_this);
+	        _this.storeChangeEmitted = _this.storeChangeEmitted.bind(_this);
+	        _this.handleClose = _this.handleClose.bind(_this);
+
+	        _this.store = (0, _MainStore2.default)();
+	        return _this;
+	    }
+
+	    _createClass(Main, [{
+	        key: 'componentWillMount',
+	        value: function componentWillMount() {
+	            if (!this.state || !this.state.openDrawer) {
+	                this.state = {};
+	                this.state.openDrawer = false;
+	            }
+	            this.store.addChangeEventListener(this.storeChangeEmitted);
+	        }
+	    }, {
+	        key: 'storeChangeEmitted',
+	        value: function storeChangeEmitted() {
+	            alert('storeChangeEmitted');
+	        }
+	    }, {
+	        key: 'componentWillUnmount',
+	        value: function componentWillUnmount() {
+	            console.log('component will unmount');
+
+	            this.store.removeChangeEventListener(this.storeChangeEmitted);
+	        }
+	    }, {
+	        key: 'handleClose',
+	        value: function handleClose() {
+	            this.setState({ openDrawer: false });
+	        }
+	    }, {
+	        key: 'leftButtonTapPress',
+	        value: function leftButtonTapPress() {
+	            this.setState({ openDrawer: true });
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'div',
+	                null,
+	                _react2.default.createElement(
+	                    _MuiThemeProvider2.default,
+	                    { muiTheme: (0, _getMuiTheme2.default)() },
+	                    _react2.default.createElement(_AppBar2.default, { title: 'Snowball Hybrid App',
+	                        onLeftIconButtonTouchTap: this.leftButtonTapPress,
+	                        iconElementRight: _react2.default.createElement(
+	                            _IconMenu2.default,
+	                            {
+	                                iconButtonElement: _react2.default.createElement(
+	                                    _IconButton2.default,
+	                                    null,
+	                                    _react2.default.createElement(_moreVert2.default, null)
+	                                ),
+	                                targetOrigin: { horizontal: 'right', vertical: 'top' },
+	                                anchorOrigin: { horizontal: 'right', vertical: 'top' }
+	                            },
+	                            _react2.default.createElement(_MenuItem2.default, { primaryText: 'Help' }),
+	                            _react2.default.createElement(_MenuItem2.default, { primaryText: 'Sign out' })
+	                        )
+	                    })
+	                ),
+	                _react2.default.createElement(
+	                    _MuiThemeProvider2.default,
+	                    { muiTheme: (0, _getMuiTheme2.default)() },
+	                    _react2.default.createElement(_drawer2.default, { open: this.state.openDrawer, handleClose: this.handleClose })
+	                ),
+	                _react2.default.createElement(
+	                    _MuiThemeProvider2.default,
+	                    { muiTheme: (0, _getMuiTheme2.default)() },
+	                    this.props.children
+	                )
+	            );
+	        }
+	    }]);
+
+	    return Main;
+	}(_react2.default.Component);
+
+	exports.default = Main;
+
+/***/ },
+/* 418 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	exports.default = function () {
+
+		//add event listener for Spacebar
+		document.addEventListener(eventInst.SPACE, function () {
+			emitChange();
+		});
+
+		function addChangeEvent(callback) {
+			document.addEventListener(CHANGE_EV, callback);
+		}
+
+		function removeChangeEvent(callback) {
+			console.log('remove ev');
+
+			document.removeEventListener(CHANGE_EV, callback);
+		}
+
+		function emitChange() {
+			document.dispatchEvent(event);
+		}
+
+		return {
+			addChangeEventListener: addChangeEvent,
+			removeChangeEventListener: removeChangeEvent
+		};
+	};
+
+	var _Events = __webpack_require__(419);
+
+	var _Events2 = _interopRequireDefault(_Events);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var CHANGE_EV = 'store_change';
+
+	var eventInst = new _Events2.default();
+	var event = new Event(CHANGE_EV);
+
+/***/ },
+/* 419 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	//for the use of Pub / Sub pattern
+	var Events = function Events() {
+		return {
+			'SPACE': 'SPACE'
+		};
+	};
+
+	exports.default = Events;
 
 /***/ }
 /******/ ]);

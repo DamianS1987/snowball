@@ -69,7 +69,7 @@ class Main extends React.Component {
         return (
             <div>
                 <MuiThemeProvider muiTheme={getMuiTheme()}>
-                    <AppBar title="My AppBar"
+                    <AppBar title="Snowball Hybrid App"
                         onLeftIconButtonTouchTap={this.leftButtonTapPress}
                         iconElementRight={
                           <IconMenu
