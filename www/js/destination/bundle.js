@@ -45666,6 +45666,10 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+	var iconStyles = {
+		marginRight: 24
+	};
+
 	var style = { margin: 5 };
 
 	/**
@@ -45674,98 +45678,107 @@
 	 */
 	var AvatarExampleSimple = function AvatarExampleSimple() {
 		return _react2.default.createElement(
-			_List2.default,
+			'div',
 			null,
 			_react2.default.createElement(
-				_ListItem2.default,
-				{
-					disabled: true,
-					leftAvatar: _react2.default.createElement(_Avatar2.default, { src: 'img/avatar/avatarOne.png' })
-				},
-				'Image Avatar'
-			),
-			_react2.default.createElement(
-				_ListItem2.default,
-				{
-					disabled: true,
-					leftAvatar: _react2.default.createElement(_Avatar2.default, {
-						src: 'img/avatar/avatarTwo.png',
-						size: 30,
-						style: style
-					})
-				},
-				'Image Avatar with custom size'
-			),
-			_react2.default.createElement(
-				_ListItem2.default,
-				{
-					leftAvatar: _react2.default.createElement(_Avatar2.default, { icon: _react2.default.createElement(_FontIcon2.default, { className: 'muidocs-icon-action-home' }) })
-				},
-				'FontIcon Avatar'
-			),
-			_react2.default.createElement(
-				_ListItem2.default,
-				{
-					disabled: true,
-					leftAvatar: _react2.default.createElement(_Avatar2.default, {
-						icon: _react2.default.createElement(_FontIcon2.default, { className: 'muidocs-icon-action-home' }),
-						size: 30,
-						style: style
-					})
-				},
-				'FontIcon Avatar with custom colors and size dfdf'
-			),
-			_react2.default.createElement(
-				_ListItem2.default,
-				{
-					disabled: true,
-					leftAvatar: _react2.default.createElement(_Avatar2.default, { icon: _react2.default.createElement(_folder2.default, null) })
-				},
-				'SvgIcon Avatar'
-			),
-			_react2.default.createElement(
-				_ListItem2.default,
-				{
-					disabled: true,
-					leftAvatar: _react2.default.createElement(_Avatar2.default, {
-						icon: _react2.default.createElement(_folder2.default, null),
-						color: _colors.orange200,
-						backgroundColor: _colors.pink400,
-						size: 30,
-						style: style
-					})
-				},
-				'SvgIcon Avatar with custom colors and size'
-			),
-			_react2.default.createElement(
-				_ListItem2.default,
-				{
-					disabled: true,
-					leftAvatar: _react2.default.createElement(
-						_Avatar2.default,
-						null,
-						'A'
-					)
-				},
-				'Letter Avatar'
-			),
-			_react2.default.createElement(
-				_ListItem2.default,
-				{
-					disabled: true,
-					leftAvatar: _react2.default.createElement(
-						_Avatar2.default,
-						{
-							color: _colors.deepOrange300,
-							backgroundColor: _colors.purple500,
+				_List2.default,
+				null,
+				_react2.default.createElement(
+					_ListItem2.default,
+					{
+						disabled: true,
+						leftAvatar: _react2.default.createElement(_Avatar2.default, { src: 'img/avatar/avatarOne.png' })
+					},
+					'Image Avatar'
+				),
+				_react2.default.createElement(
+					_ListItem2.default,
+					{
+						disabled: true,
+						leftAvatar: _react2.default.createElement(_Avatar2.default, {
+							src: 'img/avatar/avatarTwo.png',
 							size: 30,
 							style: style
-						},
-						'A'
-					)
-				},
-				'Letter Avatar with custom colors and size'
-			)
+						})
+					},
+					'Image Avatar with custom size'
+				),
+				_react2.default.createElement(
+					_ListItem2.default,
+					{
+						leftAvatar: _react2.default.createElement(_Avatar2.default, { icon: _react2.default.createElement(_FontIcon2.default, { className: 'muidocs-icon-action-home' }) })
+					},
+					'FontIcon Avatar'
+				),
+				_react2.default.createElement(
+					_ListItem2.default,
+					{
+						disabled: true,
+						leftAvatar: _react2.default.createElement(_Avatar2.default, {
+							icon: _react2.default.createElement(_FontIcon2.default, { className: 'muidocs-icon-action-home' }),
+							size: 30,
+							style: style
+						})
+					},
+					'FontIcon Avatar with custom colors and size dfdf'
+				),
+				_react2.default.createElement(
+					_ListItem2.default,
+					{
+						disabled: true,
+						leftAvatar: _react2.default.createElement(_Avatar2.default, { icon: _react2.default.createElement(_folder2.default, null) })
+					},
+					'SvgIcon Avatar'
+				),
+				_react2.default.createElement(
+					_ListItem2.default,
+					{
+						disabled: true,
+						leftAvatar: _react2.default.createElement(_Avatar2.default, {
+							icon: _react2.default.createElement(_folder2.default, null),
+							color: _colors.orange200,
+							backgroundColor: _colors.pink400,
+							size: 30,
+							style: style
+						})
+					},
+					'SvgIcon Avatar with custom colors and size'
+				),
+				_react2.default.createElement(
+					_ListItem2.default,
+					{
+						disabled: true,
+						leftAvatar: _react2.default.createElement(
+							_Avatar2.default,
+							null,
+							'A'
+						)
+					},
+					'Letter Avatar'
+				),
+				_react2.default.createElement(
+					_ListItem2.default,
+					{
+						disabled: true,
+						leftAvatar: _react2.default.createElement(
+							_Avatar2.default,
+							{
+								color: _colors.deepOrange300,
+								backgroundColor: _colors.purple500,
+								size: 30,
+								style: style
+							},
+							'A'
+						)
+					},
+					'Letter Avatar with custom colors and size'
+				)
+			),
+			_react2.default.createElement(_FontIcon2.default, {
+				className: 'material-icons muidocs-icon-action-home',
+				style: iconStyles,
+				color: _colors.blue500
+			})
 		);
 	};
 

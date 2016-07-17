@@ -4,7 +4,8 @@ Snowball App
 This project is created to practice the use of a few technologies:
 * Ionic/Cordova
 * React
-* Material UI with React
+* Material UI with React (www.material-ui.com)
+* Google material design (material.google.com)
 
 This project will show how we may hack/integrate Ionic framework with React. 
 It will also add some useful componenets for Ionic in the future.

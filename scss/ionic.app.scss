@@ -21,6 +21,9 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
 
+// Include material icons
+@import "scss/material_icons.scss";
+
 body {
   background: #fffffe;
 }
@@ -31,4 +34,18 @@ a {
 
 #content {
   background: darkgreen;
+}
+
+[class^="muidocs-icon-"], [class*=" muidocs-icon-"] {
+  font-family: 'material-ui-icons';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }

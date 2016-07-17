@@ -6,6 +6,11 @@ import FileFolder from 'material-ui/svg-icons/file/folder';
 import FontIcon from 'material-ui/FontIcon';
 import List from 'material-ui/List/List';
 import ListItem from 'material-ui/List/ListItem';
+import {blue500, red500, greenA200} from 'material-ui/styles/colors';
+
+const iconStyles = {
+	marginRight: 24,
+};
 
 import {
 	blue300,
@@ -23,6 +28,7 @@ const style = {margin: 5};
  * and "Letter" (string), with and without custom colors at the default size (`40dp`) and an alternate size (`30dp`).
  */
 const AvatarExampleSimple = () => (
+	<div>
 	<List>
 		<ListItem
 			disabled={true}
@@ -107,6 +113,12 @@ const AvatarExampleSimple = () => (
 			Letter Avatar with custom colors and size
 		</ListItem>
 	</List>
+		<FontIcon
+			className="material-icons muidocs-icon-action-home"
+			style={iconStyles}
+			color={blue500}
+			/>
+	</div>
 );
 
 export default AvatarExampleSimple;
