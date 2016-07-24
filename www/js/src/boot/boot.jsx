@@ -1,6 +1,6 @@
 import React from 'react';
 import BootLoader from '../router/router.jsx';
-import Events from '../Events/Events';
+import Events from '../events/Events';
 
 var eventInst = new Events();
 var event = new Event(eventInst.SPACE);

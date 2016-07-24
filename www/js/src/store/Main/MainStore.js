@@ -1,4 +1,4 @@
-import Events from '../../Events/Events';
+import Events from '../../events/Events';
 
 var CHANGE_EV = 'store_change';
 

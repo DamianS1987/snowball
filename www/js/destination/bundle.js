@@ -20566,7 +20566,7 @@
 
 	var _router2 = _interopRequireDefault(_router);
 
-	var _Events = __webpack_require__(419);
+	var _Events = __webpack_require__(420);
 
 	var _Events2 = _interopRequireDefault(_Events);
 
@@ -46232,7 +46232,7 @@
 		};
 	};
 
-	var _Events = __webpack_require__(419);
+	var _Events = __webpack_require__(420);
 
 	var _Events2 = _interopRequireDefault(_Events);
 
@@ -46244,7 +46244,8 @@
 	var event = new Event(CHANGE_EV);
 
 /***/ },
-/* 419 */
+/* 419 */,
+/* 420 */
 /***/ function(module, exports) {
 
 	'use strict';
