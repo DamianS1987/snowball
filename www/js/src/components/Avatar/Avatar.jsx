@@ -113,11 +113,6 @@ const AvatarExampleSimple = () => (
 			Letter Avatar with custom colors and size
 		</ListItem>
 	</List>
-		<FontIcon
-			className="material-icons muidocs-icon-action-home"
-			style={iconStyles}
-			color={blue500}
-			/>
 	</div>
 );
 
