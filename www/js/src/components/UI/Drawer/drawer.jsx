@@ -28,6 +28,7 @@ export default class DrawerUndockedExample extends React.Component {
 					<MenuItem onTouchTap={this.props.handleClose}><Link to="/forms/autocompleteexample"><MenuItem primaryText="Form AutoComplete" /></Link></MenuItem>
 					<MenuItem onTouchTap={this.props.handleClose}><Link to="/badge"><MenuItem primaryText="Badge" /></Link></MenuItem>
 					<MenuItem onTouchTap={this.props.handleClose}><Link to="/tooltips"><MenuItem primaryText="Tooltips" /></Link></MenuItem>
+					<MenuItem onTouchTap={this.props.handleClose}><Link to="/cards"><MenuItem primaryText="Cards" /></Link></MenuItem>
 				</Drawer>
 			</div>
 		);
