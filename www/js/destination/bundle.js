@@ -20566,7 +20566,7 @@
 
 	var _router2 = _interopRequireDefault(_router);
 
-	var _Events = __webpack_require__(463);
+	var _Events = __webpack_require__(466);
 
 	var _Events2 = _interopRequireDefault(_Events);
 
@@ -20646,7 +20646,11 @@
 
 	var _Cards2 = _interopRequireDefault(_Cards);
 
-	var _Main = __webpack_require__(461);
+	var _Chip = __webpack_require__(461);
+
+	var _Chip2 = _interopRequireDefault(_Chip);
+
+	var _Main = __webpack_require__(464);
 
 	var _Main2 = _interopRequireDefault(_Main);
 
@@ -20710,7 +20714,8 @@
 						_react2.default.createElement(_reactRouter.Route, { path: '/forms/autocompleteexample', component: _AutoCompleteExampleSimple2.default }),
 						_react2.default.createElement(_reactRouter.Route, { path: '/badge', component: _Badge2.default }),
 						_react2.default.createElement(_reactRouter.Route, { path: '/tooltips', component: _Tooltips2.default }),
-						_react2.default.createElement(_reactRouter.Route, { path: '/cards', component: _Cards2.default })
+						_react2.default.createElement(_reactRouter.Route, { path: '/cards', component: _Cards2.default }),
+						_react2.default.createElement(_reactRouter.Route, { path: '/chip', component: _Chip2.default })
 					)
 				);
 			}
@@ -39498,6 +39503,15 @@
 								{ to: '/cards' },
 								_react2.default.createElement(_MenuItem2.default, { primaryText: 'Cards' })
 							)
+						),
+						_react2.default.createElement(
+							_MenuItem2.default,
+							{ onTouchTap: this.props.handleClose },
+							_react2.default.createElement(
+								_reactRouter.Link,
+								{ to: '/chip' },
+								_react2.default.createElement(_MenuItem2.default, { primaryText: 'Chip' })
+							)
 						)
 					)
 				);
@@ -51641,6 +51655,298 @@
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _Chip = __webpack_require__(462);
+
+	var _Chip2 = _interopRequireDefault(_Chip);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	/**
+	 * An example of rendering multiple Chips from an array of values. Deleting a chip removes it from the array.
+	 * Note that since no `onTouchTap` property is defined, the Chip can be focused, but does not gain depth
+	 * while clicked or touched.
+	 */
+
+	var ChipExampleArray = function (_React$Component) {
+		_inherits(ChipExampleArray, _React$Component);
+
+		function ChipExampleArray(props) {
+			_classCallCheck(this, ChipExampleArray);
+
+			var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(ChipExampleArray).call(this, props));
+
+			console.log('props: ', props);
+
+			_this.state = { chipData: [{ key: 0, label: 'Angular' }, { key: 1, label: 'JQuery' }, { key: 2, label: 'Polymer' }, { key: 3, label: 'ReactJS' }] };
+			_this.styles = {
+				chip: {
+					margin: 4
+				},
+				wrapper: {
+					display: 'flex',
+					flexWrap: 'wrap'
+				}
+			};
+			return _this;
+		}
+
+		_createClass(ChipExampleArray, [{
+			key: 'handleRequestDelete',
+			value: function handleRequestDelete(key) {
+				if (key === 3) {
+					alert('Why would you want to delete React?! :)');
+					return;
+				}
+				this.chipData = this.state.chipData;
+				var chipToDelete = this.chipData.map(function (chip) {
+					return chip.key;
+				}).indexOf(key);
+				this.chipData.splice(chipToDelete, 1);
+				this.setState({ chipData: this.chipData });
+			}
+		}, {
+			key: 'renderChip',
+			value: function renderChip(data) {
+				return _react2.default.createElement(
+					_Chip2.default,
+					{
+						username: data.label,
+						key: data.key,
+						onRemoveClick: this.handleRequestDelete.bind(this, data.key),
+						style: this.styles.chip
+					},
+					data.label
+				);
+			}
+		}, {
+			key: 'render',
+			value: function render() {
+				return _react2.default.createElement(
+					'div',
+					{ style: this.styles.wrapper },
+					this.state.chipData.map(this.renderChip.bind(this), this)
+				);
+			}
+		}]);
+
+		return ChipExampleArray;
+	}(_react2.default.Component);
+
+	exports.default = ChipExampleArray;
+
+/***/ },
+/* 462 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _Avatar = __webpack_require__(414);
+
+	var _Avatar2 = _interopRequireDefault(_Avatar);
+
+	var _cancel = __webpack_require__(463);
+
+	var _cancel2 = _interopRequireDefault(_cancel);
+
+	var _SvgIcon = __webpack_require__(374);
+
+	var _SvgIcon2 = _interopRequireDefault(_SvgIcon);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var Chip = function (_React$Component) {
+		_inherits(Chip, _React$Component);
+
+		function Chip(props) {
+			_classCallCheck(this, Chip);
+
+			var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Chip).call(this, props));
+
+			_this.state = {
+				hover: false
+			};
+			return _this;
+		}
+
+		_createClass(Chip, [{
+			key: 'renderRemoveButton',
+			value: function renderRemoveButton() {
+				var iconStyle = {
+					height: '20px',
+					width: '20px',
+					margin: '4px -6px 4px 4px',
+					transition: 'none',
+					cursor: 'pointer'
+				};
+				var iconColorDefault = 'rgba(0,0,0,0.3)';
+				var iconColorHover = 'white';
+				var iconColor = this.state.hover ? iconColorHover : iconColorDefault;
+				return _react2.default.createElement(_cancel2.default, {
+					style: iconStyle,
+					color: iconColor,
+					size: 20,
+					onClick: this._handleClick.bind(this)
+				});
+			}
+		}, {
+			key: '_handleClick',
+			value: function _handleClick() {
+				this.props.onRemoveClick.bind(this)();
+			}
+		}, {
+			key: '_handleOnMouseEnter',
+			value: function _handleOnMouseEnter() {
+				this.setState({ hover: true });
+			}
+		}, {
+			key: '_handleOnMouseLeave',
+			value: function _handleOnMouseLeave() {
+				this.setState({ hover: false });
+			}
+		}, {
+			key: 'render',
+			value: function render() {
+				var _props = this.props;
+				var avatarSrc = _props.avatarSrc;
+				var username = _props.username;
+				var noCloseButton = _props.noCloseButton;
+
+				var chipStyle = {
+					height: '32px',
+					lineHeight: '32px',
+					padding: '0 12px',
+					fontSize: '13px',
+					fontWeight: '500',
+					backgroundColor: this.state.hover ? '#aaa' : '#efefef',
+					borderRadius: '16px',
+					display: 'inline-flex',
+					alignItems: 'center',
+					cursor: 'default'
+				};
+				var avatarStyle = {
+					margin: '0 8px 0 -12px',
+					height: '32px',
+					width: '32px',
+					borderRadius: '50%'
+				};
+
+				var textStyle = {
+					fontSize: '13px',
+					fontWeight: '400',
+					lineHeight: '16px',
+					color: this.state.hover ? 'white' : 'rgba(0,0,0,0.87)'
+				};
+				return _react2.default.createElement(
+					'div',
+					{
+						style: chipStyle,
+						onMouseEnter: this._handleOnMouseEnter.bind(this),
+						onMouseLeave: this._handleOnMouseLeave.bind(this)
+					},
+					_react2.default.createElement(_Avatar2.default, {
+						src: avatarSrc,
+						size: 32,
+						style: avatarStyle
+					}),
+					_react2.default.createElement(
+						'span',
+						{ style: textStyle },
+						username
+					),
+					noCloseButton ? null : this.renderRemoveButton()
+				);
+			}
+		}]);
+
+		return Chip;
+	}(_react2.default.Component);
+
+	exports.default = Chip;
+
+
+	Chip.defaultProps = {
+		//onRequestDelete: () => {console.log('remove')},
+		onRemoveClick: function onRemoveClick() {
+			console.log('onRemoveClick default');
+		},
+		username: 'UserName',
+		noCloseButton: false
+	};
+
+/***/ },
+/* 463 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _pure = __webpack_require__(366);
+
+	var _pure2 = _interopRequireDefault(_pure);
+
+	var _SvgIcon = __webpack_require__(374);
+
+	var _SvgIcon2 = _interopRequireDefault(_SvgIcon);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var NavigationCancel = function NavigationCancel(props) {
+	  return _react2.default.createElement(
+	    _SvgIcon2.default,
+	    props,
+	    _react2.default.createElement('path', { d: 'M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12 17 15.59z' })
+	  );
+	};
+	NavigationCancel = (0, _pure2.default)(NavigationCancel);
+	NavigationCancel.displayName = 'NavigationCancel';
+
+	exports.default = NavigationCancel;
+
+/***/ },
+/* 464 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
 
@@ -51654,7 +51960,7 @@
 
 	var _reactRouter = __webpack_require__(176);
 
-	var _MainStore = __webpack_require__(462);
+	var _MainStore = __webpack_require__(465);
 
 	var _MainStore2 = _interopRequireDefault(_MainStore);
 
@@ -51824,7 +52130,7 @@
 	exports.default = Main;
 
 /***/ },
-/* 462 */
+/* 465 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -51860,7 +52166,7 @@
 		};
 	};
 
-	var _Events = __webpack_require__(463);
+	var _Events = __webpack_require__(466);
 
 	var _Events2 = _interopRequireDefault(_Events);
 
@@ -51872,7 +52178,7 @@
 	var event = new Event(CHANGE_EV);
 
 /***/ },
-/* 463 */
+/* 466 */
 /***/ function(module, exports) {
 
 	'use strict';

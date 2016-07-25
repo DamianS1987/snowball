@@ -29,6 +29,7 @@ export default class DrawerUndockedExample extends React.Component {
 					<MenuItem onTouchTap={this.props.handleClose}><Link to="/badge"><MenuItem primaryText="Badge" /></Link></MenuItem>
 					<MenuItem onTouchTap={this.props.handleClose}><Link to="/tooltips"><MenuItem primaryText="Tooltips" /></Link></MenuItem>
 					<MenuItem onTouchTap={this.props.handleClose}><Link to="/cards"><MenuItem primaryText="Cards" /></Link></MenuItem>
+					<MenuItem onTouchTap={this.props.handleClose}><Link to="/chip"><MenuItem primaryText="Chip" /></Link></MenuItem>
 				</Drawer>
 			</div>
 		);
