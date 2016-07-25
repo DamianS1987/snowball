@@ -20638,6 +20638,10 @@
 
 	var _Badge2 = _interopRequireDefault(_Badge);
 
+	var _Tooltips = __webpack_require__(442);
+
+	var _Tooltips2 = _interopRequireDefault(_Tooltips);
+
 	var _Main = __webpack_require__(435);
 
 	var _Main2 = _interopRequireDefault(_Main);
@@ -20660,6 +20664,9 @@
 
 
 	//components
+
+
+	//Main component
 
 
 	// This replaces the textColor value on the palette
@@ -20697,7 +20704,8 @@
 						_react2.default.createElement(_reactRouter.Route, { path: '/gridlist', component: _GridList2.default }),
 						_react2.default.createElement(_reactRouter.Route, { path: '/avatar', component: _Avatar2.default }),
 						_react2.default.createElement(_reactRouter.Route, { path: '/forms/autocompleteexample', component: _AutoCompleteExampleSimple2.default }),
-						_react2.default.createElement(_reactRouter.Route, { path: '/badge', component: _Badge2.default })
+						_react2.default.createElement(_reactRouter.Route, { path: '/badge', component: _Badge2.default }),
+						_react2.default.createElement(_reactRouter.Route, { path: '/tooltips', component: _Tooltips2.default })
 					)
 				);
 			}
@@ -39467,6 +39475,15 @@
 								{ to: '/badge' },
 								_react2.default.createElement(_MenuItem2.default, { primaryText: 'Badge' })
 							)
+						),
+						_react2.default.createElement(
+							_MenuItem2.default,
+							{ onTouchTap: this.props.handleClose },
+							_react2.default.createElement(
+								_reactRouter.Link,
+								{ to: '/tooltips' },
+								_react2.default.createElement(_MenuItem2.default, { primaryText: 'Tooltips' })
+							)
 						)
 					)
 				);
@@ -49088,6 +49105,163 @@
 	SocialNotifications.displayName = 'SocialNotifications';
 
 	exports.default = SocialNotifications;
+
+/***/ },
+/* 442 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _IconButton = __webpack_require__(337);
+
+	var _IconButton2 = _interopRequireDefault(_IconButton);
+
+	var _Subheader = __webpack_require__(363);
+
+	var _Subheader2 = _interopRequireDefault(_Subheader);
+
+	var _Divider = __webpack_require__(427);
+
+	var _Divider2 = _interopRequireDefault(_Divider);
+
+	var _grade = __webpack_require__(443);
+
+	var _grade2 = _interopRequireDefault(_grade);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var style = {
+		height: '1000px',
+		marginTop: '34px'
+	};
+	//touch
+
+
+	var IconButtonExampleTooltip = function IconButtonExampleTooltip() {
+		return _react2.default.createElement(
+			'div',
+			{ style: style },
+			_react2.default.createElement(
+				_Subheader2.default,
+				null,
+				'Simple Tooltip'
+			),
+			_react2.default.createElement(_IconButton2.default, {
+				iconClassName: 'muidocs-icon-custom-github', tooltip: 'bottom-right',
+				tooltipPosition: 'bottom-right'
+			}),
+			_react2.default.createElement(_IconButton2.default, {
+				iconClassName: 'muidocs-icon-custom-github', tooltip: 'bottom-center',
+				tooltipPosition: 'bottom-center'
+			}),
+			_react2.default.createElement(_IconButton2.default, {
+				iconClassName: 'muidocs-icon-custom-github', tooltip: 'bottom-left',
+				tooltipPosition: 'bottom-left'
+			}),
+			_react2.default.createElement(_IconButton2.default, {
+				iconClassName: 'muidocs-icon-custom-github', tooltip: 'top-right',
+				tooltipPosition: 'top-right'
+			}),
+			_react2.default.createElement(_IconButton2.default, {
+				iconClassName: 'muidocs-icon-custom-github', tooltip: 'top-center',
+				tooltipPosition: 'top-center'
+			}),
+			_react2.default.createElement(_IconButton2.default, {
+				iconClassName: 'muidocs-icon-custom-github', tooltip: 'top-left',
+				tooltipPosition: 'top-left'
+			}),
+			_react2.default.createElement(_Divider2.default, null),
+			_react2.default.createElement(
+				_Subheader2.default,
+				null,
+				'Tooltip touch true to increase tooltip size'
+			),
+			_react2.default.createElement(
+				_IconButton2.default,
+				{ tooltip: 'bottom-right', touch: true, tooltipPosition: 'bottom-right' },
+				_react2.default.createElement(_grade2.default, null)
+			),
+			_react2.default.createElement(
+				_IconButton2.default,
+				{ tooltip: 'bottom-center', touch: true, tooltipPosition: 'bottom-center' },
+				_react2.default.createElement(_grade2.default, null)
+			),
+			_react2.default.createElement(
+				_IconButton2.default,
+				{ tooltip: 'bottom-left', touch: true, tooltipPosition: 'bottom-left' },
+				_react2.default.createElement(_grade2.default, null)
+			),
+			_react2.default.createElement(
+				_IconButton2.default,
+				{ tooltip: 'top-right', touch: true, tooltipPosition: 'top-right' },
+				_react2.default.createElement(_grade2.default, null)
+			),
+			_react2.default.createElement(
+				_IconButton2.default,
+				{ tooltip: 'top-center', touch: true, tooltipPosition: 'top-center' },
+				_react2.default.createElement(_grade2.default, null)
+			),
+			_react2.default.createElement(
+				_IconButton2.default,
+				{ tooltip: 'top-left', touch: true, tooltipPosition: 'top-left' },
+				_react2.default.createElement(_grade2.default, null)
+			),
+			_react2.default.createElement(_Divider2.default, null),
+			_react2.default.createElement(
+				_Subheader2.default,
+				null,
+				'Tooltip disabled & icon specified using \'iconClassName\''
+			),
+			_react2.default.createElement(_IconButton2.default, { iconClassName: 'muidocs-icon-custom-github' }),
+			_react2.default.createElement(_IconButton2.default, { iconClassName: 'muidocs-icon-custom-github', disabled: true })
+		);
+	};
+
+	exports.default = IconButtonExampleTooltip;
+
+/***/ },
+/* 443 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _pure = __webpack_require__(366);
+
+	var _pure2 = _interopRequireDefault(_pure);
+
+	var _SvgIcon = __webpack_require__(374);
+
+	var _SvgIcon2 = _interopRequireDefault(_SvgIcon);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var ActionGrade = function ActionGrade(props) {
+	  return _react2.default.createElement(
+	    _SvgIcon2.default,
+	    props,
+	    _react2.default.createElement('path', { d: 'M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z' })
+	  );
+	};
+	ActionGrade = (0, _pure2.default)(ActionGrade);
+	ActionGrade.displayName = 'ActionGrade';
+
+	exports.default = ActionGrade;
 
 /***/ }
 /******/ ]);
