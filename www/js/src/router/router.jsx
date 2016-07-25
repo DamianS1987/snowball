@@ -18,6 +18,7 @@ import Home from '../components/Home/Home.jsx';
 import GridList from '../components/GridList/GridList.jsx';
 import AvatarExampleSimple from '../components/Avatar/Avatar.jsx';
 import AutoCompleteExampleSimple from '../components/Forms/AutoComplete/AutoCompleteExampleSimple.jsx';
+import Badge from '../components/Badge/Badge.jsx';
 import Main from '../components/Main/Main.jsx';
 
 // This replaces the textColor value on the palette
@@ -49,6 +50,7 @@ class App_Router extends React.Component {
 					<Route path="/gridlist" component={GridList}></Route>
 					<Route path="/avatar" component={AvatarExampleSimple}></Route>
 					<Route path="/forms/autocompleteexample" component={AutoCompleteExampleSimple}></Route>
+					<Route path="/badge" component={Badge}></Route>
 
 				</Route>
 

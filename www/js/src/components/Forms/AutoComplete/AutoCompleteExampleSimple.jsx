@@ -7,6 +7,10 @@ import Avatar from 'material-ui/Avatar';
 import Done from 'material-ui/svg-icons/action/done';
 import ActionInfo from 'material-ui/svg-icons/action/info';
 
+//import another componenet
+import AutoCompleteExampleDataSource from './AutoCompleteExampleDataSource.jsx';
+import AutoCompleteExampleFilter from './AutoCompleteExampleFilter.jsx';
+
 const style = {
 	width: '90%',
 	margin: '5% 5%',
@@ -20,7 +24,8 @@ const textStyle = {
 const wrapperStyle = {
 	overflow: 'scroll',
 	position: 'relative',
-	height: innerHeight
+	height: innerHeight,
+	paddingBottom: '300px'
 }
 
 export default class AutoCompleteExampleSimple extends React.Component {
@@ -47,7 +52,7 @@ export default class AutoCompleteExampleSimple extends React.Component {
 		return (
 			<div style={wrapperStyle}>
 				<Paper style={style} zDepth={2}>
-					<Subheader>Short briefing for the below Simple Example</Subheader>
+					<Subheader>Short description for the below Simple Example</Subheader>
 					<p style={textStyle}>In this page we are using the following components:</p>
 					<List>
 						<ListItem
@@ -93,36 +98,16 @@ export default class AutoCompleteExampleSimple extends React.Component {
 					/>
 
 				<Paper style={style} zDepth={2}>
-					<Subheader>Short briefing for the below Simple Example</Subheader>
-					<p style={textStyle}>In this page we are using the following components:</p>
-					<List>
-						<ListItem
-							leftAvatar={<Avatar icon={<Done />} />}
-							rightIcon={<ActionInfo />}
-							disabled={true}>
-							Paper
-						</ListItem>
-						<ListItem
-							leftAvatar={<Avatar icon={<Done />} />}
-							rightIcon={<ActionInfo />}
-							disabled={true}>
-							Subheader
-						</ListItem>
-						<ListItem
-							leftAvatar={<Avatar icon={<Done />} />}
-							rightIcon={<ActionInfo />}
-							disabled={true}>
-							List
-						</ListItem>
-						<ListItem
-							leftAvatar={<Avatar icon={<Done />} />}
-							rightIcon={<ActionInfo />}
-							disabled={true}>
-							Form AutoComplete
-						</ListItem>
-					</List>
-					<p style={textStyle}>When you type text to the input element you should see tooltip with copy of the text.</p>
+					<Subheader>Short description for the below Data Source Example</Subheader>
+					<p style={textStyle}>When you type text to the input element you should see tooltip with array data defined in the dataSource object of the view. Filtering is disabled.</p>
 				</Paper>
+				<AutoCompleteExampleDataSource></AutoCompleteExampleDataSource>
+
+				<Paper style={style} zDepth={2}>
+					<Subheader>Filter Example</Subheader>
+					<p style={textStyle}>When you type text to the input element you should see tooltip with filtered data defined in 'fruit' and 'color' constants.</p>
+				</Paper>
+				<AutoCompleteExampleFilter></AutoCompleteExampleFilter>
 			</div>
 		);
 	}

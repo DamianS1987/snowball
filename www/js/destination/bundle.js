@@ -20566,7 +20566,7 @@
 
 	var _router2 = _interopRequireDefault(_router);
 
-	var _Events = __webpack_require__(435);
+	var _Events = __webpack_require__(437);
 
 	var _Events2 = _interopRequireDefault(_Events);
 
@@ -20634,7 +20634,11 @@
 
 	var _AutoCompleteExampleSimple2 = _interopRequireDefault(_AutoCompleteExampleSimple);
 
-	var _Main = __webpack_require__(433);
+	var _Badge = __webpack_require__(438);
+
+	var _Badge2 = _interopRequireDefault(_Badge);
+
+	var _Main = __webpack_require__(435);
 
 	var _Main2 = _interopRequireDefault(_Main);
 
@@ -20692,7 +20696,8 @@
 						_react2.default.createElement(_reactRouter.Route, { path: '/home', component: _Home2.default }),
 						_react2.default.createElement(_reactRouter.Route, { path: '/gridlist', component: _GridList2.default }),
 						_react2.default.createElement(_reactRouter.Route, { path: '/avatar', component: _Avatar2.default }),
-						_react2.default.createElement(_reactRouter.Route, { path: '/forms/autocompleteexample', component: _AutoCompleteExampleSimple2.default })
+						_react2.default.createElement(_reactRouter.Route, { path: '/forms/autocompleteexample', component: _AutoCompleteExampleSimple2.default }),
+						_react2.default.createElement(_reactRouter.Route, { path: '/badge', component: _Badge2.default })
 					)
 				);
 			}
@@ -39453,6 +39458,15 @@
 								{ to: '/forms/autocompleteexample' },
 								_react2.default.createElement(_MenuItem2.default, { primaryText: 'Form AutoComplete' })
 							)
+						),
+						_react2.default.createElement(
+							_MenuItem2.default,
+							{ onTouchTap: this.props.handleClose },
+							_react2.default.createElement(
+								_reactRouter.Link,
+								{ to: '/badge' },
+								_react2.default.createElement(_MenuItem2.default, { primaryText: 'Badge' })
+							)
 						)
 					)
 				);
@@ -46057,6 +46071,14 @@
 
 	var _info2 = _interopRequireDefault(_info);
 
+	var _AutoCompleteExampleDataSource = __webpack_require__(433);
+
+	var _AutoCompleteExampleDataSource2 = _interopRequireDefault(_AutoCompleteExampleDataSource);
+
+	var _AutoCompleteExampleFilter = __webpack_require__(434);
+
+	var _AutoCompleteExampleFilter2 = _interopRequireDefault(_AutoCompleteExampleFilter);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -46064,6 +46086,9 @@
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	//import another componenet
+
 
 	var style = {
 		width: '90%',
@@ -46078,7 +46103,8 @@
 	var wrapperStyle = {
 		overflow: 'scroll',
 		position: 'relative',
-		height: innerHeight
+		height: innerHeight,
+		paddingBottom: '300px'
 	};
 
 	var AutoCompleteExampleSimple = function (_React$Component) {
@@ -46114,7 +46140,7 @@
 						_react2.default.createElement(
 							_Subheader2.default,
 							null,
-							'Short briefing for the below Simple Example'
+							'Short description for the below Simple Example'
 						),
 						_react2.default.createElement(
 							'p',
@@ -46183,55 +46209,30 @@
 						_react2.default.createElement(
 							_Subheader2.default,
 							null,
-							'Short briefing for the below Simple Example'
+							'Short description for the below Data Source Example'
 						),
 						_react2.default.createElement(
 							'p',
 							{ style: textStyle },
-							'In this page we are using the following components:'
-						),
-						_react2.default.createElement(
-							_List.List,
-							null,
-							_react2.default.createElement(
-								_List.ListItem,
-								{
-									leftAvatar: _react2.default.createElement(_Avatar2.default, { icon: _react2.default.createElement(_done2.default, null) }),
-									rightIcon: _react2.default.createElement(_info2.default, null),
-									disabled: true },
-								'Paper'
-							),
-							_react2.default.createElement(
-								_List.ListItem,
-								{
-									leftAvatar: _react2.default.createElement(_Avatar2.default, { icon: _react2.default.createElement(_done2.default, null) }),
-									rightIcon: _react2.default.createElement(_info2.default, null),
-									disabled: true },
-								'Subheader'
-							),
-							_react2.default.createElement(
-								_List.ListItem,
-								{
-									leftAvatar: _react2.default.createElement(_Avatar2.default, { icon: _react2.default.createElement(_done2.default, null) }),
-									rightIcon: _react2.default.createElement(_info2.default, null),
-									disabled: true },
-								'List'
-							),
-							_react2.default.createElement(
-								_List.ListItem,
-								{
-									leftAvatar: _react2.default.createElement(_Avatar2.default, { icon: _react2.default.createElement(_done2.default, null) }),
-									rightIcon: _react2.default.createElement(_info2.default, null),
-									disabled: true },
-								'Form AutoComplete'
-							)
-						),
-						_react2.default.createElement(
-							'p',
-							{ style: textStyle },
-							'When you type text to the input element you should see tooltip with copy of the text.'
+							'When you type text to the input element you should see tooltip with array data defined in the dataSource object of the view. Filtering is disabled.'
 						)
-					)
+					),
+					_react2.default.createElement(_AutoCompleteExampleDataSource2.default, null),
+					_react2.default.createElement(
+						_Paper2.default,
+						{ style: style, zDepth: 2 },
+						_react2.default.createElement(
+							_Subheader2.default,
+							null,
+							'Filter Example'
+						),
+						_react2.default.createElement(
+							'p',
+							{ style: textStyle },
+							'When you type text to the input element you should see tooltip with filtered data defined in \'fruit\' and \'color\' constants.'
+						)
+					),
+					_react2.default.createElement(_AutoCompleteExampleFilter2.default, null)
 				);
 			}
 		}]);
@@ -48442,6 +48443,126 @@
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _AutoComplete = __webpack_require__(418);
+
+	var _AutoComplete2 = _interopRequireDefault(_AutoComplete);
+
+	var _MenuItem = __webpack_require__(385);
+
+	var _MenuItem2 = _interopRequireDefault(_MenuItem);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var dataSource1 = [{
+		text: 'text-value1',
+		value: _react2.default.createElement(_MenuItem2.default, {
+			primaryText: 'text-value1',
+			secondaryText: '☺'
+		})
+	}, {
+		text: 'text-value2',
+		value: _react2.default.createElement(_MenuItem2.default, {
+			primaryText: 'text-value2',
+			secondaryText: '☺'
+		})
+	}];
+
+	var dataSource2 = ['12345', '23456', '34567'];
+
+	var dataSource3 = [{ textKey: 'Data Source 3', valueKey: 'Data Source 3 value' }, { textKey: 'Some Text', valueKey: 'This is the second value key' }];
+	var dataSourceConfig = {
+		text: 'textKey',
+		value: 'valueKey'
+	};
+
+	var AutoCompleteExampleNoFilter = function AutoCompleteExampleNoFilter() {
+		return _react2.default.createElement(
+			'div',
+			null,
+			_react2.default.createElement(_AutoComplete2.default, {
+				hintText: 'text-value data',
+				filter: _AutoComplete2.default.noFilter,
+				dataSource: dataSource1
+			}),
+			_react2.default.createElement('br', null),
+			_react2.default.createElement(_AutoComplete2.default, {
+				floatingLabelText: 'showAllItems',
+				filter: _AutoComplete2.default.noFilter,
+				openOnFocus: true,
+				dataSource: dataSource2
+			}),
+			_react2.default.createElement('br', null),
+			_react2.default.createElement(_AutoComplete2.default, {
+				floatingLabelText: 'Same text, different values',
+				filter: _AutoComplete2.default.noFilter,
+				openOnFocus: true,
+				dataSource: dataSource3,
+				dataSourceConfig: dataSourceConfig
+			})
+		);
+	};
+
+	exports.default = AutoCompleteExampleNoFilter;
+
+/***/ },
+/* 434 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _AutoComplete = __webpack_require__(418);
+
+	var _AutoComplete2 = _interopRequireDefault(_AutoComplete);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var colors = ['Red', 'Orange', 'Yellow', 'Green', 'Blue', 'Purple', 'Black', 'White'];
+
+	var fruit = ['Apple', 'Apricot', 'Avocado', 'Banana', 'Bilberry', 'Blackberry', 'Blackcurrant', 'Blueberry', 'Boysenberry', 'Blood Orange', 'Cantaloupe', 'Currant', 'Cherry', 'Cherimoya', 'Cloudberry', 'Coconut', 'Cranberry', 'Clementine', 'Damson', 'Date', 'Dragonfruit', 'Durian', 'Elderberry', 'Feijoa', 'Fig', 'Goji berry', 'Gooseberry', 'Grape', 'Grapefruit', 'Guava', 'Honeydew', 'Huckleberry', 'Jabouticaba', 'Jackfruit', 'Jambul', 'Jujube', 'Juniper berry', 'Kiwi fruit', 'Kumquat', 'Lemon', 'Lime', 'Loquat', 'Lychee', 'Nectarine', 'Mango', 'Marion berry', 'Melon', 'Miracle fruit', 'Mulberry', 'Mandarine', 'Olive', 'Orange', 'Papaya', 'Passionfruit', 'Peach', 'Pear', 'Persimmon', 'Physalis', 'Plum', 'Pineapple', 'Pumpkin', 'Pomegranate', 'Pomelo', 'Purple Mangosteen', 'Quince', 'Raspberry', 'Raisin', 'Rambutan', 'Redcurrant', 'Salal berry', 'Satsuma', 'Star fruit', 'Strawberry', 'Squash', 'Salmonberry', 'Tamarillo', 'Tamarind', 'Tomato', 'Tangerine', 'Ugli fruit', 'Watermelon'];
+
+	var AutoCompleteExampleFilters = function AutoCompleteExampleFilters() {
+		return _react2.default.createElement(
+			'div',
+			null,
+			_react2.default.createElement(_AutoComplete2.default, {
+				floatingLabelText: 'Type \'r\', case insensitive',
+				filter: _AutoComplete2.default.caseInsensitiveFilter,
+				dataSource: colors
+			}),
+			_react2.default.createElement('br', null),
+			_react2.default.createElement(_AutoComplete2.default, {
+				floatingLabelText: 'Type \'peah\', fuzzy search',
+				filter: _AutoComplete2.default.fuzzyFilter,
+				dataSource: fruit,
+				maxSearchResults: 5
+			})
+		);
+	};
+
+	exports.default = AutoCompleteExampleFilters;
+
+/***/ },
+/* 435 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
 
@@ -48455,7 +48576,7 @@
 
 	var _reactRouter = __webpack_require__(176);
 
-	var _MainStore = __webpack_require__(434);
+	var _MainStore = __webpack_require__(436);
 
 	var _MainStore2 = _interopRequireDefault(_MainStore);
 
@@ -48625,7 +48746,7 @@
 	exports.default = Main;
 
 /***/ },
-/* 434 */
+/* 436 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -48661,7 +48782,7 @@
 		};
 	};
 
-	var _Events = __webpack_require__(435);
+	var _Events = __webpack_require__(437);
 
 	var _Events2 = _interopRequireDefault(_Events);
 
@@ -48673,7 +48794,7 @@
 	var event = new Event(CHANGE_EV);
 
 /***/ },
-/* 435 */
+/* 437 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -48689,6 +48810,284 @@
 	};
 
 	exports.default = Events;
+
+/***/ },
+/* 438 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _Badge = __webpack_require__(439);
+
+	var _Badge2 = _interopRequireDefault(_Badge);
+
+	var _IconButton = __webpack_require__(337);
+
+	var _IconButton2 = _interopRequireDefault(_IconButton);
+
+	var _notifications = __webpack_require__(441);
+
+	var _notifications2 = _interopRequireDefault(_notifications);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var style = {
+		height: '500px'
+	};
+
+	var BadgeExampleSimple = function BadgeExampleSimple() {
+		return _react2.default.createElement(
+			'div',
+			{ style: style },
+			_react2.default.createElement(
+				_Badge2.default,
+				{
+					badgeContent: 4,
+					primary: true
+				},
+				_react2.default.createElement(_notifications2.default, null)
+			),
+			_react2.default.createElement(
+				_Badge2.default,
+				{
+					badgeContent: 10,
+					secondary: true,
+					badgeStyle: { top: 12, right: 12 }
+				},
+				_react2.default.createElement(
+					_IconButton2.default,
+					{ tooltip: 'Tooltip Notification' },
+					_react2.default.createElement(_notifications2.default, null)
+				)
+			)
+		);
+	};
+
+	exports.default = BadgeExampleSimple;
+
+/***/ },
+/* 439 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = undefined;
+
+	var _Badge = __webpack_require__(440);
+
+	var _Badge2 = _interopRequireDefault(_Badge);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = _Badge2.default;
+
+/***/ },
+/* 440 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _simpleAssign = __webpack_require__(335);
+
+	var _simpleAssign2 = _interopRequireDefault(_simpleAssign);
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	function getStyles(props, context) {
+	  var primary = props.primary;
+	  var secondary = props.secondary;
+	  var badge = context.muiTheme.badge;
+
+
+	  var badgeBackgroundColor = void 0;
+	  var badgeTextColor = void 0;
+
+	  if (primary) {
+	    badgeBackgroundColor = badge.primaryColor;
+	    badgeTextColor = badge.primaryTextColor;
+	  } else if (secondary) {
+	    badgeBackgroundColor = badge.secondaryColor;
+	    badgeTextColor = badge.secondaryTextColor;
+	  } else {
+	    badgeBackgroundColor = badge.color;
+	    badgeTextColor = badge.textColor;
+	  }
+
+	  var radius = 12;
+	  var radius2x = Math.floor(2 * radius);
+
+	  return {
+	    root: {
+	      position: 'relative',
+	      display: 'inline-block',
+	      padding: radius2x + 'px ' + radius2x + 'px ' + radius + 'px ' + radius + 'px'
+	    },
+	    badge: {
+	      display: 'flex',
+	      flexDirection: 'row',
+	      flexWrap: 'wrap',
+	      justifyContent: 'center',
+	      alignContent: 'center',
+	      alignItems: 'center',
+	      position: 'absolute',
+	      top: 0,
+	      right: 0,
+	      fontWeight: badge.fontWeight,
+	      fontSize: radius,
+	      width: radius2x,
+	      height: radius2x,
+	      borderRadius: '50%',
+	      backgroundColor: badgeBackgroundColor,
+	      color: badgeTextColor
+	    }
+	  };
+	}
+
+	var Badge = function (_Component) {
+	  _inherits(Badge, _Component);
+
+	  function Badge() {
+	    _classCallCheck(this, Badge);
+
+	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Badge).apply(this, arguments));
+	  }
+
+	  _createClass(Badge, [{
+	    key: 'render',
+	    value: function render() {
+	      var _props = this.props;
+	      var style = _props.style;
+	      var children = _props.children;
+	      var badgeContent = _props.badgeContent;
+	      var badgeStyle = _props.badgeStyle;
+
+	      var other = _objectWithoutProperties(_props, ['style', 'children', 'badgeContent', 'badgeStyle']);
+
+	      var prepareStyles = this.context.muiTheme.prepareStyles;
+
+	      var styles = getStyles(this.props, this.context);
+
+	      return _react2.default.createElement(
+	        'div',
+	        _extends({}, other, { style: prepareStyles((0, _simpleAssign2.default)({}, styles.root, style)) }),
+	        children,
+	        _react2.default.createElement(
+	          'span',
+	          { style: prepareStyles((0, _simpleAssign2.default)({}, styles.badge, badgeStyle)) },
+	          badgeContent
+	        )
+	      );
+	    }
+	  }]);
+
+	  return Badge;
+	}(_react.Component);
+
+	Badge.propTypes = {
+	  /**
+	   * This is the content rendered within the badge.
+	   */
+	  badgeContent: _react.PropTypes.node.isRequired,
+	  /**
+	   * Override the inline-styles of the badge element.
+	   */
+	  badgeStyle: _react.PropTypes.object,
+	  /**
+	   * The badge will be added relativelty to this node.
+	   */
+	  children: _react.PropTypes.node,
+	  /**
+	   * The css class name of the root element.
+	   */
+	  className: _react.PropTypes.string,
+	  /**
+	   * If true, the badge will use the primary badge colors.
+	   */
+	  primary: _react.PropTypes.bool,
+	  /**
+	   * If true, the badge will use the secondary badge colors.
+	   */
+	  secondary: _react.PropTypes.bool,
+	  /**
+	   * Override the inline-styles of the root element.
+	   */
+	  style: _react.PropTypes.object
+	};
+	Badge.defaultProps = {
+	  primary: false,
+	  secondary: false
+	};
+	Badge.contextTypes = {
+	  muiTheme: _react.PropTypes.object.isRequired
+	};
+	exports.default = Badge;
+
+/***/ },
+/* 441 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _pure = __webpack_require__(366);
+
+	var _pure2 = _interopRequireDefault(_pure);
+
+	var _SvgIcon = __webpack_require__(374);
+
+	var _SvgIcon2 = _interopRequireDefault(_SvgIcon);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var SocialNotifications = function SocialNotifications(props) {
+	  return _react2.default.createElement(
+	    _SvgIcon2.default,
+	    props,
+	    _react2.default.createElement('path', { d: 'M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z' })
+	  );
+	};
+	SocialNotifications = (0, _pure2.default)(SocialNotifications);
+	SocialNotifications.displayName = 'SocialNotifications';
+
+	exports.default = SocialNotifications;
 
 /***/ }
 /******/ ]);
