@@ -20566,7 +20566,7 @@
 
 	var _router2 = _interopRequireDefault(_router);
 
-	var _Events = __webpack_require__(472);
+	var _Events = __webpack_require__(503);
 
 	var _Events2 = _interopRequireDefault(_Events);
 
@@ -20654,7 +20654,11 @@
 
 	var _Dialog2 = _interopRequireDefault(_Dialog);
 
-	var _Main = __webpack_require__(470);
+	var _Sliders = __webpack_require__(497);
+
+	var _Sliders2 = _interopRequireDefault(_Sliders);
+
+	var _Main = __webpack_require__(501);
 
 	var _Main2 = _interopRequireDefault(_Main);
 
@@ -20720,7 +20724,8 @@
 						_react2.default.createElement(_reactRouter.Route, { path: '/tooltips', component: _Tooltips2.default }),
 						_react2.default.createElement(_reactRouter.Route, { path: '/cards', component: _Cards2.default }),
 						_react2.default.createElement(_reactRouter.Route, { path: '/chip', component: _Chip2.default }),
-						_react2.default.createElement(_reactRouter.Route, { path: '/dialog', component: _Dialog2.default })
+						_react2.default.createElement(_reactRouter.Route, { path: '/dialog', component: _Dialog2.default }),
+						_react2.default.createElement(_reactRouter.Route, { path: '/sliders', component: _Sliders2.default })
 					)
 				);
 			}
@@ -39526,6 +39531,15 @@
 								{ to: '/dialog' },
 								_react2.default.createElement(_MenuItem2.default, { primaryText: 'Dialog' })
 							)
+						),
+						_react2.default.createElement(
+							_MenuItem2.default,
+							{ onTouchTap: this.props.handleClose },
+							_react2.default.createElement(
+								_reactRouter.Link,
+								{ to: '/sliders' },
+								_react2.default.createElement(_MenuItem2.default, { primaryText: 'Sliders' })
+							)
 						)
 					)
 				);
@@ -51980,15 +51994,15 @@
 
 	var _StyledDialog2 = _interopRequireDefault(_StyledDialog);
 
-	var _DialogWithDatePicker = __webpack_require__(473);
+	var _DialogWithDatePicker = __webpack_require__(470);
 
 	var _DialogWithDatePicker2 = _interopRequireDefault(_DialogWithDatePicker);
 
-	var _ScrollableDialog = __webpack_require__(493);
+	var _ScrollableDialog = __webpack_require__(490);
 
 	var _ScrollableDialog2 = _interopRequireDefault(_ScrollableDialog);
 
-	var _Alert = __webpack_require__(499);
+	var _Alert = __webpack_require__(496);
 
 	var _Alert2 = _interopRequireDefault(_Alert);
 
@@ -52938,261 +52952,6 @@
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactDom = __webpack_require__(33);
-
-	var _reactRouter = __webpack_require__(176);
-
-	var _MainStore = __webpack_require__(471);
-
-	var _MainStore2 = _interopRequireDefault(_MainStore);
-
-	var _getMuiTheme = __webpack_require__(237);
-
-	var _getMuiTheme2 = _interopRequireDefault(_getMuiTheme);
-
-	var _MuiThemeProvider = __webpack_require__(331);
-
-	var _MuiThemeProvider2 = _interopRequireDefault(_MuiThemeProvider);
-
-	var _drawer = __webpack_require__(377);
-
-	var _drawer2 = _interopRequireDefault(_drawer);
-
-	var _header = __webpack_require__(403);
-
-	var _header2 = _interopRequireDefault(_header);
-
-	var _AppBar = __webpack_require__(404);
-
-	var _AppBar2 = _interopRequireDefault(_AppBar);
-
-	var _IconMenu = __webpack_require__(407);
-
-	var _IconMenu2 = _interopRequireDefault(_IconMenu);
-
-	var _IconButton = __webpack_require__(337);
-
-	var _IconButton2 = _interopRequireDefault(_IconButton);
-
-	var _MenuItem = __webpack_require__(385);
-
-	var _MenuItem2 = _interopRequireDefault(_MenuItem);
-
-	var _moreVert = __webpack_require__(409);
-
-	var _moreVert2 = _interopRequireDefault(_moreVert);
-
-	var _close = __webpack_require__(410);
-
-	var _close2 = _interopRequireDefault(_close);
-
-	var _colors = __webpack_require__(247);
-
-	var _scrollablelist = __webpack_require__(332);
-
-	var _scrollablelist2 = _interopRequireDefault(_scrollablelist);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	//flux store
-
-
-	//theme components
-
-
-	//drawer
-
-
-	//App bar
-
-
-	//colors
-
-
-	//scrollable list
-
-
-	var Main = function (_React$Component) {
-	    _inherits(Main, _React$Component);
-
-	    function Main(props) {
-	        _classCallCheck(this, Main);
-
-	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Main).call(this, props));
-
-	        _this.leftButtonTapPress = _this.leftButtonTapPress.bind(_this);
-	        _this.storeChangeEmitted = _this.storeChangeEmitted.bind(_this);
-	        _this.handleClose = _this.handleClose.bind(_this);
-
-	        _this.store = (0, _MainStore2.default)();
-	        return _this;
-	    }
-
-	    _createClass(Main, [{
-	        key: 'componentWillMount',
-	        value: function componentWillMount() {
-	            if (!this.state || !this.state.openDrawer) {
-	                this.state = {};
-	                this.state.openDrawer = false;
-	            }
-	            this.store.addChangeEventListener(this.storeChangeEmitted);
-	        }
-	    }, {
-	        key: 'storeChangeEmitted',
-	        value: function storeChangeEmitted() {
-	            alert('storeChangeEmitted');
-	        }
-	    }, {
-	        key: 'componentWillUnmount',
-	        value: function componentWillUnmount() {
-	            console.log('component will unmount');
-
-	            this.store.removeChangeEventListener(this.storeChangeEmitted);
-	        }
-	    }, {
-	        key: 'handleClose',
-	        value: function handleClose() {
-	            this.setState({ openDrawer: false });
-	        }
-	    }, {
-	        key: 'leftButtonTapPress',
-	        value: function leftButtonTapPress() {
-	            this.setState({ openDrawer: true });
-	        }
-	    }, {
-	        key: 'render',
-	        value: function render() {
-	            return _react2.default.createElement(
-	                'div',
-	                null,
-	                _react2.default.createElement(
-	                    _MuiThemeProvider2.default,
-	                    { muiTheme: (0, _getMuiTheme2.default)() },
-	                    _react2.default.createElement(_AppBar2.default, { title: 'Snowball Hybrid App',
-	                        onLeftIconButtonTouchTap: this.leftButtonTapPress,
-	                        iconElementRight: _react2.default.createElement(
-	                            _IconMenu2.default,
-	                            {
-	                                iconButtonElement: _react2.default.createElement(
-	                                    _IconButton2.default,
-	                                    null,
-	                                    _react2.default.createElement(_moreVert2.default, null)
-	                                ),
-	                                targetOrigin: { horizontal: 'right', vertical: 'top' },
-	                                anchorOrigin: { horizontal: 'right', vertical: 'top' }
-	                            },
-	                            _react2.default.createElement(_MenuItem2.default, { primaryText: 'Help' }),
-	                            _react2.default.createElement(_MenuItem2.default, { primaryText: 'Sign out' })
-	                        )
-	                    })
-	                ),
-	                _react2.default.createElement(
-	                    _MuiThemeProvider2.default,
-	                    { muiTheme: (0, _getMuiTheme2.default)() },
-	                    _react2.default.createElement(_drawer2.default, { open: this.state.openDrawer, handleClose: this.handleClose })
-	                ),
-	                _react2.default.createElement(
-	                    _MuiThemeProvider2.default,
-	                    { muiTheme: (0, _getMuiTheme2.default)() },
-	                    this.props.children
-	                )
-	            );
-	        }
-	    }]);
-
-	    return Main;
-	}(_react2.default.Component);
-
-	exports.default = Main;
-
-/***/ },
-/* 471 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-
-	exports.default = function () {
-
-		//add event listener for Spacebar
-		document.addEventListener(eventInst.SPACE, function () {
-			emitChange();
-		});
-
-		function addChangeEvent(callback) {
-			document.addEventListener(CHANGE_EV, callback);
-		}
-
-		function removeChangeEvent(callback) {
-			console.log('remove ev');
-
-			document.removeEventListener(CHANGE_EV, callback);
-		}
-
-		function emitChange() {
-			document.dispatchEvent(event);
-		}
-
-		return {
-			addChangeEventListener: addChangeEvent,
-			removeChangeEventListener: removeChangeEvent
-		};
-	};
-
-	var _Events = __webpack_require__(472);
-
-	var _Events2 = _interopRequireDefault(_Events);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var CHANGE_EV = 'store_change';
-
-	var eventInst = new _Events2.default();
-	var event = new Event(CHANGE_EV);
-
-/***/ },
-/* 472 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-	//for the use of Pub / Sub pattern
-	var Events = function Events() {
-		return {
-			'SPACE': 'SPACE'
-		};
-	};
-
-	exports.default = Events;
-
-/***/ },
-/* 473 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
 
@@ -53214,7 +52973,7 @@
 
 	var _RaisedButton2 = _interopRequireDefault(_RaisedButton);
 
-	var _DatePicker = __webpack_require__(474);
+	var _DatePicker = __webpack_require__(471);
 
 	var _DatePicker2 = _interopRequireDefault(_DatePicker);
 
@@ -53293,7 +53052,7 @@
 	exports.default = DialogExampleDialogDatePicker;
 
 /***/ },
-/* 474 */
+/* 471 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -53303,7 +53062,7 @@
 	});
 	exports.default = undefined;
 
-	var _DatePicker = __webpack_require__(475);
+	var _DatePicker = __webpack_require__(472);
 
 	var _DatePicker2 = _interopRequireDefault(_DatePicker);
 
@@ -53312,7 +53071,7 @@
 	exports.default = _DatePicker2.default;
 
 /***/ },
-/* 475 */
+/* 472 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -53333,9 +53092,9 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _dateUtils = __webpack_require__(476);
+	var _dateUtils = __webpack_require__(473);
 
-	var _DatePickerDialog = __webpack_require__(477);
+	var _DatePickerDialog = __webpack_require__(474);
 
 	var _DatePickerDialog2 = _interopRequireDefault(_DatePickerDialog);
 
@@ -53687,7 +53446,7 @@
 	exports.default = DatePicker;
 
 /***/ },
-/* 476 */
+/* 473 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -53869,7 +53628,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 477 */
+/* 474 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -53894,7 +53653,7 @@
 
 	var _keycode2 = _interopRequireDefault(_keycode);
 
-	var _Calendar = __webpack_require__(478);
+	var _Calendar = __webpack_require__(475);
 
 	var _Calendar2 = _interopRequireDefault(_Calendar);
 
@@ -53906,11 +53665,11 @@
 
 	var _Popover2 = _interopRequireDefault(_Popover);
 
-	var _PopoverAnimationVertical = __webpack_require__(492);
+	var _PopoverAnimationVertical = __webpack_require__(489);
 
 	var _PopoverAnimationVertical2 = _interopRequireDefault(_PopoverAnimationVertical);
 
-	var _dateUtils = __webpack_require__(476);
+	var _dateUtils = __webpack_require__(473);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -54093,7 +53852,7 @@
 	exports.default = DatePickerDialog;
 
 /***/ },
-/* 478 */
+/* 475 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -54120,35 +53879,35 @@
 
 	var _transitions2 = _interopRequireDefault(_transitions);
 
-	var _CalendarActionButtons = __webpack_require__(479);
+	var _CalendarActionButtons = __webpack_require__(476);
 
 	var _CalendarActionButtons2 = _interopRequireDefault(_CalendarActionButtons);
 
-	var _CalendarMonth = __webpack_require__(480);
+	var _CalendarMonth = __webpack_require__(477);
 
 	var _CalendarMonth2 = _interopRequireDefault(_CalendarMonth);
 
-	var _CalendarYear = __webpack_require__(482);
+	var _CalendarYear = __webpack_require__(479);
 
 	var _CalendarYear2 = _interopRequireDefault(_CalendarYear);
 
-	var _CalendarToolbar = __webpack_require__(484);
+	var _CalendarToolbar = __webpack_require__(481);
 
 	var _CalendarToolbar2 = _interopRequireDefault(_CalendarToolbar);
 
-	var _DateDisplay = __webpack_require__(489);
+	var _DateDisplay = __webpack_require__(486);
 
 	var _DateDisplay2 = _interopRequireDefault(_DateDisplay);
 
-	var _SlideIn = __webpack_require__(487);
+	var _SlideIn = __webpack_require__(484);
 
 	var _SlideIn2 = _interopRequireDefault(_SlideIn);
 
-	var _ClearFix = __webpack_require__(490);
+	var _ClearFix = __webpack_require__(487);
 
 	var _ClearFix2 = _interopRequireDefault(_ClearFix);
 
-	var _dateUtils = __webpack_require__(476);
+	var _dateUtils = __webpack_require__(473);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -54545,7 +54304,7 @@
 	exports.default = Calendar;
 
 /***/ },
-/* 479 */
+/* 476 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -54642,7 +54401,7 @@
 	exports.default = CalendarActionButton;
 
 /***/ },
-/* 480 */
+/* 477 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -54657,9 +54416,9 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _dateUtils = __webpack_require__(476);
+	var _dateUtils = __webpack_require__(473);
 
-	var _DayButton = __webpack_require__(481);
+	var _DayButton = __webpack_require__(478);
 
 	var _DayButton2 = _interopRequireDefault(_DayButton);
 
@@ -54788,7 +54547,7 @@
 	exports.default = CalendarMonth;
 
 /***/ },
-/* 481 */
+/* 478 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -54809,7 +54568,7 @@
 
 	var _transitions2 = _interopRequireDefault(_transitions);
 
-	var _dateUtils = __webpack_require__(476);
+	var _dateUtils = __webpack_require__(473);
 
 	var _EnhancedButton = __webpack_require__(341);
 
@@ -54965,7 +54724,7 @@
 	exports.default = DayButton;
 
 /***/ },
-/* 482 */
+/* 479 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -54986,11 +54745,11 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _YearButton = __webpack_require__(483);
+	var _YearButton = __webpack_require__(480);
 
 	var _YearButton2 = _interopRequireDefault(_YearButton);
 
-	var _dateUtils = __webpack_require__(476);
+	var _dateUtils = __webpack_require__(473);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -55117,7 +54876,7 @@
 	exports.default = CalendarYear;
 
 /***/ },
-/* 483 */
+/* 480 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -55262,7 +55021,7 @@
 	exports.default = YearButton;
 
 /***/ },
-/* 484 */
+/* 481 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -55281,15 +55040,15 @@
 
 	var _IconButton2 = _interopRequireDefault(_IconButton);
 
-	var _chevronLeft = __webpack_require__(485);
+	var _chevronLeft = __webpack_require__(482);
 
 	var _chevronLeft2 = _interopRequireDefault(_chevronLeft);
 
-	var _chevronRight = __webpack_require__(486);
+	var _chevronRight = __webpack_require__(483);
 
 	var _chevronRight2 = _interopRequireDefault(_chevronRight);
 
-	var _SlideIn = __webpack_require__(487);
+	var _SlideIn = __webpack_require__(484);
 
 	var _SlideIn2 = _interopRequireDefault(_SlideIn);
 
@@ -55426,7 +55185,7 @@
 	exports.default = CalendarToolbar;
 
 /***/ },
-/* 485 */
+/* 482 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -55462,7 +55221,7 @@
 	exports.default = NavigationChevronLeft;
 
 /***/ },
-/* 486 */
+/* 483 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -55498,7 +55257,7 @@
 	exports.default = NavigationChevronRight;
 
 /***/ },
-/* 487 */
+/* 484 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -55523,7 +55282,7 @@
 
 	var _reactAddonsTransitionGroup2 = _interopRequireDefault(_reactAddonsTransitionGroup);
 
-	var _SlideInChild = __webpack_require__(488);
+	var _SlideInChild = __webpack_require__(485);
 
 	var _SlideInChild2 = _interopRequireDefault(_SlideInChild);
 
@@ -55624,7 +55383,7 @@
 	exports.default = SlideIn;
 
 /***/ },
-/* 488 */
+/* 485 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -55767,7 +55526,7 @@
 	exports.default = SlideInChild;
 
 /***/ },
-/* 489 */
+/* 486 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -55788,7 +55547,7 @@
 
 	var _transitions2 = _interopRequireDefault(_transitions);
 
-	var _SlideIn = __webpack_require__(487);
+	var _SlideIn = __webpack_require__(484);
 
 	var _SlideIn2 = _interopRequireDefault(_SlideIn);
 
@@ -55988,7 +55747,7 @@
 	exports.default = DateDisplay;
 
 /***/ },
-/* 490 */
+/* 487 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -56003,7 +55762,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _BeforeAfterWrapper = __webpack_require__(491);
+	var _BeforeAfterWrapper = __webpack_require__(488);
 
 	var _BeforeAfterWrapper2 = _interopRequireDefault(_BeforeAfterWrapper);
 
@@ -56053,7 +55812,7 @@
 	exports.default = ClearFix;
 
 /***/ },
-/* 491 */
+/* 488 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -56200,7 +55959,7 @@
 	exports.default = BeforeAfterWrapper;
 
 /***/ },
-/* 492 */
+/* 489 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -56337,7 +56096,7 @@
 	exports.default = PopoverAnimationVertical;
 
 /***/ },
-/* 493 */
+/* 490 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -56364,7 +56123,7 @@
 
 	var _RaisedButton2 = _interopRequireDefault(_RaisedButton);
 
-	var _RadioButton = __webpack_require__(494);
+	var _RadioButton = __webpack_require__(491);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -56465,7 +56224,7 @@
 	exports.default = DialogExampleScrollable;
 
 /***/ },
-/* 494 */
+/* 491 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -56475,11 +56234,11 @@
 	});
 	exports.default = exports.RadioButtonGroup = exports.RadioButton = undefined;
 
-	var _RadioButton2 = __webpack_require__(495);
+	var _RadioButton2 = __webpack_require__(492);
 
 	var _RadioButton3 = _interopRequireDefault(_RadioButton2);
 
-	var _RadioButtonGroup2 = __webpack_require__(498);
+	var _RadioButtonGroup2 = __webpack_require__(495);
 
 	var _RadioButtonGroup3 = _interopRequireDefault(_RadioButtonGroup2);
 
@@ -56490,7 +56249,7 @@
 	exports.default = _RadioButton3.default;
 
 /***/ },
-/* 495 */
+/* 492 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -56519,11 +56278,11 @@
 
 	var _EnhancedSwitch2 = _interopRequireDefault(_EnhancedSwitch);
 
-	var _radioButtonUnchecked = __webpack_require__(496);
+	var _radioButtonUnchecked = __webpack_require__(493);
 
 	var _radioButtonUnchecked2 = _interopRequireDefault(_radioButtonUnchecked);
 
-	var _radioButtonChecked = __webpack_require__(497);
+	var _radioButtonChecked = __webpack_require__(494);
 
 	var _radioButtonChecked2 = _interopRequireDefault(_radioButtonChecked);
 
@@ -56751,7 +56510,7 @@
 	exports.default = RadioButton;
 
 /***/ },
-/* 496 */
+/* 493 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -56787,7 +56546,7 @@
 	exports.default = ToggleRadioButtonUnchecked;
 
 /***/ },
-/* 497 */
+/* 494 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -56823,7 +56582,7 @@
 	exports.default = ToggleRadioButtonChecked;
 
 /***/ },
-/* 498 */
+/* 495 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -56844,7 +56603,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _RadioButton = __webpack_require__(494);
+	var _RadioButton = __webpack_require__(491);
 
 	var _RadioButton2 = _interopRequireDefault(_RadioButton);
 
@@ -57039,7 +56798,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 499 */
+/* 496 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -57137,6 +56896,1145 @@
 	}(_react2.default.Component);
 
 	exports.default = DialogExampleAlert;
+
+/***/ },
+/* 497 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _SimpleSlider = __webpack_require__(498);
+
+	var _SimpleSlider2 = _interopRequireDefault(_SimpleSlider);
+
+	var _Subheader = __webpack_require__(363);
+
+	var _Subheader2 = _interopRequireDefault(_Subheader);
+
+	var _SteppedSlider = __webpack_require__(504);
+
+	var _SteppedSlider2 = _interopRequireDefault(_SteppedSlider);
+
+	var _AlternativeAxisSlider = __webpack_require__(505);
+
+	var _AlternativeAxisSlider2 = _interopRequireDefault(_AlternativeAxisSlider);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	//components
+
+
+	var style = {
+		height: '1500px'
+	};
+
+	var Sliders = function Sliders() {
+		return _react2.default.createElement(
+			'div',
+			{ style: style },
+			_react2.default.createElement(
+				_Subheader2.default,
+				null,
+				'Simple Slider example'
+			),
+			_react2.default.createElement(_SimpleSlider2.default, null),
+			_react2.default.createElement(
+				_Subheader2.default,
+				null,
+				'Stepped Slider example'
+			),
+			_react2.default.createElement(_SteppedSlider2.default, null),
+			_react2.default.createElement(
+				_Subheader2.default,
+				null,
+				'Alternative Axis Slider'
+			),
+			_react2.default.createElement(_AlternativeAxisSlider2.default, null)
+		);
+	};
+
+	exports.default = Sliders;
+
+/***/ },
+/* 498 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _Slider = __webpack_require__(499);
+
+	var _Slider2 = _interopRequireDefault(_Slider);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var style = {
+		width: '90%',
+		margin: 'auto'
+	};
+	/**
+	 * The `defaultValue` property sets the initial position of the slider. The slider
+	 * appearance changes when not at the starting position.
+	 */
+	var SliderExampleSimple = function SliderExampleSimple() {
+		return _react2.default.createElement(
+			'div',
+			{ style: style },
+			_react2.default.createElement(_Slider2.default, null),
+			_react2.default.createElement(_Slider2.default, { defaultValue: 0.5 }),
+			_react2.default.createElement(_Slider2.default, { defaultValue: 1 })
+		);
+	};
+
+	exports.default = SliderExampleSimple;
+
+/***/ },
+/* 499 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = undefined;
+
+	var _Slider = __webpack_require__(500);
+
+	var _Slider2 = _interopRequireDefault(_Slider);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = _Slider2.default;
+
+/***/ },
+/* 500 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _simpleAssign = __webpack_require__(335);
+
+	var _simpleAssign2 = _interopRequireDefault(_simpleAssign);
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _keycode = __webpack_require__(346);
+
+	var _keycode2 = _interopRequireDefault(_keycode);
+
+	var _transitions = __webpack_require__(339);
+
+	var _transitions2 = _interopRequireDefault(_transitions);
+
+	var _FocusRipple = __webpack_require__(347);
+
+	var _FocusRipple2 = _interopRequireDefault(_FocusRipple);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	/**
+	 * Verifies min/max range.
+	 * @param   {Object} props         Properties of the React component.
+	 * @param   {String} propName      Name of the property to validate.
+	 * @param   {String} componentName Name of the component whose property is being validated.
+	 * @returns {Object} Returns an Error if min >= max otherwise null.
+	 */
+	var minMaxPropType = function minMaxPropType(props, propName, componentName) {
+	  var error = _react.PropTypes.number(props, propName, componentName);
+	  if (error !== null) return error;
+
+	  if (props.min >= props.max) {
+	    var errorMsg = propName === 'min' ? 'min should be less than max' : 'max should be greater than min';
+	    return new Error(errorMsg);
+	  }
+	};
+
+	/**
+	 * Verifies value is within the min/max range.
+	 * @param   {Object} props         Properties of the React component.
+	 * @param   {String} propName      Name of the property to validate.
+	 * @param   {String} componentName Name of the component whose property is being validated.
+	 * @returns {Object} Returns an Error if the value is not within the range otherwise null.
+	 */
+	var valueInRangePropType = function valueInRangePropType(props, propName, componentName) {
+	  var error = _react.PropTypes.number(props, propName, componentName);
+	  if (error !== null) return error;
+
+	  var value = props[propName];
+	  if (value < props.min || props.max < value) {
+	    return new Error(propName + ' should be within the range specified by min and max');
+	  }
+	};
+
+	var getStyles = function getStyles(props, context, state) {
+	  var slider = context.muiTheme.slider;
+
+	  var fillGutter = slider.handleSize / 2;
+	  var disabledGutter = slider.trackSize + slider.handleSizeDisabled / 2;
+	  var calcDisabledSpacing = props.disabled ? ' - ' + disabledGutter + 'px' : '';
+
+	  var styles = {
+	    slider: {
+	      touchCallout: 'none',
+	      userSelect: 'none',
+	      cursor: 'default',
+	      height: slider.handleSizeActive,
+	      position: 'relative',
+	      marginTop: 24,
+	      marginBottom: 48
+	    },
+	    track: {
+	      position: 'absolute',
+	      top: (slider.handleSizeActive - slider.trackSize) / 2,
+	      left: 0,
+	      width: '100%',
+	      height: slider.trackSize
+	    },
+	    filledAndRemaining: {
+	      position: 'absolute',
+	      top: 0,
+	      height: '100%',
+	      transition: _transitions2.default.easeOut(null, 'margin')
+	    },
+	    handle: {
+	      boxSizing: 'border-box',
+	      position: 'absolute',
+	      cursor: 'pointer',
+	      pointerEvents: 'inherit',
+	      top: 0,
+	      left: state.percent === 0 ? '0%' : state.percent * 100 + '%',
+	      zIndex: 1,
+	      margin: slider.trackSize / 2 + 'px 0 0 0',
+	      width: slider.handleSize,
+	      height: slider.handleSize,
+	      backgroundColor: slider.selectionColor,
+	      backgroundClip: 'padding-box',
+	      border: '0px solid transparent',
+	      borderRadius: '50%',
+	      transform: 'translate(-50%, -50%)',
+	      transition: _transitions2.default.easeOut('450ms', 'background') + ', ' + _transitions2.default.easeOut('450ms', 'border-color') + ', ' + _transitions2.default.easeOut('450ms', 'width') + ', ' + _transitions2.default.easeOut('450ms', 'height'),
+	      overflow: 'visible',
+	      outline: 'none'
+	    },
+	    handleWhenDisabled: {
+	      boxSizing: 'content-box',
+	      cursor: 'not-allowed',
+	      backgroundColor: slider.trackColor,
+	      width: slider.handleSizeDisabled,
+	      height: slider.handleSizeDisabled,
+	      border: 'none'
+	    },
+	    handleWhenPercentZero: {
+	      border: slider.trackSize + 'px solid ' + slider.handleColorZero,
+	      backgroundColor: slider.handleFillColor,
+	      boxShadow: 'none'
+	    },
+	    handleWhenPercentZeroAndDisabled: {
+	      cursor: 'not-allowed',
+	      width: slider.handleSizeDisabled,
+	      height: slider.handleSizeDisabled
+	    },
+	    handleWhenPercentZeroAndFocused: {
+	      border: slider.trackSize + 'px solid ' + slider.trackColorSelected
+	    },
+	    handleWhenActive: {
+	      width: slider.handleSizeActive,
+	      height: slider.handleSizeActive
+	    },
+	    ripple: {
+	      height: slider.handleSize,
+	      width: slider.handleSize,
+	      overflow: 'visible'
+	    },
+	    rippleWhenPercentZero: {
+	      top: -slider.trackSize,
+	      left: -slider.trackSize
+	    },
+	    rippleInner: {
+	      height: '300%',
+	      width: '300%',
+	      top: -slider.handleSize,
+	      left: -slider.handleSize
+	    },
+	    rippleColor: {
+	      fill: state.percent === 0 ? slider.handleColorZero : slider.rippleColor
+	    }
+	  };
+	  styles.filled = (0, _simpleAssign2.default)({}, styles.filledAndRemaining, {
+	    left: 0,
+	    backgroundColor: props.disabled ? slider.trackColor : slider.selectionColor,
+	    marginRight: fillGutter,
+	    width: 'calc(' + state.percent * 100 + '%' + calcDisabledSpacing + ')'
+	  });
+	  styles.remaining = (0, _simpleAssign2.default)({}, styles.filledAndRemaining, {
+	    right: 0,
+	    backgroundColor: (state.hovered || state.focused) && !props.disabled ? slider.trackColorSelected : slider.trackColor,
+	    marginLeft: fillGutter,
+	    width: 'calc(' + (1 - state.percent) * 100 + '%' + calcDisabledSpacing + ')'
+	  });
+
+	  return styles;
+	};
+
+	var Slider = function (_Component) {
+	  _inherits(Slider, _Component);
+
+	  function Slider() {
+	    var _Object$getPrototypeO;
+
+	    var _temp, _this, _ret;
+
+	    _classCallCheck(this, Slider);
+
+	    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+	      args[_key] = arguments[_key];
+	    }
+
+	    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_Object$getPrototypeO = Object.getPrototypeOf(Slider)).call.apply(_Object$getPrototypeO, [this].concat(args))), _this), _this.state = {
+	      active: false,
+	      dragging: false,
+	      focused: false,
+	      hovered: false,
+	      percent: 0,
+	      value: 0
+	    }, _this.onHandleTouchStart = function (event) {
+	      if (document) {
+	        document.addEventListener('touchmove', _this.dragTouchHandler, false);
+	        document.addEventListener('touchup', _this.dragTouchEndHandler, false);
+	        document.addEventListener('touchend', _this.dragTouchEndHandler, false);
+	        document.addEventListener('touchcancel', _this.dragTouchEndHandler, false);
+	      }
+	      _this.onDragStart(event);
+
+	      // Cancel scroll and context menu
+	      event.preventDefault();
+	    }, _this.onHandleMouseDown = function (event) {
+	      if (document) {
+	        document.addEventListener('mousemove', _this.dragHandler, false);
+	        document.addEventListener('mouseup', _this.dragEndHandler, false);
+
+	        // Cancel text selection
+	        event.preventDefault();
+
+	        // Set focus manually since we called preventDefault()
+	        _this.refs.handle.focus();
+	      }
+	      _this.onDragStart(event);
+	    }, _this.onHandleKeyDown = function (event) {
+	      var _this$props = _this.props;
+	      var min = _this$props.min;
+	      var max = _this$props.max;
+	      var step = _this$props.step;
+
+	      var action = void 0;
+
+	      switch ((0, _keycode2.default)(event)) {
+	        case 'page down':
+	        case 'left':
+	        case 'down':
+	          action = 'decrease';
+	          break;
+	        case 'page up':
+	        case 'right':
+	        case 'up':
+	          action = 'increase';
+	          break;
+	        case 'home':
+	          action = 'home';
+	          break;
+	        case 'end':
+	          action = 'end';
+	          break;
+	      }
+
+	      if (action) {
+	        var newValue = void 0;
+	        var newPercent = void 0;
+
+	        // Cancel scroll
+	        event.preventDefault();
+
+	        // When pressing home or end the handle should be taken to the
+	        // beginning or end of the track respectively
+	        switch (action) {
+	          case 'decrease':
+	            newValue = Math.max(min, _this.state.value - step);
+	            newPercent = (newValue - min) / (max - min);
+	            break;
+	          case 'increase':
+	            newValue = Math.min(max, _this.state.value + step);
+	            newPercent = (newValue - min) / (max - min);
+	            break;
+	          case 'home':
+	            newValue = min;
+	            newPercent = 0;
+	            break;
+	          case 'end':
+	            newValue = max;
+	            newPercent = 1;
+	            break;
+	        }
+
+	        // We need to use toFixed() because of float point errors.
+	        // For example, 0.01 + 0.06 = 0.06999999999999999
+	        if (_this.state.value !== newValue) {
+	          _this.setState({
+	            percent: newPercent,
+	            value: parseFloat(newValue.toFixed(5))
+	          }, function () {
+	            if (_this.props.onChange) _this.props.onChange(event, _this.state.value);
+	          });
+	        }
+	      }
+	    }, _this.dragHandler = function (event) {
+	      if (_this.dragRunning) {
+	        return;
+	      }
+	      _this.dragRunning = true;
+	      requestAnimationFrame(function () {
+	        _this.onDragUpdate(event, event.clientX - _this.getTrackLeft());
+	        _this.dragRunning = false;
+	      });
+	    }, _this.dragTouchHandler = function (event) {
+	      if (_this.dragRunning) {
+	        return;
+	      }
+	      _this.dragRunning = true;
+	      requestAnimationFrame(function () {
+	        _this.onDragUpdate(event, event.touches[0].clientX - _this.getTrackLeft());
+	        _this.dragRunning = false;
+	      });
+	    }, _this.dragEndHandler = function (event) {
+	      if (document) {
+	        document.removeEventListener('mousemove', _this.dragHandler, false);
+	        document.removeEventListener('mouseup', _this.dragEndHandler, false);
+	      }
+
+	      _this.onDragStop(event);
+	    }, _this.dragTouchEndHandler = function (event) {
+	      if (document) {
+	        document.removeEventListener('touchmove', _this.dragTouchHandler, false);
+	        document.removeEventListener('touchup', _this.dragTouchEndHandler, false);
+	        document.removeEventListener('touchend', _this.dragTouchEndHandler, false);
+	        document.removeEventListener('touchcancel', _this.dragTouchEndHandler, false);
+	      }
+
+	      _this.onDragStop(event);
+	    }, _this.handleTouchStart = function (event) {
+	      if (!_this.props.disabled && !_this.state.dragging) {
+	        var pos = event.touches[0].clientX - _this.getTrackLeft();
+	        _this.dragX(event, pos);
+
+	        // Since the touch event fired for the track and handle is child of
+	        // track, we need to manually propagate the event to the handle.
+	        _this.onHandleTouchStart(event);
+	      }
+	    }, _this.handleFocus = function (event) {
+	      _this.setState({ focused: true });
+	      if (_this.props.onFocus) _this.props.onFocus(event);
+	    }, _this.handleBlur = function (event) {
+	      _this.setState({ focused: false, active: false });
+	      if (_this.props.onBlur) _this.props.onBlur(event);
+	    }, _this.handleMouseDown = function (event) {
+	      if (!_this.props.disabled && !_this.state.dragging) {
+	        var pos = event.clientX - _this.getTrackLeft();
+	        _this.dragX(event, pos);
+
+	        // Since the click event fired for the track and handle is child of
+	        // track, we need to manually propagate the event to the handle.
+	        _this.onHandleMouseDown(event);
+	      }
+	    }, _this.handleMouseUp = function () {
+	      if (!_this.props.disabled) _this.setState({ active: false });
+	    }, _this.handleMouseEnter = function () {
+	      _this.setState({ hovered: true });
+	    }, _this.handleMouseLeave = function () {
+	      _this.setState({ hovered: false });
+	    }, _temp), _possibleConstructorReturn(_this, _ret);
+	  }
+
+	  _createClass(Slider, [{
+	    key: 'componentWillMount',
+	    value: function componentWillMount() {
+	      var value = this.props.value;
+	      if (value === undefined) {
+	        value = this.props.defaultValue !== undefined ? this.props.defaultValue : this.props.min;
+	      }
+	      var percent = (value - this.props.min) / (this.props.max - this.props.min);
+	      if (isNaN(percent)) percent = 0;
+
+	      this.setState({
+	        percent: percent,
+	        value: value
+	      });
+	    }
+	  }, {
+	    key: 'componentWillReceiveProps',
+	    value: function componentWillReceiveProps(nextProps) {
+	      if (nextProps.value !== undefined && !this.state.dragging) {
+	        this.setValue(nextProps.value);
+	      }
+	    }
+	  }, {
+	    key: 'getValue',
+	    value: function getValue() {
+	      return this.state.value;
+	    }
+	  }, {
+	    key: 'setValue',
+	    value: function setValue(i) {
+	      // calculate percentage
+	      var percent = (i - this.props.min) / (this.props.max - this.props.min);
+	      if (isNaN(percent)) percent = 0;
+	      // update state
+	      this.setState({
+	        value: i,
+	        percent: percent
+	      });
+	    }
+	  }, {
+	    key: 'getPercent',
+	    value: function getPercent() {
+	      return this.state.percent;
+	    }
+	  }, {
+	    key: 'setPercent',
+	    value: function setPercent(percent, callback) {
+	      var value = this.alignValue(this.percentToValue(percent));
+	      var _props = this.props;
+	      var min = _props.min;
+	      var max = _props.max;
+
+	      var alignedPercent = (value - min) / (max - min);
+	      if (this.state.value !== value) {
+	        this.setState({ value: value, percent: alignedPercent }, callback);
+	      }
+	    }
+	  }, {
+	    key: 'clearValue',
+	    value: function clearValue() {
+	      this.setValue(this.props.min);
+	    }
+	  }, {
+	    key: 'alignValue',
+	    value: function alignValue(val) {
+	      var _props2 = this.props;
+	      var step = _props2.step;
+	      var min = _props2.min;
+
+	      var alignValue = Math.round((val - min) / step) * step + min;
+	      return parseFloat(alignValue.toFixed(5));
+	    }
+	  }, {
+	    key: 'getTrackLeft',
+	    value: function getTrackLeft() {
+	      return this.refs.track.getBoundingClientRect().left;
+	    }
+	  }, {
+	    key: 'onDragStart',
+	    value: function onDragStart(event) {
+	      this.setState({
+	        dragging: true,
+	        active: true
+	      });
+	      if (this.props.onDragStart) this.props.onDragStart(event);
+	    }
+	  }, {
+	    key: 'onDragStop',
+	    value: function onDragStop(event) {
+	      this.setState({
+	        dragging: false,
+	        active: false
+	      });
+	      if (this.props.onDragStop) this.props.onDragStop(event);
+	    }
+	  }, {
+	    key: 'onDragUpdate',
+	    value: function onDragUpdate(event, pos) {
+	      if (!this.state.dragging) return;
+	      if (!this.props.disabled) this.dragX(event, pos);
+	    }
+	  }, {
+	    key: 'dragX',
+	    value: function dragX(event, pos) {
+	      var max = this.refs.track.clientWidth;
+	      if (pos < 0) pos = 0;else if (pos > max) pos = max;
+	      this.updateWithChangeEvent(event, pos / max);
+	    }
+	  }, {
+	    key: 'updateWithChangeEvent',
+	    value: function updateWithChangeEvent(event, percent) {
+	      var _this2 = this;
+
+	      this.setPercent(percent, function () {
+	        if (_this2.props.onChange) _this2.props.onChange(event, _this2.state.value);
+	      });
+	    }
+	  }, {
+	    key: 'percentToValue',
+	    value: function percentToValue(percent) {
+	      return percent * (this.props.max - this.props.min) + this.props.min;
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var _props3 = this.props;
+	      var description = _props3.description;
+	      var disabled = _props3.disabled;
+	      var disableFocusRipple = _props3.disableFocusRipple;
+	      var error = _props3.error;
+	      var max = _props3.max;
+	      var min = _props3.min;
+	      var name = _props3.name;
+	      var required = _props3.required;
+	      var step = _props3.step;
+	      var style = _props3.style;
+
+	      var others = _objectWithoutProperties(_props3, ['description', 'disabled', 'disableFocusRipple', 'error', 'max', 'min', 'name', 'required', 'step', 'style']);
+
+	      var prepareStyles = this.context.muiTheme.prepareStyles;
+
+	      var styles = getStyles(this.props, this.context, this.state);
+	      var sliderStyles = styles.slider;
+
+	      var handleStyles = {};
+	      var percent = this.state.percent;
+	      if (percent > 1) percent = 1;else if (percent < 0) percent = 0;
+
+	      if (percent === 0) {
+	        handleStyles = (0, _simpleAssign2.default)({}, styles.handle, styles.handleWhenPercentZero, this.state.active && styles.handleWhenActive, (this.state.hovered || this.state.focused) && !disabled && styles.handleWhenPercentZeroAndFocused, disabled && styles.handleWhenPercentZeroAndDisabled);
+	      } else {
+	        handleStyles = (0, _simpleAssign2.default)({}, styles.handle, this.state.active && styles.handleWhenActive, disabled && styles.handleWhenDisabled);
+	      }
+
+	      var rippleStyle = (0, _simpleAssign2.default)({}, styles.ripple, percent === 0 && styles.rippleWhenPercentZero);
+
+	      var rippleShowCondition = (this.state.hovered || this.state.focused) && !this.state.active;
+
+	      var focusRipple = void 0;
+	      if (!disabled && !disableFocusRipple) {
+	        focusRipple = _react2.default.createElement(_FocusRipple2.default, {
+	          ref: 'focusRipple',
+	          key: 'focusRipple',
+	          style: rippleStyle,
+	          innerStyle: styles.rippleInner,
+	          show: rippleShowCondition,
+	          muiTheme: this.context.muiTheme,
+	          color: styles.rippleColor.fill
+	        });
+	      }
+
+	      var handleDragProps = void 0;
+	      if (!disabled) {
+	        handleDragProps = {
+	          onTouchStart: this.onHandleTouchStart,
+	          onMouseDown: this.onHandleMouseDown,
+	          onKeyDown: this.onHandleKeyDown
+	        };
+	      }
+
+	      return _react2.default.createElement(
+	        'div',
+	        _extends({}, others, { style: prepareStyles((0, _simpleAssign2.default)({}, style)) }),
+	        _react2.default.createElement(
+	          'span',
+	          null,
+	          description
+	        ),
+	        _react2.default.createElement(
+	          'span',
+	          null,
+	          error
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          {
+	            style: prepareStyles(sliderStyles),
+	            onFocus: this.handleFocus,
+	            onBlur: this.handleBlur,
+	            onMouseDown: this.handleMouseDown,
+	            onMouseEnter: this.handleMouseEnter,
+	            onMouseLeave: this.handleMouseLeave,
+	            onMouseUp: this.handleMouseUp,
+	            onTouchStart: this.handleTouchStart
+	          },
+	          _react2.default.createElement(
+	            'div',
+	            { ref: 'track', style: prepareStyles(styles.track) },
+	            _react2.default.createElement('div', { style: prepareStyles(styles.filled) }),
+	            _react2.default.createElement('div', { style: prepareStyles(styles.remaining) }),
+	            _react2.default.createElement(
+	              'div',
+	              _extends({
+	                ref: 'handle',
+	                style: prepareStyles(handleStyles),
+	                tabIndex: 0
+	              }, handleDragProps),
+	              focusRipple
+	            )
+	          )
+	        ),
+	        _react2.default.createElement('input', {
+	          ref: 'input',
+	          type: 'hidden',
+	          name: name,
+	          value: this.state.value,
+	          required: required,
+	          min: min,
+	          max: max,
+	          step: step
+	        })
+	      );
+	    }
+	  }]);
+
+	  return Slider;
+	}(_react.Component);
+
+	Slider.propTypes = {
+	  /**
+	   * The default value of the slider.
+	   */
+	  defaultValue: valueInRangePropType,
+	  /**
+	   * Describe the slider.
+	   */
+	  description: _react.PropTypes.string,
+	  /**
+	   * Disables focus ripple if set to true.
+	   */
+	  disableFocusRipple: _react.PropTypes.bool,
+	  /**
+	   * If true, the slider will not be interactable.
+	   */
+	  disabled: _react.PropTypes.bool,
+	  /**
+	   * An error message for the slider.
+	   */
+	  error: _react.PropTypes.string,
+	  /**
+	   * The maximum value the slider can slide to on
+	   * a scale from 0 to 1 inclusive. Cannot be equal to min.
+	   */
+	  max: minMaxPropType,
+	  /**
+	   * The minimum value the slider can slide to on a scale
+	   * from 0 to 1 inclusive. Cannot be equal to max.
+	   */
+	  min: minMaxPropType,
+	  /**
+	   * The name of the slider. Behaves like the name attribute
+	   * of an input element.
+	   */
+	  name: _react.PropTypes.string,
+	  /**
+	   * Callback function that is fired when the focus has left the slider.
+	   */
+	  onBlur: _react.PropTypes.func,
+	  /**
+	   * Callback function that is fired when the user changes the slider's value.
+	   */
+	  onChange: _react.PropTypes.func,
+	  /**
+	   * Callback function that is fired when the slider has begun to move.
+	   */
+	  onDragStart: _react.PropTypes.func,
+	  /**
+	   * Callback function that is fried when the slide has stopped moving.
+	   */
+	  onDragStop: _react.PropTypes.func,
+	  /**
+	   * Callback fired when the user has focused on the slider.
+	   */
+	  onFocus: _react.PropTypes.func,
+	  /**
+	   * Whether or not the slider is required in a form.
+	   */
+	  required: _react.PropTypes.bool,
+	  /**
+	   * The granularity the slider can step through values.
+	   */
+	  step: _react.PropTypes.number,
+	  /**
+	   * Override the inline-styles of the root element.
+	   */
+	  style: _react.PropTypes.object,
+	  /**
+	   * The value of the slider.
+	   */
+	  value: valueInRangePropType
+	};
+	Slider.defaultProps = {
+	  disabled: false,
+	  disableFocusRipple: false,
+	  max: 1,
+	  min: 0,
+	  required: true,
+	  step: 0.01,
+	  style: {}
+	};
+	Slider.contextTypes = {
+	  muiTheme: _react.PropTypes.object.isRequired
+	};
+	exports.default = Slider;
+
+/***/ },
+/* 501 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactDom = __webpack_require__(33);
+
+	var _reactRouter = __webpack_require__(176);
+
+	var _MainStore = __webpack_require__(502);
+
+	var _MainStore2 = _interopRequireDefault(_MainStore);
+
+	var _getMuiTheme = __webpack_require__(237);
+
+	var _getMuiTheme2 = _interopRequireDefault(_getMuiTheme);
+
+	var _MuiThemeProvider = __webpack_require__(331);
+
+	var _MuiThemeProvider2 = _interopRequireDefault(_MuiThemeProvider);
+
+	var _drawer = __webpack_require__(377);
+
+	var _drawer2 = _interopRequireDefault(_drawer);
+
+	var _header = __webpack_require__(403);
+
+	var _header2 = _interopRequireDefault(_header);
+
+	var _AppBar = __webpack_require__(404);
+
+	var _AppBar2 = _interopRequireDefault(_AppBar);
+
+	var _IconMenu = __webpack_require__(407);
+
+	var _IconMenu2 = _interopRequireDefault(_IconMenu);
+
+	var _IconButton = __webpack_require__(337);
+
+	var _IconButton2 = _interopRequireDefault(_IconButton);
+
+	var _MenuItem = __webpack_require__(385);
+
+	var _MenuItem2 = _interopRequireDefault(_MenuItem);
+
+	var _moreVert = __webpack_require__(409);
+
+	var _moreVert2 = _interopRequireDefault(_moreVert);
+
+	var _close = __webpack_require__(410);
+
+	var _close2 = _interopRequireDefault(_close);
+
+	var _colors = __webpack_require__(247);
+
+	var _scrollablelist = __webpack_require__(332);
+
+	var _scrollablelist2 = _interopRequireDefault(_scrollablelist);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	//flux store
+
+
+	//theme components
+
+
+	//drawer
+
+
+	//App bar
+
+
+	//colors
+
+
+	//scrollable list
+
+
+	var Main = function (_React$Component) {
+	    _inherits(Main, _React$Component);
+
+	    function Main(props) {
+	        _classCallCheck(this, Main);
+
+	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Main).call(this, props));
+
+	        _this.leftButtonTapPress = _this.leftButtonTapPress.bind(_this);
+	        _this.storeChangeEmitted = _this.storeChangeEmitted.bind(_this);
+	        _this.handleClose = _this.handleClose.bind(_this);
+
+	        _this.store = (0, _MainStore2.default)();
+	        return _this;
+	    }
+
+	    _createClass(Main, [{
+	        key: 'componentWillMount',
+	        value: function componentWillMount() {
+	            if (!this.state || !this.state.openDrawer) {
+	                this.state = {};
+	                this.state.openDrawer = false;
+	            }
+	            this.store.addChangeEventListener(this.storeChangeEmitted);
+	        }
+	    }, {
+	        key: 'storeChangeEmitted',
+	        value: function storeChangeEmitted() {
+	            alert('storeChangeEmitted');
+	        }
+	    }, {
+	        key: 'componentWillUnmount',
+	        value: function componentWillUnmount() {
+	            console.log('component will unmount');
+
+	            this.store.removeChangeEventListener(this.storeChangeEmitted);
+	        }
+	    }, {
+	        key: 'handleClose',
+	        value: function handleClose() {
+	            this.setState({ openDrawer: false });
+	        }
+	    }, {
+	        key: 'leftButtonTapPress',
+	        value: function leftButtonTapPress() {
+	            this.setState({ openDrawer: true });
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'div',
+	                null,
+	                _react2.default.createElement(
+	                    _MuiThemeProvider2.default,
+	                    { muiTheme: (0, _getMuiTheme2.default)() },
+	                    _react2.default.createElement(_AppBar2.default, { title: 'Snowball Hybrid App',
+	                        onLeftIconButtonTouchTap: this.leftButtonTapPress,
+	                        iconElementRight: _react2.default.createElement(
+	                            _IconMenu2.default,
+	                            {
+	                                iconButtonElement: _react2.default.createElement(
+	                                    _IconButton2.default,
+	                                    null,
+	                                    _react2.default.createElement(_moreVert2.default, null)
+	                                ),
+	                                targetOrigin: { horizontal: 'right', vertical: 'top' },
+	                                anchorOrigin: { horizontal: 'right', vertical: 'top' }
+	                            },
+	                            _react2.default.createElement(_MenuItem2.default, { primaryText: 'Help' }),
+	                            _react2.default.createElement(_MenuItem2.default, { primaryText: 'Sign out' })
+	                        )
+	                    })
+	                ),
+	                _react2.default.createElement(
+	                    _MuiThemeProvider2.default,
+	                    { muiTheme: (0, _getMuiTheme2.default)() },
+	                    _react2.default.createElement(_drawer2.default, { open: this.state.openDrawer, handleClose: this.handleClose })
+	                ),
+	                _react2.default.createElement(
+	                    _MuiThemeProvider2.default,
+	                    { muiTheme: (0, _getMuiTheme2.default)() },
+	                    this.props.children
+	                )
+	            );
+	        }
+	    }]);
+
+	    return Main;
+	}(_react2.default.Component);
+
+	exports.default = Main;
+
+/***/ },
+/* 502 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	exports.default = function () {
+
+		//add event listener for Spacebar
+		document.addEventListener(eventInst.SPACE, function () {
+			emitChange();
+		});
+
+		function addChangeEvent(callback) {
+			document.addEventListener(CHANGE_EV, callback);
+		}
+
+		function removeChangeEvent(callback) {
+			console.log('remove ev');
+
+			document.removeEventListener(CHANGE_EV, callback);
+		}
+
+		function emitChange() {
+			document.dispatchEvent(event);
+		}
+
+		return {
+			addChangeEventListener: addChangeEvent,
+			removeChangeEventListener: removeChangeEvent
+		};
+	};
+
+	var _Events = __webpack_require__(503);
+
+	var _Events2 = _interopRequireDefault(_Events);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var CHANGE_EV = 'store_change';
+
+	var eventInst = new _Events2.default();
+	var event = new Event(CHANGE_EV);
+
+/***/ },
+/* 503 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	//for the use of Pub / Sub pattern
+	var Events = function Events() {
+		return {
+			'SPACE': 'SPACE'
+		};
+	};
+
+	exports.default = Events;
+
+/***/ },
+/* 504 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _Slider = __webpack_require__(499);
+
+	var _Slider2 = _interopRequireDefault(_Slider);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var style = {
+		width: '90%',
+		margin: 'auto'
+	};
+
+	/**
+	 * By default, the slider is continuous. The `step` property causes the slider to move in discrete increments.
+	 */
+	var SliderExampleStep = function SliderExampleStep() {
+		return _react2.default.createElement(_Slider2.default, { step: 0.10, value: .5, style: style });
+	};
+
+	exports.default = SliderExampleStep;
+
+/***/ },
+/* 505 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _Slider = __webpack_require__(499);
+
+	var _Slider2 = _interopRequireDefault(_Slider);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	/**
+	 * The orientation of the slider can be reversed and rotated using the `axis` prop.
+	 */
+	var SliderExampleAxis = function SliderExampleAxis() {
+		return _react2.default.createElement(
+			'div',
+			{ style: { display: 'flex', height: 224, flexDirection: 'row', justifyContent: 'space-around' } },
+			_react2.default.createElement(_Slider2.default, { style: { height: 100 }, axis: 'y', defaultValue: 0.5 }),
+			_react2.default.createElement(_Slider2.default, { style: { width: 200 }, axis: 'x-reverse' }),
+			_react2.default.createElement(_Slider2.default, { style: { height: 100 }, axis: 'y-reverse', step: 0.10, defaultValue: 1 })
+		);
+	};
+
+	exports.default = SliderExampleAxis;
 
 /***/ }
 /******/ ]);

@@ -23,6 +23,7 @@ import Tooltips from '../components/Tooltips/Tooltips.jsx';
 import Cards from '../components/Cards/Cards.jsx';
 import Chip from '../components/Chip/Chip.jsx';
 import Dialog from '../components/Dialog/Dialog.jsx';
+import Sliders from '../components/Sliders/Sliders.jsx';
 
 //Main component
 import Main from '../components/Main/Main.jsx';
@@ -61,6 +62,7 @@ class App_Router extends React.Component {
 					<Route path="/cards" component={Cards}></Route>
 					<Route path="/chip" component={Chip}></Route>
 					<Route path="/dialog" component={Dialog}></Route>
+					<Route path="/sliders" component={Sliders}></Route>
 
 				</Route>
 			</Router>
