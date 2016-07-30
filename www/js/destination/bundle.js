@@ -20566,7 +20566,7 @@
 
 	var _router2 = _interopRequireDefault(_router);
 
-	var _Events = __webpack_require__(519);
+	var _Events = __webpack_require__(520);
 
 	var _Events2 = _interopRequireDefault(_Events);
 
@@ -20626,43 +20626,43 @@
 
 	var _GridList2 = _interopRequireDefault(_GridList);
 
-	var _Avatar = __webpack_require__(413);
+	var _Avatar = __webpack_require__(419);
 
 	var _Avatar2 = _interopRequireDefault(_Avatar);
 
-	var _AutoCompleteExampleSimple = __webpack_require__(417);
+	var _AutoCompleteExampleSimple = __webpack_require__(423);
 
 	var _AutoCompleteExampleSimple2 = _interopRequireDefault(_AutoCompleteExampleSimple);
 
-	var _Badge = __webpack_require__(435);
+	var _Badge = __webpack_require__(441);
 
 	var _Badge2 = _interopRequireDefault(_Badge);
 
-	var _Tooltips = __webpack_require__(439);
+	var _Tooltips = __webpack_require__(445);
 
 	var _Tooltips2 = _interopRequireDefault(_Tooltips);
 
-	var _Cards = __webpack_require__(441);
+	var _Cards = __webpack_require__(447);
 
 	var _Cards2 = _interopRequireDefault(_Cards);
 
-	var _Chip = __webpack_require__(461);
+	var _Chip = __webpack_require__(464);
 
 	var _Chip2 = _interopRequireDefault(_Chip);
 
-	var _Dialog = __webpack_require__(464);
+	var _Dialog = __webpack_require__(467);
 
 	var _Dialog2 = _interopRequireDefault(_Dialog);
 
-	var _Sliders = __webpack_require__(497);
+	var _Sliders = __webpack_require__(498);
 
 	var _Sliders2 = _interopRequireDefault(_Sliders);
 
-	var _Steppers = __webpack_require__(503);
+	var _Steppers = __webpack_require__(504);
 
 	var _Steppers2 = _interopRequireDefault(_Steppers);
 
-	var _Main = __webpack_require__(517);
+	var _Main = __webpack_require__(518);
 
 	var _Main2 = _interopRequireDefault(_Main);
 
@@ -45629,10 +45629,6 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(33);
-
-	var _reactRouter = __webpack_require__(176);
-
 	var _GridList = __webpack_require__(333);
 
 	var _IconButton = __webpack_require__(337);
@@ -45647,6 +45643,10 @@
 
 	var _starBorder2 = _interopRequireDefault(_starBorder);
 
+	var _DescriptionDialog = __webpack_require__(413);
+
+	var _DescriptionDialog2 = _interopRequireDefault(_DescriptionDialog);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -45654,6 +45654,9 @@
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	//dialog with description
+
 
 	var styles = {
 		root: {
@@ -45671,7 +45674,15 @@
 	var tilesData = [{
 		img: 'img/grid-list/00-52-29-429_640.jpg',
 		title: 'Breakfast',
-		author: 'jill111'
+		author: 'John Snow'
+	}, {
+		img: 'img/grid-list/burger-827309_640.jpg',
+		title: 'Tasty burger 1',
+		author: 'pashminu'
+	}, {
+		img: 'img/grid-list/00-52-29-429_640.jpg',
+		title: 'Breakfast',
+		author: 'Lorem ipsum'
 	}, {
 		img: 'img/grid-list/burger-827309_640.jpg',
 		title: 'Tasty burger',
@@ -45695,7 +45706,23 @@
 	}, {
 		img: 'img/grid-list/vegetables-790022_640.jpg',
 		title: 'Vegetables',
-		author: 'jill111'
+		author: 'DaDaDaDa'
+	}, {
+		img: 'img/grid-list/water-plant-821293_640.jpg',
+		title: 'Water plant',
+		author: 'John Lennon'
+	}, {
+		img: 'img/grid-list/vegetables-790022_640.jpg',
+		title: 'Vegetables',
+		author: 'ABCD'
+	}, {
+		img: 'img/grid-list/water-plant-821293_640.jpg',
+		title: 'Water plant',
+		author: 'Baran Karki'
+	}, {
+		img: 'img/grid-list/vegetables-790022_640.jpg',
+		title: 'Vegetables',
+		author: 'AilAAl111'
 	}, {
 		img: 'img/grid-list/water-plant-821293_640.jpg',
 		title: 'Water plant',
@@ -45720,8 +45747,6 @@
 			key: 'render',
 			value: function render() {
 
-				console.log('scroll');
-
 				return _react2.default.createElement(
 					'div',
 					{ style: styles.root },
@@ -45734,13 +45759,14 @@
 						_react2.default.createElement(
 							_Subheader2.default,
 							null,
-							'December'
+							'Grid List Example ',
+							_react2.default.createElement(_DescriptionDialog2.default, null)
 						),
 						tilesData.map(function (tile) {
 							return _react2.default.createElement(
 								_GridList.GridTile,
 								{
-									key: tile.img,
+									key: tile.img + tile.author + tile.title,
 									title: tile.title,
 									subtitle: _react2.default.createElement(
 										'span',
@@ -45769,14 +45795,1130 @@
 		return GridListExampleSimple;
 	}(_react2.default.Component);
 
-	//const GridListExampleSimple = () => (
-	//
-	//);
-
 	exports.default = GridListExampleSimple;
 
 /***/ },
 /* 413 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _Dialog = __webpack_require__(414);
+
+	var _Dialog2 = _interopRequireDefault(_Dialog);
+
+	var _FlatButton = __webpack_require__(416);
+
+	var _FlatButton2 = _interopRequireDefault(_FlatButton);
+
+	var _RaisedButton = __webpack_require__(401);
+
+	var _RaisedButton2 = _interopRequireDefault(_RaisedButton);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var style = {
+		margin: '10px 0'
+	};
+
+	var DescriptionDialog = function (_React$Component) {
+		_inherits(DescriptionDialog, _React$Component);
+
+		function DescriptionDialog(props) {
+			_classCallCheck(this, DescriptionDialog);
+
+			var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(DescriptionDialog).call(this, props));
+
+			_this.state = {
+				open: false
+			};
+			return _this;
+		}
+
+		_createClass(DescriptionDialog, [{
+			key: 'handleOpen',
+			value: function handleOpen() {
+				this.setState({ open: true });
+			}
+		}, {
+			key: 'handleClose',
+			value: function handleClose() {
+				this.setState({ open: false });
+			}
+		}, {
+			key: 'render',
+			value: function render() {
+				var actions = [_react2.default.createElement(_FlatButton2.default, {
+					label: 'OK',
+					primary: true,
+					onTouchTap: this.handleClose.bind(this)
+				})];
+
+				return _react2.default.createElement(
+					'div',
+					{ style: style },
+					_react2.default.createElement(_RaisedButton2.default, { label: 'View Description', onTouchTap: this.handleOpen.bind(this) }),
+					_react2.default.createElement(
+						_Dialog2.default,
+						{
+							title: 'Grid list with smooth scrolling',
+							actions: actions,
+							modal: false,
+							open: this.state.open,
+							onRequestClose: this.handleClose.bind(this)
+						},
+						'This view should introduce long list of grid elements. As soon as you start scrolling you should notice that inspite of large number of elements on the page the scroll is still smooth.'
+					)
+				);
+			}
+		}]);
+
+		return DescriptionDialog;
+	}(_react2.default.Component);
+
+	exports.default = DescriptionDialog;
+
+/***/ },
+/* 414 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = undefined;
+
+	var _Dialog = __webpack_require__(415);
+
+	var _Dialog2 = _interopRequireDefault(_Dialog);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = _Dialog2.default;
+
+/***/ },
+/* 415 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _simpleAssign = __webpack_require__(335);
+
+	var _simpleAssign2 = _interopRequireDefault(_simpleAssign);
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactDom = __webpack_require__(33);
+
+	var _reactDom2 = _interopRequireDefault(_reactDom);
+
+	var _reactEventListener = __webpack_require__(380);
+
+	var _reactEventListener2 = _interopRequireDefault(_reactEventListener);
+
+	var _keycode = __webpack_require__(346);
+
+	var _keycode2 = _interopRequireDefault(_keycode);
+
+	var _transitions = __webpack_require__(339);
+
+	var _transitions2 = _interopRequireDefault(_transitions);
+
+	var _Overlay = __webpack_require__(381);
+
+	var _Overlay2 = _interopRequireDefault(_Overlay);
+
+	var _RenderToLayer = __webpack_require__(388);
+
+	var _RenderToLayer2 = _interopRequireDefault(_RenderToLayer);
+
+	var _Paper = __webpack_require__(383);
+
+	var _Paper2 = _interopRequireDefault(_Paper);
+
+	var _reactAddonsTransitionGroup = __webpack_require__(351);
+
+	var _reactAddonsTransitionGroup2 = _interopRequireDefault(_reactAddonsTransitionGroup);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var TransitionItem = function (_Component) {
+	  _inherits(TransitionItem, _Component);
+
+	  function TransitionItem() {
+	    var _Object$getPrototypeO;
+
+	    var _temp, _this, _ret;
+
+	    _classCallCheck(this, TransitionItem);
+
+	    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+	      args[_key] = arguments[_key];
+	    }
+
+	    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_Object$getPrototypeO = Object.getPrototypeOf(TransitionItem)).call.apply(_Object$getPrototypeO, [this].concat(args))), _this), _this.state = {
+	      style: {}
+	    }, _temp), _possibleConstructorReturn(_this, _ret);
+	  }
+
+	  _createClass(TransitionItem, [{
+	    key: 'componentWillUnmount',
+	    value: function componentWillUnmount() {
+	      clearTimeout(this.enterTimeout);
+	      clearTimeout(this.leaveTimeout);
+	    }
+	  }, {
+	    key: 'componentWillEnter',
+	    value: function componentWillEnter(callback) {
+	      this.componentWillAppear(callback);
+	    }
+	  }, {
+	    key: 'componentWillAppear',
+	    value: function componentWillAppear(callback) {
+	      var spacing = this.context.muiTheme.baseTheme.spacing;
+
+	      this.setState({
+	        style: {
+	          opacity: 1,
+	          transform: 'translate3d(0, ' + spacing.desktopKeylineIncrement + 'px, 0)'
+	        }
+	      });
+
+	      this.enterTimeout = setTimeout(callback, 450); // matches transition duration
+	    }
+	  }, {
+	    key: 'componentWillLeave',
+	    value: function componentWillLeave(callback) {
+	      this.setState({
+	        style: {
+	          opacity: 0,
+	          transform: 'translate3d(0, 0, 0)'
+	        }
+	      });
+
+	      this.leaveTimeout = setTimeout(callback, 450); // matches transition duration
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var _props = this.props;
+	      var style = _props.style;
+	      var children = _props.children;
+
+	      var other = _objectWithoutProperties(_props, ['style', 'children']);
+
+	      var prepareStyles = this.context.muiTheme.prepareStyles;
+
+
+	      return _react2.default.createElement(
+	        'div',
+	        _extends({}, other, { style: prepareStyles((0, _simpleAssign2.default)({}, this.state.style, style)) }),
+	        children
+	      );
+	    }
+	  }]);
+
+	  return TransitionItem;
+	}(_react.Component);
+
+	TransitionItem.propTypes = {
+	  children: _react.PropTypes.node,
+	  style: _react.PropTypes.object
+	};
+	TransitionItem.contextTypes = {
+	  muiTheme: _react.PropTypes.object.isRequired
+	};
+
+
+	function getStyles(props, context) {
+	  var autoScrollBodyContent = props.autoScrollBodyContent;
+	  var open = props.open;
+	  var _context$muiTheme = context.muiTheme;
+	  var _context$muiTheme$bas = _context$muiTheme.baseTheme;
+	  var spacing = _context$muiTheme$bas.spacing;
+	  var palette = _context$muiTheme$bas.palette;
+	  var dialog = _context$muiTheme.dialog;
+	  var zIndex = _context$muiTheme.zIndex;
+
+
+	  var gutter = spacing.desktopGutter;
+	  var borderScroll = '1px solid ' + palette.borderColor;
+
+	  return {
+	    root: {
+	      position: 'fixed',
+	      boxSizing: 'border-box',
+	      WebkitTapHighlightColor: 'rgba(0,0,0,0)', // Remove mobile color flashing (deprecated)
+	      zIndex: zIndex.dialog,
+	      top: 0,
+	      left: open ? 0 : -10000,
+	      width: '100%',
+	      height: '100%',
+	      transition: open ? _transitions2.default.easeOut('0ms', 'left', '0ms') : _transitions2.default.easeOut('0ms', 'left', '450ms')
+	    },
+	    content: {
+	      boxSizing: 'border-box',
+	      WebkitTapHighlightColor: 'rgba(0,0,0,0)', // Remove mobile color flashing (deprecated)
+	      transition: _transitions2.default.easeOut(),
+	      position: 'relative',
+	      width: '75%',
+	      maxWidth: spacing.desktopKeylineIncrement * 12,
+	      margin: '0 auto',
+	      zIndex: zIndex.dialog
+	    },
+	    actionsContainer: {
+	      boxSizing: 'border-box',
+	      WebkitTapHighlightColor: 'rgba(0,0,0,0)', // Remove mobile color flashing (deprecated)
+	      padding: 8,
+	      width: '100%',
+	      textAlign: 'right',
+	      marginTop: autoScrollBodyContent ? -1 : 0,
+	      borderTop: autoScrollBodyContent ? borderScroll : 'none'
+	    },
+	    overlay: {
+	      zIndex: zIndex.dialogOverlay
+	    },
+	    title: {
+	      margin: 0,
+	      padding: gutter + 'px ' + gutter + 'px 20px ' + gutter + 'px',
+	      color: palette.textColor,
+	      fontSize: dialog.titleFontSize,
+	      lineHeight: '32px',
+	      fontWeight: 400,
+	      marginBottom: autoScrollBodyContent ? -1 : 0,
+	      borderBottom: autoScrollBodyContent ? borderScroll : 'none'
+	    },
+	    body: {
+	      fontSize: dialog.bodyFontSize,
+	      color: dialog.bodyColor,
+	      padding: (props.title ? 0 : gutter) + 'px ' + gutter + 'px ' + gutter + 'px',
+	      boxSizing: 'border-box',
+	      overflowY: autoScrollBodyContent ? 'auto' : 'hidden'
+	    }
+	  };
+	}
+
+	var DialogInline = function (_Component2) {
+	  _inherits(DialogInline, _Component2);
+
+	  function DialogInline() {
+	    var _Object$getPrototypeO2;
+
+	    var _temp2, _this2, _ret2;
+
+	    _classCallCheck(this, DialogInline);
+
+	    for (var _len2 = arguments.length, args = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
+	      args[_key2] = arguments[_key2];
+	    }
+
+	    return _ret2 = (_temp2 = (_this2 = _possibleConstructorReturn(this, (_Object$getPrototypeO2 = Object.getPrototypeOf(DialogInline)).call.apply(_Object$getPrototypeO2, [this].concat(args))), _this2), _this2.handleTouchTapOverlay = function () {
+	      _this2.requestClose(false);
+	    }, _this2.handleKeyUp = function (event) {
+	      if ((0, _keycode2.default)(event) === 'esc') {
+	        _this2.requestClose(false);
+	      }
+	    }, _this2.handleResize = function () {
+	      _this2.positionDialog();
+	    }, _temp2), _possibleConstructorReturn(_this2, _ret2);
+	  }
+
+	  _createClass(DialogInline, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      this.positionDialog();
+	    }
+	  }, {
+	    key: 'componentDidUpdate',
+	    value: function componentDidUpdate() {
+	      this.positionDialog();
+	    }
+	  }, {
+	    key: 'positionDialog',
+	    value: function positionDialog() {
+	      var _props2 = this.props;
+	      var actions = _props2.actions;
+	      var autoDetectWindowHeight = _props2.autoDetectWindowHeight;
+	      var autoScrollBodyContent = _props2.autoScrollBodyContent;
+	      var bodyStyle = _props2.bodyStyle;
+	      var open = _props2.open;
+	      var repositionOnUpdate = _props2.repositionOnUpdate;
+	      var title = _props2.title;
+
+
+	      if (!open) {
+	        return;
+	      }
+
+	      var clientHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+	      var container = _reactDom2.default.findDOMNode(this);
+	      var dialogWindow = _reactDom2.default.findDOMNode(this.refs.dialogWindow);
+	      var dialogContent = _reactDom2.default.findDOMNode(this.refs.dialogContent);
+	      var minPaddingTop = 16;
+
+	      // Reset the height in case the window was resized.
+	      dialogWindow.style.height = '';
+	      dialogContent.style.height = '';
+
+	      var dialogWindowHeight = dialogWindow.offsetHeight;
+	      var paddingTop = (clientHeight - dialogWindowHeight) / 2 - 64;
+	      if (paddingTop < minPaddingTop) paddingTop = minPaddingTop;
+
+	      // Vertically center the dialog window, but make sure it doesn't
+	      // transition to that position.
+	      if (repositionOnUpdate || !container.style.paddingTop) {
+	        container.style.paddingTop = paddingTop + 'px';
+	      }
+
+	      // Force a height if the dialog is taller than clientHeight
+	      if (autoDetectWindowHeight || autoScrollBodyContent) {
+	        var styles = getStyles(this.props, this.context);
+	        styles.body = (0, _simpleAssign2.default)(styles.body, bodyStyle);
+	        var maxDialogContentHeight = clientHeight - 2 * 64;
+
+	        if (title) maxDialogContentHeight -= dialogContent.previousSibling.offsetHeight;
+
+	        if (_react2.default.Children.count(actions)) {
+	          maxDialogContentHeight -= dialogContent.nextSibling.offsetHeight;
+	        }
+
+	        dialogContent.style.maxHeight = maxDialogContentHeight + 'px';
+	      }
+	    }
+	  }, {
+	    key: 'requestClose',
+	    value: function requestClose(buttonClicked) {
+	      if (!buttonClicked && this.props.modal) {
+	        return;
+	      }
+
+	      if (this.props.onRequestClose) {
+	        this.props.onRequestClose(!!buttonClicked);
+	      }
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var _props3 = this.props;
+	      var actions = _props3.actions;
+	      var actionsContainerClassName = _props3.actionsContainerClassName;
+	      var actionsContainerStyle = _props3.actionsContainerStyle;
+	      var bodyClassName = _props3.bodyClassName;
+	      var bodyStyle = _props3.bodyStyle;
+	      var children = _props3.children;
+	      var className = _props3.className;
+	      var contentClassName = _props3.contentClassName;
+	      var contentStyle = _props3.contentStyle;
+	      var overlayClassName = _props3.overlayClassName;
+	      var overlayStyle = _props3.overlayStyle;
+	      var open = _props3.open;
+	      var titleClassName = _props3.titleClassName;
+	      var titleStyle = _props3.titleStyle;
+	      var title = _props3.title;
+	      var style = _props3.style;
+	      var prepareStyles = this.context.muiTheme.prepareStyles;
+
+	      var styles = getStyles(this.props, this.context);
+
+	      styles.root = (0, _simpleAssign2.default)(styles.root, style);
+	      styles.content = (0, _simpleAssign2.default)(styles.content, contentStyle);
+	      styles.body = (0, _simpleAssign2.default)(styles.body, bodyStyle);
+	      styles.actionsContainer = (0, _simpleAssign2.default)(styles.actionsContainer, actionsContainerStyle);
+	      styles.overlay = (0, _simpleAssign2.default)(styles.overlay, overlayStyle);
+	      styles.title = (0, _simpleAssign2.default)(styles.title, titleStyle);
+
+	      var actionsContainer = _react2.default.Children.count(actions) > 0 && _react2.default.createElement(
+	        'div',
+	        { className: actionsContainerClassName, style: prepareStyles(styles.actionsContainer) },
+	        _react2.default.Children.toArray(actions)
+	      );
+
+	      var titleElement = title;
+	      if (_react2.default.isValidElement(title)) {
+	        titleElement = _react2.default.cloneElement(title, {
+	          className: title.props.className || titleClassName,
+	          style: prepareStyles((0, _simpleAssign2.default)(styles.title, title.props.style))
+	        });
+	      } else if (typeof title === 'string') {
+	        titleElement = _react2.default.createElement(
+	          'h3',
+	          { className: titleClassName, style: prepareStyles(styles.title) },
+	          title
+	        );
+	      }
+
+	      return _react2.default.createElement(
+	        'div',
+	        { className: className, style: prepareStyles(styles.root) },
+	        open && _react2.default.createElement(_reactEventListener2.default, {
+	          elementName: 'window',
+	          onKeyUp: this.handleKeyUp,
+	          onResize: this.handleResize
+	        }),
+	        _react2.default.createElement(
+	          _reactAddonsTransitionGroup2.default,
+	          {
+	            component: 'div',
+	            ref: 'dialogWindow',
+	            transitionAppear: true,
+	            transitionAppearTimeout: 450,
+	            transitionEnter: true,
+	            transitionEnterTimeout: 450
+	          },
+	          open && _react2.default.createElement(
+	            TransitionItem,
+	            {
+	              className: contentClassName,
+	              style: styles.content
+	            },
+	            _react2.default.createElement(
+	              _Paper2.default,
+	              { zDepth: 4 },
+	              titleElement,
+	              _react2.default.createElement(
+	                'div',
+	                {
+	                  ref: 'dialogContent',
+	                  className: bodyClassName,
+	                  style: prepareStyles(styles.body)
+	                },
+	                children
+	              ),
+	              actionsContainer
+	            )
+	          )
+	        ),
+	        _react2.default.createElement(_Overlay2.default, {
+	          show: open,
+	          className: overlayClassName,
+	          style: styles.overlay,
+	          onTouchTap: this.handleTouchTapOverlay
+	        })
+	      );
+	    }
+	  }]);
+
+	  return DialogInline;
+	}(_react.Component);
+
+	DialogInline.propTypes = {
+	  actions: _react.PropTypes.node,
+	  actionsContainerClassName: _react.PropTypes.string,
+	  actionsContainerStyle: _react.PropTypes.object,
+	  autoDetectWindowHeight: _react.PropTypes.bool,
+	  autoScrollBodyContent: _react.PropTypes.bool,
+	  bodyClassName: _react.PropTypes.string,
+	  bodyStyle: _react.PropTypes.object,
+	  children: _react.PropTypes.node,
+	  className: _react.PropTypes.string,
+	  contentClassName: _react.PropTypes.string,
+	  contentStyle: _react.PropTypes.object,
+	  modal: _react.PropTypes.bool,
+	  onRequestClose: _react.PropTypes.func,
+	  open: _react.PropTypes.bool.isRequired,
+	  overlayClassName: _react.PropTypes.string,
+	  overlayStyle: _react.PropTypes.object,
+	  repositionOnUpdate: _react.PropTypes.bool,
+	  style: _react.PropTypes.object,
+	  title: _react.PropTypes.node,
+	  titleClassName: _react.PropTypes.string,
+	  titleStyle: _react.PropTypes.object
+	};
+	DialogInline.contextTypes = {
+	  muiTheme: _react.PropTypes.object.isRequired
+	};
+
+	var Dialog = function (_Component3) {
+	  _inherits(Dialog, _Component3);
+
+	  function Dialog() {
+	    var _Object$getPrototypeO3;
+
+	    var _temp3, _this3, _ret3;
+
+	    _classCallCheck(this, Dialog);
+
+	    for (var _len3 = arguments.length, args = Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {
+	      args[_key3] = arguments[_key3];
+	    }
+
+	    return _ret3 = (_temp3 = (_this3 = _possibleConstructorReturn(this, (_Object$getPrototypeO3 = Object.getPrototypeOf(Dialog)).call.apply(_Object$getPrototypeO3, [this].concat(args))), _this3), _this3.renderLayer = function () {
+	      return _react2.default.createElement(DialogInline, _this3.props);
+	    }, _temp3), _possibleConstructorReturn(_this3, _ret3);
+	  }
+
+	  _createClass(Dialog, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(_RenderToLayer2.default, { render: this.renderLayer, open: true, useLayerForClickAway: false });
+	    }
+	  }]);
+
+	  return Dialog;
+	}(_react.Component);
+
+	Dialog.propTypes = {
+	  /**
+	   * Action buttons to display below the Dialog content (`children`).
+	   * This property accepts either a React element, or an array of React elements.
+	   */
+	  actions: _react.PropTypes.node,
+	  /**
+	   * The `className` to add to the actions container's root element.
+	   */
+	  actionsContainerClassName: _react.PropTypes.string,
+	  /**
+	   * Overrides the inline-styles of the actions container's root element.
+	   */
+	  actionsContainerStyle: _react.PropTypes.object,
+	  /**
+	   * If set to true, the height of the `Dialog` will be auto detected. A max height
+	   * will be enforced so that the content does not extend beyond the viewport.
+	   */
+	  autoDetectWindowHeight: _react.PropTypes.bool,
+	  /**
+	   * If set to true, the body content of the `Dialog` will be scrollable.
+	   */
+	  autoScrollBodyContent: _react.PropTypes.bool,
+	  /**
+	   * The `className` to add to the content's root element under the title.
+	   */
+	  bodyClassName: _react.PropTypes.string,
+	  /**
+	   * Overrides the inline-styles of the content's root element under the title.
+	   */
+	  bodyStyle: _react.PropTypes.object,
+	  /**
+	   * The contents of the `Dialog`.
+	   */
+	  children: _react.PropTypes.node,
+	  /**
+	   * The css class name of the root element.
+	   */
+	  className: _react.PropTypes.string,
+	  /**
+	   * The `className` to add to the content container.
+	   */
+	  contentClassName: _react.PropTypes.string,
+	  /**
+	   * Overrides the inline-styles of the content container.
+	   */
+	  contentStyle: _react.PropTypes.object,
+	  /**
+	   * Force the user to use one of the actions in the `Dialog`.
+	   * Clicking outside the `Dialog` will not trigger the `onRequestClose`.
+	   */
+	  modal: _react.PropTypes.bool,
+	  /**
+	   * Fired when the `Dialog` is requested to be closed by a click outside the `Dialog` or on the buttons.
+	   *
+	   * @param {bool} buttonClicked Determines whether a button click triggered this request.
+	   */
+	  onRequestClose: _react.PropTypes.func,
+	  /**
+	   * Controls whether the Dialog is opened or not.
+	   */
+	  open: _react.PropTypes.bool.isRequired,
+	  /**
+	   * The `className` to add to the `Overlay` component that is rendered behind the `Dialog`.
+	   */
+	  overlayClassName: _react.PropTypes.string,
+	  /**
+	   * Overrides the inline-styles of the `Overlay` component that is rendered behind the `Dialog`.
+	   */
+	  overlayStyle: _react.PropTypes.object,
+	  /**
+	   * Determines whether the `Dialog` should be repositioned when it's contents are updated.
+	   */
+	  repositionOnUpdate: _react.PropTypes.bool,
+	  /**
+	   * Override the inline-styles of the root element.
+	   */
+	  style: _react.PropTypes.object,
+	  /**
+	   * The title to display on the `Dialog`. Could be number, string, element or an array containing these types.
+	   */
+	  title: _react.PropTypes.node,
+	  /**
+	   * The `className` to add to the title's root container element.
+	   */
+	  titleClassName: _react.PropTypes.string,
+	  /**
+	   * Overrides the inline-styles of the title's root container element.
+	   */
+	  titleStyle: _react.PropTypes.object
+	};
+	Dialog.contextTypes = {
+	  muiTheme: _react.PropTypes.object.isRequired
+	};
+	Dialog.defaultProps = {
+	  autoDetectWindowHeight: true,
+	  autoScrollBodyContent: false,
+	  modal: false,
+	  repositionOnUpdate: true
+	};
+	exports.default = Dialog;
+
+/***/ },
+/* 416 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = undefined;
+
+	var _FlatButton = __webpack_require__(417);
+
+	var _FlatButton2 = _interopRequireDefault(_FlatButton);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = _FlatButton2.default;
+
+/***/ },
+/* 417 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _simpleAssign = __webpack_require__(335);
+
+	var _simpleAssign2 = _interopRequireDefault(_simpleAssign);
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _transitions = __webpack_require__(339);
+
+	var _transitions2 = _interopRequireDefault(_transitions);
+
+	var _childUtils = __webpack_require__(342);
+
+	var _colorManipulator = __webpack_require__(245);
+
+	var _EnhancedButton = __webpack_require__(341);
+
+	var _EnhancedButton2 = _interopRequireDefault(_EnhancedButton);
+
+	var _FlatButtonLabel = __webpack_require__(418);
+
+	var _FlatButtonLabel2 = _interopRequireDefault(_FlatButtonLabel);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	function validateLabel(props, propName, componentName) {
+	  if (!props.children && !props.label && !props.icon) {
+	    return new Error('Required prop label or children or icon was not specified in ' + componentName + '.');
+	  }
+	}
+
+	var FlatButton = function (_Component) {
+	  _inherits(FlatButton, _Component);
+
+	  function FlatButton() {
+	    var _Object$getPrototypeO;
+
+	    var _temp, _this, _ret;
+
+	    _classCallCheck(this, FlatButton);
+
+	    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+	      args[_key] = arguments[_key];
+	    }
+
+	    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_Object$getPrototypeO = Object.getPrototypeOf(FlatButton)).call.apply(_Object$getPrototypeO, [this].concat(args))), _this), _this.state = {
+	      hovered: false,
+	      isKeyboardFocused: false,
+	      touch: false
+	    }, _this.handleKeyboardFocus = function (event, isKeyboardFocused) {
+	      _this.setState({ isKeyboardFocused: isKeyboardFocused });
+	      _this.props.onKeyboardFocus(event, isKeyboardFocused);
+	    }, _this.handleMouseEnter = function (event) {
+	      // Cancel hover styles for touch devices
+	      if (!_this.state.touch) _this.setState({ hovered: true });
+	      _this.props.onMouseEnter(event);
+	    }, _this.handleMouseLeave = function (event) {
+	      _this.setState({ hovered: false });
+	      _this.props.onMouseLeave(event);
+	    }, _this.handleTouchStart = function (event) {
+	      _this.setState({ touch: true });
+	      _this.props.onTouchStart(event);
+	    }, _temp), _possibleConstructorReturn(_this, _ret);
+	  }
+
+	  _createClass(FlatButton, [{
+	    key: 'render',
+	    value: function render() {
+	      var _props = this.props;
+	      var children = _props.children;
+	      var disabled = _props.disabled;
+	      var hoverColor = _props.hoverColor;
+	      var backgroundColor = _props.backgroundColor;
+	      var icon = _props.icon;
+	      var label = _props.label;
+	      var labelStyle = _props.labelStyle;
+	      var labelPosition = _props.labelPosition;
+	      var linkButton = _props.linkButton;
+	      var primary = _props.primary;
+	      var rippleColor = _props.rippleColor;
+	      var secondary = _props.secondary;
+	      var style = _props.style;
+
+	      var other = _objectWithoutProperties(_props, ['children', 'disabled', 'hoverColor', 'backgroundColor', 'icon', 'label', 'labelStyle', 'labelPosition', 'linkButton', 'primary', 'rippleColor', 'secondary', 'style']);
+
+	      var _context$muiTheme = this.context.muiTheme;
+	      var _context$muiTheme$but = _context$muiTheme.button;
+	      var buttonHeight = _context$muiTheme$but.height;
+	      var buttonMinWidth = _context$muiTheme$but.minWidth;
+	      var buttonTextTransform = _context$muiTheme$but.textTransform;
+	      var _context$muiTheme$fla = _context$muiTheme.flatButton;
+	      var buttonFilterColor = _context$muiTheme$fla.buttonFilterColor;
+	      var buttonColor = _context$muiTheme$fla.color;
+	      var disabledTextColor = _context$muiTheme$fla.disabledTextColor;
+	      var fontSize = _context$muiTheme$fla.fontSize;
+	      var fontWeight = _context$muiTheme$fla.fontWeight;
+	      var primaryTextColor = _context$muiTheme$fla.primaryTextColor;
+	      var secondaryTextColor = _context$muiTheme$fla.secondaryTextColor;
+	      var textColor = _context$muiTheme$fla.textColor;
+	      var _context$muiTheme$fla2 = _context$muiTheme$fla.textTransform;
+	      var textTransform = _context$muiTheme$fla2 === undefined ? buttonTextTransform || 'uppercase' : _context$muiTheme$fla2;
+
+	      var defaultTextColor = disabled ? disabledTextColor : primary ? primaryTextColor : secondary ? secondaryTextColor : textColor;
+
+	      var defaultHoverColor = (0, _colorManipulator.fade)(buttonFilterColor, 0.2);
+	      var defaultRippleColor = buttonFilterColor;
+	      var buttonHoverColor = hoverColor || defaultHoverColor;
+	      var buttonRippleColor = rippleColor || defaultRippleColor;
+	      var buttonBackgroundColor = backgroundColor || buttonColor;
+	      var hovered = (this.state.hovered || this.state.isKeyboardFocused) && !disabled;
+
+	      var mergedRootStyles = (0, _simpleAssign2.default)({}, {
+	        height: buttonHeight,
+	        lineHeight: buttonHeight + 'px',
+	        minWidth: buttonMinWidth,
+	        color: defaultTextColor,
+	        transition: _transitions2.default.easeOut(),
+	        borderRadius: 2,
+	        userSelect: 'none',
+	        position: 'relative',
+	        overflow: 'hidden',
+	        backgroundColor: hovered ? buttonHoverColor : buttonBackgroundColor,
+	        padding: 0,
+	        margin: 0,
+	        textAlign: 'center'
+	      }, style);
+
+	      var iconCloned = void 0;
+	      var labelStyleIcon = {};
+
+	      if (icon) {
+	        iconCloned = _react2.default.cloneElement(icon, {
+	          color: mergedRootStyles.color,
+	          style: {
+	            verticalAlign: 'middle',
+	            marginLeft: label && labelPosition !== 'before' ? 12 : 0,
+	            marginRight: label && labelPosition === 'before' ? 12 : 0
+	          }
+	        });
+
+	        if (labelPosition === 'before') {
+	          labelStyleIcon.paddingRight = 8;
+	        } else {
+	          labelStyleIcon.paddingLeft = 8;
+	        }
+	      }
+
+	      var mergedLabelStyles = (0, _simpleAssign2.default)({
+	        letterSpacing: 0,
+	        textTransform: textTransform,
+	        fontWeight: fontWeight,
+	        fontSize: fontSize
+	      }, labelStyleIcon, labelStyle);
+
+	      var labelElement = label ? _react2.default.createElement(_FlatButtonLabel2.default, { label: label, style: mergedLabelStyles }) : undefined;
+
+	      // Place label before or after children.
+	      var childrenFragment = labelPosition === 'before' ? {
+	        labelElement: labelElement,
+	        iconCloned: iconCloned,
+	        children: children
+	      } : {
+	        children: children,
+	        iconCloned: iconCloned,
+	        labelElement: labelElement
+	      };
+
+	      var enhancedButtonChildren = (0, _childUtils.createChildFragment)(childrenFragment);
+
+	      return _react2.default.createElement(
+	        _EnhancedButton2.default,
+	        _extends({}, other, {
+	          disabled: disabled,
+	          focusRippleColor: buttonRippleColor,
+	          focusRippleOpacity: 0.3,
+	          linkButton: linkButton,
+	          onKeyboardFocus: this.handleKeyboardFocus,
+	          onMouseLeave: this.handleMouseLeave,
+	          onMouseEnter: this.handleMouseEnter,
+	          onTouchStart: this.handleTouchStart,
+	          style: mergedRootStyles,
+	          touchRippleColor: buttonRippleColor,
+	          touchRippleOpacity: 0.3
+	        }),
+	        enhancedButtonChildren
+	      );
+	    }
+	  }]);
+
+	  return FlatButton;
+	}(_react.Component);
+
+	FlatButton.muiName = 'FlatButton';
+	FlatButton.propTypes = {
+	  /**
+	   * Color of button when mouse is not hovering over it.
+	   */
+	  backgroundColor: _react.PropTypes.string,
+	  /**
+	   * This is what will be displayed inside the button.
+	   * If a label is specified, the text within the label prop will
+	   * be displayed. Otherwise, the component will expect children
+	   * which will then be displayed. (In our example,
+	   * we are nesting an `<input type="file" />` and a `span`
+	   * that acts as our label to be displayed.) This only
+	   * applies to flat and raised buttons.
+	   */
+	  children: _react.PropTypes.node,
+	  /**
+	   * Disables the button if set to true.
+	   */
+	  disabled: _react.PropTypes.bool,
+	  /**
+	   * Color of button when mouse hovers over.
+	   */
+	  hoverColor: _react.PropTypes.string,
+	  /**
+	   * URL to link to when button clicked if `linkButton` is set to true.
+	   */
+	  href: _react.PropTypes.string,
+	  /**
+	   * Use this property to display an icon.
+	   */
+	  icon: _react.PropTypes.node,
+	  /**
+	   * Label for the button.
+	   */
+	  label: validateLabel,
+	  /**
+	   * Place label before or after the passed children.
+	   */
+	  labelPosition: _react.PropTypes.oneOf(['before', 'after']),
+	  /**
+	   * Override the inline-styles of the button's label element.
+	   */
+	  labelStyle: _react.PropTypes.object,
+	  /**
+	   * Enables use of `href` property to provide a URL to link to if set to true.
+	   */
+	  linkButton: _react.PropTypes.bool,
+	  /**
+	   * Callback function fired when the element is focused or blurred by the keyboard.
+	   *
+	   * @param {object} event `focus` or `blur` event targeting the element.
+	   * @param {boolean} isKeyboardFocused Indicates whether the element is focused.
+	   */
+	  onKeyboardFocus: _react.PropTypes.func,
+	  /**
+	   * Callback function fired when the mouse enters the element.
+	   *
+	   * @param {object} event `mouseenter` event targeting the element.
+	   */
+	  onMouseEnter: _react.PropTypes.func,
+	  /**
+	   * Callback function fired when the mouse leaves the element.
+	   *
+	   * @param {object} event `mouseleave` event targeting the element.
+	   */
+	  onMouseLeave: _react.PropTypes.func,
+	  /**
+	   * Callback function fired when the element is touched.
+	   *
+	   * @param {object} event `touchstart` event targeting the element.
+	   */
+	  onTouchStart: _react.PropTypes.func,
+	  /**
+	   * If true, colors button according to
+	   * primaryTextColor from the Theme.
+	   */
+	  primary: _react.PropTypes.bool,
+	  /**
+	   * Color for the ripple after button is clicked.
+	   */
+	  rippleColor: _react.PropTypes.string,
+	  /**
+	   * If true, colors button according to secondaryTextColor from the theme.
+	   * The primary prop has precendent if set to true.
+	   */
+	  secondary: _react.PropTypes.bool,
+	  /**
+	   * Override the inline-styles of the root element.
+	   */
+	  style: _react.PropTypes.object
+	};
+	FlatButton.defaultProps = {
+	  disabled: false,
+	  labelStyle: {},
+	  labelPosition: 'after',
+	  onKeyboardFocus: function onKeyboardFocus() {},
+	  onMouseEnter: function onMouseEnter() {},
+	  onMouseLeave: function onMouseLeave() {},
+	  onTouchStart: function onTouchStart() {},
+	  primary: false,
+	  secondary: false
+	};
+	FlatButton.contextTypes = {
+	  muiTheme: _react.PropTypes.object.isRequired
+	};
+	exports.default = FlatButton;
+
+/***/ },
+/* 418 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _simpleAssign = __webpack_require__(335);
+
+	var _simpleAssign2 = _interopRequireDefault(_simpleAssign);
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	function getStyles(props, context) {
+	  var baseTheme = context.muiTheme.baseTheme;
+
+
+	  return {
+	    root: {
+	      position: 'relative',
+	      paddingLeft: baseTheme.spacing.desktopGutterLess,
+	      paddingRight: baseTheme.spacing.desktopGutterLess,
+	      verticalAlign: 'middle'
+	    }
+	  };
+	}
+
+	var FlatButtonLabel = function (_Component) {
+	  _inherits(FlatButtonLabel, _Component);
+
+	  function FlatButtonLabel() {
+	    _classCallCheck(this, FlatButtonLabel);
+
+	    return _possibleConstructorReturn(this, Object.getPrototypeOf(FlatButtonLabel).apply(this, arguments));
+	  }
+
+	  _createClass(FlatButtonLabel, [{
+	    key: 'render',
+	    value: function render() {
+	      var _props = this.props;
+	      var label = _props.label;
+	      var style = _props.style;
+	      var prepareStyles = this.context.muiTheme.prepareStyles;
+
+	      var styles = getStyles(this.props, this.context);
+
+	      return _react2.default.createElement(
+	        'span',
+	        { style: prepareStyles((0, _simpleAssign2.default)(styles.root, style)) },
+	        label
+	      );
+	    }
+	  }]);
+
+	  return FlatButtonLabel;
+	}(_react.Component);
+
+	FlatButtonLabel.propTypes = {
+	  label: _react.PropTypes.node,
+	  style: _react.PropTypes.object
+	};
+	FlatButtonLabel.contextTypes = {
+	  muiTheme: _react.PropTypes.object.isRequired
+	};
+	exports.default = FlatButtonLabel;
+
+/***/ },
+/* 419 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -45791,11 +46933,11 @@
 
 	var _reactDom = __webpack_require__(33);
 
-	var _Avatar = __webpack_require__(414);
+	var _Avatar = __webpack_require__(420);
 
 	var _Avatar2 = _interopRequireDefault(_Avatar);
 
-	var _folder = __webpack_require__(416);
+	var _folder = __webpack_require__(422);
 
 	var _folder2 = _interopRequireDefault(_folder);
 
@@ -45929,7 +47071,7 @@
 	exports.default = AvatarExampleSimple;
 
 /***/ },
-/* 414 */
+/* 420 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -45939,7 +47081,7 @@
 	});
 	exports.default = undefined;
 
-	var _Avatar = __webpack_require__(415);
+	var _Avatar = __webpack_require__(421);
 
 	var _Avatar2 = _interopRequireDefault(_Avatar);
 
@@ -45948,7 +47090,7 @@
 	exports.default = _Avatar2.default;
 
 /***/ },
-/* 415 */
+/* 421 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -46115,7 +47257,7 @@
 	exports.default = Avatar;
 
 /***/ },
-/* 416 */
+/* 422 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -46151,7 +47293,7 @@
 	exports.default = FileFolder;
 
 /***/ },
-/* 417 */
+/* 423 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -46166,7 +47308,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _AutoComplete = __webpack_require__(418);
+	var _AutoComplete = __webpack_require__(424);
 
 	var _AutoComplete2 = _interopRequireDefault(_AutoComplete);
 
@@ -46178,25 +47320,25 @@
 
 	var _Subheader2 = _interopRequireDefault(_Subheader);
 
-	var _List = __webpack_require__(429);
+	var _List = __webpack_require__(435);
 
-	var _Avatar = __webpack_require__(414);
+	var _Avatar = __webpack_require__(420);
 
 	var _Avatar2 = _interopRequireDefault(_Avatar);
 
-	var _done = __webpack_require__(431);
+	var _done = __webpack_require__(437);
 
 	var _done2 = _interopRequireDefault(_done);
 
-	var _info = __webpack_require__(432);
+	var _info = __webpack_require__(438);
 
 	var _info2 = _interopRequireDefault(_info);
 
-	var _AutoCompleteExampleDataSource = __webpack_require__(433);
+	var _AutoCompleteExampleDataSource = __webpack_require__(439);
 
 	var _AutoCompleteExampleDataSource2 = _interopRequireDefault(_AutoCompleteExampleDataSource);
 
-	var _AutoCompleteExampleFilter = __webpack_require__(434);
+	var _AutoCompleteExampleFilter = __webpack_require__(440);
 
 	var _AutoCompleteExampleFilter2 = _interopRequireDefault(_AutoCompleteExampleFilter);
 
@@ -46364,7 +47506,7 @@
 	exports.default = AutoCompleteExampleSimple;
 
 /***/ },
-/* 418 */
+/* 424 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -46374,7 +47516,7 @@
 	});
 	exports.default = undefined;
 
-	var _AutoComplete = __webpack_require__(419);
+	var _AutoComplete = __webpack_require__(425);
 
 	var _AutoComplete2 = _interopRequireDefault(_AutoComplete);
 
@@ -46383,7 +47525,7 @@
 	exports.default = _AutoComplete2.default;
 
 /***/ },
-/* 419 */
+/* 425 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -46414,11 +47556,11 @@
 
 	var _keycode2 = _interopRequireDefault(_keycode);
 
-	var _TextField = __webpack_require__(420);
+	var _TextField = __webpack_require__(426);
 
 	var _TextField2 = _interopRequireDefault(_TextField);
 
-	var _Menu = __webpack_require__(426);
+	var _Menu = __webpack_require__(432);
 
 	var _Menu2 = _interopRequireDefault(_Menu);
 
@@ -46426,7 +47568,7 @@
 
 	var _MenuItem2 = _interopRequireDefault(_MenuItem);
 
-	var _Divider = __webpack_require__(427);
+	var _Divider = __webpack_require__(433);
 
 	var _Divider2 = _interopRequireDefault(_Divider);
 
@@ -47020,7 +48162,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 420 */
+/* 426 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -47030,7 +48172,7 @@
 	});
 	exports.default = undefined;
 
-	var _TextField = __webpack_require__(421);
+	var _TextField = __webpack_require__(427);
 
 	var _TextField2 = _interopRequireDefault(_TextField);
 
@@ -47039,7 +48181,7 @@
 	exports.default = _TextField2.default;
 
 /***/ },
-/* 421 */
+/* 427 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -47082,19 +48224,19 @@
 
 	var _deprecatedPropType2 = _interopRequireDefault(_deprecatedPropType);
 
-	var _EnhancedTextarea = __webpack_require__(422);
+	var _EnhancedTextarea = __webpack_require__(428);
 
 	var _EnhancedTextarea2 = _interopRequireDefault(_EnhancedTextarea);
 
-	var _TextFieldHint = __webpack_require__(423);
+	var _TextFieldHint = __webpack_require__(429);
 
 	var _TextFieldHint2 = _interopRequireDefault(_TextFieldHint);
 
-	var _TextFieldLabel = __webpack_require__(424);
+	var _TextFieldLabel = __webpack_require__(430);
 
 	var _TextFieldLabel2 = _interopRequireDefault(_TextFieldLabel);
 
-	var _TextFieldUnderline = __webpack_require__(425);
+	var _TextFieldUnderline = __webpack_require__(431);
 
 	var _TextFieldUnderline2 = _interopRequireDefault(_TextFieldUnderline);
 
@@ -47608,7 +48750,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 422 */
+/* 428 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -47832,7 +48974,7 @@
 	exports.default = EnhancedTextarea;
 
 /***/ },
-/* 423 */
+/* 429 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -47913,7 +49055,7 @@
 	exports.default = TextFieldHint;
 
 /***/ },
-/* 424 */
+/* 430 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -48030,7 +49172,7 @@
 	exports.default = TextFieldLabel;
 
 /***/ },
-/* 425 */
+/* 431 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -48165,7 +49307,7 @@
 	exports.default = TextFieldUnderline;
 
 /***/ },
-/* 426 */
+/* 432 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -48190,7 +49332,7 @@
 	exports.default = _Menu3.default;
 
 /***/ },
-/* 427 */
+/* 433 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -48200,7 +49342,7 @@
 	});
 	exports.default = undefined;
 
-	var _Divider = __webpack_require__(428);
+	var _Divider = __webpack_require__(434);
 
 	var _Divider2 = _interopRequireDefault(_Divider);
 
@@ -48209,7 +49351,7 @@
 	exports.default = _Divider2.default;
 
 /***/ },
-/* 428 */
+/* 434 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -48287,7 +49429,7 @@
 	exports.default = Divider;
 
 /***/ },
-/* 429 */
+/* 435 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -48305,7 +49447,7 @@
 
 	var _ListItem3 = _interopRequireDefault(_ListItem2);
 
-	var _MakeSelectable2 = __webpack_require__(430);
+	var _MakeSelectable2 = __webpack_require__(436);
 
 	var _MakeSelectable3 = _interopRequireDefault(_MakeSelectable2);
 
@@ -48317,7 +49459,7 @@
 	exports.default = _List3.default;
 
 /***/ },
-/* 430 */
+/* 436 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -48486,7 +49628,7 @@
 	exports.default = MakeSelectable;
 
 /***/ },
-/* 431 */
+/* 437 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -48522,7 +49664,7 @@
 	exports.default = ActionDone;
 
 /***/ },
-/* 432 */
+/* 438 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -48558,7 +49700,7 @@
 	exports.default = ActionInfo;
 
 /***/ },
-/* 433 */
+/* 439 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -48571,7 +49713,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _AutoComplete = __webpack_require__(418);
+	var _AutoComplete = __webpack_require__(424);
 
 	var _AutoComplete2 = _interopRequireDefault(_AutoComplete);
 
@@ -48633,7 +49775,7 @@
 	exports.default = AutoCompleteExampleNoFilter;
 
 /***/ },
-/* 434 */
+/* 440 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -48646,7 +49788,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _AutoComplete = __webpack_require__(418);
+	var _AutoComplete = __webpack_require__(424);
 
 	var _AutoComplete2 = _interopRequireDefault(_AutoComplete);
 
@@ -48678,7 +49820,7 @@
 	exports.default = AutoCompleteExampleFilters;
 
 /***/ },
-/* 435 */
+/* 441 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -48691,7 +49833,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Badge = __webpack_require__(436);
+	var _Badge = __webpack_require__(442);
 
 	var _Badge2 = _interopRequireDefault(_Badge);
 
@@ -48699,7 +49841,7 @@
 
 	var _IconButton2 = _interopRequireDefault(_IconButton);
 
-	var _notifications = __webpack_require__(438);
+	var _notifications = __webpack_require__(444);
 
 	var _notifications2 = _interopRequireDefault(_notifications);
 
@@ -48740,7 +49882,7 @@
 	exports.default = BadgeExampleSimple;
 
 /***/ },
-/* 436 */
+/* 442 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -48750,7 +49892,7 @@
 	});
 	exports.default = undefined;
 
-	var _Badge = __webpack_require__(437);
+	var _Badge = __webpack_require__(443);
 
 	var _Badge2 = _interopRequireDefault(_Badge);
 
@@ -48759,7 +49901,7 @@
 	exports.default = _Badge2.default;
 
 /***/ },
-/* 437 */
+/* 443 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -48920,7 +50062,7 @@
 	exports.default = Badge;
 
 /***/ },
-/* 438 */
+/* 444 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -48956,7 +50098,7 @@
 	exports.default = SocialNotifications;
 
 /***/ },
-/* 439 */
+/* 445 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -48977,11 +50119,11 @@
 
 	var _Subheader2 = _interopRequireDefault(_Subheader);
 
-	var _Divider = __webpack_require__(427);
+	var _Divider = __webpack_require__(433);
 
 	var _Divider2 = _interopRequireDefault(_Divider);
 
-	var _grade = __webpack_require__(440);
+	var _grade = __webpack_require__(446);
 
 	var _grade2 = _interopRequireDefault(_grade);
 
@@ -49077,7 +50219,7 @@
 	exports.default = IconButtonExampleTooltip;
 
 /***/ },
-/* 440 */
+/* 446 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -49113,7 +50255,7 @@
 	exports.default = ActionGrade;
 
 /***/ },
-/* 441 */
+/* 447 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -49126,19 +50268,19 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _BasicCard = __webpack_require__(442);
+	var _BasicCard = __webpack_require__(448);
 
 	var _BasicCard2 = _interopRequireDefault(_BasicCard);
 
-	var _ExpandableCard = __webpack_require__(456);
+	var _ExpandableCard = __webpack_require__(459);
 
 	var _ExpandableCard2 = _interopRequireDefault(_ExpandableCard);
 
-	var _ControlledExpandableCard = __webpack_require__(457);
+	var _ControlledExpandableCard = __webpack_require__(460);
 
 	var _ControlledExpandableCard2 = _interopRequireDefault(_ControlledExpandableCard);
 
-	var _Divider = __webpack_require__(427);
+	var _Divider = __webpack_require__(433);
 
 	var _Divider2 = _interopRequireDefault(_Divider);
 
@@ -49167,7 +50309,7 @@
 	exports.default = Cards;
 
 /***/ },
-/* 442 */
+/* 448 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -49180,9 +50322,9 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Card = __webpack_require__(443);
+	var _Card = __webpack_require__(449);
 
-	var _FlatButton = __webpack_require__(453);
+	var _FlatButton = __webpack_require__(416);
 
 	var _FlatButton2 = _interopRequireDefault(_FlatButton);
 
@@ -49228,7 +50370,7 @@
 	exports.default = CardExampleWithAvatar;
 
 /***/ },
-/* 443 */
+/* 449 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -49238,31 +50380,31 @@
 	});
 	exports.default = exports.CardExpandable = exports.CardActions = exports.CardText = exports.CardMedia = exports.CardTitle = exports.CardHeader = exports.Card = undefined;
 
-	var _Card2 = __webpack_require__(444);
+	var _Card2 = __webpack_require__(450);
 
 	var _Card3 = _interopRequireDefault(_Card2);
 
-	var _CardHeader2 = __webpack_require__(448);
+	var _CardHeader2 = __webpack_require__(454);
 
 	var _CardHeader3 = _interopRequireDefault(_CardHeader2);
 
-	var _CardTitle2 = __webpack_require__(449);
+	var _CardTitle2 = __webpack_require__(455);
 
 	var _CardTitle3 = _interopRequireDefault(_CardTitle2);
 
-	var _CardMedia2 = __webpack_require__(450);
+	var _CardMedia2 = __webpack_require__(456);
 
 	var _CardMedia3 = _interopRequireDefault(_CardMedia2);
 
-	var _CardText2 = __webpack_require__(451);
+	var _CardText2 = __webpack_require__(457);
 
 	var _CardText3 = _interopRequireDefault(_CardText2);
 
-	var _CardActions2 = __webpack_require__(452);
+	var _CardActions2 = __webpack_require__(458);
 
 	var _CardActions3 = _interopRequireDefault(_CardActions2);
 
-	var _CardExpandable2 = __webpack_require__(445);
+	var _CardExpandable2 = __webpack_require__(451);
 
 	var _CardExpandable3 = _interopRequireDefault(_CardExpandable2);
 
@@ -49278,7 +50420,7 @@
 	exports.default = _Card3.default;
 
 /***/ },
-/* 444 */
+/* 450 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -49303,7 +50445,7 @@
 
 	var _Paper2 = _interopRequireDefault(_Paper);
 
-	var _CardExpandable = __webpack_require__(445);
+	var _CardExpandable = __webpack_require__(451);
 
 	var _CardExpandable2 = _interopRequireDefault(_CardExpandable);
 
@@ -49471,7 +50613,7 @@
 	exports.default = Card;
 
 /***/ },
-/* 445 */
+/* 451 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -49490,11 +50632,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _keyboardArrowUp = __webpack_require__(446);
+	var _keyboardArrowUp = __webpack_require__(452);
 
 	var _keyboardArrowUp2 = _interopRequireDefault(_keyboardArrowUp);
 
-	var _keyboardArrowDown = __webpack_require__(447);
+	var _keyboardArrowDown = __webpack_require__(453);
 
 	var _keyboardArrowDown2 = _interopRequireDefault(_keyboardArrowDown);
 
@@ -49561,7 +50703,7 @@
 	exports.default = CardExpandable;
 
 /***/ },
-/* 446 */
+/* 452 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -49597,7 +50739,7 @@
 	exports.default = HardwareKeyboardArrowUp;
 
 /***/ },
-/* 447 */
+/* 453 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -49633,7 +50775,7 @@
 	exports.default = HardwareKeyboardArrowDown;
 
 /***/ },
-/* 448 */
+/* 454 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -49654,7 +50796,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Avatar = __webpack_require__(414);
+	var _Avatar = __webpack_require__(420);
 
 	var _Avatar2 = _interopRequireDefault(_Avatar);
 
@@ -49829,7 +50971,7 @@
 	exports.default = CardHeader;
 
 /***/ },
-/* 449 */
+/* 455 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -49982,7 +51124,7 @@
 	exports.default = CardTitle;
 
 /***/ },
-/* 450 */
+/* 456 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -50165,7 +51307,7 @@
 	exports.default = CardMedia;
 
 /***/ },
-/* 451 */
+/* 457 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -50264,7 +51406,7 @@
 	exports.default = CardText;
 
 /***/ },
-/* 452 */
+/* 458 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -50368,430 +51510,7 @@
 	exports.default = CardActions;
 
 /***/ },
-/* 453 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.default = undefined;
-
-	var _FlatButton = __webpack_require__(454);
-
-	var _FlatButton2 = _interopRequireDefault(_FlatButton);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	exports.default = _FlatButton2.default;
-
-/***/ },
-/* 454 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _simpleAssign = __webpack_require__(335);
-
-	var _simpleAssign2 = _interopRequireDefault(_simpleAssign);
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _transitions = __webpack_require__(339);
-
-	var _transitions2 = _interopRequireDefault(_transitions);
-
-	var _childUtils = __webpack_require__(342);
-
-	var _colorManipulator = __webpack_require__(245);
-
-	var _EnhancedButton = __webpack_require__(341);
-
-	var _EnhancedButton2 = _interopRequireDefault(_EnhancedButton);
-
-	var _FlatButtonLabel = __webpack_require__(455);
-
-	var _FlatButtonLabel2 = _interopRequireDefault(_FlatButtonLabel);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	function validateLabel(props, propName, componentName) {
-	  if (!props.children && !props.label && !props.icon) {
-	    return new Error('Required prop label or children or icon was not specified in ' + componentName + '.');
-	  }
-	}
-
-	var FlatButton = function (_Component) {
-	  _inherits(FlatButton, _Component);
-
-	  function FlatButton() {
-	    var _Object$getPrototypeO;
-
-	    var _temp, _this, _ret;
-
-	    _classCallCheck(this, FlatButton);
-
-	    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-	      args[_key] = arguments[_key];
-	    }
-
-	    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_Object$getPrototypeO = Object.getPrototypeOf(FlatButton)).call.apply(_Object$getPrototypeO, [this].concat(args))), _this), _this.state = {
-	      hovered: false,
-	      isKeyboardFocused: false,
-	      touch: false
-	    }, _this.handleKeyboardFocus = function (event, isKeyboardFocused) {
-	      _this.setState({ isKeyboardFocused: isKeyboardFocused });
-	      _this.props.onKeyboardFocus(event, isKeyboardFocused);
-	    }, _this.handleMouseEnter = function (event) {
-	      // Cancel hover styles for touch devices
-	      if (!_this.state.touch) _this.setState({ hovered: true });
-	      _this.props.onMouseEnter(event);
-	    }, _this.handleMouseLeave = function (event) {
-	      _this.setState({ hovered: false });
-	      _this.props.onMouseLeave(event);
-	    }, _this.handleTouchStart = function (event) {
-	      _this.setState({ touch: true });
-	      _this.props.onTouchStart(event);
-	    }, _temp), _possibleConstructorReturn(_this, _ret);
-	  }
-
-	  _createClass(FlatButton, [{
-	    key: 'render',
-	    value: function render() {
-	      var _props = this.props;
-	      var children = _props.children;
-	      var disabled = _props.disabled;
-	      var hoverColor = _props.hoverColor;
-	      var backgroundColor = _props.backgroundColor;
-	      var icon = _props.icon;
-	      var label = _props.label;
-	      var labelStyle = _props.labelStyle;
-	      var labelPosition = _props.labelPosition;
-	      var linkButton = _props.linkButton;
-	      var primary = _props.primary;
-	      var rippleColor = _props.rippleColor;
-	      var secondary = _props.secondary;
-	      var style = _props.style;
-
-	      var other = _objectWithoutProperties(_props, ['children', 'disabled', 'hoverColor', 'backgroundColor', 'icon', 'label', 'labelStyle', 'labelPosition', 'linkButton', 'primary', 'rippleColor', 'secondary', 'style']);
-
-	      var _context$muiTheme = this.context.muiTheme;
-	      var _context$muiTheme$but = _context$muiTheme.button;
-	      var buttonHeight = _context$muiTheme$but.height;
-	      var buttonMinWidth = _context$muiTheme$but.minWidth;
-	      var buttonTextTransform = _context$muiTheme$but.textTransform;
-	      var _context$muiTheme$fla = _context$muiTheme.flatButton;
-	      var buttonFilterColor = _context$muiTheme$fla.buttonFilterColor;
-	      var buttonColor = _context$muiTheme$fla.color;
-	      var disabledTextColor = _context$muiTheme$fla.disabledTextColor;
-	      var fontSize = _context$muiTheme$fla.fontSize;
-	      var fontWeight = _context$muiTheme$fla.fontWeight;
-	      var primaryTextColor = _context$muiTheme$fla.primaryTextColor;
-	      var secondaryTextColor = _context$muiTheme$fla.secondaryTextColor;
-	      var textColor = _context$muiTheme$fla.textColor;
-	      var _context$muiTheme$fla2 = _context$muiTheme$fla.textTransform;
-	      var textTransform = _context$muiTheme$fla2 === undefined ? buttonTextTransform || 'uppercase' : _context$muiTheme$fla2;
-
-	      var defaultTextColor = disabled ? disabledTextColor : primary ? primaryTextColor : secondary ? secondaryTextColor : textColor;
-
-	      var defaultHoverColor = (0, _colorManipulator.fade)(buttonFilterColor, 0.2);
-	      var defaultRippleColor = buttonFilterColor;
-	      var buttonHoverColor = hoverColor || defaultHoverColor;
-	      var buttonRippleColor = rippleColor || defaultRippleColor;
-	      var buttonBackgroundColor = backgroundColor || buttonColor;
-	      var hovered = (this.state.hovered || this.state.isKeyboardFocused) && !disabled;
-
-	      var mergedRootStyles = (0, _simpleAssign2.default)({}, {
-	        height: buttonHeight,
-	        lineHeight: buttonHeight + 'px',
-	        minWidth: buttonMinWidth,
-	        color: defaultTextColor,
-	        transition: _transitions2.default.easeOut(),
-	        borderRadius: 2,
-	        userSelect: 'none',
-	        position: 'relative',
-	        overflow: 'hidden',
-	        backgroundColor: hovered ? buttonHoverColor : buttonBackgroundColor,
-	        padding: 0,
-	        margin: 0,
-	        textAlign: 'center'
-	      }, style);
-
-	      var iconCloned = void 0;
-	      var labelStyleIcon = {};
-
-	      if (icon) {
-	        iconCloned = _react2.default.cloneElement(icon, {
-	          color: mergedRootStyles.color,
-	          style: {
-	            verticalAlign: 'middle',
-	            marginLeft: label && labelPosition !== 'before' ? 12 : 0,
-	            marginRight: label && labelPosition === 'before' ? 12 : 0
-	          }
-	        });
-
-	        if (labelPosition === 'before') {
-	          labelStyleIcon.paddingRight = 8;
-	        } else {
-	          labelStyleIcon.paddingLeft = 8;
-	        }
-	      }
-
-	      var mergedLabelStyles = (0, _simpleAssign2.default)({
-	        letterSpacing: 0,
-	        textTransform: textTransform,
-	        fontWeight: fontWeight,
-	        fontSize: fontSize
-	      }, labelStyleIcon, labelStyle);
-
-	      var labelElement = label ? _react2.default.createElement(_FlatButtonLabel2.default, { label: label, style: mergedLabelStyles }) : undefined;
-
-	      // Place label before or after children.
-	      var childrenFragment = labelPosition === 'before' ? {
-	        labelElement: labelElement,
-	        iconCloned: iconCloned,
-	        children: children
-	      } : {
-	        children: children,
-	        iconCloned: iconCloned,
-	        labelElement: labelElement
-	      };
-
-	      var enhancedButtonChildren = (0, _childUtils.createChildFragment)(childrenFragment);
-
-	      return _react2.default.createElement(
-	        _EnhancedButton2.default,
-	        _extends({}, other, {
-	          disabled: disabled,
-	          focusRippleColor: buttonRippleColor,
-	          focusRippleOpacity: 0.3,
-	          linkButton: linkButton,
-	          onKeyboardFocus: this.handleKeyboardFocus,
-	          onMouseLeave: this.handleMouseLeave,
-	          onMouseEnter: this.handleMouseEnter,
-	          onTouchStart: this.handleTouchStart,
-	          style: mergedRootStyles,
-	          touchRippleColor: buttonRippleColor,
-	          touchRippleOpacity: 0.3
-	        }),
-	        enhancedButtonChildren
-	      );
-	    }
-	  }]);
-
-	  return FlatButton;
-	}(_react.Component);
-
-	FlatButton.muiName = 'FlatButton';
-	FlatButton.propTypes = {
-	  /**
-	   * Color of button when mouse is not hovering over it.
-	   */
-	  backgroundColor: _react.PropTypes.string,
-	  /**
-	   * This is what will be displayed inside the button.
-	   * If a label is specified, the text within the label prop will
-	   * be displayed. Otherwise, the component will expect children
-	   * which will then be displayed. (In our example,
-	   * we are nesting an `<input type="file" />` and a `span`
-	   * that acts as our label to be displayed.) This only
-	   * applies to flat and raised buttons.
-	   */
-	  children: _react.PropTypes.node,
-	  /**
-	   * Disables the button if set to true.
-	   */
-	  disabled: _react.PropTypes.bool,
-	  /**
-	   * Color of button when mouse hovers over.
-	   */
-	  hoverColor: _react.PropTypes.string,
-	  /**
-	   * URL to link to when button clicked if `linkButton` is set to true.
-	   */
-	  href: _react.PropTypes.string,
-	  /**
-	   * Use this property to display an icon.
-	   */
-	  icon: _react.PropTypes.node,
-	  /**
-	   * Label for the button.
-	   */
-	  label: validateLabel,
-	  /**
-	   * Place label before or after the passed children.
-	   */
-	  labelPosition: _react.PropTypes.oneOf(['before', 'after']),
-	  /**
-	   * Override the inline-styles of the button's label element.
-	   */
-	  labelStyle: _react.PropTypes.object,
-	  /**
-	   * Enables use of `href` property to provide a URL to link to if set to true.
-	   */
-	  linkButton: _react.PropTypes.bool,
-	  /**
-	   * Callback function fired when the element is focused or blurred by the keyboard.
-	   *
-	   * @param {object} event `focus` or `blur` event targeting the element.
-	   * @param {boolean} isKeyboardFocused Indicates whether the element is focused.
-	   */
-	  onKeyboardFocus: _react.PropTypes.func,
-	  /**
-	   * Callback function fired when the mouse enters the element.
-	   *
-	   * @param {object} event `mouseenter` event targeting the element.
-	   */
-	  onMouseEnter: _react.PropTypes.func,
-	  /**
-	   * Callback function fired when the mouse leaves the element.
-	   *
-	   * @param {object} event `mouseleave` event targeting the element.
-	   */
-	  onMouseLeave: _react.PropTypes.func,
-	  /**
-	   * Callback function fired when the element is touched.
-	   *
-	   * @param {object} event `touchstart` event targeting the element.
-	   */
-	  onTouchStart: _react.PropTypes.func,
-	  /**
-	   * If true, colors button according to
-	   * primaryTextColor from the Theme.
-	   */
-	  primary: _react.PropTypes.bool,
-	  /**
-	   * Color for the ripple after button is clicked.
-	   */
-	  rippleColor: _react.PropTypes.string,
-	  /**
-	   * If true, colors button according to secondaryTextColor from the theme.
-	   * The primary prop has precendent if set to true.
-	   */
-	  secondary: _react.PropTypes.bool,
-	  /**
-	   * Override the inline-styles of the root element.
-	   */
-	  style: _react.PropTypes.object
-	};
-	FlatButton.defaultProps = {
-	  disabled: false,
-	  labelStyle: {},
-	  labelPosition: 'after',
-	  onKeyboardFocus: function onKeyboardFocus() {},
-	  onMouseEnter: function onMouseEnter() {},
-	  onMouseLeave: function onMouseLeave() {},
-	  onTouchStart: function onTouchStart() {},
-	  primary: false,
-	  secondary: false
-	};
-	FlatButton.contextTypes = {
-	  muiTheme: _react.PropTypes.object.isRequired
-	};
-	exports.default = FlatButton;
-
-/***/ },
-/* 455 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _simpleAssign = __webpack_require__(335);
-
-	var _simpleAssign2 = _interopRequireDefault(_simpleAssign);
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	function getStyles(props, context) {
-	  var baseTheme = context.muiTheme.baseTheme;
-
-
-	  return {
-	    root: {
-	      position: 'relative',
-	      paddingLeft: baseTheme.spacing.desktopGutterLess,
-	      paddingRight: baseTheme.spacing.desktopGutterLess,
-	      verticalAlign: 'middle'
-	    }
-	  };
-	}
-
-	var FlatButtonLabel = function (_Component) {
-	  _inherits(FlatButtonLabel, _Component);
-
-	  function FlatButtonLabel() {
-	    _classCallCheck(this, FlatButtonLabel);
-
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(FlatButtonLabel).apply(this, arguments));
-	  }
-
-	  _createClass(FlatButtonLabel, [{
-	    key: 'render',
-	    value: function render() {
-	      var _props = this.props;
-	      var label = _props.label;
-	      var style = _props.style;
-	      var prepareStyles = this.context.muiTheme.prepareStyles;
-
-	      var styles = getStyles(this.props, this.context);
-
-	      return _react2.default.createElement(
-	        'span',
-	        { style: prepareStyles((0, _simpleAssign2.default)(styles.root, style)) },
-	        label
-	      );
-	    }
-	  }]);
-
-	  return FlatButtonLabel;
-	}(_react.Component);
-
-	FlatButtonLabel.propTypes = {
-	  label: _react.PropTypes.node,
-	  style: _react.PropTypes.object
-	};
-	FlatButtonLabel.contextTypes = {
-	  muiTheme: _react.PropTypes.object.isRequired
-	};
-	exports.default = FlatButtonLabel;
-
-/***/ },
-/* 456 */
+/* 459 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -50804,9 +51523,9 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Card = __webpack_require__(443);
+	var _Card = __webpack_require__(449);
 
-	var _FlatButton = __webpack_require__(453);
+	var _FlatButton = __webpack_require__(416);
 
 	var _FlatButton2 = _interopRequireDefault(_FlatButton);
 
@@ -50839,7 +51558,7 @@
 	exports.default = CardExampleWithoutAvatar;
 
 /***/ },
-/* 457 */
+/* 460 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -50854,13 +51573,13 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Card = __webpack_require__(443);
+	var _Card = __webpack_require__(449);
 
-	var _FlatButton = __webpack_require__(453);
+	var _FlatButton = __webpack_require__(416);
 
 	var _FlatButton2 = _interopRequireDefault(_FlatButton);
 
-	var _Toggle = __webpack_require__(458);
+	var _Toggle = __webpack_require__(461);
 
 	var _Toggle2 = _interopRequireDefault(_Toggle);
 
@@ -50964,7 +51683,7 @@
 	exports.default = CardExampleControlled;
 
 /***/ },
-/* 458 */
+/* 461 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -50974,7 +51693,7 @@
 	});
 	exports.default = undefined;
 
-	var _Toggle = __webpack_require__(459);
+	var _Toggle = __webpack_require__(462);
 
 	var _Toggle2 = _interopRequireDefault(_Toggle);
 
@@ -50983,7 +51702,7 @@
 	exports.default = _Toggle2.default;
 
 /***/ },
-/* 459 */
+/* 462 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -51012,7 +51731,7 @@
 
 	var _Paper2 = _interopRequireDefault(_Paper);
 
-	var _EnhancedSwitch = __webpack_require__(460);
+	var _EnhancedSwitch = __webpack_require__(463);
 
 	var _EnhancedSwitch2 = _interopRequireDefault(_EnhancedSwitch);
 
@@ -51275,7 +51994,7 @@
 	exports.default = Toggle;
 
 /***/ },
-/* 460 */
+/* 463 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -51725,7 +52444,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 461 */
+/* 464 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -51740,7 +52459,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Chip = __webpack_require__(462);
+	var _Chip = __webpack_require__(465);
 
 	var _Chip2 = _interopRequireDefault(_Chip);
 
@@ -51826,7 +52545,7 @@
 	exports.default = ChipExampleArray;
 
 /***/ },
-/* 462 */
+/* 465 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -51841,11 +52560,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Avatar = __webpack_require__(414);
+	var _Avatar = __webpack_require__(420);
 
 	var _Avatar2 = _interopRequireDefault(_Avatar);
 
-	var _cancel = __webpack_require__(463);
+	var _cancel = __webpack_require__(466);
 
 	var _cancel2 = _interopRequireDefault(_cancel);
 
@@ -51981,7 +52700,7 @@
 	};
 
 /***/ },
-/* 463 */
+/* 466 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -52017,7 +52736,7 @@
 	exports.default = NavigationCancel;
 
 /***/ },
-/* 464 */
+/* 467 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -52030,27 +52749,27 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _SimpleDialog = __webpack_require__(465);
+	var _SimpleDialog = __webpack_require__(468);
 
 	var _SimpleDialog2 = _interopRequireDefault(_SimpleDialog);
 
-	var _ModalDialog = __webpack_require__(468);
+	var _ModalDialog = __webpack_require__(469);
 
 	var _ModalDialog2 = _interopRequireDefault(_ModalDialog);
 
-	var _StyledDialog = __webpack_require__(469);
+	var _StyledDialog = __webpack_require__(470);
 
 	var _StyledDialog2 = _interopRequireDefault(_StyledDialog);
 
-	var _DialogWithDatePicker = __webpack_require__(470);
+	var _DialogWithDatePicker = __webpack_require__(471);
 
 	var _DialogWithDatePicker2 = _interopRequireDefault(_DialogWithDatePicker);
 
-	var _ScrollableDialog = __webpack_require__(490);
+	var _ScrollableDialog = __webpack_require__(491);
 
 	var _ScrollableDialog2 = _interopRequireDefault(_ScrollableDialog);
 
-	var _Alert = __webpack_require__(496);
+	var _Alert = __webpack_require__(497);
 
 	var _Alert2 = _interopRequireDefault(_Alert);
 
@@ -52076,7 +52795,7 @@
 	exports.default = Dialog;
 
 /***/ },
-/* 465 */
+/* 468 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -52091,11 +52810,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Dialog = __webpack_require__(466);
+	var _Dialog = __webpack_require__(414);
 
 	var _Dialog2 = _interopRequireDefault(_Dialog);
 
-	var _FlatButton = __webpack_require__(453);
+	var _FlatButton = __webpack_require__(416);
 
 	var _FlatButton2 = _interopRequireDefault(_FlatButton);
 
@@ -52184,607 +52903,7 @@
 	exports.default = DialogExampleSimple;
 
 /***/ },
-/* 466 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.default = undefined;
-
-	var _Dialog = __webpack_require__(467);
-
-	var _Dialog2 = _interopRequireDefault(_Dialog);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	exports.default = _Dialog2.default;
-
-/***/ },
-/* 467 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _simpleAssign = __webpack_require__(335);
-
-	var _simpleAssign2 = _interopRequireDefault(_simpleAssign);
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactDom = __webpack_require__(33);
-
-	var _reactDom2 = _interopRequireDefault(_reactDom);
-
-	var _reactEventListener = __webpack_require__(380);
-
-	var _reactEventListener2 = _interopRequireDefault(_reactEventListener);
-
-	var _keycode = __webpack_require__(346);
-
-	var _keycode2 = _interopRequireDefault(_keycode);
-
-	var _transitions = __webpack_require__(339);
-
-	var _transitions2 = _interopRequireDefault(_transitions);
-
-	var _Overlay = __webpack_require__(381);
-
-	var _Overlay2 = _interopRequireDefault(_Overlay);
-
-	var _RenderToLayer = __webpack_require__(388);
-
-	var _RenderToLayer2 = _interopRequireDefault(_RenderToLayer);
-
-	var _Paper = __webpack_require__(383);
-
-	var _Paper2 = _interopRequireDefault(_Paper);
-
-	var _reactAddonsTransitionGroup = __webpack_require__(351);
-
-	var _reactAddonsTransitionGroup2 = _interopRequireDefault(_reactAddonsTransitionGroup);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var TransitionItem = function (_Component) {
-	  _inherits(TransitionItem, _Component);
-
-	  function TransitionItem() {
-	    var _Object$getPrototypeO;
-
-	    var _temp, _this, _ret;
-
-	    _classCallCheck(this, TransitionItem);
-
-	    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-	      args[_key] = arguments[_key];
-	    }
-
-	    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_Object$getPrototypeO = Object.getPrototypeOf(TransitionItem)).call.apply(_Object$getPrototypeO, [this].concat(args))), _this), _this.state = {
-	      style: {}
-	    }, _temp), _possibleConstructorReturn(_this, _ret);
-	  }
-
-	  _createClass(TransitionItem, [{
-	    key: 'componentWillUnmount',
-	    value: function componentWillUnmount() {
-	      clearTimeout(this.enterTimeout);
-	      clearTimeout(this.leaveTimeout);
-	    }
-	  }, {
-	    key: 'componentWillEnter',
-	    value: function componentWillEnter(callback) {
-	      this.componentWillAppear(callback);
-	    }
-	  }, {
-	    key: 'componentWillAppear',
-	    value: function componentWillAppear(callback) {
-	      var spacing = this.context.muiTheme.baseTheme.spacing;
-
-	      this.setState({
-	        style: {
-	          opacity: 1,
-	          transform: 'translate3d(0, ' + spacing.desktopKeylineIncrement + 'px, 0)'
-	        }
-	      });
-
-	      this.enterTimeout = setTimeout(callback, 450); // matches transition duration
-	    }
-	  }, {
-	    key: 'componentWillLeave',
-	    value: function componentWillLeave(callback) {
-	      this.setState({
-	        style: {
-	          opacity: 0,
-	          transform: 'translate3d(0, 0, 0)'
-	        }
-	      });
-
-	      this.leaveTimeout = setTimeout(callback, 450); // matches transition duration
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-	      var _props = this.props;
-	      var style = _props.style;
-	      var children = _props.children;
-
-	      var other = _objectWithoutProperties(_props, ['style', 'children']);
-
-	      var prepareStyles = this.context.muiTheme.prepareStyles;
-
-
-	      return _react2.default.createElement(
-	        'div',
-	        _extends({}, other, { style: prepareStyles((0, _simpleAssign2.default)({}, this.state.style, style)) }),
-	        children
-	      );
-	    }
-	  }]);
-
-	  return TransitionItem;
-	}(_react.Component);
-
-	TransitionItem.propTypes = {
-	  children: _react.PropTypes.node,
-	  style: _react.PropTypes.object
-	};
-	TransitionItem.contextTypes = {
-	  muiTheme: _react.PropTypes.object.isRequired
-	};
-
-
-	function getStyles(props, context) {
-	  var autoScrollBodyContent = props.autoScrollBodyContent;
-	  var open = props.open;
-	  var _context$muiTheme = context.muiTheme;
-	  var _context$muiTheme$bas = _context$muiTheme.baseTheme;
-	  var spacing = _context$muiTheme$bas.spacing;
-	  var palette = _context$muiTheme$bas.palette;
-	  var dialog = _context$muiTheme.dialog;
-	  var zIndex = _context$muiTheme.zIndex;
-
-
-	  var gutter = spacing.desktopGutter;
-	  var borderScroll = '1px solid ' + palette.borderColor;
-
-	  return {
-	    root: {
-	      position: 'fixed',
-	      boxSizing: 'border-box',
-	      WebkitTapHighlightColor: 'rgba(0,0,0,0)', // Remove mobile color flashing (deprecated)
-	      zIndex: zIndex.dialog,
-	      top: 0,
-	      left: open ? 0 : -10000,
-	      width: '100%',
-	      height: '100%',
-	      transition: open ? _transitions2.default.easeOut('0ms', 'left', '0ms') : _transitions2.default.easeOut('0ms', 'left', '450ms')
-	    },
-	    content: {
-	      boxSizing: 'border-box',
-	      WebkitTapHighlightColor: 'rgba(0,0,0,0)', // Remove mobile color flashing (deprecated)
-	      transition: _transitions2.default.easeOut(),
-	      position: 'relative',
-	      width: '75%',
-	      maxWidth: spacing.desktopKeylineIncrement * 12,
-	      margin: '0 auto',
-	      zIndex: zIndex.dialog
-	    },
-	    actionsContainer: {
-	      boxSizing: 'border-box',
-	      WebkitTapHighlightColor: 'rgba(0,0,0,0)', // Remove mobile color flashing (deprecated)
-	      padding: 8,
-	      width: '100%',
-	      textAlign: 'right',
-	      marginTop: autoScrollBodyContent ? -1 : 0,
-	      borderTop: autoScrollBodyContent ? borderScroll : 'none'
-	    },
-	    overlay: {
-	      zIndex: zIndex.dialogOverlay
-	    },
-	    title: {
-	      margin: 0,
-	      padding: gutter + 'px ' + gutter + 'px 20px ' + gutter + 'px',
-	      color: palette.textColor,
-	      fontSize: dialog.titleFontSize,
-	      lineHeight: '32px',
-	      fontWeight: 400,
-	      marginBottom: autoScrollBodyContent ? -1 : 0,
-	      borderBottom: autoScrollBodyContent ? borderScroll : 'none'
-	    },
-	    body: {
-	      fontSize: dialog.bodyFontSize,
-	      color: dialog.bodyColor,
-	      padding: (props.title ? 0 : gutter) + 'px ' + gutter + 'px ' + gutter + 'px',
-	      boxSizing: 'border-box',
-	      overflowY: autoScrollBodyContent ? 'auto' : 'hidden'
-	    }
-	  };
-	}
-
-	var DialogInline = function (_Component2) {
-	  _inherits(DialogInline, _Component2);
-
-	  function DialogInline() {
-	    var _Object$getPrototypeO2;
-
-	    var _temp2, _this2, _ret2;
-
-	    _classCallCheck(this, DialogInline);
-
-	    for (var _len2 = arguments.length, args = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
-	      args[_key2] = arguments[_key2];
-	    }
-
-	    return _ret2 = (_temp2 = (_this2 = _possibleConstructorReturn(this, (_Object$getPrototypeO2 = Object.getPrototypeOf(DialogInline)).call.apply(_Object$getPrototypeO2, [this].concat(args))), _this2), _this2.handleTouchTapOverlay = function () {
-	      _this2.requestClose(false);
-	    }, _this2.handleKeyUp = function (event) {
-	      if ((0, _keycode2.default)(event) === 'esc') {
-	        _this2.requestClose(false);
-	      }
-	    }, _this2.handleResize = function () {
-	      _this2.positionDialog();
-	    }, _temp2), _possibleConstructorReturn(_this2, _ret2);
-	  }
-
-	  _createClass(DialogInline, [{
-	    key: 'componentDidMount',
-	    value: function componentDidMount() {
-	      this.positionDialog();
-	    }
-	  }, {
-	    key: 'componentDidUpdate',
-	    value: function componentDidUpdate() {
-	      this.positionDialog();
-	    }
-	  }, {
-	    key: 'positionDialog',
-	    value: function positionDialog() {
-	      var _props2 = this.props;
-	      var actions = _props2.actions;
-	      var autoDetectWindowHeight = _props2.autoDetectWindowHeight;
-	      var autoScrollBodyContent = _props2.autoScrollBodyContent;
-	      var bodyStyle = _props2.bodyStyle;
-	      var open = _props2.open;
-	      var repositionOnUpdate = _props2.repositionOnUpdate;
-	      var title = _props2.title;
-
-
-	      if (!open) {
-	        return;
-	      }
-
-	      var clientHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
-	      var container = _reactDom2.default.findDOMNode(this);
-	      var dialogWindow = _reactDom2.default.findDOMNode(this.refs.dialogWindow);
-	      var dialogContent = _reactDom2.default.findDOMNode(this.refs.dialogContent);
-	      var minPaddingTop = 16;
-
-	      // Reset the height in case the window was resized.
-	      dialogWindow.style.height = '';
-	      dialogContent.style.height = '';
-
-	      var dialogWindowHeight = dialogWindow.offsetHeight;
-	      var paddingTop = (clientHeight - dialogWindowHeight) / 2 - 64;
-	      if (paddingTop < minPaddingTop) paddingTop = minPaddingTop;
-
-	      // Vertically center the dialog window, but make sure it doesn't
-	      // transition to that position.
-	      if (repositionOnUpdate || !container.style.paddingTop) {
-	        container.style.paddingTop = paddingTop + 'px';
-	      }
-
-	      // Force a height if the dialog is taller than clientHeight
-	      if (autoDetectWindowHeight || autoScrollBodyContent) {
-	        var styles = getStyles(this.props, this.context);
-	        styles.body = (0, _simpleAssign2.default)(styles.body, bodyStyle);
-	        var maxDialogContentHeight = clientHeight - 2 * 64;
-
-	        if (title) maxDialogContentHeight -= dialogContent.previousSibling.offsetHeight;
-
-	        if (_react2.default.Children.count(actions)) {
-	          maxDialogContentHeight -= dialogContent.nextSibling.offsetHeight;
-	        }
-
-	        dialogContent.style.maxHeight = maxDialogContentHeight + 'px';
-	      }
-	    }
-	  }, {
-	    key: 'requestClose',
-	    value: function requestClose(buttonClicked) {
-	      if (!buttonClicked && this.props.modal) {
-	        return;
-	      }
-
-	      if (this.props.onRequestClose) {
-	        this.props.onRequestClose(!!buttonClicked);
-	      }
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-	      var _props3 = this.props;
-	      var actions = _props3.actions;
-	      var actionsContainerClassName = _props3.actionsContainerClassName;
-	      var actionsContainerStyle = _props3.actionsContainerStyle;
-	      var bodyClassName = _props3.bodyClassName;
-	      var bodyStyle = _props3.bodyStyle;
-	      var children = _props3.children;
-	      var className = _props3.className;
-	      var contentClassName = _props3.contentClassName;
-	      var contentStyle = _props3.contentStyle;
-	      var overlayClassName = _props3.overlayClassName;
-	      var overlayStyle = _props3.overlayStyle;
-	      var open = _props3.open;
-	      var titleClassName = _props3.titleClassName;
-	      var titleStyle = _props3.titleStyle;
-	      var title = _props3.title;
-	      var style = _props3.style;
-	      var prepareStyles = this.context.muiTheme.prepareStyles;
-
-	      var styles = getStyles(this.props, this.context);
-
-	      styles.root = (0, _simpleAssign2.default)(styles.root, style);
-	      styles.content = (0, _simpleAssign2.default)(styles.content, contentStyle);
-	      styles.body = (0, _simpleAssign2.default)(styles.body, bodyStyle);
-	      styles.actionsContainer = (0, _simpleAssign2.default)(styles.actionsContainer, actionsContainerStyle);
-	      styles.overlay = (0, _simpleAssign2.default)(styles.overlay, overlayStyle);
-	      styles.title = (0, _simpleAssign2.default)(styles.title, titleStyle);
-
-	      var actionsContainer = _react2.default.Children.count(actions) > 0 && _react2.default.createElement(
-	        'div',
-	        { className: actionsContainerClassName, style: prepareStyles(styles.actionsContainer) },
-	        _react2.default.Children.toArray(actions)
-	      );
-
-	      var titleElement = title;
-	      if (_react2.default.isValidElement(title)) {
-	        titleElement = _react2.default.cloneElement(title, {
-	          className: title.props.className || titleClassName,
-	          style: prepareStyles((0, _simpleAssign2.default)(styles.title, title.props.style))
-	        });
-	      } else if (typeof title === 'string') {
-	        titleElement = _react2.default.createElement(
-	          'h3',
-	          { className: titleClassName, style: prepareStyles(styles.title) },
-	          title
-	        );
-	      }
-
-	      return _react2.default.createElement(
-	        'div',
-	        { className: className, style: prepareStyles(styles.root) },
-	        open && _react2.default.createElement(_reactEventListener2.default, {
-	          elementName: 'window',
-	          onKeyUp: this.handleKeyUp,
-	          onResize: this.handleResize
-	        }),
-	        _react2.default.createElement(
-	          _reactAddonsTransitionGroup2.default,
-	          {
-	            component: 'div',
-	            ref: 'dialogWindow',
-	            transitionAppear: true,
-	            transitionAppearTimeout: 450,
-	            transitionEnter: true,
-	            transitionEnterTimeout: 450
-	          },
-	          open && _react2.default.createElement(
-	            TransitionItem,
-	            {
-	              className: contentClassName,
-	              style: styles.content
-	            },
-	            _react2.default.createElement(
-	              _Paper2.default,
-	              { zDepth: 4 },
-	              titleElement,
-	              _react2.default.createElement(
-	                'div',
-	                {
-	                  ref: 'dialogContent',
-	                  className: bodyClassName,
-	                  style: prepareStyles(styles.body)
-	                },
-	                children
-	              ),
-	              actionsContainer
-	            )
-	          )
-	        ),
-	        _react2.default.createElement(_Overlay2.default, {
-	          show: open,
-	          className: overlayClassName,
-	          style: styles.overlay,
-	          onTouchTap: this.handleTouchTapOverlay
-	        })
-	      );
-	    }
-	  }]);
-
-	  return DialogInline;
-	}(_react.Component);
-
-	DialogInline.propTypes = {
-	  actions: _react.PropTypes.node,
-	  actionsContainerClassName: _react.PropTypes.string,
-	  actionsContainerStyle: _react.PropTypes.object,
-	  autoDetectWindowHeight: _react.PropTypes.bool,
-	  autoScrollBodyContent: _react.PropTypes.bool,
-	  bodyClassName: _react.PropTypes.string,
-	  bodyStyle: _react.PropTypes.object,
-	  children: _react.PropTypes.node,
-	  className: _react.PropTypes.string,
-	  contentClassName: _react.PropTypes.string,
-	  contentStyle: _react.PropTypes.object,
-	  modal: _react.PropTypes.bool,
-	  onRequestClose: _react.PropTypes.func,
-	  open: _react.PropTypes.bool.isRequired,
-	  overlayClassName: _react.PropTypes.string,
-	  overlayStyle: _react.PropTypes.object,
-	  repositionOnUpdate: _react.PropTypes.bool,
-	  style: _react.PropTypes.object,
-	  title: _react.PropTypes.node,
-	  titleClassName: _react.PropTypes.string,
-	  titleStyle: _react.PropTypes.object
-	};
-	DialogInline.contextTypes = {
-	  muiTheme: _react.PropTypes.object.isRequired
-	};
-
-	var Dialog = function (_Component3) {
-	  _inherits(Dialog, _Component3);
-
-	  function Dialog() {
-	    var _Object$getPrototypeO3;
-
-	    var _temp3, _this3, _ret3;
-
-	    _classCallCheck(this, Dialog);
-
-	    for (var _len3 = arguments.length, args = Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {
-	      args[_key3] = arguments[_key3];
-	    }
-
-	    return _ret3 = (_temp3 = (_this3 = _possibleConstructorReturn(this, (_Object$getPrototypeO3 = Object.getPrototypeOf(Dialog)).call.apply(_Object$getPrototypeO3, [this].concat(args))), _this3), _this3.renderLayer = function () {
-	      return _react2.default.createElement(DialogInline, _this3.props);
-	    }, _temp3), _possibleConstructorReturn(_this3, _ret3);
-	  }
-
-	  _createClass(Dialog, [{
-	    key: 'render',
-	    value: function render() {
-	      return _react2.default.createElement(_RenderToLayer2.default, { render: this.renderLayer, open: true, useLayerForClickAway: false });
-	    }
-	  }]);
-
-	  return Dialog;
-	}(_react.Component);
-
-	Dialog.propTypes = {
-	  /**
-	   * Action buttons to display below the Dialog content (`children`).
-	   * This property accepts either a React element, or an array of React elements.
-	   */
-	  actions: _react.PropTypes.node,
-	  /**
-	   * The `className` to add to the actions container's root element.
-	   */
-	  actionsContainerClassName: _react.PropTypes.string,
-	  /**
-	   * Overrides the inline-styles of the actions container's root element.
-	   */
-	  actionsContainerStyle: _react.PropTypes.object,
-	  /**
-	   * If set to true, the height of the `Dialog` will be auto detected. A max height
-	   * will be enforced so that the content does not extend beyond the viewport.
-	   */
-	  autoDetectWindowHeight: _react.PropTypes.bool,
-	  /**
-	   * If set to true, the body content of the `Dialog` will be scrollable.
-	   */
-	  autoScrollBodyContent: _react.PropTypes.bool,
-	  /**
-	   * The `className` to add to the content's root element under the title.
-	   */
-	  bodyClassName: _react.PropTypes.string,
-	  /**
-	   * Overrides the inline-styles of the content's root element under the title.
-	   */
-	  bodyStyle: _react.PropTypes.object,
-	  /**
-	   * The contents of the `Dialog`.
-	   */
-	  children: _react.PropTypes.node,
-	  /**
-	   * The css class name of the root element.
-	   */
-	  className: _react.PropTypes.string,
-	  /**
-	   * The `className` to add to the content container.
-	   */
-	  contentClassName: _react.PropTypes.string,
-	  /**
-	   * Overrides the inline-styles of the content container.
-	   */
-	  contentStyle: _react.PropTypes.object,
-	  /**
-	   * Force the user to use one of the actions in the `Dialog`.
-	   * Clicking outside the `Dialog` will not trigger the `onRequestClose`.
-	   */
-	  modal: _react.PropTypes.bool,
-	  /**
-	   * Fired when the `Dialog` is requested to be closed by a click outside the `Dialog` or on the buttons.
-	   *
-	   * @param {bool} buttonClicked Determines whether a button click triggered this request.
-	   */
-	  onRequestClose: _react.PropTypes.func,
-	  /**
-	   * Controls whether the Dialog is opened or not.
-	   */
-	  open: _react.PropTypes.bool.isRequired,
-	  /**
-	   * The `className` to add to the `Overlay` component that is rendered behind the `Dialog`.
-	   */
-	  overlayClassName: _react.PropTypes.string,
-	  /**
-	   * Overrides the inline-styles of the `Overlay` component that is rendered behind the `Dialog`.
-	   */
-	  overlayStyle: _react.PropTypes.object,
-	  /**
-	   * Determines whether the `Dialog` should be repositioned when it's contents are updated.
-	   */
-	  repositionOnUpdate: _react.PropTypes.bool,
-	  /**
-	   * Override the inline-styles of the root element.
-	   */
-	  style: _react.PropTypes.object,
-	  /**
-	   * The title to display on the `Dialog`. Could be number, string, element or an array containing these types.
-	   */
-	  title: _react.PropTypes.node,
-	  /**
-	   * The `className` to add to the title's root container element.
-	   */
-	  titleClassName: _react.PropTypes.string,
-	  /**
-	   * Overrides the inline-styles of the title's root container element.
-	   */
-	  titleStyle: _react.PropTypes.object
-	};
-	Dialog.contextTypes = {
-	  muiTheme: _react.PropTypes.object.isRequired
-	};
-	Dialog.defaultProps = {
-	  autoDetectWindowHeight: true,
-	  autoScrollBodyContent: false,
-	  modal: false,
-	  repositionOnUpdate: true
-	};
-	exports.default = Dialog;
-
-/***/ },
-/* 468 */
+/* 469 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -52799,11 +52918,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Dialog = __webpack_require__(466);
+	var _Dialog = __webpack_require__(414);
 
 	var _Dialog2 = _interopRequireDefault(_Dialog);
 
-	var _FlatButton = __webpack_require__(453);
+	var _FlatButton = __webpack_require__(416);
 
 	var _FlatButton2 = _interopRequireDefault(_FlatButton);
 
@@ -52888,7 +53007,7 @@
 	exports.default = DialogExampleModal;
 
 /***/ },
-/* 469 */
+/* 470 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -52903,11 +53022,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Dialog = __webpack_require__(466);
+	var _Dialog = __webpack_require__(414);
 
 	var _Dialog2 = _interopRequireDefault(_Dialog);
 
-	var _FlatButton = __webpack_require__(453);
+	var _FlatButton = __webpack_require__(416);
 
 	var _FlatButton2 = _interopRequireDefault(_FlatButton);
 
@@ -52994,7 +53113,7 @@
 	exports.default = DialogExampleCustomWidth;
 
 /***/ },
-/* 470 */
+/* 471 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -53009,11 +53128,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Dialog = __webpack_require__(466);
+	var _Dialog = __webpack_require__(414);
 
 	var _Dialog2 = _interopRequireDefault(_Dialog);
 
-	var _FlatButton = __webpack_require__(453);
+	var _FlatButton = __webpack_require__(416);
 
 	var _FlatButton2 = _interopRequireDefault(_FlatButton);
 
@@ -53021,7 +53140,7 @@
 
 	var _RaisedButton2 = _interopRequireDefault(_RaisedButton);
 
-	var _DatePicker = __webpack_require__(471);
+	var _DatePicker = __webpack_require__(472);
 
 	var _DatePicker2 = _interopRequireDefault(_DatePicker);
 
@@ -53100,7 +53219,7 @@
 	exports.default = DialogExampleDialogDatePicker;
 
 /***/ },
-/* 471 */
+/* 472 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -53110,7 +53229,7 @@
 	});
 	exports.default = undefined;
 
-	var _DatePicker = __webpack_require__(472);
+	var _DatePicker = __webpack_require__(473);
 
 	var _DatePicker2 = _interopRequireDefault(_DatePicker);
 
@@ -53119,7 +53238,7 @@
 	exports.default = _DatePicker2.default;
 
 /***/ },
-/* 472 */
+/* 473 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -53140,13 +53259,13 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _dateUtils = __webpack_require__(473);
+	var _dateUtils = __webpack_require__(474);
 
-	var _DatePickerDialog = __webpack_require__(474);
+	var _DatePickerDialog = __webpack_require__(475);
 
 	var _DatePickerDialog2 = _interopRequireDefault(_DatePickerDialog);
 
-	var _TextField = __webpack_require__(420);
+	var _TextField = __webpack_require__(426);
 
 	var _TextField2 = _interopRequireDefault(_TextField);
 
@@ -53494,7 +53613,7 @@
 	exports.default = DatePicker;
 
 /***/ },
-/* 473 */
+/* 474 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -53676,7 +53795,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 474 */
+/* 475 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -53701,11 +53820,11 @@
 
 	var _keycode2 = _interopRequireDefault(_keycode);
 
-	var _Calendar = __webpack_require__(475);
+	var _Calendar = __webpack_require__(476);
 
 	var _Calendar2 = _interopRequireDefault(_Calendar);
 
-	var _Dialog = __webpack_require__(466);
+	var _Dialog = __webpack_require__(414);
 
 	var _Dialog2 = _interopRequireDefault(_Dialog);
 
@@ -53713,11 +53832,11 @@
 
 	var _Popover2 = _interopRequireDefault(_Popover);
 
-	var _PopoverAnimationVertical = __webpack_require__(489);
+	var _PopoverAnimationVertical = __webpack_require__(490);
 
 	var _PopoverAnimationVertical2 = _interopRequireDefault(_PopoverAnimationVertical);
 
-	var _dateUtils = __webpack_require__(473);
+	var _dateUtils = __webpack_require__(474);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -53900,7 +54019,7 @@
 	exports.default = DatePickerDialog;
 
 /***/ },
-/* 475 */
+/* 476 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -53927,35 +54046,35 @@
 
 	var _transitions2 = _interopRequireDefault(_transitions);
 
-	var _CalendarActionButtons = __webpack_require__(476);
+	var _CalendarActionButtons = __webpack_require__(477);
 
 	var _CalendarActionButtons2 = _interopRequireDefault(_CalendarActionButtons);
 
-	var _CalendarMonth = __webpack_require__(477);
+	var _CalendarMonth = __webpack_require__(478);
 
 	var _CalendarMonth2 = _interopRequireDefault(_CalendarMonth);
 
-	var _CalendarYear = __webpack_require__(479);
+	var _CalendarYear = __webpack_require__(480);
 
 	var _CalendarYear2 = _interopRequireDefault(_CalendarYear);
 
-	var _CalendarToolbar = __webpack_require__(481);
+	var _CalendarToolbar = __webpack_require__(482);
 
 	var _CalendarToolbar2 = _interopRequireDefault(_CalendarToolbar);
 
-	var _DateDisplay = __webpack_require__(486);
+	var _DateDisplay = __webpack_require__(487);
 
 	var _DateDisplay2 = _interopRequireDefault(_DateDisplay);
 
-	var _SlideIn = __webpack_require__(484);
+	var _SlideIn = __webpack_require__(485);
 
 	var _SlideIn2 = _interopRequireDefault(_SlideIn);
 
-	var _ClearFix = __webpack_require__(487);
+	var _ClearFix = __webpack_require__(488);
 
 	var _ClearFix2 = _interopRequireDefault(_ClearFix);
 
-	var _dateUtils = __webpack_require__(473);
+	var _dateUtils = __webpack_require__(474);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -54352,7 +54471,7 @@
 	exports.default = Calendar;
 
 /***/ },
-/* 476 */
+/* 477 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -54367,7 +54486,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _FlatButton = __webpack_require__(453);
+	var _FlatButton = __webpack_require__(416);
 
 	var _FlatButton2 = _interopRequireDefault(_FlatButton);
 
@@ -54449,7 +54568,7 @@
 	exports.default = CalendarActionButton;
 
 /***/ },
-/* 477 */
+/* 478 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -54464,9 +54583,9 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _dateUtils = __webpack_require__(473);
+	var _dateUtils = __webpack_require__(474);
 
-	var _DayButton = __webpack_require__(478);
+	var _DayButton = __webpack_require__(479);
 
 	var _DayButton2 = _interopRequireDefault(_DayButton);
 
@@ -54595,7 +54714,7 @@
 	exports.default = CalendarMonth;
 
 /***/ },
-/* 478 */
+/* 479 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -54616,7 +54735,7 @@
 
 	var _transitions2 = _interopRequireDefault(_transitions);
 
-	var _dateUtils = __webpack_require__(473);
+	var _dateUtils = __webpack_require__(474);
 
 	var _EnhancedButton = __webpack_require__(341);
 
@@ -54772,7 +54891,7 @@
 	exports.default = DayButton;
 
 /***/ },
-/* 479 */
+/* 480 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -54793,11 +54912,11 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _YearButton = __webpack_require__(480);
+	var _YearButton = __webpack_require__(481);
 
 	var _YearButton2 = _interopRequireDefault(_YearButton);
 
-	var _dateUtils = __webpack_require__(473);
+	var _dateUtils = __webpack_require__(474);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -54924,7 +55043,7 @@
 	exports.default = CalendarYear;
 
 /***/ },
-/* 480 */
+/* 481 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -55069,7 +55188,7 @@
 	exports.default = YearButton;
 
 /***/ },
-/* 481 */
+/* 482 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -55088,15 +55207,15 @@
 
 	var _IconButton2 = _interopRequireDefault(_IconButton);
 
-	var _chevronLeft = __webpack_require__(482);
+	var _chevronLeft = __webpack_require__(483);
 
 	var _chevronLeft2 = _interopRequireDefault(_chevronLeft);
 
-	var _chevronRight = __webpack_require__(483);
+	var _chevronRight = __webpack_require__(484);
 
 	var _chevronRight2 = _interopRequireDefault(_chevronRight);
 
-	var _SlideIn = __webpack_require__(484);
+	var _SlideIn = __webpack_require__(485);
 
 	var _SlideIn2 = _interopRequireDefault(_SlideIn);
 
@@ -55233,7 +55352,7 @@
 	exports.default = CalendarToolbar;
 
 /***/ },
-/* 482 */
+/* 483 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -55269,7 +55388,7 @@
 	exports.default = NavigationChevronLeft;
 
 /***/ },
-/* 483 */
+/* 484 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -55305,7 +55424,7 @@
 	exports.default = NavigationChevronRight;
 
 /***/ },
-/* 484 */
+/* 485 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -55330,7 +55449,7 @@
 
 	var _reactAddonsTransitionGroup2 = _interopRequireDefault(_reactAddonsTransitionGroup);
 
-	var _SlideInChild = __webpack_require__(485);
+	var _SlideInChild = __webpack_require__(486);
 
 	var _SlideInChild2 = _interopRequireDefault(_SlideInChild);
 
@@ -55431,7 +55550,7 @@
 	exports.default = SlideIn;
 
 /***/ },
-/* 485 */
+/* 486 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -55574,7 +55693,7 @@
 	exports.default = SlideInChild;
 
 /***/ },
-/* 486 */
+/* 487 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -55595,7 +55714,7 @@
 
 	var _transitions2 = _interopRequireDefault(_transitions);
 
-	var _SlideIn = __webpack_require__(484);
+	var _SlideIn = __webpack_require__(485);
 
 	var _SlideIn2 = _interopRequireDefault(_SlideIn);
 
@@ -55795,7 +55914,7 @@
 	exports.default = DateDisplay;
 
 /***/ },
-/* 487 */
+/* 488 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -55810,7 +55929,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _BeforeAfterWrapper = __webpack_require__(488);
+	var _BeforeAfterWrapper = __webpack_require__(489);
 
 	var _BeforeAfterWrapper2 = _interopRequireDefault(_BeforeAfterWrapper);
 
@@ -55860,7 +55979,7 @@
 	exports.default = ClearFix;
 
 /***/ },
-/* 488 */
+/* 489 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -56007,7 +56126,7 @@
 	exports.default = BeforeAfterWrapper;
 
 /***/ },
-/* 489 */
+/* 490 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -56144,7 +56263,7 @@
 	exports.default = PopoverAnimationVertical;
 
 /***/ },
-/* 490 */
+/* 491 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -56159,11 +56278,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Dialog = __webpack_require__(466);
+	var _Dialog = __webpack_require__(414);
 
 	var _Dialog2 = _interopRequireDefault(_Dialog);
 
-	var _FlatButton = __webpack_require__(453);
+	var _FlatButton = __webpack_require__(416);
 
 	var _FlatButton2 = _interopRequireDefault(_FlatButton);
 
@@ -56171,7 +56290,7 @@
 
 	var _RaisedButton2 = _interopRequireDefault(_RaisedButton);
 
-	var _RadioButton = __webpack_require__(491);
+	var _RadioButton = __webpack_require__(492);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -56272,7 +56391,7 @@
 	exports.default = DialogExampleScrollable;
 
 /***/ },
-/* 491 */
+/* 492 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -56282,11 +56401,11 @@
 	});
 	exports.default = exports.RadioButtonGroup = exports.RadioButton = undefined;
 
-	var _RadioButton2 = __webpack_require__(492);
+	var _RadioButton2 = __webpack_require__(493);
 
 	var _RadioButton3 = _interopRequireDefault(_RadioButton2);
 
-	var _RadioButtonGroup2 = __webpack_require__(495);
+	var _RadioButtonGroup2 = __webpack_require__(496);
 
 	var _RadioButtonGroup3 = _interopRequireDefault(_RadioButtonGroup2);
 
@@ -56297,7 +56416,7 @@
 	exports.default = _RadioButton3.default;
 
 /***/ },
-/* 492 */
+/* 493 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -56322,15 +56441,15 @@
 
 	var _transitions2 = _interopRequireDefault(_transitions);
 
-	var _EnhancedSwitch = __webpack_require__(460);
+	var _EnhancedSwitch = __webpack_require__(463);
 
 	var _EnhancedSwitch2 = _interopRequireDefault(_EnhancedSwitch);
 
-	var _radioButtonUnchecked = __webpack_require__(493);
+	var _radioButtonUnchecked = __webpack_require__(494);
 
 	var _radioButtonUnchecked2 = _interopRequireDefault(_radioButtonUnchecked);
 
-	var _radioButtonChecked = __webpack_require__(494);
+	var _radioButtonChecked = __webpack_require__(495);
 
 	var _radioButtonChecked2 = _interopRequireDefault(_radioButtonChecked);
 
@@ -56558,7 +56677,7 @@
 	exports.default = RadioButton;
 
 /***/ },
-/* 493 */
+/* 494 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -56594,7 +56713,7 @@
 	exports.default = ToggleRadioButtonUnchecked;
 
 /***/ },
-/* 494 */
+/* 495 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -56630,7 +56749,7 @@
 	exports.default = ToggleRadioButtonChecked;
 
 /***/ },
-/* 495 */
+/* 496 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -56651,7 +56770,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _RadioButton = __webpack_require__(491);
+	var _RadioButton = __webpack_require__(492);
 
 	var _RadioButton2 = _interopRequireDefault(_RadioButton);
 
@@ -56846,7 +56965,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 496 */
+/* 497 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -56861,11 +56980,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Dialog = __webpack_require__(466);
+	var _Dialog = __webpack_require__(414);
 
 	var _Dialog2 = _interopRequireDefault(_Dialog);
 
-	var _FlatButton = __webpack_require__(453);
+	var _FlatButton = __webpack_require__(416);
 
 	var _FlatButton2 = _interopRequireDefault(_FlatButton);
 
@@ -56946,7 +57065,7 @@
 	exports.default = DialogExampleAlert;
 
 /***/ },
-/* 497 */
+/* 498 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -56959,7 +57078,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _SimpleSlider = __webpack_require__(498);
+	var _SimpleSlider = __webpack_require__(499);
 
 	var _SimpleSlider2 = _interopRequireDefault(_SimpleSlider);
 
@@ -56967,11 +57086,11 @@
 
 	var _Subheader2 = _interopRequireDefault(_Subheader);
 
-	var _SteppedSlider = __webpack_require__(501);
+	var _SteppedSlider = __webpack_require__(502);
 
 	var _SteppedSlider2 = _interopRequireDefault(_SteppedSlider);
 
-	var _AlternativeAxisSlider = __webpack_require__(502);
+	var _AlternativeAxisSlider = __webpack_require__(503);
 
 	var _AlternativeAxisSlider2 = _interopRequireDefault(_AlternativeAxisSlider);
 
@@ -56981,7 +57100,8 @@
 
 
 	var style = {
-		height: '1500px'
+		height: innerHeight - 64,
+		paddingBottom: 64
 	};
 
 	var Sliders = function Sliders() {
@@ -56999,20 +57119,14 @@
 				null,
 				'Stepped Slider example'
 			),
-			_react2.default.createElement(_SteppedSlider2.default, null),
-			_react2.default.createElement(
-				_Subheader2.default,
-				null,
-				'Alternative Axis Slider'
-			),
-			_react2.default.createElement(_AlternativeAxisSlider2.default, null)
+			_react2.default.createElement(_SteppedSlider2.default, null)
 		);
 	};
 
 	exports.default = Sliders;
 
 /***/ },
-/* 498 */
+/* 499 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -57025,7 +57139,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Slider = __webpack_require__(499);
+	var _Slider = __webpack_require__(500);
 
 	var _Slider2 = _interopRequireDefault(_Slider);
 
@@ -57052,7 +57166,7 @@
 	exports.default = SliderExampleSimple;
 
 /***/ },
-/* 499 */
+/* 500 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -57062,7 +57176,7 @@
 	});
 	exports.default = undefined;
 
-	var _Slider = __webpack_require__(500);
+	var _Slider = __webpack_require__(501);
 
 	var _Slider2 = _interopRequireDefault(_Slider);
 
@@ -57071,7 +57185,7 @@
 	exports.default = _Slider2.default;
 
 /***/ },
-/* 500 */
+/* 501 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -57761,7 +57875,7 @@
 	exports.default = Slider;
 
 /***/ },
-/* 501 */
+/* 502 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -57774,7 +57888,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Slider = __webpack_require__(499);
+	var _Slider = __webpack_require__(500);
 
 	var _Slider2 = _interopRequireDefault(_Slider);
 
@@ -57795,7 +57909,7 @@
 	exports.default = SliderExampleStep;
 
 /***/ },
-/* 502 */
+/* 503 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -57808,7 +57922,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Slider = __webpack_require__(499);
+	var _Slider = __webpack_require__(500);
 
 	var _Slider2 = _interopRequireDefault(_Slider);
 
@@ -57830,7 +57944,7 @@
 	exports.default = SliderExampleAxis;
 
 /***/ },
-/* 503 */
+/* 504 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -57843,15 +57957,15 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _SimpleStepper = __webpack_require__(504);
+	var _SimpleStepper = __webpack_require__(505);
 
 	var _SimpleStepper2 = _interopRequireDefault(_SimpleStepper);
 
-	var _VerticalStepper = __webpack_require__(515);
+	var _VerticalStepper = __webpack_require__(516);
 
 	var _VerticalStepper2 = _interopRequireDefault(_VerticalStepper);
 
-	var _HorizontalNonLinearStepper = __webpack_require__(516);
+	var _HorizontalNonLinearStepper = __webpack_require__(517);
 
 	var _HorizontalNonLinearStepper2 = _interopRequireDefault(_HorizontalNonLinearStepper);
 
@@ -57913,7 +58027,7 @@
 	exports.default = Steppers;
 
 /***/ },
-/* 504 */
+/* 505 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -57928,13 +58042,13 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Stepper = __webpack_require__(505);
+	var _Stepper = __webpack_require__(506);
 
 	var _RaisedButton = __webpack_require__(401);
 
 	var _RaisedButton2 = _interopRequireDefault(_RaisedButton);
 
-	var _FlatButton = __webpack_require__(453);
+	var _FlatButton = __webpack_require__(416);
 
 	var _FlatButton2 = _interopRequireDefault(_FlatButton);
 
@@ -58099,7 +58213,7 @@
 	exports.default = HorizontalLinearStepper;
 
 /***/ },
-/* 505 */
+/* 506 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -58109,23 +58223,23 @@
 	});
 	exports.Stepper = exports.StepLabel = exports.StepContent = exports.StepButton = exports.Step = undefined;
 
-	var _Step2 = __webpack_require__(506);
+	var _Step2 = __webpack_require__(507);
 
 	var _Step3 = _interopRequireDefault(_Step2);
 
-	var _StepButton2 = __webpack_require__(507);
+	var _StepButton2 = __webpack_require__(508);
 
 	var _StepButton3 = _interopRequireDefault(_StepButton2);
 
-	var _StepContent2 = __webpack_require__(510);
+	var _StepContent2 = __webpack_require__(511);
 
 	var _StepContent3 = _interopRequireDefault(_StepContent2);
 
-	var _StepLabel2 = __webpack_require__(508);
+	var _StepLabel2 = __webpack_require__(509);
 
 	var _StepLabel3 = _interopRequireDefault(_StepLabel2);
 
-	var _Stepper2 = __webpack_require__(513);
+	var _Stepper2 = __webpack_require__(514);
 
 	var _Stepper3 = _interopRequireDefault(_Stepper2);
 
@@ -58138,7 +58252,7 @@
 	exports.Stepper = _Stepper3.default;
 
 /***/ },
-/* 506 */
+/* 507 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -58283,7 +58397,7 @@
 	exports.default = Step;
 
 /***/ },
-/* 507 */
+/* 508 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -58312,7 +58426,7 @@
 
 	var _EnhancedButton2 = _interopRequireDefault(_EnhancedButton);
 
-	var _StepLabel = __webpack_require__(508);
+	var _StepLabel = __webpack_require__(509);
 
 	var _StepLabel2 = _interopRequireDefault(_StepLabel);
 
@@ -58485,7 +58599,7 @@
 	exports.default = StepButton;
 
 /***/ },
-/* 508 */
+/* 509 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -58508,7 +58622,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _checkCircle = __webpack_require__(509);
+	var _checkCircle = __webpack_require__(510);
 
 	var _checkCircle2 = _interopRequireDefault(_checkCircle);
 
@@ -58689,7 +58803,7 @@
 	exports.default = StepLabel;
 
 /***/ },
-/* 509 */
+/* 510 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -58725,7 +58839,7 @@
 	exports.default = ActionCheckCircle;
 
 /***/ },
-/* 510 */
+/* 511 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -58746,7 +58860,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _ExpandTransition = __webpack_require__(511);
+	var _ExpandTransition = __webpack_require__(512);
 
 	var _ExpandTransition2 = _interopRequireDefault(_ExpandTransition);
 
@@ -58860,7 +58974,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 511 */
+/* 512 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -58885,7 +58999,7 @@
 
 	var _reactAddonsTransitionGroup2 = _interopRequireDefault(_reactAddonsTransitionGroup);
 
-	var _ExpandTransitionChild = __webpack_require__(512);
+	var _ExpandTransitionChild = __webpack_require__(513);
 
 	var _ExpandTransitionChild2 = _interopRequireDefault(_ExpandTransitionChild);
 
@@ -58982,7 +59096,7 @@
 	exports.default = ExpandTransition;
 
 /***/ },
-/* 512 */
+/* 513 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -59139,7 +59253,7 @@
 	exports.default = ExpandTransitionChild;
 
 /***/ },
-/* 513 */
+/* 514 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -59158,7 +59272,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _StepConnector = __webpack_require__(514);
+	var _StepConnector = __webpack_require__(515);
 
 	var _StepConnector2 = _interopRequireDefault(_StepConnector);
 
@@ -59279,7 +59393,7 @@
 	exports.default = Stepper;
 
 /***/ },
-/* 514 */
+/* 515 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -59357,7 +59471,7 @@
 	exports.default = (0, _pure2.default)(StepConnector);
 
 /***/ },
-/* 515 */
+/* 516 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -59372,13 +59486,13 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Stepper = __webpack_require__(505);
+	var _Stepper = __webpack_require__(506);
 
 	var _RaisedButton = __webpack_require__(401);
 
 	var _RaisedButton2 = _interopRequireDefault(_RaisedButton);
 
-	var _FlatButton = __webpack_require__(453);
+	var _FlatButton = __webpack_require__(416);
 
 	var _FlatButton2 = _interopRequireDefault(_FlatButton);
 
@@ -59559,7 +59673,7 @@
 	exports.default = VerticalLinearStepper;
 
 /***/ },
-/* 516 */
+/* 517 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -59574,13 +59688,13 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Stepper = __webpack_require__(505);
+	var _Stepper = __webpack_require__(506);
 
 	var _RaisedButton = __webpack_require__(401);
 
 	var _RaisedButton2 = _interopRequireDefault(_RaisedButton);
 
-	var _FlatButton = __webpack_require__(453);
+	var _FlatButton = __webpack_require__(416);
 
 	var _FlatButton2 = _interopRequireDefault(_FlatButton);
 
@@ -59731,7 +59845,7 @@
 	exports.default = HorizontalNonLinearStepper;
 
 /***/ },
-/* 517 */
+/* 518 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -59750,7 +59864,7 @@
 
 	var _reactRouter = __webpack_require__(176);
 
-	var _MainStore = __webpack_require__(518);
+	var _MainStore = __webpack_require__(519);
 
 	var _MainStore2 = _interopRequireDefault(_MainStore);
 
@@ -59920,7 +60034,7 @@
 	exports.default = Main;
 
 /***/ },
-/* 518 */
+/* 519 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -59956,7 +60070,7 @@
 		};
 	};
 
-	var _Events = __webpack_require__(519);
+	var _Events = __webpack_require__(520);
 
 	var _Events2 = _interopRequireDefault(_Events);
 
@@ -59968,7 +60082,7 @@
 	var event = new Event(CHANGE_EV);
 
 /***/ },
-/* 519 */
+/* 520 */
 /***/ function(module, exports) {
 
 	'use strict';

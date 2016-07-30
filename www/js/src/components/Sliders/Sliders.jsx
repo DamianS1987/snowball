@@ -6,7 +6,8 @@ import SteppedSlider from './SteppedSlider/SteppedSlider.jsx';
 import AlternativeAxisSlider from './AlternativeAxisSlider/AlternativeAxisSlider.jsx';
 
 const style = {
-	height: '1500px'
+	height: innerHeight - 64,
+	paddingBottom: 64
 }
 
 const Sliders = () => (
@@ -15,8 +16,10 @@ const Sliders = () => (
 		<SimpleSlider></SimpleSlider>
 		<Subheader>Stepped Slider example</Subheader>
 		<SteppedSlider></SteppedSlider>
+		{/*
 		<Subheader>Alternative Axis Slider</Subheader>
 		<AlternativeAxisSlider></AlternativeAxisSlider>
+		*/}
 	</div>
 );
 

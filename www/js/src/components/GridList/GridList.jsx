@@ -1,11 +1,12 @@
 import React, { PropTypes, Component } from 'react';
-import {render} from 'react-dom';
-import { Link, Router, Route, hashHistory } from 'react-router';
 
 import {GridList, GridTile} from 'material-ui/GridList';
 import IconButton from 'material-ui/IconButton';
 import Subheader from 'material-ui/Subheader';
 import StarBorder from 'material-ui/svg-icons/toggle/star-border';
+
+//dialog with description
+import DescriptionDialog from './DescriptionDialog/DescriptionDialog.jsx';
 
 const styles = {
 	root: {
@@ -24,7 +25,17 @@ const tilesData = [
 	{
 		img: 'img/grid-list/00-52-29-429_640.jpg',
 		title: 'Breakfast',
-		author: 'jill111',
+		author: 'John Snow',
+	},
+	{
+		img: 'img/grid-list/burger-827309_640.jpg',
+		title: 'Tasty burger 1',
+		author: 'pashminu',
+	},
+	{
+		img: 'img/grid-list/00-52-29-429_640.jpg',
+		title: 'Breakfast',
+		author: 'Lorem ipsum',
 	},
 	{
 		img: 'img/grid-list/burger-827309_640.jpg',
@@ -54,7 +65,27 @@ const tilesData = [
 	{
 		img: 'img/grid-list/vegetables-790022_640.jpg',
 		title: 'Vegetables',
-		author: 'jill111',
+		author: 'DaDaDaDa',
+	},
+	{
+		img: 'img/grid-list/water-plant-821293_640.jpg',
+		title: 'Water plant',
+		author: 'John Lennon',
+	},
+	{
+		img: 'img/grid-list/vegetables-790022_640.jpg',
+		title: 'Vegetables',
+		author: 'ABCD',
+	},
+	{
+		img: 'img/grid-list/water-plant-821293_640.jpg',
+		title: 'Water plant',
+		author: 'Baran Karki',
+	},
+	{
+		img: 'img/grid-list/vegetables-790022_640.jpg',
+		title: 'Vegetables',
+		author: 'AilAAl111',
 	},
 	{
 		img: 'img/grid-list/water-plant-821293_640.jpg',
@@ -72,18 +103,17 @@ class GridListExampleSimple extends React.Component {
 
 	render() {
 
-		console.log('scroll')
-
 		return(
 			<div style={styles.root}>
 				<GridList
 					cellHeight={200}
 					style={styles.gridList}
 					>
-					<Subheader>December</Subheader>
+					<Subheader>Grid List Example <DescriptionDialog></DescriptionDialog></Subheader>
+
 					{tilesData.map((tile) => (
 						<GridTile
-							key={tile.img}
+							key={tile.img + tile.author + tile.title}
 							title={tile.title}
 							subtitle={<span>by <b>{tile.author}</b></span>}
 							actionIcon={<IconButton><StarBorder color="white" /></IconButton>}
@@ -96,9 +126,5 @@ class GridListExampleSimple extends React.Component {
 		);
 	}
 }
-
-//const GridListExampleSimple = () => (
-//
-//);
 
 export default GridListExampleSimple;
