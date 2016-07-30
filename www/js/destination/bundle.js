@@ -45623,6 +45623,8 @@
 		value: true
 	});
 
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 	var _react = __webpack_require__(1);
 
 	var _react2 = _interopRequireDefault(_react);
@@ -45647,17 +45649,22 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
 	var styles = {
 		root: {
 			display: 'flex',
 			flexWrap: 'wrap',
-			justifyContent: 'space-around'
+			justifyContent: 'space-around',
+			height: window.innerHeight - 64 + 'px'
 		},
 		gridList: {
 			width: '100%',
-			height: window.innerHeight - 64 + 'px',
-			overflowY: 'auto',
-			marginBottom: 24
+			overflowY: 'auto'
 		}
 	};
 
@@ -45695,49 +45702,76 @@
 		author: 'BkrmadtyaKarki'
 	}];
 
-	var GridListExampleSimple = function GridListExampleSimple() {
-		return _react2.default.createElement(
-			'div',
-			{ style: styles.root },
-			_react2.default.createElement(
-				_GridList.GridList,
-				{
-					cellHeight: 200,
-					style: styles.gridList
-				},
-				_react2.default.createElement(
-					_Subheader2.default,
-					null,
-					'December'
-				),
-				tilesData.map(function (tile) {
-					return _react2.default.createElement(
-						_GridList.GridTile,
+	var GridListExampleSimple = function (_React$Component) {
+		_inherits(GridListExampleSimple, _React$Component);
+
+		function GridListExampleSimple(props) {
+			_classCallCheck(this, GridListExampleSimple);
+
+			//set state
+
+			var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(GridListExampleSimple).call(this, props));
+
+			_this.state = {};
+			return _this;
+		}
+
+		_createClass(GridListExampleSimple, [{
+			key: 'render',
+			value: function render() {
+
+				console.log('scroll');
+
+				return _react2.default.createElement(
+					'div',
+					{ style: styles.root },
+					_react2.default.createElement(
+						_GridList.GridList,
 						{
-							key: tile.img,
-							title: tile.title,
-							subtitle: _react2.default.createElement(
-								'span',
-								null,
-								'by ',
-								_react2.default.createElement(
-									'b',
-									null,
-									tile.author
-								)
-							),
-							actionIcon: _react2.default.createElement(
-								_IconButton2.default,
-								null,
-								_react2.default.createElement(_starBorder2.default, { color: 'white' })
-							)
+							cellHeight: 200,
+							style: styles.gridList
 						},
-						_react2.default.createElement('img', { src: tile.img })
-					);
-				})
-			)
-		);
-	};
+						_react2.default.createElement(
+							_Subheader2.default,
+							null,
+							'December'
+						),
+						tilesData.map(function (tile) {
+							return _react2.default.createElement(
+								_GridList.GridTile,
+								{
+									key: tile.img,
+									title: tile.title,
+									subtitle: _react2.default.createElement(
+										'span',
+										null,
+										'by ',
+										_react2.default.createElement(
+											'b',
+											null,
+											tile.author
+										)
+									),
+									actionIcon: _react2.default.createElement(
+										_IconButton2.default,
+										null,
+										_react2.default.createElement(_starBorder2.default, { color: 'white' })
+									)
+								},
+								_react2.default.createElement('img', { src: tile.img })
+							);
+						})
+					)
+				);
+			}
+		}]);
+
+		return GridListExampleSimple;
+	}(_react2.default.Component);
+
+	//const GridListExampleSimple = () => (
+	//
+	//);
 
 	exports.default = GridListExampleSimple;
 

@@ -26,6 +26,9 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 
 body {
   background: #fffffe;
+  //solution to android browser menu scroll
+  //http://stackoverflow.com/questions/15132630/how-to-prevent-document-scrolling-but-allow-scrolling-inside-div-elements-on-web
+  position: fixed;
 }
 
 a {

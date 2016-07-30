@@ -9867,7 +9867,8 @@ a.button {
   content: "\e610"; }
 
 body {
-  background: #fffffe; }
+  background: #fffffe;
+  position: fixed; }
 
 a {
   text-decoration: none; }

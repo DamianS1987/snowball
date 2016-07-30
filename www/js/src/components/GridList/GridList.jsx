@@ -12,12 +12,11 @@ const styles = {
 		display: 'flex',
 		flexWrap: 'wrap',
 		justifyContent: 'space-around',
+		height: window.innerHeight - 64 + 'px',
 	},
 	gridList: {
 		width: '100%',
-		height: window.innerHeight - 64 + 'px',
 		overflowY: 'auto',
-		marginBottom: 24,
 	},
 };
 
@@ -64,25 +63,42 @@ const tilesData = [
 	},
 ];
 
-const GridListExampleSimple = () => (
-	<div style={styles.root}>
-		<GridList
-			cellHeight={200}
-			style={styles.gridList}
-			>
-			<Subheader>December</Subheader>
-			{tilesData.map((tile) => (
-				<GridTile
-					key={tile.img}
-					title={tile.title}
-					subtitle={<span>by <b>{tile.author}</b></span>}
-					actionIcon={<IconButton><StarBorder color="white" /></IconButton>}
+class GridListExampleSimple extends React.Component {
+	constructor(props) {
+		super(props);
+		//set state
+		this.state = {}
+	}
+
+	render() {
+
+		console.log('scroll')
+
+		return(
+			<div style={styles.root}>
+				<GridList
+					cellHeight={200}
+					style={styles.gridList}
 					>
-					<img src={tile.img} />
-				</GridTile>
-			))}
-		</GridList>
-	</div>
-);
+					<Subheader>December</Subheader>
+					{tilesData.map((tile) => (
+						<GridTile
+							key={tile.img}
+							title={tile.title}
+							subtitle={<span>by <b>{tile.author}</b></span>}
+							actionIcon={<IconButton><StarBorder color="white" /></IconButton>}
+							>
+							<img src={tile.img} />
+						</GridTile>
+					))}
+				</GridList>
+			</div>
+		);
+	}
+}
+
+//const GridListExampleSimple = () => (
+//
+//);
 
 export default GridListExampleSimple;
