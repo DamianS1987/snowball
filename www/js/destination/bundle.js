@@ -57866,7 +57866,15 @@
 
 	var style = {
 		height: innerHeight - 64,
-		overflow: 'scroll'
+		paddingBottom: 64,
+		overflowY: 'scroll',
+		overflowX: 'hidden',
+		width: '100%'
+	};
+	var stepperStyle = {
+		overflow: 'scroll',
+		width: '100%',
+		paddingBottom: 64
 	};
 
 	var Steppers = function Steppers() {
@@ -57876,9 +57884,13 @@
 			_react2.default.createElement(
 				_Subheader2.default,
 				null,
-				'Simple Stepper example'
+				'Simple Stepper example (horizontal scroll)'
 			),
-			_react2.default.createElement(_SimpleStepper2.default, null),
+			_react2.default.createElement(
+				'div',
+				{ style: stepperStyle },
+				_react2.default.createElement(_SimpleStepper2.default, null)
+			),
 			_react2.default.createElement(
 				_Subheader2.default,
 				null,
@@ -57888,9 +57900,13 @@
 			_react2.default.createElement(
 				_Subheader2.default,
 				null,
-				'Horizontal non lineader stepper example'
+				'Horizontal non lineader stepper example (horizontal scroll)'
 			),
-			_react2.default.createElement(_HorizontalNonLinearStepper2.default, null)
+			_react2.default.createElement(
+				'div',
+				{ style: stepperStyle },
+				_react2.default.createElement(_HorizontalNonLinearStepper2.default, null)
+			)
 		);
 	};
 
