@@ -27,6 +27,7 @@ import {cyan500} from 'material-ui/styles/colors';
 
 //scrollable list
 import GridListExampleSimple from '../ScrollableList/scrollablelist.jsx';
+import SplashScreen from '../SplashScreen/SplashScreen.jsx';
 
 class Main extends React.Component {
 
@@ -43,6 +44,7 @@ class Main extends React.Component {
         if (!this.state || !this.state.openDrawer) {
             this.state = {};
             this.state.openDrawer = false;
+            this.state.splashScreen = true;
         }
         this.store.addChangeEventListener(this.storeChangeEmitted);
     }
@@ -66,35 +68,47 @@ class Main extends React.Component {
     }
 
     render () {
-        return (
-            <div>
-                <MuiThemeProvider muiTheme={getMuiTheme()}>
-                    <AppBar title="Snowball Hybrid App"
-                        onLeftIconButtonTouchTap={this.leftButtonTapPress}
-                        iconElementRight={
-                          <IconMenu
-                            iconButtonElement={
-                              <IconButton><MoreVertIcon /></IconButton>
+
+        if (this.state.splashScreen) {
+
+            return (
+                <div>
+                    <SplashScreen/>
+                </div>
+            )
+
+        } else {
+
+            return (
+                <div>
+                    <MuiThemeProvider muiTheme={getMuiTheme()}>
+                        <AppBar title="Snowball Hybrid App"
+                                onLeftIconButtonTouchTap={this.leftButtonTapPress}
+                                iconElementRight={
+                              <IconMenu
+                                iconButtonElement={
+                                  <IconButton><MoreVertIcon /></IconButton>
+                                }
+                                targetOrigin={{horizontal: 'right', vertical: 'top'}}
+                                anchorOrigin={{horizontal: 'right', vertical: 'top'}}
+                              >
+                                <MenuItem primaryText="Help" />
+                                <MenuItem primaryText="Sign out" />
+                              </IconMenu>
                             }
-                            targetOrigin={{horizontal: 'right', vertical: 'top'}}
-                            anchorOrigin={{horizontal: 'right', vertical: 'top'}}
-                          >
-                            <MenuItem primaryText="Help" />
-                            <MenuItem primaryText="Sign out" />
-                          </IconMenu>
-                        }
-                        />
-                </MuiThemeProvider>
+                            />
+                    </MuiThemeProvider>
 
-                <MuiThemeProvider muiTheme={getMuiTheme()}>
-                    <DrawerUndockedExample open={this.state.openDrawer} handleClose={this.handleClose} />
-                </MuiThemeProvider>
+                    <MuiThemeProvider muiTheme={getMuiTheme()}>
+                        <DrawerUndockedExample open={this.state.openDrawer} handleClose={this.handleClose}/>
+                    </MuiThemeProvider>
 
-                <MuiThemeProvider muiTheme={getMuiTheme()}>
-                    { this.props.children }
-                </MuiThemeProvider>
-            </div>
-        );
+                    <MuiThemeProvider muiTheme={getMuiTheme()}>
+                        { this.props.children }
+                    </MuiThemeProvider>
+                </div>
+            );
+        }
     }
 }
 
