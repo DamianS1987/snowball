@@ -59,7 +59,7 @@ class Main extends React.Component {
         * */
 
         that.setState({
-            splashScreen: false
+            splashScreen: true
         });
 
         setTimeout(function() {
@@ -68,8 +68,6 @@ class Main extends React.Component {
     }
 
     componentWillUnmount() {
-        console.log('component will unmount');
-
         this.store.removeChangeEventListener(this.storeChangeEmitted);
     }
 
@@ -87,7 +85,9 @@ class Main extends React.Component {
 
             return (
                 <div>
-                    <SplashScreen/>
+                    <MuiThemeProvider muiTheme={getMuiTheme()}>
+                        <SplashScreen/>
+                    </MuiThemeProvider>
                 </div>
             )
         } else {

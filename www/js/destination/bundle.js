@@ -59983,7 +59983,7 @@
 	            * */
 
 	            that.setState({
-	                splashScreen: false
+	                splashScreen: true
 	            });
 
 	            setTimeout(function () {
@@ -59993,8 +59993,6 @@
 	    }, {
 	        key: 'componentWillUnmount',
 	        value: function componentWillUnmount() {
-	            console.log('component will unmount');
-
 	            this.store.removeChangeEventListener(this.storeChangeEmitted);
 	        }
 	    }, {
@@ -60016,7 +60014,11 @@
 	                return _react2.default.createElement(
 	                    'div',
 	                    null,
-	                    _react2.default.createElement(_SplashScreen2.default, null)
+	                    _react2.default.createElement(
+	                        _MuiThemeProvider2.default,
+	                        { muiTheme: (0, _getMuiTheme2.default)() },
+	                        _react2.default.createElement(_SplashScreen2.default, null)
+	                    )
 	                );
 	            } else {
 
@@ -60091,15 +60093,13 @@
 			document.removeEventListener(CHANGE_EV, callback);
 		}
 
-		function emitChange() {
-
-			console.log('emit change');
-			document.dispatchEvent(event, null, true);
+		function initStartScreen() {
+			document.dispatchEvent(event);
 		}
 
 		//todo if cookie exists trigger emitChange
 		function checkCookies() {
-			emitChange();
+			initStartScreen();
 		}
 
 		return {
@@ -60496,6 +60496,18 @@
 
 	var _reactRouter = __webpack_require__(176);
 
+	var _Divider = __webpack_require__(433);
+
+	var _Divider2 = _interopRequireDefault(_Divider);
+
+	var _FlatButton = __webpack_require__(416);
+
+	var _FlatButton2 = _interopRequireDefault(_FlatButton);
+
+	var _AutoComplete = __webpack_require__(424);
+
+	var _AutoComplete2 = _interopRequireDefault(_AutoComplete);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -60504,7 +60516,24 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	console.log('browserHistory: ', _reactRouter.browserHistory);
+	var style = {
+		h2: {
+			color: '#886aea',
+			textAlign: 'center'
+		},
+		imgWrap: {
+			textAlign: 'center'
+		},
+		img: {
+			margin: 'auto',
+			minWidth: 320,
+			minHeight: 240
+		},
+		viewWrap: {
+			padding: '1em',
+			background: '#f8f8f8'
+		}
+	};
 
 	var SplashScreen = function (_React$Component) {
 		_inherits(SplashScreen, _React$Component);
@@ -60512,30 +60541,146 @@
 		function SplashScreen(props) {
 			_classCallCheck(this, SplashScreen);
 
-			return _possibleConstructorReturn(this, Object.getPrototypeOf(SplashScreen).call(this, props));
+			var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(SplashScreen).call(this, props));
+
+			_this.handleLogin = _this.handleLogin.bind(_this);
+			_this.handleFacebookLogin = _this.handleFacebookLogin.bind(_this);
+			_this.handleRegistration = _this.handleRegistration.bind(_this);
+			_this.handleFacebookRegistration = _this.handleFacebookRegistration.bind(_this);
+			//input
+			_this.handleUpdateInput = _this.handleUpdateInput.bind(_this);
+			_this.handleSubmit = _this.handleSubmit.bind(_this);
+
+			_this.state = {
+				showLoginForm: false,
+				dataSource: ['']
+			};
+			return _this;
 		}
 
 		_createClass(SplashScreen, [{
+			key: 'handleLogin',
+			value: function handleLogin() {
+				console.log('login button cliecked');
+				this.setState({
+					showLoginForm: true
+				});
+			}
+		}, {
+			key: 'handleFacebookLogin',
+			value: function handleFacebookLogin() {
+				console.log('handleFacebookLogin clicked');
+			}
+		}, {
+			key: 'handleRegistration',
+			value: function handleRegistration() {
+				console.log('register button clicked');
+			}
+		}, {
+			key: 'handleFacebookRegistration',
+			value: function handleFacebookRegistration() {
+				console.log('facebook registration clicked');
+			}
+		}, {
+			key: 'handleUpdateInput',
+			value: function handleUpdateInput() {
+				console.log('handle input update');
+			}
+		}, {
+			key: 'handleSubmit',
+			value: function handleSubmit() {
+				console.log('handleSubmit button after login pressed');
+
+				/* After login screen we should move to the main view of the app */
+			}
+		}, {
 			key: 'render',
 			value: function render() {
+				var adequateComponent;
+
+				if (this.state.showLoginForm) {
+					adequateComponent = _react2.default.createElement(
+						'div',
+						null,
+						_react2.default.createElement(_AutoComplete2.default, {
+							hintText: 'Type your login name',
+							onUpdateInput: this.handleUpdateInput,
+							dataSource: this.state.dataSource,
+							floatingLabelText: 'Login',
+							fullWidth: true
+						}),
+						_react2.default.createElement(_AutoComplete2.default, {
+							hintText: 'Type your password',
+							onUpdateInput: this.handleUpdateInput,
+							dataSource: this.state.dataSource,
+							floatingLabelText: 'Password',
+							fullWidth: true,
+							type: 'password'
+						}),
+						_react2.default.createElement(_FlatButton2.default, {
+							label: 'Submit',
+							primary: true,
+							keyboardFocused: false,
+							onTouchTap: this.handleSubmit.bind(this)
+						})
+					);
+				} else {
+					adequateComponent = _react2.default.createElement(
+						'div',
+						null,
+						_react2.default.createElement(_FlatButton2.default, {
+							label: 'Login',
+							primary: true,
+							keyboardFocused: false,
+							onTouchTap: this.handleLogin.bind(this)
+						}),
+						_react2.default.createElement(_FlatButton2.default, {
+							label: 'Facebook Login',
+							primary: true,
+							keyboardFocused: false,
+							onTouchTap: this.handleFacebookLogin.bind(this)
+						}),
+						_react2.default.createElement(_Divider2.default, null),
+						_react2.default.createElement(_FlatButton2.default, {
+							label: 'Registration',
+							primary: true,
+							keyboardFocused: false,
+							onTouchTap: this.handleRegistration.bind(this)
+						}),
+						_react2.default.createElement(_FlatButton2.default, {
+							label: 'Facebook Registration',
+							primary: true,
+							keyboardFocused: false,
+							onTouchTap: this.handleFacebookRegistration.bind(this)
+						}),
+						_react2.default.createElement(_Divider2.default, null),
+						_react2.default.createElement(
+							'p',
+							null,
+							'This view should provide user with the options to login/register.'
+						),
+						_react2.default.createElement(
+							'p',
+							null,
+							'The first login/register option done will be email. In the next versions social media login should be available.'
+						)
+					);
+				}
+
 				return _react2.default.createElement(
 					'div',
-					null,
+					{ style: style.viewWrap },
+					_react2.default.createElement(
+						'div',
+						{ style: style.imgWrap },
+						_react2.default.createElement('img', { style: style.img, src: 'http://loremflickr.com/320/240/snowman' })
+					),
 					_react2.default.createElement(
 						'h2',
-						null,
-						'That\'s the splash'
+						{ style: style.h2 },
+						'That\'s the start screen'
 					),
-					_react2.default.createElement(
-						'p',
-						null,
-						'This view should provide user with the options to login/register.'
-					),
-					_react2.default.createElement(
-						'p',
-						null,
-						'The first login/register option done will be email. In the next versions social media login should be available.'
-					)
+					adequateComponent
 				);
 			}
 		}]);

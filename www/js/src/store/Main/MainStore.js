@@ -55,15 +55,13 @@ export default function() {
 		document.removeEventListener(CHANGE_EV, callback);
 	}
 
-	function emitChange() {
-
-		console.log('emit change')
-		document.dispatchEvent(event, null, true);
+	function initStartScreen() {
+		document.dispatchEvent(event);
 	}
 
 	//todo if cookie exists trigger emitChange
 	function checkCookies() {
-		emitChange();
+		initStartScreen();
 	}
 
 	return {
