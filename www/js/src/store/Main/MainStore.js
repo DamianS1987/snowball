@@ -25,42 +25,50 @@ var eventInst = new Events();
 var event = new Event(CHANGE_EV);
 
 //dispatcher setup
-mainDispatcher.register(function(payload) {
-	console.log('payload registered', payload)
-
-	if (payload.actionType === 'update') {
-		mainStore.currentView = payload.currentView;
-	}
-});
-
-mainDispatcher.dispatch({
-	actionType: 'update',
-	currentView: 'login page'
-});
+//mainDispatcher.register(function(payload) {
+//	console.log('payload registered', payload)
+//
+//	if (payload.actionType === 'update') {
+//		mainStore.currentView = payload.currentView;
+//	}
+//});
+//
+//mainDispatcher.dispatch({
+//	actionType: 'update',
+//	currentView: 'login page'
+//});
 
 export default function() {
 
 	//add event listener for Spacebar
-	document.addEventListener(eventInst.SPACE, function() {
-		emitChange();
-	});
+	//document.addEventListener(eventInst.SPACE, function() {
+	//	emitChange();
+	//});
 
 	function addChangeEvent(callback) {
 		document.addEventListener(CHANGE_EV, callback);
 	}
 
 	function removeChangeEvent(callback) {
-		console.log('remove ev')
+		console.log('remove ev');
 
 		document.removeEventListener(CHANGE_EV, callback);
 	}
 
 	function emitChange() {
-		document.dispatchEvent(event);
+
+		console.log('emit change')
+		document.dispatchEvent(event, null, true);
+	}
+
+	//todo if cookie exists trigger emitChange
+	function checkCookies() {
+		emitChange();
 	}
 
 	return {
 		addChangeEventListener: addChangeEvent,
-		removeChangeEventListener: removeChangeEvent
+		removeChangeEventListener: removeChangeEvent,
+		checkCookies: checkCookies
 	}
 }

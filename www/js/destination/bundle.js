@@ -20555,7 +20555,7 @@
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
-		value: true
+	  value: true
 	});
 
 	var _react = __webpack_require__(1);
@@ -20572,15 +20572,15 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var eventInst = new _Events2.default();
-	var event = new Event(eventInst.SPACE);
-
-	document.addEventListener('keyup', function (ev) {
-
-		if (ev.keyCode === 32) {
-			document.dispatchEvent(event);
-		}
-	});
+	//var eventInst = new Events();
+	//var event = new Event(eventInst.SPACE);
+	//
+	//document.addEventListener('keyup', function(ev) {
+	//
+	//	if (ev.keyCode === 32) {
+	//		document.dispatchEvent(event);
+	//	}
+	//});
 
 	exports.default = _router2.default;
 
@@ -59970,11 +59970,25 @@
 	                this.state.splashScreen = true;
 	            }
 	            this.store.addChangeEventListener(this.storeChangeEmitted);
+
+	            //check if it's the first time we open the application
+	            this.store.checkCookies();
 	        }
 	    }, {
 	        key: 'storeChangeEmitted',
-	        value: function storeChangeEmitted() {
-	            alert('storeChangeEmitted');
+	        value: function storeChangeEmitted(cookiesExist) {
+	            var that = this;
+	            /* Here you want to create a splash screen for your app that will send the user to the login
+	            * or registration page at the start of your application
+	            * */
+
+	            that.setState({
+	                splashScreen: false
+	            });
+
+	            setTimeout(function () {
+	                //browserHistory.push('/#/forms/autocompleteexample?_k=o8wqnl');
+	            }, 4000);
 	        }
 	    }, {
 	        key: 'componentWillUnmount',
@@ -60063,9 +60077,9 @@
 	exports.default = function () {
 
 		//add event listener for Spacebar
-		document.addEventListener(eventInst.SPACE, function () {
-			emitChange();
-		});
+		//document.addEventListener(eventInst.SPACE, function() {
+		//	emitChange();
+		//});
 
 		function addChangeEvent(callback) {
 			document.addEventListener(CHANGE_EV, callback);
@@ -60078,12 +60092,20 @@
 		}
 
 		function emitChange() {
-			document.dispatchEvent(event);
+
+			console.log('emit change');
+			document.dispatchEvent(event, null, true);
+		}
+
+		//todo if cookie exists trigger emitChange
+		function checkCookies() {
+			emitChange();
 		}
 
 		return {
 			addChangeEventListener: addChangeEvent,
-			removeChangeEventListener: removeChangeEvent
+			removeChangeEventListener: removeChangeEvent,
+			checkCookies: checkCookies
 		};
 	};
 
@@ -60117,18 +60139,18 @@
 	var event = new Event(CHANGE_EV);
 
 	//dispatcher setup
-	mainDispatcher.register(function (payload) {
-		console.log('payload registered', payload);
-
-		if (payload.actionType === 'update') {
-			mainStore.currentView = payload.currentView;
-		}
-	});
-
-	mainDispatcher.dispatch({
-		actionType: 'update',
-		currentView: 'login page'
-	});
+	//mainDispatcher.register(function(payload) {
+	//	console.log('payload registered', payload)
+	//
+	//	if (payload.actionType === 'update') {
+	//		mainStore.currentView = payload.currentView;
+	//	}
+	//});
+	//
+	//mainDispatcher.dispatch({
+	//	actionType: 'update',
+	//	currentView: 'login page'
+	//});
 
 /***/ },
 /* 520 */
@@ -60490,12 +60512,7 @@
 		function SplashScreen(props) {
 			_classCallCheck(this, SplashScreen);
 
-			var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(SplashScreen).call(this, props));
-
-			setTimeout(function () {
-				_reactRouter.browserHistory.push('/#/forms/autocompleteexample?_k=o8wqnl');
-			}, 4000);
-			return _this;
+			return _possibleConstructorReturn(this, Object.getPrototypeOf(SplashScreen).call(this, props));
 		}
 
 		_createClass(SplashScreen, [{
@@ -60512,7 +60529,12 @@
 					_react2.default.createElement(
 						'p',
 						null,
-						'It should fade in and out etc.'
+						'This view should provide user with the options to login/register.'
+					),
+					_react2.default.createElement(
+						'p',
+						null,
+						'The first login/register option done will be email. In the next versions social media login should be available.'
 					)
 				);
 			}

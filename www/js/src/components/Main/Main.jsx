@@ -47,10 +47,24 @@ class Main extends React.Component {
             this.state.splashScreen = true;
         }
         this.store.addChangeEventListener(this.storeChangeEmitted);
+
+        //check if it's the first time we open the application
+        this.store.checkCookies();
     }
 
-    storeChangeEmitted() {
-        alert('storeChangeEmitted');
+    storeChangeEmitted(cookiesExist) {
+        var that = this;
+        /* Here you want to create a splash screen for your app that will send the user to the login
+        * or registration page at the start of your application
+        * */
+
+        that.setState({
+            splashScreen: false
+        });
+
+        setTimeout(function() {
+            //browserHistory.push('/#/forms/autocompleteexample?_k=o8wqnl');
+        }, 4000);
     }
 
     componentWillUnmount() {
@@ -76,7 +90,6 @@ class Main extends React.Component {
                     <SplashScreen/>
                 </div>
             )
-
         } else {
 
             return (
