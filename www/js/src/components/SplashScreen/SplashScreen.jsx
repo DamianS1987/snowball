@@ -3,6 +3,11 @@ import { browserHistory } from 'react-router';
 import Divider from 'material-ui/Divider';
 import FlatButton from 'material-ui/FlatButton';
 import AutoComplete from 'material-ui/AutoComplete';
+import Events from '../../events/Events';
+var eventInst = new Events();
+
+//EVENT SETUP
+var event = new Event(eventInst.LOGIN_SUCESSFULL);
 
 const style = {
 	h2: {
@@ -41,7 +46,6 @@ class SplashScreen extends React.Component {
 	}
 
 	handleLogin() {
-		console.log('login button cliecked');
 		this.setState({
 			showLoginForm: true
 		});
@@ -67,6 +71,11 @@ class SplashScreen extends React.Component {
 		console.log('handleSubmit button after login pressed');
 
 		/* After login screen we should move to the main view of the app */
+		//change main view state
+		document.dispatchEvent(event);
+
+		//change route
+		browserHistory.push('/#/home');
 	}
 
 	render() {

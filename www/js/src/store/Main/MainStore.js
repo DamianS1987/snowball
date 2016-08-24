@@ -11,47 +11,25 @@
  */
 
 import Events from '../../events/Events';
-var Dispatcher = require('flux').Dispatcher;
-
-console.log('dis: ', Dispatcher);
-
-var mainDispatcher = new Dispatcher();
-var mainStore = {
-	'currentView': null
-};
 
 var CHANGE_EV = 'store_change';
 var eventInst = new Events();
-var event = new Event(CHANGE_EV);
-
-//dispatcher setup
-//mainDispatcher.register(function(payload) {
-//	console.log('payload registered', payload)
-//
-//	if (payload.actionType === 'update') {
-//		mainStore.currentView = payload.currentView;
-//	}
-//});
-//
-//mainDispatcher.dispatch({
-//	actionType: 'update',
-//	currentView: 'login page'
-//});
+var event = new CustomEvent(CHANGE_EV);
 
 export default function() {
 
 	//add event listener for Spacebar
-	//document.addEventListener(eventInst.SPACE, function() {
-	//	emitChange();
-	//});
+	document.addEventListener(eventInst.LOGIN_SUCESSFULL, function() {
+		var event = new CustomEvent(CHANGE_EV, {'detail': 'log_user'});
+
+		document.dispatchEvent(event, 'extra args');
+	});
 
 	function addChangeEvent(callback) {
 		document.addEventListener(CHANGE_EV, callback);
 	}
 
 	function removeChangeEvent(callback) {
-		console.log('remove ev');
-
 		document.removeEventListener(CHANGE_EV, callback);
 	}
 

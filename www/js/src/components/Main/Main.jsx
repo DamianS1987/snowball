@@ -52,15 +52,21 @@ class Main extends React.Component {
         this.store.checkCookies();
     }
 
-    storeChangeEmitted(cookiesExist) {
+    storeChangeEmitted(event) {
         var that = this;
         /* Here you want to create a splash screen for your app that will send the user to the login
         * or registration page at the start of your application
         * */
 
-        that.setState({
-            splashScreen: true
-        });
+        if (event.detail === 'log_user') {
+            that.setState({
+                splashScreen: false
+            });
+        } else {
+            that.setState({
+                splashScreen: true
+            });
+        }
 
         setTimeout(function() {
             //browserHistory.push('/#/forms/autocompleteexample?_k=o8wqnl');
