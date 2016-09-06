@@ -59615,11 +59615,16 @@
 
 	exports.default = function () {
 
-		//add event listener for Spacebar
+		//add event listener for login submit
 		document.addEventListener(eventInst.LOGIN_SUCESSFULL, function () {
 			var event = new CustomEvent(CHANGE_EV, { 'detail': 'log_user' });
 
 			document.dispatchEvent(event, 'extra args');
+		});
+		//registration
+		document.addEventListener(eventInst.REGISTRATION_SUCESSFULL, function () {
+			var event = new CustomEvent(CHANGE_EV, { 'detail': 'log_user' });
+			document.dispatchEvent(event);
 		});
 
 		function addChangeEvent(callback) {
@@ -59680,7 +59685,8 @@
 	var Events = function Events() {
 		return {
 			'SPACE': 'SPACE',
-			'LOGIN_SUCESSFULL': 'LOGIN_SUCESSFULL'
+			'LOGIN_SUCESSFULL': 'LOGIN_SUCESSFULL',
+			'REGISTRATION_SUCESSFULL': 'REGISTRATION_SUCESSFULL'
 		};
 	};
 
@@ -59733,6 +59739,14 @@
 
 	var _Events2 = _interopRequireDefault(_Events);
 
+	var _Login = __webpack_require__(593);
+
+	var _Login2 = _interopRequireDefault(_Login);
+
+	var _Register = __webpack_require__(594);
+
+	var _Register2 = _interopRequireDefault(_Register);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -59740,6 +59754,9 @@
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	//components
+
 
 	var eventInst = new _Events2.default();
 
@@ -59775,14 +59792,14 @@
 
 			_this.handleLogin = _this.handleLogin.bind(_this);
 			_this.handleFacebookLogin = _this.handleFacebookLogin.bind(_this);
-			_this.handleRegistration = _this.handleRegistration.bind(_this);
+			//this.handleRegistration = this.handleRegistration.bind(this);
 			_this.handleFacebookRegistration = _this.handleFacebookRegistration.bind(_this);
 			//input
 			_this.handleUpdateInput = _this.handleUpdateInput.bind(_this);
-			_this.handleSubmit = _this.handleSubmit.bind(_this);
 
 			_this.state = {
 				showLoginForm: false,
+				showRegistrationForm: false,
 				dataSource: ['']
 			};
 			return _this;
@@ -59803,7 +59820,9 @@
 		}, {
 			key: 'handleRegistration',
 			value: function handleRegistration() {
-				console.log('register button clicked');
+				this.setState({
+					showRegistrationForm: true
+				});
 			}
 		}, {
 			key: 'handleFacebookRegistration',
@@ -59816,16 +59835,12 @@
 				console.log('handle input update');
 			}
 		}, {
-			key: 'handleSubmit',
-			value: function handleSubmit() {
-				console.log('handleSubmit button after login pressed');
-
-				/* After login screen we should move to the main view of the app */
-				//change main view state
-				document.dispatchEvent(event);
-
-				//change route
-				_reactRouter.browserHistory.push('/#/home');
+			key: 'onRegistrationSubmit',
+			value: function onRegistrationSubmit() {
+				console.log('onRegistrationSubmit');
+				this.setState({
+					showRegistrationForm: false
+				});
 			}
 		}, {
 			key: 'render',
@@ -59833,31 +59848,11 @@
 				var adequateComponent;
 
 				if (this.state.showLoginForm) {
-					adequateComponent = _react2.default.createElement(
-						'div',
-						null,
-						_react2.default.createElement(_AutoComplete2.default, {
-							hintText: 'Type your login name',
-							onUpdateInput: this.handleUpdateInput,
-							dataSource: this.state.dataSource,
-							floatingLabelText: 'Login',
-							fullWidth: true
-						}),
-						_react2.default.createElement(_AutoComplete2.default, {
-							hintText: 'Type your password',
-							onUpdateInput: this.handleUpdateInput,
-							dataSource: this.state.dataSource,
-							floatingLabelText: 'Password',
-							fullWidth: true,
-							type: 'password'
-						}),
-						_react2.default.createElement(_FlatButton2.default, {
-							label: 'Submit',
-							primary: true,
-							keyboardFocused: false,
-							onTouchTap: this.handleSubmit.bind(this)
-						})
-					);
+					adequateComponent = _react2.default.createElement(_Login2.default, null);
+				} else if (this.state.showRegistrationForm) {
+					adequateComponent = _react2.default.createElement(_Register2.default, {
+						onRegistrationSubmit: this.onRegistrationSubmit.bind(this)
+					});
 				} else {
 					adequateComponent = _react2.default.createElement(
 						'div',
@@ -59869,6 +59864,7 @@
 							onTouchTap: this.handleLogin.bind(this)
 						}),
 						_react2.default.createElement(_FlatButton2.default, {
+							disabled: true,
 							label: 'Facebook Login',
 							primary: true,
 							keyboardFocused: false,
@@ -59882,6 +59878,7 @@
 							onTouchTap: this.handleRegistration.bind(this)
 						}),
 						_react2.default.createElement(_FlatButton2.default, {
+							disabled: true,
 							label: 'Facebook Registration',
 							primary: true,
 							keyboardFocused: false,
@@ -59923,6 +59920,281 @@
 	}(_react2.default.Component);
 
 	exports.default = SplashScreen;
+
+/***/ },
+/* 593 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _FlatButton = __webpack_require__(488);
+
+	var _FlatButton2 = _interopRequireDefault(_FlatButton);
+
+	var _AutoComplete = __webpack_require__(496);
+
+	var _AutoComplete2 = _interopRequireDefault(_AutoComplete);
+
+	var _Events = __webpack_require__(590);
+
+	var _Events2 = _interopRequireDefault(_Events);
+
+	var _reactRouter = __webpack_require__(180);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var eventInst = new _Events2.default();
+
+	//EVENT SETUP
+	var event = new Event(eventInst.LOGIN_SUCESSFULL);
+
+	var Login = function (_React$Component) {
+		_inherits(Login, _React$Component);
+
+		function Login(props) {
+			_classCallCheck(this, Login);
+
+			var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Login).call(this, props));
+
+			_this.handleSubmit = _this.handleSubmit.bind(_this);
+
+			_this.state = {
+				dataSource: ['']
+			};
+			return _this;
+		}
+
+		_createClass(Login, [{
+			key: 'handleSubmit',
+			value: function handleSubmit() {
+				console.log('handleSubmit button after login pressed');
+
+				/* After login screen we should move to the main view of the app */
+				//change main view state
+				document.dispatchEvent(event);
+
+				//change route
+				_reactRouter.browserHistory.push('/#/home');
+			}
+		}, {
+			key: 'render',
+			value: function render() {
+				return _react2.default.createElement(
+					'div',
+					null,
+					_react2.default.createElement(_AutoComplete2.default, {
+						hintText: 'Type your login name',
+						onUpdateInput: this.handleUpdateInput,
+						dataSource: this.state.dataSource,
+						floatingLabelText: 'Login',
+						fullWidth: true
+					}),
+					_react2.default.createElement(_AutoComplete2.default, {
+						hintText: 'Type your password',
+						onUpdateInput: this.handleUpdateInput,
+						dataSource: this.state.dataSource,
+						floatingLabelText: 'Password',
+						fullWidth: true,
+						type: 'password'
+					}),
+					_react2.default.createElement(_FlatButton2.default, {
+						label: 'Submit',
+						primary: true,
+						keyboardFocused: false,
+						onTouchTap: this.handleSubmit.bind(this)
+					})
+				);
+			}
+		}]);
+
+		return Login;
+	}(_react2.default.Component);
+
+	exports.default = Login;
+
+/***/ },
+/* 594 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _FlatButton = __webpack_require__(488);
+
+	var _FlatButton2 = _interopRequireDefault(_FlatButton);
+
+	var _AutoComplete = __webpack_require__(496);
+
+	var _AutoComplete2 = _interopRequireDefault(_AutoComplete);
+
+	var _Events = __webpack_require__(590);
+
+	var _Events2 = _interopRequireDefault(_Events);
+
+	var _reactRouter = __webpack_require__(180);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var eventInst = new _Events2.default();
+
+	//EVENT SETUP
+	var event = new Event(eventInst.REGISTRATION_SUCESSFULL);
+
+	var Register = function (_React$Component) {
+		_inherits(Register, _React$Component);
+
+		function Register(props) {
+			_classCallCheck(this, Register);
+
+			var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Register).call(this, props));
+
+			_this.handleRegistrationSubmit = _this.handleRegistrationSubmit.bind(_this);
+			_this.handleRegistrationLoginNameUpdate = _this.handleRegistrationLoginNameUpdate.bind(_this);
+			_this.handleRegistrationPasswordUpdate = _this.handleRegistrationPasswordUpdate.bind(_this);
+			_this.handleRegistrationPasswordConfirmUpdate = _this.handleRegistrationPasswordConfirmUpdate.bind(_this);
+
+			//state
+			_this.state = {
+				dataSource: [''],
+				passwordUpdate: [''],
+				passwordUpdateConfirm: ['']
+			};
+			return _this;
+		}
+
+		_createClass(Register, [{
+			key: 'handleRegistrationPasswordUpdate',
+			value: function handleRegistrationPasswordUpdate() {
+				console.log('handleRegistrationPasswordUpdate');
+			}
+		}, {
+			key: 'handleRegistrationLoginNameUpdate',
+			value: function handleRegistrationLoginNameUpdate() {
+				console.log('handleRegistrationLoginNameUpdate');
+			}
+		}, {
+			key: 'handleRegistrationPasswordConfirmUpdate',
+			value: function handleRegistrationPasswordConfirmUpdate() {
+				console.log('conf');
+			}
+		}, {
+			key: 'validateForm',
+			value: function validateForm() {
+				console.log('validate...', this.state);
+
+				//Login validation
+				//* check if anything is in the input
+				var loginInputIsNotValid = this.state.dataSource[0].length === 0;
+
+				//Password validation
+				//* check if anything is in the input
+				//* check if letters and numbers are in the input
+				var passwordIsNotValid1 = this.state.passwordUpdate[0].length === 0;
+				var passwordIsValid2 = /^\w+$/.test(this.state.passwordUpdate[0]);
+
+				//Confirm Password validation
+				//* check if input has the same value as password input
+				var passwordConfirmationIsValid = this.state.passwordUpdate[0] === this.state.passwordUpdateConfirm[0];
+
+				console.log('check: ', loginInputIsNotValid, passwordIsNotValid1, passwordIsValid2, passwordConfirmationIsValid);
+
+				if (loginInputIsNotValid || passwordIsNotValid1 || !passwordIsNotValid2 || !passwordConfirmationIsValid) {
+					return false;
+				}
+
+				return true;
+			}
+		}, {
+			key: 'handleRegistrationSubmit',
+			value: function handleRegistrationSubmit() {
+				console.log('handle registration button');
+
+				if (!this.validateForm()) {
+					return;
+				}
+
+				/* On submit validate the registration form */
+				document.dispatchEvent(event);
+
+				//change route
+				_reactRouter.browserHistory.push('/#/home');
+			}
+		}, {
+			key: 'render',
+			value: function render() {
+				var _React$createElement, _React$createElement2;
+
+				return _react2.default.createElement(
+					'div',
+					null,
+					_react2.default.createElement(_AutoComplete2.default, {
+						hintText: 'Enter login name',
+						floatingLabelText: 'Login name',
+						fullWidth: true,
+						onUpdateInput: this.handleRegistrationLoginNameUpdate,
+						dataSource: this.state.dataSource
+					}),
+					_react2.default.createElement(_AutoComplete2.default, (_React$createElement = {
+						hintText: 'Enter your password',
+						floatingLabelText: 'Password',
+						fullWidth: true,
+						onUpdateInput: this.handleRegistrationPasswordUpdate,
+						dataSource: this.state.passwordUpdate
+					}, _defineProperty(_React$createElement, 'floatingLabelText', 'Password'), _defineProperty(_React$createElement, 'type', 'password'), _React$createElement)),
+					_react2.default.createElement(_AutoComplete2.default, (_React$createElement2 = {
+						hintText: 'Confirm your password',
+						floatingLabelText: 'Confirm Password',
+						fullWidth: true,
+						onUpdateInput: this.handleRegistrationPasswordConfirmUpdate,
+						dataSource: this.state.passwordUpdateConfirm
+					}, _defineProperty(_React$createElement2, 'floatingLabelText', 'Confirm Password'), _defineProperty(_React$createElement2, 'type', 'password'), _React$createElement2)),
+					_react2.default.createElement(_FlatButton2.default, {
+						label: 'Register',
+						primary: true,
+						keyboardFocused: false,
+						onTouchTap: this.handleRegistrationSubmit
+					})
+				);
+			}
+		}]);
+
+		return Register;
+	}(_react2.default.Component);
+
+	exports.default = Register;
 
 /***/ }
 /******/ ]);

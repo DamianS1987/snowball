@@ -4,6 +4,11 @@ import Divider from 'material-ui/Divider';
 import FlatButton from 'material-ui/FlatButton';
 import AutoComplete from 'material-ui/AutoComplete';
 import Events from '../../events/Events';
+
+//components
+import Login from './Login/Login.jsx';
+import Register from './Register/Register.jsx';
+
 var eventInst = new Events();
 
 //EVENT SETUP
@@ -33,14 +38,14 @@ class SplashScreen extends React.Component {
 		super(props);
 		this.handleLogin = this.handleLogin.bind(this);
 		this.handleFacebookLogin = this.handleFacebookLogin.bind(this);
-		this.handleRegistration = this.handleRegistration.bind(this);
+		//this.handleRegistration = this.handleRegistration.bind(this);
 		this.handleFacebookRegistration = this.handleFacebookRegistration.bind(this);
 		//input
 		this.handleUpdateInput = this.handleUpdateInput.bind(this);
-		this.handleSubmit = this.handleSubmit.bind(this);
 
 		this.state = {
 			showLoginForm: false,
+			showRegistrationForm: false,
 			dataSource: ['']
 		}
 	}
@@ -56,7 +61,9 @@ class SplashScreen extends React.Component {
 	}
 
 	handleRegistration() {
-		console.log('register button clicked');
+		this.setState({
+			showRegistrationForm: true
+		});
 	}
 
 	handleFacebookRegistration() {
@@ -67,15 +74,11 @@ class SplashScreen extends React.Component {
 		console.log('handle input update');
 	}
 
-	handleSubmit() {
-		console.log('handleSubmit button after login pressed');
-
-		/* After login screen we should move to the main view of the app */
-		//change main view state
-		document.dispatchEvent(event);
-
-		//change route
-		browserHistory.push('/#/home');
+	onRegistrationSubmit() {
+		console.log('onRegistrationSubmit');
+		this.setState({
+			showRegistrationForm: false
+		})
 	}
 
 	render() {
@@ -83,30 +86,14 @@ class SplashScreen extends React.Component {
 
 		if (this.state.showLoginForm) {
 			adequateComponent = (
-				<div>
-					<AutoComplete
-						hintText="Type your login name"
-						onUpdateInput={this.handleUpdateInput}
-						dataSource={this.state.dataSource}
-						floatingLabelText="Login"
-						fullWidth={true}
-						/>
-					<AutoComplete
-						hintText="Type your password"
-						onUpdateInput={this.handleUpdateInput}
-						dataSource={this.state.dataSource}
-						floatingLabelText="Password"
-						fullWidth={true}
-					    type='password'
-						/>
-					<FlatButton
-						label="Submit"
-						primary={true}
-						keyboardFocused={false}
-						onTouchTap={this.handleSubmit.bind(this)}
-						/>
-				</div>
+				<Login/>
 			);
+		} else if (this.state.showRegistrationForm) {
+			adequateComponent = (
+				<Register
+					onRegistrationSubmit={this.onRegistrationSubmit.bind(this)}
+					/>
+			)
 		} else {
 			adequateComponent = (
 				<div>
@@ -117,6 +104,7 @@ class SplashScreen extends React.Component {
 						onTouchTap={this.handleLogin.bind(this)}
 						/>
 					<FlatButton
+						disabled={true}
 						label="Facebook Login"
 						primary={true}
 						keyboardFocused={false}
@@ -130,6 +118,7 @@ class SplashScreen extends React.Component {
 						onTouchTap={this.handleRegistration.bind(this)}
 						/>
 					<FlatButton
+						disabled={true}
 						label="Facebook Registration"
 						primary={true}
 						keyboardFocused={false}

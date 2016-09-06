@@ -18,11 +18,16 @@ var event = new CustomEvent(CHANGE_EV);
 
 export default function() {
 
-	//add event listener for Spacebar
+	//add event listener for login submit
 	document.addEventListener(eventInst.LOGIN_SUCESSFULL, function() {
 		var event = new CustomEvent(CHANGE_EV, {'detail': 'log_user'});
 
 		document.dispatchEvent(event, 'extra args');
+	});
+	//registration
+	document.addEventListener(eventInst.REGISTRATION_SUCESSFULL, function() {
+		var event = new CustomEvent(CHANGE_EV, {'detail': 'log_user'});
+		document.dispatchEvent(event);
 	});
 
 	function addChangeEvent(callback) {
