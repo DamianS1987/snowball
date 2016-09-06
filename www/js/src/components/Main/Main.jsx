@@ -24,6 +24,8 @@ import { browserHistory } from 'react-router';
 
 //colors
 import {cyan500} from 'material-ui/styles/colors';
+//config
+import config from '../../configuration/configuration.js';
 
 //scrollable list
 import GridListExampleSimple from '../ScrollableList/scrollablelist.jsx';
@@ -67,10 +69,6 @@ class Main extends React.Component {
                 splashScreen: true
             });
         }
-
-        setTimeout(function() {
-            //browserHistory.push('/#/forms/autocompleteexample?_k=o8wqnl');
-        }, 4000);
     }
 
     componentWillUnmount() {
@@ -86,9 +84,7 @@ class Main extends React.Component {
     }
 
     render () {
-
-        if (this.state.splashScreen) {
-
+        if (config.showSplashScreen && this.state.splashScreen) {
             return (
                 <div>
                     <MuiThemeProvider muiTheme={getMuiTheme()}>
