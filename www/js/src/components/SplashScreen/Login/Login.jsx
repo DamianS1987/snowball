@@ -49,7 +49,7 @@ class Login extends React.Component {
 			return true;
 		}
 
-		if (cookiesCust.password !== this.state.password) {
+		if (cookiesCust.pass !== this.state.password) {
 			alert('Wrong password');
 			return true;
 		}
@@ -61,8 +61,6 @@ class Login extends React.Component {
 	}
 
 	handleSubmit() {
-		console.log('handleSubmit button after login pressed');
-
 		/* check the login details before letting the user in */
 		if (this.checkLoginDetails()) {
 			return;

@@ -14,7 +14,7 @@ class AboutPage extends React.Component {
 		this.leftButtonTapPress = this.leftButtonTapPress.bind(this);
 
 		this.state = {
-			open: false,
+			open: false
 		};
 	}
 
@@ -46,7 +46,7 @@ class AboutPage extends React.Component {
 				label="Discard"
 				primary={true}
 				onTouchTap={this.handleClose.bind(this)}
-				/>,
+				/>
 		];
 
 		return (

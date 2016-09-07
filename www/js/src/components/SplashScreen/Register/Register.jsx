@@ -88,8 +88,10 @@ class Register extends React.Component {
 
 		var cookieKey = configuration.cookieKey + this.state.loginState;
 
+		console.log('this.getUserData(): ', this.getUserData());
+
 		//add the data to the cookies
-		cookies.set(cookieKey, this.getUserData(), {expires: 365, secure: true, domain: 'www.example.org'});
+		cookies.set(cookieKey, this.getUserData(), {expires: 365});
 
 		/* On submit validate the registration form */
 		document.dispatchEvent(event);

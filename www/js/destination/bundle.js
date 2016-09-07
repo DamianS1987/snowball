@@ -60120,7 +60120,7 @@
 					return true;
 				}
 
-				if (cookiesCust.password !== this.state.password) {
+				if (cookiesCust.pass !== this.state.password) {
 					alert('Wrong password');
 					return true;
 				}
@@ -60133,8 +60133,6 @@
 		}, {
 			key: 'handleSubmit',
 			value: function handleSubmit() {
-				console.log('handleSubmit button after login pressed');
-
 				/* check the login details before letting the user in */
 				if (this.checkLoginDetails()) {
 					return;
@@ -60331,8 +60329,10 @@
 
 				var cookieKey = _configuration2.default.cookieKey + this.state.loginState;
 
+				console.log('this.getUserData(): ', this.getUserData());
+
 				//add the data to the cookies
-				_browserCookies2.default.set(cookieKey, this.getUserData(), { expires: 365, secure: true, domain: 'www.example.org' });
+				_browserCookies2.default.set(cookieKey, this.getUserData(), { expires: 365 });
 
 				/* On submit validate the registration form */
 				document.dispatchEvent(event);
