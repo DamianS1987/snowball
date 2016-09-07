@@ -1,26 +1,10 @@
 import React, { PropTypes, Component } from 'react';
-import {render} from 'react-dom';
-import { Link, Router, Route, hashHistory } from 'react-router';
-
-//theme components
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-
-//drawer
-import DrawerUndockedExample from '../UI/Drawer/drawer.jsx';
-import Header from '../Header/header.jsx';
-
-//App bar
-import AppBar from 'material-ui/AppBar';
-import IconMenu from 'material-ui/IconMenu';
-import IconButton from 'material-ui/IconButton';
-import MenuItem from 'material-ui/MenuItem';
-import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
-import NavigationClose from 'material-ui/svg-icons/navigation/close';
-import { browserHistory } from 'react-router';
-
-//colors
-import {cyan500} from 'material-ui/styles/colors';
+import Dialog from 'material-ui/Dialog';
+import FlatButton from 'material-ui/FlatButton';
+import RaisedButton from 'material-ui/RaisedButton';
+import cookie from 'browser-cookies';
+import configuration from '../../configuration/configuration.js';
+import generalStore from '../../store/GeneralStore/GeneralStore.js';
 
 class AboutPage extends React.Component {
 
@@ -28,24 +12,58 @@ class AboutPage extends React.Component {
 		super(props);
 
 		this.leftButtonTapPress = this.leftButtonTapPress.bind(this);
-	}
 
-	componentWillMount() {
-		if (!this.state || !this.state.openDrawer) {
-			this.state = {};
-			this.state.openDrawer = false;
-		}
+		this.state = {
+			open: false,
+		};
 	}
 
 	leftButtonTapPress() {
 		this.setState({openDrawer: true});
 	}
 
+	handleOpen() {
+		this.setState({open: true});
+	}
+
+	handleClose() {
+		this.setState({open: false});
+	}
+
+	returnCookies() {
+		var loginName = generalStore().getUserLogin();
+		return  cookie.get(configuration.cookieKey + loginName);
+	}
+
 	render() {
+		const actions = [
+			<FlatButton
+				label="Cancel"
+				primary={true}
+				onTouchTap={this.handleClose.bind(this)}
+				/>,
+			<FlatButton
+				label="Discard"
+				primary={true}
+				onTouchTap={this.handleClose.bind(this)}
+				/>,
+		];
 
 		return (
 			<div>
 				<div className="content">This is content of about page</div>
+				<p>The buttons below will check the login details taken from cookies for the current user:</p>
+
+				<RaisedButton label="Alert" onTouchTap={this.handleOpen.bind(this)} />
+				<Dialog
+					actions={actions}
+					modal={false}
+					open={this.state.open}
+					onRequestClose={this.handleClose.bind(this)}
+					>
+					<p>Cookies details:</p>
+					{this.returnCookies()}
+				</Dialog>
 			</div>
 		);
 	}

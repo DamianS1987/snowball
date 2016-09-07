@@ -56,6 +56,12 @@ class SplashScreen extends React.Component {
 		});
 	}
 
+	handleLoginCancel() {
+		this.setState({
+			showLoginForm: false
+		});
+	}
+
 	handleFacebookLogin() {
 		console.log('handleFacebookLogin clicked');
 	}
@@ -63,6 +69,12 @@ class SplashScreen extends React.Component {
 	handleRegistration() {
 		this.setState({
 			showRegistrationForm: true
+		});
+	}
+
+	handleRegistrationCancel() {
+		this.setState({
+			showRegistrationForm: false
 		});
 	}
 
@@ -86,14 +98,17 @@ class SplashScreen extends React.Component {
 
 		if (this.state.showLoginForm) {
 			adequateComponent = (
-				<Login/>
+				<Login
+					handleLoginCancel={this.handleLoginCancel.bind(this)}
+					/>
 			);
 		} else if (this.state.showRegistrationForm) {
 			adequateComponent = (
 				<Register
 					onRegistrationSubmit={this.onRegistrationSubmit.bind(this)}
+					handleRegistrationCancel={this.handleRegistrationCancel.bind(this)}
 					/>
-			)
+			);
 		} else {
 			adequateComponent = (
 				<div>

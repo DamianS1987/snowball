@@ -1,3 +1,4 @@
 export default {
-	showSplashScreen: true
+	showSplashScreen: true,
+	cookieKey: 'loggedUserData'
 };
