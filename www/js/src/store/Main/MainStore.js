@@ -28,6 +28,11 @@ export default function() {
 		var event = new CustomEvent(CHANGE_EV, {'detail': 'log_user'});
 		document.dispatchEvent(event);
 	});
+	//skip
+	document.addEventListener(eventInst.SKIP_LOGIN, function() {
+		var event = new CustomEvent(CHANGE_EV, {'detail': 'log_user'});
+		document.dispatchEvent(event);
+	});
 
 	function addChangeEvent(callback) {
 		document.addEventListener(CHANGE_EV, callback);

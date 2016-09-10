@@ -9868,7 +9868,9 @@ a.button {
 
 body {
   background: #fffffe;
-  position: fixed; }
+  color: white;
+  position: fixed;
+  background: url(../img/start_screen.png); }
 
 a {
   text-decoration: none; }
@@ -9887,3 +9889,22 @@ a {
   /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
+
+@font-face {
+  font-family: PWHappyChristmas;
+  src: url(../fonts/PWHappyChristmas.ttf); }
+
+.splashName {
+  font-family: PWHappyChristmas;
+  font-size: 60px; }
+
+/*==================================================
+=  Adapted from Bootstrap 3 Media Queries         =
+// from tutorial on www.scotch.io
+==================================================*/
+/*==========  Mobile First Method  ==========*/
+/* Custom, iPhone Retina */
+/* Extra Small Devices, Phones */
+/* Small Devices, Tablets */
+/* Medium Devices, Desktops */
+/* Large Devices, Wide Screens */

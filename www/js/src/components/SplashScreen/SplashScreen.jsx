@@ -4,6 +4,9 @@ import Divider from 'material-ui/Divider';
 import FlatButton from 'material-ui/FlatButton';
 import AutoComplete from 'material-ui/AutoComplete';
 import Events from '../../events/Events';
+import {Tabs, Tab} from 'material-ui/Tabs';
+// From https://github.com/oliviertassinari/react-swipeable-views
+import SwipeableViews from 'react-swipeable-views';
 
 //components
 import Login from './Login/Login.jsx';
@@ -16,8 +19,8 @@ var event = new Event(eventInst.LOGIN_SUCESSFULL);
 
 const style = {
 	h2: {
-		color: '#886aea',
-		textAlign: 'center'
+		textAlign: 'center',
+		color: 'white'
 	},
 	imgWrap: {
 		textAlign: 'center'
@@ -29,25 +32,47 @@ const style = {
 	},
 	viewWrap: {
 		padding: '1em',
-		background: '#f8f8f8'
-	}
+		height: window.innerHeight,
+		overflow: 'scroll'
+	},
+	headline: {
+		fontSize: 24,
+		paddingTop: 16,
+		marginBottom: 12,
+		fontWeight: 400,
+	},
+	slide: {
+		padding: 10,
+	},
 };
 
 class SplashScreen extends React.Component {
 	constructor(props) {
 		super(props);
+
+		//bind scope
+		this.handleChange = this.handleChange.bind(this);
 		this.handleLogin = this.handleLogin.bind(this);
 		this.handleFacebookLogin = this.handleFacebookLogin.bind(this);
+		this.handleSkipLogin = this.handleSkipLogin.bind(this);
+
 		//this.handleRegistration = this.handleRegistration.bind(this);
 		this.handleFacebookRegistration = this.handleFacebookRegistration.bind(this);
 		//input
 		this.handleUpdateInput = this.handleUpdateInput.bind(this);
 
 		this.state = {
+			slideIndex: 0,
 			showLoginForm: false,
 			showRegistrationForm: false,
 			dataSource: ['']
 		}
+	}
+
+	handleChange(value) {
+		this.setState({
+			slideIndex: value,
+		});
 	}
 
 	handleLogin() {
@@ -87,10 +112,18 @@ class SplashScreen extends React.Component {
 	}
 
 	onRegistrationSubmit() {
-		console.log('onRegistrationSubmit');
 		this.setState({
 			showRegistrationForm: false
 		})
+	}
+
+	handleSkipLogin() {
+		//EVENT SETUP
+		var event = new Event(eventInst.SKIP_LOGIN);
+		document.dispatchEvent(event);
+
+		//change route
+		browserHistory.push('/#/home');
 	}
 
 	render() {
@@ -112,48 +145,64 @@ class SplashScreen extends React.Component {
 		} else {
 			adequateComponent = (
 				<div>
-					<FlatButton
-						label="Login"
-						primary={true}
-						keyboardFocused={false}
-						onTouchTap={this.handleLogin.bind(this)}
-						/>
-					<FlatButton
-						disabled={true}
-						label="Facebook Login"
-						primary={true}
-						keyboardFocused={false}
-						onTouchTap={this.handleFacebookLogin.bind(this)}
-						/>
-					<Divider/>
-					<FlatButton
-						label="Registration"
-						primary={true}
-						keyboardFocused={false}
-						onTouchTap={this.handleRegistration.bind(this)}
-						/>
-					<FlatButton
-						disabled={true}
-						label="Facebook Registration"
-						primary={true}
-						keyboardFocused={false}
-						onTouchTap={this.handleFacebookRegistration.bind(this)}
-						/>
-					<Divider/>
-
-					<p>This view should provide user with the options to login/register.</p>
-					<p>The first login/register option done will be email. In the next versions social media login should be available.</p>
+					<Tabs
+						onChange={this.handleChange}
+						value={this.state.slideIndex}
+						>
+						<Tab label="Login" value={0} />
+						<Tab label="Register" value={1} />
+					</Tabs>
+					<SwipeableViews
+						index={this.state.slideIndex}
+						onChangeIndex={this.handleChange.bind(this)}
+						>
+						<div>
+							<FlatButton
+								label="Email Login"
+								primary={true}
+								keyboardFocused={false}
+								onTouchTap={this.handleLogin.bind(this)}
+								/><br/>
+							<FlatButton
+								disabled={true}
+								label="Facebook Login"
+								primary={true}
+								keyboardFocused={false}
+								onTouchTap={this.handleFacebookLogin.bind(this)}/><br />
+							<FlatButton
+								label="Skip (dev only)"
+								primary={true}
+								keyboardFocused={false}
+								onTouchTap={this.handleSkipLogin}
+								/><br/>
+						</div>
+						<div style={style.slide}>
+							<FlatButton
+								label="Email Registration"
+								primary={true}
+								keyboardFocused={false}
+								onTouchTap={this.handleRegistration.bind(this)}
+								/>
+							<FlatButton
+								disabled={true}
+								label="Facebook Registration"
+								primary={true}
+								keyboardFocused={false}
+								onTouchTap={this.handleFacebookRegistration.bind(this)}
+								/>
+						</div>
+					</SwipeableViews>
 				</div>
 			)
 		}
 
-		return(<div style={style.viewWrap}>
-			<div style={style.imgWrap}>
-				<img style={style.img} src='http://loremflickr.com/320/240/snowman'/>
+		return(
+			<div style={style.viewWrap}>
+				<div style={style.imgWrap}></div>
+				<h1 className="splashName" style={style.h2}>Snowball</h1>
+				{adequateComponent}
 			</div>
-			<h2 style={style.h2}>That's the start screen</h2>
-			{adequateComponent}
-		</div>);
+		);
 	}
 }
 
