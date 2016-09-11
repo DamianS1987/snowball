@@ -41286,7 +41286,9 @@
 
 			var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(DrawerUndockedExample).call(this, props));
 
-			_this.state = { open: false };
+			_this.state = {
+				open: false
+			};
 			return _this;
 		}
 
@@ -41308,123 +41310,49 @@
 								return _this2.props.handleClose({ open: open });
 							}
 						},
-						_react2.default.createElement(
-							_MenuItem2.default,
-							{ onTouchTap: this.props.handleClose },
-							_react2.default.createElement(
-								_reactRouter.Link,
-								{ to: '/home' },
-								_react2.default.createElement(_MenuItem2.default, { primaryText: 'Home' })
-							)
-						),
-						_react2.default.createElement(
-							_MenuItem2.default,
-							{ onTouchTap: this.props.handleClose },
-							_react2.default.createElement(
-								_reactRouter.Link,
-								{ to: '/about' },
-								_react2.default.createElement(_MenuItem2.default, { primaryText: 'About' })
-							)
-						),
-						_react2.default.createElement(
-							_MenuItem2.default,
-							{ onTouchTap: this.props.handleClose },
-							_react2.default.createElement(
-								_reactRouter.Link,
-								{ to: '/gridlist' },
-								_react2.default.createElement(_MenuItem2.default, { primaryText: 'GridList' })
-							)
-						),
-						_react2.default.createElement(
-							_MenuItem2.default,
-							{ onTouchTap: this.props.handleClose },
-							_react2.default.createElement(
-								_reactRouter.Link,
-								{ to: '/avatar' },
-								_react2.default.createElement(_MenuItem2.default, { primaryText: 'Avatar' })
-							)
-						),
-						_react2.default.createElement(
-							_MenuItem2.default,
-							{ onTouchTap: this.props.handleClose },
-							_react2.default.createElement(
-								_reactRouter.Link,
-								{ to: '/forms/autocompleteexample' },
-								_react2.default.createElement(_MenuItem2.default, { primaryText: 'Form AutoComplete' })
-							)
-						),
-						_react2.default.createElement(
-							_MenuItem2.default,
-							{ onTouchTap: this.props.handleClose },
-							_react2.default.createElement(
-								_reactRouter.Link,
-								{ to: '/badge' },
-								_react2.default.createElement(_MenuItem2.default, { primaryText: 'Badge' })
-							)
-						),
-						_react2.default.createElement(
-							_MenuItem2.default,
-							{ onTouchTap: this.props.handleClose },
-							_react2.default.createElement(
-								_reactRouter.Link,
-								{ to: '/tooltips' },
-								_react2.default.createElement(_MenuItem2.default, { primaryText: 'Tooltips' })
-							)
-						),
-						_react2.default.createElement(
-							_MenuItem2.default,
-							{ onTouchTap: this.props.handleClose },
-							_react2.default.createElement(
-								_reactRouter.Link,
-								{ to: '/cards' },
-								_react2.default.createElement(_MenuItem2.default, { primaryText: 'Cards' })
-							)
-						),
-						_react2.default.createElement(
-							_MenuItem2.default,
-							{ onTouchTap: this.props.handleClose },
-							_react2.default.createElement(
-								_reactRouter.Link,
-								{ to: '/chip' },
-								_react2.default.createElement(_MenuItem2.default, { primaryText: 'Chip' })
-							)
-						),
-						_react2.default.createElement(
-							_MenuItem2.default,
-							{ onTouchTap: this.props.handleClose },
-							_react2.default.createElement(
-								_reactRouter.Link,
-								{ to: '/dialog' },
-								_react2.default.createElement(_MenuItem2.default, { primaryText: 'Dialog' })
-							)
-						),
-						_react2.default.createElement(
-							_MenuItem2.default,
-							{ onTouchTap: this.props.handleClose },
-							_react2.default.createElement(
-								_reactRouter.Link,
-								{ to: '/sliders' },
-								_react2.default.createElement(_MenuItem2.default, { primaryText: 'Sliders' })
-							)
-						),
-						_react2.default.createElement(
-							_MenuItem2.default,
-							{ onTouchTap: this.props.handleClose },
-							_react2.default.createElement(
-								_reactRouter.Link,
-								{ to: '/steppers' },
-								_react2.default.createElement(_MenuItem2.default, { primaryText: 'Steppers' })
-							)
-						),
-						_react2.default.createElement(
-							_MenuItem2.default,
-							{ onTouchTap: this.props.handleClose },
-							_react2.default.createElement(
-								_reactRouter.Link,
-								{ to: '/tabs' },
-								_react2.default.createElement(_MenuItem2.default, { primaryText: 'TabsComponent' })
-							)
-						)
+						_react2.default.createElement(_MenuItem2.default, {
+							onTouchTap: this.props.handleClose
+							//containerElement={<Link to="/home"/>}
+							, href: '/#/home',
+							primaryText: 'Home' }),
+						_react2.default.createElement(_MenuItem2.default, {
+							onTouchTap: this.props.handleClose
+							//containerElement={<Link to="/about"/>}
+							, href: '/#/about',
+							primaryText: 'About' }),
+						_react2.default.createElement(_MenuItem2.default, { onTouchTap: this.props.handleClose,
+							containerElement: _react2.default.createElement(_reactRouter.Link, { to: '/gridlist' }),
+							primaryText: 'GridList' }),
+						_react2.default.createElement(_MenuItem2.default, { onTouchTap: this.props.handleClose,
+							containerElement: _react2.default.createElement(_reactRouter.Link, { to: '/avatar' }),
+							primaryText: 'Avatar' }),
+						_react2.default.createElement(_MenuItem2.default, { onTouchTap: this.props.handleClose,
+							containerElement: _react2.default.createElement(_reactRouter.Link, { to: '/forms/autocompleteexample' }),
+							primaryText: 'Auto Complete' }),
+						_react2.default.createElement(_MenuItem2.default, { onTouchTap: this.props.handleClose,
+							containerElement: _react2.default.createElement(_reactRouter.Link, { to: '/badge' }),
+							primaryText: 'Badge' }),
+						_react2.default.createElement(_MenuItem2.default, { onTouchTap: this.props.handleClose,
+							containerElement: _react2.default.createElement(_reactRouter.Link, { to: '/tooltips' }),
+							primaryText: 'Tooltips' }),
+						_react2.default.createElement(_MenuItem2.default, { onTouchTap: this.props.handleClose,
+							containerElement: _react2.default.createElement(_reactRouter.Link, { to: '/cards' }),
+							primaryText: 'Cards' }),
+						_react2.default.createElement(_MenuItem2.default, { onTouchTap: this.props.handleClose,
+							containerElement: _react2.default.createElement(_reactRouter.Link, { to: '/chip' }),
+							primaryText: 'Chip' }),
+						_react2.default.createElement(_MenuItem2.default, { onTouchTap: this.props.handleClose,
+							containerElement: _react2.default.createElement(_reactRouter.Link, { to: '/dialog' }),
+							primaryText: 'Dialog' }),
+						_react2.default.createElement(_MenuItem2.default, { onTouchTap: this.props.handleClose,
+							containerElement: _react2.default.createElement(_reactRouter.Link, { to: '/sliders' }),
+							primaryText: 'Sliders' }),
+						_react2.default.createElement(_MenuItem2.default, { onTouchTap: this.props.handleClose,
+							containerElement: _react2.default.createElement(_reactRouter.Link, { to: '/steppers' }),
+							primaryText: 'Steppers' }),
+						_react2.default.createElement(_MenuItem2.default, { onTouchTap: this.props.handleClose,
+							containerElement: _react2.default.createElement(_reactRouter.Link, { to: '/tabs' }),
+							primaryText: 'Tabs' })
 					)
 				);
 			}
@@ -66743,6 +66671,11 @@
 	            this.store.checkCookies();
 	        }
 	    }, {
+	        key: 'componentWillUnmount',
+	        value: function componentWillUnmount() {
+	            this.store.removeChangeEventListener(this.storeChangeEmitted);
+	        }
+	    }, {
 	        key: 'storeChangeEmitted',
 	        value: function storeChangeEmitted(event) {
 	            var that = this;
@@ -66759,11 +66692,6 @@
 	                    splashScreen: true
 	                });
 	            }
-	        }
-	    }, {
-	        key: 'componentWillUnmount',
-	        value: function componentWillUnmount() {
-	            this.store.removeChangeEventListener(this.storeChangeEmitted);
 	        }
 	    }, {
 	        key: 'handleClose',
@@ -67113,10 +67041,11 @@
 			value: function handleSkipLogin() {
 				//EVENT SETUP
 				var event = new Event(eventInst.SKIP_LOGIN);
-				document.dispatchEvent(event);
 
 				//change route
 				_reactRouter.browserHistory.push('/#/home');
+
+				document.dispatchEvent(event);
 			}
 		}, {
 			key: 'render',

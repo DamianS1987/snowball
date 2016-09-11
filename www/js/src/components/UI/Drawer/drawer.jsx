@@ -9,7 +9,9 @@ export default class DrawerUndockedExample extends React.Component {
 
 	constructor(props) {
 		super(props);
-		this.state = {open: false};
+		this.state = {
+			open: false
+		};
 	}
 
 	render() {
@@ -21,19 +23,62 @@ export default class DrawerUndockedExample extends React.Component {
 					open={this.props.open}
 					onRequestChange={(open) => this.props.handleClose({open})}
 					>
-					<MenuItem onTouchTap={this.props.handleClose}><Link to="/home"><MenuItem primaryText="Home" /></Link></MenuItem>
-					<MenuItem onTouchTap={this.props.handleClose}><Link to="/about"><MenuItem primaryText="About" /></Link></MenuItem>
-					<MenuItem onTouchTap={this.props.handleClose}><Link to="/gridlist"><MenuItem primaryText="GridList" /></Link></MenuItem>
-					<MenuItem onTouchTap={this.props.handleClose}><Link to="/avatar"><MenuItem primaryText="Avatar" /></Link></MenuItem>
-					<MenuItem onTouchTap={this.props.handleClose}><Link to="/forms/autocompleteexample"><MenuItem primaryText="Form AutoComplete" /></Link></MenuItem>
-					<MenuItem onTouchTap={this.props.handleClose}><Link to="/badge"><MenuItem primaryText="Badge" /></Link></MenuItem>
-					<MenuItem onTouchTap={this.props.handleClose}><Link to="/tooltips"><MenuItem primaryText="Tooltips" /></Link></MenuItem>
-					<MenuItem onTouchTap={this.props.handleClose}><Link to="/cards"><MenuItem primaryText="Cards" /></Link></MenuItem>
-					<MenuItem onTouchTap={this.props.handleClose}><Link to="/chip"><MenuItem primaryText="Chip" /></Link></MenuItem>
-					<MenuItem onTouchTap={this.props.handleClose}><Link to="/dialog"><MenuItem primaryText="Dialog" /></Link></MenuItem>
-					<MenuItem onTouchTap={this.props.handleClose}><Link to="/sliders"><MenuItem primaryText="Sliders" /></Link></MenuItem>
-					<MenuItem onTouchTap={this.props.handleClose}><Link to="/steppers"><MenuItem primaryText="Steppers" /></Link></MenuItem>
-					<MenuItem onTouchTap={this.props.handleClose}><Link to="/tabs"><MenuItem primaryText="TabsComponent" /></Link></MenuItem>
+					<MenuItem
+						onTouchTap={this.props.handleClose}
+						//containerElement={<Link to="/home"/>}
+						href="/#/home"
+						primaryText="Home">
+					</MenuItem>
+					<MenuItem
+						onTouchTap={this.props.handleClose}
+						//containerElement={<Link to="/about"/>}
+						href="/#/about"
+						primaryText="About">
+					</MenuItem>
+					<MenuItem onTouchTap={this.props.handleClose}
+						containerElement={<Link to="/gridlist"/>}
+						primaryText="GridList">
+					</MenuItem>
+					<MenuItem onTouchTap={this.props.handleClose}
+						containerElement={<Link to="/avatar"/>}
+						primaryText="Avatar">
+					</MenuItem>
+					<MenuItem onTouchTap={this.props.handleClose}
+						containerElement={<Link to="/forms/autocompleteexample"/>}
+						primaryText="Auto Complete">
+					</MenuItem>
+					<MenuItem onTouchTap={this.props.handleClose}
+						containerElement={<Link to="/badge"/>}
+						primaryText="Badge">
+					</MenuItem>
+					<MenuItem onTouchTap={this.props.handleClose}
+						containerElement={<Link to="/tooltips"/>}
+						primaryText="Tooltips">
+					</MenuItem>
+					<MenuItem onTouchTap={this.props.handleClose}
+						containerElement={<Link to="/cards"/>}
+						primaryText="Cards">
+					</MenuItem>
+					<MenuItem onTouchTap={this.props.handleClose}
+						containerElement={<Link to="/chip"/>}
+						primaryText="Chip">
+					</MenuItem>
+					<MenuItem onTouchTap={this.props.handleClose}
+						containerElement={<Link to="/dialog"/>}
+						primaryText="Dialog">
+					</MenuItem>
+					<MenuItem onTouchTap={this.props.handleClose}
+						containerElement={<Link to="/sliders"/>}
+						primaryText="Sliders">
+					</MenuItem>
+					<MenuItem onTouchTap={this.props.handleClose}
+						containerElement={<Link to="/steppers"/>}
+						primaryText="Steppers">
+					</MenuItem>
+					<MenuItem onTouchTap={this.props.handleClose}
+						containerElement={<Link to="/tabs"/>}
+						primaryText="Tabs">
+					</MenuItem>
 				</Drawer>
 			</div>
 		);

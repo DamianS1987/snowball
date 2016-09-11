@@ -54,6 +54,10 @@ class Main extends React.Component {
         this.store.checkCookies();
     }
 
+    componentWillUnmount() {
+        this.store.removeChangeEventListener(this.storeChangeEmitted);
+    }
+
     storeChangeEmitted(event) {
         var that = this;
         /* Here you want to create a splash screen for your app that will send the user to the login
@@ -69,10 +73,6 @@ class Main extends React.Component {
                 splashScreen: true
             });
         }
-    }
-
-    componentWillUnmount() {
-        this.store.removeChangeEventListener(this.storeChangeEmitted);
     }
 
 	handleClose() {
