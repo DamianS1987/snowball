@@ -1,7 +1,7 @@
 {
   "name": "Snowball",
-  "version": "1.1.1",
-  "description": "React with Material UI",
+  "version": "0.0.1",
+  "description": "Snowball is an app using Material UI components inside of Cordova project.",
   "dependencies": {
     "babel-core": "^6.9.0",
     "browser-cookies": "^1.0.8",
