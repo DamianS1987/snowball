@@ -40,7 +40,6 @@ gulp.task('watch', function() {
 });
 
 gulp.task('dev', function() {
-
   browserSync.init({
     server: "./www/"
   });

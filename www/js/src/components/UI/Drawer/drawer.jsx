@@ -3,7 +3,7 @@ import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
 import RaisedButton from 'material-ui/RaisedButton';
 
-import { Link, Router, Route, hashHistory } from 'react-router';
+import { Link } from 'react-router';
 
 export default class DrawerUndockedExample extends React.Component {
 
@@ -12,6 +12,10 @@ export default class DrawerUndockedExample extends React.Component {
 		this.state = {
 			open: false
 		};
+	}
+
+	componentWillMount() {
+		console.log('mounted');
 	}
 
 	render() {

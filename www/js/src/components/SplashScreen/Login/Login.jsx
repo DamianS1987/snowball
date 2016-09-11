@@ -71,7 +71,7 @@ class Login extends React.Component {
 		document.dispatchEvent(event);
 
 		//change route
-		browserHistory.push('/#/home');
+		//browserHistory.push('/#/home');
 	}
 
 	render() {

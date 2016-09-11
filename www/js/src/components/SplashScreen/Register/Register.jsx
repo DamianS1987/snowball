@@ -95,9 +95,6 @@ class Register extends React.Component {
 
 		/* On submit validate the registration form */
 		document.dispatchEvent(event);
-
-		//change route
-		browserHistory.push('/#/home');
 	}
 
 	render() {

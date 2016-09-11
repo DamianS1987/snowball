@@ -1,6 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 import {render} from 'react-dom';
-import { Link, Router, Route, hashHistory } from 'react-router';
+import { Link, Router, Route, browserHistory } from 'react-router';
 
 //flux store
 import store from '../../store/Main/MainStore.js';
@@ -20,7 +20,6 @@ import IconButton from 'material-ui/IconButton';
 import MenuItem from 'material-ui/MenuItem';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import NavigationClose from 'material-ui/svg-icons/navigation/close';
-import { browserHistory } from 'react-router';
 
 //colors
 import {cyan500} from 'material-ui/styles/colors';
@@ -84,22 +83,21 @@ class Main extends React.Component {
     }
 
     render () {
+        var elem;
+
         if (config.showSplashScreen && this.state.splashScreen) {
-            return (
-                <div>
-                    <MuiThemeProvider muiTheme={getMuiTheme()}>
-                        <SplashScreen/>
-                    </MuiThemeProvider>
-                </div>
+            elem = (
+                <MuiThemeProvider muiTheme={getMuiTheme()}>
+                    <SplashScreen/>
+                </MuiThemeProvider>
             )
         } else {
-
-            return (
+            elem = (
                 <div>
                     <MuiThemeProvider muiTheme={getMuiTheme()}>
                         <AppBar title="Snowball Hybrid App"
-                                onLeftIconButtonTouchTap={this.leftButtonTapPress}
-                                iconElementRight={
+                            onLeftIconButtonTouchTap={this.leftButtonTapPress}
+                            iconElementRight={
                               <IconMenu
                                 iconButtonElement={
                                   <IconButton><MoreVertIcon /></IconButton>
@@ -111,19 +109,25 @@ class Main extends React.Component {
                                 <MenuItem primaryText="Sign out" />
                               </IconMenu>
                             }
-                            />
-                    </MuiThemeProvider>
-
-                    <MuiThemeProvider muiTheme={getMuiTheme()}>
-                        <DrawerUndockedExample open={this.state.openDrawer} handleClose={this.handleClose}/>
+                        />
                     </MuiThemeProvider>
 
                     <MuiThemeProvider muiTheme={getMuiTheme()}>
                         { this.props.children }
                     </MuiThemeProvider>
+
+                    <MuiThemeProvider muiTheme={getMuiTheme()}>
+                        <DrawerUndockedExample open={this.state.openDrawer} handleClose={this.handleClose}/>
+                    </MuiThemeProvider>
                 </div>
             );
         }
+
+        return (
+            <div>
+                {elem}
+            </div>
+        );
     }
 }
 

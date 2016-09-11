@@ -41293,6 +41293,11 @@
 		}
 
 		_createClass(DrawerUndockedExample, [{
+			key: 'componentWillMount',
+			value: function componentWillMount() {
+				console.log('mounted');
+			}
+		}, {
 			key: 'render',
 			value: function render() {
 				var _this2 = this;
@@ -66706,19 +66711,16 @@
 	    }, {
 	        key: 'render',
 	        value: function render() {
+	            var elem;
+
 	            if (_configuration2.default.showSplashScreen && this.state.splashScreen) {
-	                return _react2.default.createElement(
-	                    'div',
-	                    null,
-	                    _react2.default.createElement(
-	                        _MuiThemeProvider2.default,
-	                        { muiTheme: (0, _getMuiTheme2.default)() },
-	                        _react2.default.createElement(_SplashScreen2.default, null)
-	                    )
+	                elem = _react2.default.createElement(
+	                    _MuiThemeProvider2.default,
+	                    { muiTheme: (0, _getMuiTheme2.default)() },
+	                    _react2.default.createElement(_SplashScreen2.default, null)
 	                );
 	            } else {
-
-	                return _react2.default.createElement(
+	                elem = _react2.default.createElement(
 	                    'div',
 	                    null,
 	                    _react2.default.createElement(
@@ -66745,15 +66747,21 @@
 	                    _react2.default.createElement(
 	                        _MuiThemeProvider2.default,
 	                        { muiTheme: (0, _getMuiTheme2.default)() },
-	                        _react2.default.createElement(_drawer2.default, { open: this.state.openDrawer, handleClose: this.handleClose })
+	                        this.props.children
 	                    ),
 	                    _react2.default.createElement(
 	                        _MuiThemeProvider2.default,
 	                        { muiTheme: (0, _getMuiTheme2.default)() },
-	                        this.props.children
+	                        _react2.default.createElement(_drawer2.default, { open: this.state.openDrawer, handleClose: this.handleClose })
 	                    )
 	                );
 	            }
+
+	            return _react2.default.createElement(
+	                'div',
+	                null,
+	                elem
+	            );
 	        }
 	    }]);
 
@@ -67041,10 +67049,6 @@
 			value: function handleSkipLogin() {
 				//EVENT SETUP
 				var event = new Event(eventInst.SKIP_LOGIN);
-
-				//change route
-				_reactRouter.browserHistory.push('/#/home');
-
 				document.dispatchEvent(event);
 			}
 		}, {
@@ -67269,7 +67273,7 @@
 				document.dispatchEvent(event);
 
 				//change route
-				_reactRouter.browserHistory.push('/#/home');
+				//browserHistory.push('/#/home');
 			}
 		}, {
 			key: 'render',
@@ -67462,9 +67466,6 @@
 
 				/* On submit validate the registration form */
 				document.dispatchEvent(event);
-
-				//change route
-				_reactRouter.browserHistory.push('/#/home');
 			}
 		}, {
 			key: 'render',
