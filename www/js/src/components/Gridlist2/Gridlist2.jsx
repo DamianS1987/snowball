@@ -3,6 +3,7 @@ import {GridList, GridTile} from 'material-ui/GridList';
 import IconButton from 'material-ui/IconButton';
 import Subheader from 'material-ui/Subheader';
 import StarBorder from 'material-ui/svg-icons/toggle/star-border';
+import {browserHistory} from 'react-router';
 
 const styles = {
 	root: {
@@ -94,13 +95,29 @@ class GridList2 extends React.Component {
 	constructor(props) {
 		super(props);
 		//set state
-		this.state = {}
+		this.state = {
+			showGridList: true
+		};
+
+		//scope
+		this.openContentSection = this.openContentSection.bind(this);
+	}
+
+	openContentSection() {
+		console.log('open content', this);
+
+		this.setState({
+			showGridList: false
+		});
+
+		browserHistory.push('/#/gridlist2/myarticle');
 	}
 
 	render() {
+		var componentToDisplay;
 
-		return(
-			<div style={styles.root}>
+		if (this.state.showGridList) {
+			componentToDisplay = (
 				<GridList
 					cellHeight={200}
 					style={styles.gridList}
@@ -111,14 +128,25 @@ class GridList2 extends React.Component {
 							title={tile.title}
 							subtitle={<span>by <b>{tile.author}</b></span>}
 							actionIcon={<IconButton><StarBorder color="white" /></IconButton>}
-						    cols={2}
-						    rows={1}
-
+							cols={2}
+							rows={1}
+							onTouchTap={this.openContentSection}
 							>
-							<img src={tile.img} />
+							<img src={tile.img}/>
 						</GridTile>
 					))}
 				</GridList>
+			);
+		} else {
+
+			console.log(this.props);
+
+			componentToDisplay = this.props.children;
+		}
+
+		return(
+			<div style={styles.root}>
+				{componentToDisplay}
 			</div>
 		);
 	}

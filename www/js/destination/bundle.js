@@ -21886,7 +21886,7 @@
 
 	var _GridList2 = _interopRequireDefault(_GridList);
 
-	var _Gridlist = __webpack_require__(656);
+	var _Gridlist = __webpack_require__(494);
 
 	var _Gridlist2 = _interopRequireDefault(_Gridlist);
 
@@ -21934,6 +21934,10 @@
 
 	var _Main2 = _interopRequireDefault(_Main);
 
+	var _GridListContent = __webpack_require__(656);
+
+	var _GridListContent2 = _interopRequireDefault(_GridListContent);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -21955,6 +21959,8 @@
 
 
 	//Main component
+
+	//content
 
 
 	// This replaces the textColor value on the palette
@@ -21981,7 +21987,6 @@
 		_createClass(App_Router, [{
 			key: 'render',
 			value: function render() {
-
 				return _react2.default.createElement(
 					_reactRouter.Router,
 					{ history: _reactRouter.hashHistory },
@@ -21991,7 +21996,11 @@
 						_react2.default.createElement(_reactRouter.Route, { path: '/about', component: _About2.default }),
 						_react2.default.createElement(_reactRouter.Route, { path: '/home', component: _Home2.default }),
 						_react2.default.createElement(_reactRouter.Route, { path: '/gridlist', component: _GridList2.default }),
-						_react2.default.createElement(_reactRouter.Route, { path: '/gridlist2', component: _Gridlist2.default }),
+						_react2.default.createElement(
+							_reactRouter.Route,
+							{ path: '/gridlist2', component: _Gridlist2.default },
+							_react2.default.createElement(_reactRouter.Route, { path: '/gridlist2/:articleName', component: _GridListContent2.default })
+						),
 						_react2.default.createElement(_reactRouter.Route, { path: '/avatar', component: _Avatar2.default }),
 						_react2.default.createElement(_reactRouter.Route, { path: '/forms/autocompleteexample', component: _AutoCompleteExampleSimple2.default }),
 						_react2.default.createElement(_reactRouter.Route, { path: '/badge', component: _Badge2.default }),
@@ -46397,7 +46406,209 @@
 	exports.default = DescriptionDialog;
 
 /***/ },
-/* 494 */,
+/* 494 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _GridList = __webpack_require__(400);
+
+	var _IconButton = __webpack_require__(404);
+
+	var _IconButton2 = _interopRequireDefault(_IconButton);
+
+	var _Subheader = __webpack_require__(430);
+
+	var _Subheader2 = _interopRequireDefault(_Subheader);
+
+	var _starBorder = __webpack_require__(432);
+
+	var _starBorder2 = _interopRequireDefault(_starBorder);
+
+	var _reactRouter = __webpack_require__(180);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var styles = {
+		root: {
+			display: 'flex',
+			flexWrap: 'wrap',
+			justifyContent: 'space-around',
+			height: window.innerHeight - 64 + 'px'
+		},
+		gridList: {
+			width: '100%',
+			overflowY: 'auto'
+		}
+	};
+
+	var tilesData = [{
+		img: 'img/grid-list/00-52-29-429_640.jpg',
+		title: 'Breakfast',
+		author: 'John Snow'
+	}, {
+		img: 'img/grid-list/burger-827309_640.jpg',
+		title: 'Tasty burger 1',
+		author: 'pashminu'
+	}, {
+		img: 'img/grid-list/00-52-29-429_640.jpg',
+		title: 'Breakfast',
+		author: 'Lorem ipsum'
+	}, {
+		img: 'img/grid-list/burger-827309_640.jpg',
+		title: 'Tasty burger',
+		author: 'pashminu'
+	}, {
+		img: 'img/grid-list/camera-813814_640.jpg',
+		title: 'Camera',
+		author: 'Danson67'
+	}, {
+		img: 'img/grid-list/morning-819362_640.jpg',
+		title: 'Morning',
+		author: 'fancycrave1'
+	}, {
+		img: 'img/grid-list/hats-829509_640.jpg',
+		title: 'Hats',
+		author: 'Hans'
+	}, {
+		img: 'img/grid-list/honey-823614_640.jpg',
+		title: 'Honey',
+		author: 'fancycravel'
+	}, {
+		img: 'img/grid-list/vegetables-790022_640.jpg',
+		title: 'Vegetables',
+		author: 'DaDaDaDa'
+	}, {
+		img: 'img/grid-list/water-plant-821293_640.jpg',
+		title: 'Water plant',
+		author: 'John Lennon'
+	}, {
+		img: 'img/grid-list/vegetables-790022_640.jpg',
+		title: 'Vegetables',
+		author: 'ABCD'
+	}, {
+		img: 'img/grid-list/water-plant-821293_640.jpg',
+		title: 'Water plant',
+		author: 'Baran Karki'
+	}, {
+		img: 'img/grid-list/vegetables-790022_640.jpg',
+		title: 'Vegetables',
+		author: 'AilAAl111'
+	}, {
+		img: 'img/grid-list/water-plant-821293_640.jpg',
+		title: 'Water plant',
+		author: 'BkrmadtyaKarki'
+	}];
+
+	var GridList2 = function (_React$Component) {
+		_inherits(GridList2, _React$Component);
+
+		function GridList2(props) {
+			_classCallCheck(this, GridList2);
+
+			//set state
+			var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(GridList2).call(this, props));
+
+			_this.state = {
+				showGridList: true
+			};
+
+			//scope
+			_this.openContentSection = _this.openContentSection.bind(_this);
+			return _this;
+		}
+
+		_createClass(GridList2, [{
+			key: 'openContentSection',
+			value: function openContentSection() {
+				console.log('open content', this);
+
+				this.setState({
+					showGridList: false
+				});
+
+				_reactRouter.browserHistory.push('/#/gridlist2/myarticle');
+			}
+		}, {
+			key: 'render',
+			value: function render() {
+				var _this2 = this;
+
+				var componentToDisplay;
+
+				if (this.state.showGridList) {
+					componentToDisplay = _react2.default.createElement(
+						_GridList.GridList,
+						{
+							cellHeight: 200,
+							style: styles.gridList
+						},
+						tilesData.map(function (tile) {
+							return _react2.default.createElement(
+								_GridList.GridTile,
+								{
+									key: tile.img + tile.author + tile.title,
+									title: tile.title,
+									subtitle: _react2.default.createElement(
+										'span',
+										null,
+										'by ',
+										_react2.default.createElement(
+											'b',
+											null,
+											tile.author
+										)
+									),
+									actionIcon: _react2.default.createElement(
+										_IconButton2.default,
+										null,
+										_react2.default.createElement(_starBorder2.default, { color: 'white' })
+									),
+									cols: 2,
+									rows: 1,
+									onTouchTap: _this2.openContentSection
+								},
+								_react2.default.createElement('img', { src: tile.img })
+							);
+						})
+					);
+				} else {
+
+					console.log(this.props);
+
+					componentToDisplay = this.props.children;
+				}
+
+				return _react2.default.createElement(
+					'div',
+					{ style: styles.root },
+					componentToDisplay
+				);
+			}
+		}]);
+
+		return GridList2;
+	}(_react2.default.Component);
+
+	exports.default = GridList2;
+
+/***/ },
 /* 495 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -67540,20 +67751,6 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _GridList = __webpack_require__(400);
-
-	var _IconButton = __webpack_require__(404);
-
-	var _IconButton2 = _interopRequireDefault(_IconButton);
-
-	var _Subheader = __webpack_require__(430);
-
-	var _Subheader2 = _interopRequireDefault(_Subheader);
-
-	var _starBorder = __webpack_require__(432);
-
-	var _starBorder2 = _interopRequireDefault(_starBorder);
-
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -67564,138 +67761,43 @@
 
 	var styles = {
 		root: {
-			display: 'flex',
-			flexWrap: 'wrap',
-			justifyContent: 'space-around',
-			height: window.innerHeight - 64 + 'px'
-		},
-		gridList: {
 			width: '100%',
-			overflowY: 'auto'
+			height: '500px'
 		}
 	};
 
-	var tilesData = [{
-		img: 'img/grid-list/00-52-29-429_640.jpg',
-		title: 'Breakfast',
-		author: 'John Snow'
-	}, {
-		img: 'img/grid-list/burger-827309_640.jpg',
-		title: 'Tasty burger 1',
-		author: 'pashminu'
-	}, {
-		img: 'img/grid-list/00-52-29-429_640.jpg',
-		title: 'Breakfast',
-		author: 'Lorem ipsum'
-	}, {
-		img: 'img/grid-list/burger-827309_640.jpg',
-		title: 'Tasty burger',
-		author: 'pashminu'
-	}, {
-		img: 'img/grid-list/camera-813814_640.jpg',
-		title: 'Camera',
-		author: 'Danson67'
-	}, {
-		img: 'img/grid-list/morning-819362_640.jpg',
-		title: 'Morning',
-		author: 'fancycrave1'
-	}, {
-		img: 'img/grid-list/hats-829509_640.jpg',
-		title: 'Hats',
-		author: 'Hans'
-	}, {
-		img: 'img/grid-list/honey-823614_640.jpg',
-		title: 'Honey',
-		author: 'fancycravel'
-	}, {
-		img: 'img/grid-list/vegetables-790022_640.jpg',
-		title: 'Vegetables',
-		author: 'DaDaDaDa'
-	}, {
-		img: 'img/grid-list/water-plant-821293_640.jpg',
-		title: 'Water plant',
-		author: 'John Lennon'
-	}, {
-		img: 'img/grid-list/vegetables-790022_640.jpg',
-		title: 'Vegetables',
-		author: 'ABCD'
-	}, {
-		img: 'img/grid-list/water-plant-821293_640.jpg',
-		title: 'Water plant',
-		author: 'Baran Karki'
-	}, {
-		img: 'img/grid-list/vegetables-790022_640.jpg',
-		title: 'Vegetables',
-		author: 'AilAAl111'
-	}, {
-		img: 'img/grid-list/water-plant-821293_640.jpg',
-		title: 'Water plant',
-		author: 'BkrmadtyaKarki'
-	}];
+	var GridListContent = function (_React$Component) {
+		_inherits(GridListContent, _React$Component);
 
-	var GridList2 = function (_React$Component) {
-		_inherits(GridList2, _React$Component);
-
-		function GridList2(props) {
-			_classCallCheck(this, GridList2);
+		function GridListContent(props) {
+			_classCallCheck(this, GridListContent);
 
 			//set state
-			var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(GridList2).call(this, props));
+			var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(GridListContent).call(this, props));
 
 			_this.state = {};
 			return _this;
 		}
 
-		_createClass(GridList2, [{
+		_createClass(GridListContent, [{
 			key: 'render',
 			value: function render() {
-
 				return _react2.default.createElement(
 					'div',
 					{ style: styles.root },
 					_react2.default.createElement(
-						_GridList.GridList,
-						{
-							cellHeight: 200,
-							style: styles.gridList
-						},
-						tilesData.map(function (tile) {
-							return _react2.default.createElement(
-								_GridList.GridTile,
-								{
-									key: tile.img + tile.author + tile.title,
-									title: tile.title,
-									subtitle: _react2.default.createElement(
-										'span',
-										null,
-										'by ',
-										_react2.default.createElement(
-											'b',
-											null,
-											tile.author
-										)
-									),
-									actionIcon: _react2.default.createElement(
-										_IconButton2.default,
-										null,
-										_react2.default.createElement(_starBorder2.default, { color: 'white' })
-									),
-									cols: 2,
-									rows: 1
-
-								},
-								_react2.default.createElement('img', { src: tile.img })
-							);
-						})
+						'p',
+						null,
+						'content page'
 					)
 				);
 			}
 		}]);
 
-		return GridList2;
+		return GridListContent;
 	}(_react2.default.Component);
 
-	exports.default = GridList2;
+	exports.default = GridListContent;
 
 /***/ }
 /******/ ]);

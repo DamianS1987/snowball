@@ -30,6 +30,8 @@ import Tabs from '../components/Tabs/Tabs.jsx';
 
 //Main component
 import Main from '../components/Main/Main.jsx';
+//content
+import GridListContent from '../components/Gridlist2/GridListContent/GridListContent.jsx';
 
 // This replaces the textColor value on the palette
 // and then update the keys for each component that depends on it.
@@ -50,7 +52,6 @@ class App_Router extends React.Component {
 	}
 
 	render () {
-
 		return (
 			<Router history={ hashHistory }>
 				<Route path="/" component={Main}>
@@ -59,7 +60,9 @@ class App_Router extends React.Component {
 					<Route path="/about" component={About}></Route>
 					<Route path="/home" component={Home}></Route>
 					<Route path="/gridlist" component={GridList}></Route>
-					<Route path="/gridlist2" component={GridList2}></Route>
+					<Route path="/gridlist2" component={GridList2}>
+						<Route path="/gridlist2/:articleName" component={GridListContent}></Route>
+					</Route>
 					<Route path="/avatar" component={AvatarExampleSimple}></Route>
 					<Route path="/forms/autocompleteexample" component={AutoCompleteExampleSimple}></Route>
 					<Route path="/badge" component={Badge}></Route>
