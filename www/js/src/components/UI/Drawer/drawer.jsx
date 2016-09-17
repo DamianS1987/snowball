@@ -44,6 +44,10 @@ export default class DrawerUndockedExample extends React.Component {
 						primaryText="GridList">
 					</MenuItem>
 					<MenuItem onTouchTap={this.props.handleClose}
+					          containerElement={<Link to="/gridlist2"/>}
+					          primaryText="GridList2">
+					</MenuItem>
+					<MenuItem onTouchTap={this.props.handleClose}
 						containerElement={<Link to="/avatar"/>}
 						primaryText="Avatar">
 					</MenuItem>

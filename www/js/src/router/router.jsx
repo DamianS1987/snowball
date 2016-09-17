@@ -16,6 +16,7 @@ import GridListExampleSimple from '../components/ScrollableList/scrollablelist.j
 import About from '../components/About/About.jsx';
 import Home from '../components/Home/Home.jsx';
 import GridList from '../components/GridList/GridList.jsx';
+import GridList2 from '../components/Gridlist2/Gridlist2.jsx';
 import AvatarExampleSimple from '../components/Avatar/Avatar.jsx';
 import AutoCompleteExampleSimple from '../components/Forms/AutoComplete/AutoCompleteExampleSimple.jsx';
 import Badge from '../components/Badge/Badge.jsx';
@@ -58,6 +59,7 @@ class App_Router extends React.Component {
 					<Route path="/about" component={About}></Route>
 					<Route path="/home" component={Home}></Route>
 					<Route path="/gridlist" component={GridList}></Route>
+					<Route path="/gridlist2" component={GridList2}></Route>
 					<Route path="/avatar" component={AvatarExampleSimple}></Route>
 					<Route path="/forms/autocompleteexample" component={AutoCompleteExampleSimple}></Route>
 					<Route path="/badge" component={Badge}></Route>
