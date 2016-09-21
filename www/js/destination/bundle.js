@@ -41327,14 +41327,12 @@
 							}
 						},
 						_react2.default.createElement(_MenuItem2.default, {
-							onTouchTap: this.props.handleClose
-							//containerElement={<Link to="/home"/>}
-							, href: '/#/home',
+							onTouchTap: this.props.handleClose,
+							containerElement: _react2.default.createElement(_reactRouter.Link, { to: '/home' }),
 							primaryText: 'Home' }),
 						_react2.default.createElement(_MenuItem2.default, {
-							onTouchTap: this.props.handleClose
-							//containerElement={<Link to="/about"/>}
-							, href: '/#/about',
+							onTouchTap: this.props.handleClose,
+							containerElement: _react2.default.createElement(_reactRouter.Link, { to: '/about' }),
 							primaryText: 'About' }),
 						_react2.default.createElement(_MenuItem2.default, { onTouchTap: this.props.handleClose,
 							containerElement: _react2.default.createElement(_reactRouter.Link, { to: '/gridlist' }),
@@ -67247,6 +67245,8 @@
 				//EVENT SETUP
 				var event = new Event(eventInst.SKIP_LOGIN);
 				document.dispatchEvent(event);
+
+				_reactRouter.browserHistory.push('/home/');
 			}
 		}, {
 			key: 'render',

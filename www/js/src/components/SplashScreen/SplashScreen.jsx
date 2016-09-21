@@ -121,6 +121,8 @@ class SplashScreen extends React.Component {
 		//EVENT SETUP
 		var event = new Event(eventInst.SKIP_LOGIN);
 		document.dispatchEvent(event);
+
+		browserHistory.push('/home/');
 	}
 
 	render() {
