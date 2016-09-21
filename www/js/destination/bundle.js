@@ -21989,18 +21989,15 @@
 			value: function render() {
 				return _react2.default.createElement(
 					_reactRouter.Router,
-					{ history: _reactRouter.hashHistory },
+					{ history: _reactRouter.browserHistory },
 					_react2.default.createElement(
 						_reactRouter.Route,
 						{ path: '/', component: _Main2.default },
 						_react2.default.createElement(_reactRouter.Route, { path: '/about', component: _About2.default }),
 						_react2.default.createElement(_reactRouter.Route, { path: '/home', component: _Home2.default }),
 						_react2.default.createElement(_reactRouter.Route, { path: '/gridlist', component: _GridList2.default }),
-						_react2.default.createElement(
-							_reactRouter.Route,
-							{ path: '/gridlist2', component: _Gridlist2.default },
-							_react2.default.createElement(_reactRouter.Route, { path: '/gridlist2/:articleName', component: _GridListContent2.default })
-						),
+						_react2.default.createElement(_reactRouter.Route, { path: '/gridlist2', component: _Gridlist2.default }),
+						_react2.default.createElement(_reactRouter.Route, { path: '/gridlist2/:articleName', component: _GridListContent2.default }),
 						_react2.default.createElement(_reactRouter.Route, { path: '/avatar', component: _Avatar2.default }),
 						_react2.default.createElement(_reactRouter.Route, { path: '/forms/autocompleteexample', component: _AutoCompleteExampleSimple2.default }),
 						_react2.default.createElement(_reactRouter.Route, { path: '/badge', component: _Badge2.default }),
@@ -46257,7 +46254,6 @@
 		_createClass(GridListExampleSimple, [{
 			key: 'render',
 			value: function render() {
-
 				return _react2.default.createElement(
 					'div',
 					{ style: styles.root },
@@ -46525,9 +46521,7 @@
 			//set state
 			var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(GridList2).call(this, props));
 
-			_this.state = {
-				showGridList: true
-			};
+			_this.state = {};
 
 			//scope
 			_this.openContentSection = _this.openContentSection.bind(_this);
@@ -46536,24 +46530,18 @@
 
 		_createClass(GridList2, [{
 			key: 'openContentSection',
-			value: function openContentSection() {
-				console.log('open content', this);
-
-				this.setState({
-					showGridList: false
-				});
-
-				_reactRouter.browserHistory.push('/#/gridlist2/myarticle');
+			value: function openContentSection(tile) {
+				_reactRouter.browserHistory.push('/gridlist2/' + tile.title);
 			}
 		}, {
 			key: 'render',
 			value: function render() {
 				var _this2 = this;
 
-				var componentToDisplay;
-
-				if (this.state.showGridList) {
-					componentToDisplay = _react2.default.createElement(
+				return _react2.default.createElement(
+					'div',
+					{ style: styles.root },
+					_react2.default.createElement(
 						_GridList.GridList,
 						{
 							cellHeight: 200,
@@ -46582,23 +46570,12 @@
 									),
 									cols: 2,
 									rows: 1,
-									onTouchTap: _this2.openContentSection
+									onTouchTap: _this2.openContentSection.bind(_this2, tile)
 								},
 								_react2.default.createElement('img', { src: tile.img })
 							);
 						})
-					);
-				} else {
-
-					console.log(this.props);
-
-					componentToDisplay = this.props.children;
-				}
-
-				return _react2.default.createElement(
-					'div',
-					{ style: styles.root },
-					componentToDisplay
+					)
 				);
 			}
 		}]);
@@ -67751,6 +67728,10 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _Paper = __webpack_require__(452);
+
+	var _Paper2 = _interopRequireDefault(_Paper);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -67762,7 +67743,19 @@
 	var styles = {
 		root: {
 			width: '100%',
-			height: '500px'
+			height: innerHeight - 64,
+			overflow: 'scroll'
+		},
+		paper: {
+			width: '100%',
+			margin: 'auto',
+			padding: '1%'
+		},
+		img: {
+			width: '100%'
+		},
+		h1: {
+			textAlign: 'center'
 		}
 	};
 
@@ -67786,9 +67779,25 @@
 					'div',
 					{ style: styles.root },
 					_react2.default.createElement(
-						'p',
-						null,
-						'content page'
+						_Paper2.default,
+						{ style: styles.paper },
+						_react2.default.createElement(
+							'h1',
+							{ style: styles.h1 },
+							this.props.params.articleName
+						),
+						_react2.default.createElement('img', { style: styles.img, src: '../img/grid-list/camera-813814_640.jpg' }),
+						_react2.default.createElement(
+							'p',
+							null,
+							'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet animi ducimus eaque ex excepturi explicabo fuga hic id illum inventore laudantium maiores maxime nemo omnis quaerat quam quidem rerum, sequi, suscipit tempora temporibus tenetur velit veniam voluptas voluptates. Accusamus aut eum fugit inventore laboriosam optio porro quos repudiandae tenetur vel. Architecto autem cumque cupiditate eaque exercitationem nobis! Accusantium architecto aspernatur atque autem debitis dolore expedita, facilis iusto, nisi odit porro quaerat, reiciendis sed sequi voluptate. Dolorum fuga in minus necessitatibus placeat possimus voluptas. A alias asperiores delectus, hic incidunt neque nihil nisi nobis numquam, quo reprehenderit saepe sapiente tenetur voluptates.'
+						),
+						_react2.default.createElement('iframe', { src: 'https://player.vimeo.com/video/180014671', width: innerWidth - innerWidth * 2 / 100, frameBorder: '0', allowFullScreen: true }),
+						_react2.default.createElement(
+							'p',
+							null,
+							'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet animi ducimus eaque ex excepturi explicabo fuga hic id illum inventore laudantium maiores maxime nemo omnis quaerat quam quidem rerum, sequi, suscipit tempora temporibus tenetur velit veniam voluptas voluptates. Accusamus aut eum fugit inventore laboriosam optio porro quos repudiandae tenetur vel. Architecto autem cumque cupiditate eaque exercitationem nobis! Accusantium architecto aspernatur atque autem debitis dolore expedita, facilis iusto, nisi odit porro quaerat, reiciendis sed sequi voluptate. Dolorum fuga in minus necessitatibus placeat possimus voluptas. A alias asperiores delectus, hic incidunt neque nihil nisi nobis numquam, quo reprehenderit saepe sapiente tenetur voluptates.'
+						)
 					)
 				);
 			}

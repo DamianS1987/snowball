@@ -4,6 +4,7 @@ import IconButton from 'material-ui/IconButton';
 import Subheader from 'material-ui/Subheader';
 import StarBorder from 'material-ui/svg-icons/toggle/star-border';
 import {browserHistory} from 'react-router';
+import { Link } from 'react-router';
 
 const styles = {
 	root: {
@@ -95,29 +96,20 @@ class GridList2 extends React.Component {
 	constructor(props) {
 		super(props);
 		//set state
-		this.state = {
-			showGridList: true
-		};
+		this.state = {};
 
 		//scope
 		this.openContentSection = this.openContentSection.bind(this);
 	}
 
-	openContentSection() {
-		console.log('open content', this);
-
-		this.setState({
-			showGridList: false
-		});
-
-		browserHistory.push('/#/gridlist2/myarticle');
+	openContentSection(tile) {
+		browserHistory.push('/gridlist2/' + tile.title);
 	}
 
 	render() {
-		var componentToDisplay;
 
-		if (this.state.showGridList) {
-			componentToDisplay = (
+		return(
+			<div style={styles.root}>
 				<GridList
 					cellHeight={200}
 					style={styles.gridList}
@@ -130,23 +122,12 @@ class GridList2 extends React.Component {
 							actionIcon={<IconButton><StarBorder color="white" /></IconButton>}
 							cols={2}
 							rows={1}
-							onTouchTap={this.openContentSection}
+							onTouchTap={this.openContentSection.bind(this, tile)}
 							>
 							<img src={tile.img}/>
 						</GridTile>
 					))}
 				</GridList>
-			);
-		} else {
-
-			console.log(this.props);
-
-			componentToDisplay = this.props.children;
-		}
-
-		return(
-			<div style={styles.root}>
-				{componentToDisplay}
 			</div>
 		);
 	}

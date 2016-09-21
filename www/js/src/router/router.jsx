@@ -53,16 +53,15 @@ class App_Router extends React.Component {
 
 	render () {
 		return (
-			<Router history={ hashHistory }>
+			<Router history={ browserHistory }>
 				<Route path="/" component={Main}>
 					{/* add the routes here */}
 
 					<Route path="/about" component={About}></Route>
 					<Route path="/home" component={Home}></Route>
 					<Route path="/gridlist" component={GridList}></Route>
-					<Route path="/gridlist2" component={GridList2}>
-						<Route path="/gridlist2/:articleName" component={GridListContent}></Route>
-					</Route>
+					<Route path="/gridlist2" component={GridList2}></Route>
+					<Route path="/gridlist2/:articleName" component={GridListContent}></Route>
 					<Route path="/avatar" component={AvatarExampleSimple}></Route>
 					<Route path="/forms/autocompleteexample" component={AutoCompleteExampleSimple}></Route>
 					<Route path="/badge" component={Badge}></Route>
