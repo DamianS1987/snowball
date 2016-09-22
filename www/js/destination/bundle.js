@@ -50007,7 +50007,7 @@
 	var Cards = function Cards() {
 		return _react2.default.createElement(
 			'div',
-			null,
+			{ style: style },
 			_react2.default.createElement(_BasicCard2.default, null),
 			_react2.default.createElement(_Divider2.default, null),
 			_react2.default.createElement(_ExpandableCard2.default, null),
@@ -67337,16 +67337,6 @@
 				return _react2.default.createElement(
 					'div',
 					{ style: style.viewWrap },
-					_react2.default.createElement(
-						'div',
-						{ style: style.imgWrap },
-						_react2.default.createElement('img', { src: '../../img/snowball.png', alt: 'snowball' })
-					),
-					_react2.default.createElement(
-						'h1',
-						{ className: 'splashName', style: style.h2 },
-						'Snowball'
-					),
 					adequateComponent
 				);
 			}

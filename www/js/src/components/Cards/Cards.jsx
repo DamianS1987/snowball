@@ -13,7 +13,7 @@ const dividerStyle = {
 }
 
 const Cards = () => (
-	<div>
+	<div style={style}>
 		<BasicCard></BasicCard>
 		<Divider />
 		<ExpandableCard></ExpandableCard>

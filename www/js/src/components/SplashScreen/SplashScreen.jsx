@@ -202,10 +202,6 @@ class SplashScreen extends React.Component {
 
 		return(
 			<div style={style.viewWrap}>
-				<div style={style.imgWrap}>
-					<img src="../../img/snowball.png" alt="snowball"/>
-				</div>
-				<h1 className="splashName" style={style.h2}>Snowball</h1>
 				{adequateComponent}
 			</div>
 		);
