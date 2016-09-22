@@ -3,7 +3,7 @@ import {GridList, GridTile} from 'material-ui/GridList';
 import IconButton from 'material-ui/IconButton';
 import Subheader from 'material-ui/Subheader';
 import StarBorder from 'material-ui/svg-icons/toggle/star-border';
-import {browserHistory} from 'react-router';
+import {hashHistory} from 'react-router';
 import { Link } from 'react-router';
 
 const styles = {
@@ -103,7 +103,7 @@ class GridList2 extends React.Component {
 	}
 
 	openContentSection(tile) {
-		browserHistory.push('/gridlist2/' + tile.title);
+		hashHistory.push('/gridlist2/' + tile.title);
 	}
 
 	render() {

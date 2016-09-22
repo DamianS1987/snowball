@@ -20,7 +20,10 @@ var event = new Event(eventInst.LOGIN_SUCESSFULL);
 const style = {
 	h2: {
 		textAlign: 'center',
-		color: 'white'
+		color: '#1c1d1d',
+		position: 'absolute',
+		top: '1.5em',
+		width: '100%'
 	},
 	imgWrap: {
 		textAlign: 'center'
@@ -33,7 +36,8 @@ const style = {
 	viewWrap: {
 		padding: '1em',
 		height: window.innerHeight,
-		overflow: 'scroll'
+		overflow: 'scroll',
+		position: 'relative'
 	},
 	headline: {
 		fontSize: 24,
@@ -122,7 +126,7 @@ class SplashScreen extends React.Component {
 		var event = new Event(eventInst.SKIP_LOGIN);
 		document.dispatchEvent(event);
 
-		browserHistory.push('/home/');
+		//browserHistory.push('/#/home?_k=15v0nx');
 	}
 
 	render() {
@@ -173,6 +177,7 @@ class SplashScreen extends React.Component {
 								primary={true}
 								keyboardFocused={false}
 								onTouchTap={this.handleSkipLogin}
+							    href="/#/home"
 								/><br/>
 						</div>
 						<div style={style.slide}>
@@ -197,7 +202,9 @@ class SplashScreen extends React.Component {
 
 		return(
 			<div style={style.viewWrap}>
-				<div style={style.imgWrap}></div>
+				<div style={style.imgWrap}>
+					<img src="../../img/snowball.png" alt="snowball"/>
+				</div>
 				<h1 className="splashName" style={style.h2}>Snowball</h1>
 				{adequateComponent}
 			</div>

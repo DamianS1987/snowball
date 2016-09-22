@@ -19,7 +19,7 @@ angular.module('starter', ['ionic'])
 
 	$ionicPlatform.ready(function() {
 
-		//init the app - React
+		//init the app - React tt
 		render(<BootLoader/>, document.getElementById('app'));
 
 		if(window.cordova && window.cordova.plugins.Keyboard) {

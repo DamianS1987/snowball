@@ -52,8 +52,9 @@ class App_Router extends React.Component {
 	}
 
 	render () {
+
 		return (
-			<Router history={ browserHistory }>
+			<Router history={ hashHistory }>
 				<Route path="/" component={Main}>
 					{/* add the routes here */}
 

@@ -75,7 +75,7 @@
 
 		$ionicPlatform.ready(function () {
 
-			//init the app - React
+			//init the app - React tt
 			(0, _reactDom.render)(_react2.default.createElement(_boot2.default, null), document.getElementById('app'));
 
 			if (window.cordova && window.cordova.plugins.Keyboard) {
@@ -21987,9 +21987,10 @@
 		_createClass(App_Router, [{
 			key: 'render',
 			value: function render() {
+
 				return _react2.default.createElement(
 					_reactRouter.Router,
-					{ history: _reactRouter.browserHistory },
+					{ history: _reactRouter.hashHistory },
 					_react2.default.createElement(
 						_reactRouter.Route,
 						{ path: '/', component: _Main2.default },
@@ -46529,7 +46530,7 @@
 		_createClass(GridList2, [{
 			key: 'openContentSection',
 			value: function openContentSection(tile) {
-				_reactRouter.browserHistory.push('/gridlist2/' + tile.title);
+				_reactRouter.hashHistory.push('/gridlist2/' + tile.title);
 			}
 		}, {
 			key: 'render',
@@ -66860,6 +66861,7 @@
 	    _createClass(Main, [{
 	        key: 'componentWillMount',
 	        value: function componentWillMount() {
+
 	            if (!this.state || !this.state.openDrawer) {
 	                this.state = {};
 	                this.state.openDrawer = false;
@@ -67128,7 +67130,10 @@
 	var style = {
 		h2: {
 			textAlign: 'center',
-			color: 'white'
+			color: '#1c1d1d',
+			position: 'absolute',
+			top: '1.5em',
+			width: '100%'
 		},
 		imgWrap: {
 			textAlign: 'center'
@@ -67141,7 +67146,8 @@
 		viewWrap: {
 			padding: '1em',
 			height: window.innerHeight,
-			overflow: 'scroll'
+			overflow: 'scroll',
+			position: 'relative'
 		},
 		headline: {
 			fontSize: 24,
@@ -67246,7 +67252,7 @@
 				var event = new Event(eventInst.SKIP_LOGIN);
 				document.dispatchEvent(event);
 
-				_reactRouter.browserHistory.push('/home/');
+				//browserHistory.push('/#/home?_k=15v0nx');
 			}
 		}, {
 			key: 'render',
@@ -67302,7 +67308,8 @@
 									label: 'Skip (dev only)',
 									primary: true,
 									keyboardFocused: false,
-									onTouchTap: this.handleSkipLogin
+									onTouchTap: this.handleSkipLogin,
+									href: '/#/home'
 								}),
 								_react2.default.createElement('br', null)
 							),
@@ -67330,7 +67337,11 @@
 				return _react2.default.createElement(
 					'div',
 					{ style: style.viewWrap },
-					_react2.default.createElement('div', { style: style.imgWrap }),
+					_react2.default.createElement(
+						'div',
+						{ style: style.imgWrap },
+						_react2.default.createElement('img', { src: '../../img/snowball.png', alt: 'snowball' })
+					),
 					_react2.default.createElement(
 						'h1',
 						{ className: 'splashName', style: style.h2 },

@@ -42,6 +42,7 @@ class Main extends React.Component {
     }
 
     componentWillMount() {
+
         if (!this.state || !this.state.openDrawer) {
             this.state = {};
             this.state.openDrawer = false;
