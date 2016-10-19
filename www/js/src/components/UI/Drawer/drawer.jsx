@@ -85,6 +85,10 @@ export default class DrawerUndockedExample extends React.Component {
 						containerElement={<Link to="/tabs"/>}
 						primaryText="Tabs">
 					</MenuItem>
+					<MenuItem onTouchTap={this.props.handleClose}
+					          containerElement={<Link to="/posts"/>}
+					          primaryText="Posts">
+					</MenuItem>
 				</Drawer>
 			</div>
 		);

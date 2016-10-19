@@ -21826,7 +21826,7 @@
 
 	var _router2 = _interopRequireDefault(_router);
 
-	var _Events = __webpack_require__(652);
+	var _Events = __webpack_require__(653);
 
 	var _Events2 = _interopRequireDefault(_Events);
 
@@ -21930,11 +21930,15 @@
 
 	var _Tabs2 = _interopRequireDefault(_Tabs);
 
-	var _Main = __webpack_require__(650);
+	var _Posts = __webpack_require__(650);
+
+	var _Posts2 = _interopRequireDefault(_Posts);
+
+	var _Main = __webpack_require__(651);
 
 	var _Main2 = _interopRequireDefault(_Main);
 
-	var _GridListContent = __webpack_require__(656);
+	var _GridListContent = __webpack_require__(657);
 
 	var _GridListContent2 = _interopRequireDefault(_GridListContent);
 
@@ -22008,7 +22012,8 @@
 						_react2.default.createElement(_reactRouter.Route, { path: '/dialog', component: _Dialog2.default }),
 						_react2.default.createElement(_reactRouter.Route, { path: '/sliders', component: _Sliders2.default }),
 						_react2.default.createElement(_reactRouter.Route, { path: '/steppers', component: _Steppers2.default }),
-						_react2.default.createElement(_reactRouter.Route, { path: '/tabs', component: _Tabs2.default })
+						_react2.default.createElement(_reactRouter.Route, { path: '/tabs', component: _Tabs2.default }),
+						_react2.default.createElement(_reactRouter.Route, { path: '/posts', component: _Posts2.default })
 					)
 				);
 			}
@@ -41370,7 +41375,10 @@
 							primaryText: 'Steppers' }),
 						_react2.default.createElement(_MenuItem2.default, { onTouchTap: this.props.handleClose,
 							containerElement: _react2.default.createElement(_reactRouter.Link, { to: '/tabs' }),
-							primaryText: 'Tabs' })
+							primaryText: 'Tabs' }),
+						_react2.default.createElement(_MenuItem2.default, { onTouchTap: this.props.handleClose,
+							containerElement: _react2.default.createElement(_reactRouter.Link, { to: '/posts' }),
+							primaryText: 'Posts' })
 					)
 				);
 			}
@@ -66743,6 +66751,145 @@
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _GridList = __webpack_require__(400);
+
+	var _IconButton = __webpack_require__(404);
+
+	var _IconButton2 = _interopRequireDefault(_IconButton);
+
+	var _Subheader = __webpack_require__(430);
+
+	var _Subheader2 = _interopRequireDefault(_Subheader);
+
+	var _starBorder = __webpack_require__(432);
+
+	var _starBorder2 = _interopRequireDefault(_starBorder);
+
+	var _reactRouter = __webpack_require__(180);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var styles = {
+		root: {
+			display: 'flex',
+			flexWrap: 'wrap',
+			justifyContent: 'space-around',
+			height: window.innerHeight - 64 + 'px'
+		},
+		gridList: {
+			width: '100%',
+			overflowY: 'auto'
+		}
+	};
+
+	//get data from the server
+	var tilesData = [{
+		img: 'img/grid-list/00-52-29-429_640.jpg',
+		title: 'Breakfast',
+		author: 'John Snow'
+	}];
+
+	var Posts = function (_React$Component) {
+		_inherits(Posts, _React$Component);
+
+		function Posts(props) {
+			_classCallCheck(this, Posts);
+
+			//set state
+			var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Posts).call(this, props));
+
+			_this.state = {};
+
+			//scope
+			_this.openContentSection = _this.openContentSection.bind(_this);
+			return _this;
+		}
+
+		_createClass(Posts, [{
+			key: 'openContentSection',
+			value: function openContentSection(tile) {
+				_reactRouter.hashHistory.push('/gridlist2/' + tile.title);
+			}
+		}, {
+			key: 'componentWillMount',
+			value: function componentWillMount() {}
+		}, {
+			key: 'componentWillUnmount',
+			value: function componentWillUnmount() {}
+		}, {
+			key: 'render',
+			value: function render() {
+				var _this2 = this;
+
+				return _react2.default.createElement(
+					'div',
+					{ style: styles.root },
+					_react2.default.createElement(
+						_GridList.GridList,
+						{
+							cellHeight: 200,
+							style: styles.gridList
+						},
+						tilesData.map(function (tile) {
+							return _react2.default.createElement(
+								_GridList.GridTile,
+								{
+									key: tile.img + tile.author + tile.title,
+									title: tile.title,
+									subtitle: _react2.default.createElement(
+										'span',
+										null,
+										'by ',
+										_react2.default.createElement(
+											'b',
+											null,
+											tile.author
+										)
+									),
+									actionIcon: _react2.default.createElement(
+										_IconButton2.default,
+										null,
+										_react2.default.createElement(_starBorder2.default, { color: 'white' })
+									),
+									cols: 2,
+									rows: 1,
+									onTouchTap: _this2.openContentSection.bind(_this2, tile)
+								},
+								_react2.default.createElement('img', { src: tile.img })
+							);
+						})
+					)
+				);
+			}
+		}]);
+
+		return Posts;
+	}(_react2.default.Component);
+
+	exports.default = Posts;
+
+/***/ },
+/* 651 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
 
@@ -66756,7 +66903,7 @@
 
 	var _reactRouter = __webpack_require__(180);
 
-	var _MainStore = __webpack_require__(651);
+	var _MainStore = __webpack_require__(652);
 
 	var _MainStore2 = _interopRequireDefault(_MainStore);
 
@@ -66810,7 +66957,7 @@
 
 	var _scrollablelist2 = _interopRequireDefault(_scrollablelist);
 
-	var _SplashScreen = __webpack_require__(653);
+	var _SplashScreen = __webpack_require__(654);
 
 	var _SplashScreen2 = _interopRequireDefault(_SplashScreen);
 
@@ -66968,7 +67115,7 @@
 	exports.default = Main;
 
 /***/ },
-/* 651 */
+/* 652 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -67019,7 +67166,7 @@
 		};
 	};
 
-	var _Events = __webpack_require__(652);
+	var _Events = __webpack_require__(653);
 
 	var _Events2 = _interopRequireDefault(_Events);
 
@@ -67041,7 +67188,7 @@
 	var event = new CustomEvent(CHANGE_EV);
 
 /***/ },
-/* 652 */
+/* 653 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -67062,7 +67209,7 @@
 	exports.default = Events;
 
 /***/ },
-/* 653 */
+/* 654 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -67091,7 +67238,7 @@
 
 	var _AutoComplete2 = _interopRequireDefault(_AutoComplete);
 
-	var _Events = __webpack_require__(652);
+	var _Events = __webpack_require__(653);
 
 	var _Events2 = _interopRequireDefault(_Events);
 
@@ -67101,11 +67248,11 @@
 
 	var _reactSwipeableViews2 = _interopRequireDefault(_reactSwipeableViews);
 
-	var _Login = __webpack_require__(654);
+	var _Login = __webpack_require__(655);
 
 	var _Login2 = _interopRequireDefault(_Login);
 
-	var _Register = __webpack_require__(655);
+	var _Register = __webpack_require__(656);
 
 	var _Register2 = _interopRequireDefault(_Register);
 
@@ -67348,7 +67495,7 @@
 	exports.default = SplashScreen;
 
 /***/ },
-/* 654 */
+/* 655 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -67371,7 +67518,7 @@
 
 	var _AutoComplete2 = _interopRequireDefault(_AutoComplete);
 
-	var _Events = __webpack_require__(652);
+	var _Events = __webpack_require__(653);
 
 	var _Events2 = _interopRequireDefault(_Events);
 
@@ -67516,7 +67663,7 @@
 	exports.default = Login;
 
 /***/ },
-/* 655 */
+/* 656 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -67539,7 +67686,7 @@
 
 	var _AutoComplete2 = _interopRequireDefault(_AutoComplete);
 
-	var _Events = __webpack_require__(652);
+	var _Events = __webpack_require__(653);
 
 	var _Events2 = _interopRequireDefault(_Events);
 
@@ -67714,7 +67861,7 @@
 	exports.default = Register;
 
 /***/ },
-/* 656 */
+/* 657 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';

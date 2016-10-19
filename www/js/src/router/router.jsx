@@ -27,6 +27,7 @@ import Dialog from '../components/Dialog/Dialog.jsx';
 import Sliders from '../components/Sliders/Sliders.jsx';
 import Steppers from '../components/Stepper/Steppers.jsx';
 import Tabs from '../components/Tabs/Tabs.jsx';
+import Posts from '../components/Posts/Posts.jsx';
 
 //Main component
 import Main from '../components/Main/Main.jsx';
@@ -73,6 +74,7 @@ class App_Router extends React.Component {
 					<Route path="/sliders" component={Sliders}></Route>
 					<Route path="/steppers" component={Steppers}></Route>
 					<Route path="/tabs" component={Tabs}></Route>
+					<Route path="/posts" component={Posts}></Route>
 
 				</Route>
 			</Router>
