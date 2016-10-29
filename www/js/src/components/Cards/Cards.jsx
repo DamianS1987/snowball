@@ -10,7 +10,7 @@ const style = {
 };
 const dividerStyle = {
 	margin: '50px 0 50px'
-}
+};
 
 const Cards = () => (
 	<div style={style}>
