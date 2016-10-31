@@ -11,8 +11,13 @@ import $ from 'jquery';
 import config from '../../configuration/configuration.js';
 
 const styles = {
-	root: {},
-	gridList: {
+	root: {
+		display: 'flex',
+		flexWrap: 'wrap',
+		justifyContent: 'space-around',
+		height: window.innerHeight - 64 + 'px',
+	},
+	posts: {
 		height: window.innerHeight - 64 + 'px',
 		width: '100%',
 		overflowY: 'auto',
@@ -21,7 +26,7 @@ const styles = {
 
 var cachedState = {
 	data: []
-}
+};
 
 class Posts extends React.Component {
 	constructor(props) {
@@ -32,10 +37,8 @@ class Posts extends React.Component {
 		};
 	}
 
-	componentWillMount() {
+	componentDidMount() {
 		var that = this;
-
-		console.log('data: ', this.state.posts, cachedState.data);
 
 		//use cached data if available
 		if (cachedState.data.length > 0) {
@@ -59,16 +62,25 @@ class Posts extends React.Component {
 		});
 	}
 
-	componentWillUnmount() {}
-
 	render() {
+		var elem;
+
+		if (this.state.posts.length === 0) {
+			elem = <p>Loading...</p>;
+		} else {
+			elem = <List posts={this.state.posts}/>;
+		}
+
 		return(
-			<GridList
-				cellHeight={200}
-				style={styles.gridList}
-				>
-				<List posts={this.state.posts}/>
-			</GridList>
+			<div data-lala style={styles.root}>
+				<GridList
+					cellHeight={200}
+					style={styles.posts}
+				    cols={1}
+					>
+					{elem}
+				</GridList>
+			</div>
 		);
 	}
 }

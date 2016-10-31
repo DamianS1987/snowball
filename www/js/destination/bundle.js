@@ -66804,8 +66804,13 @@
 
 
 	var styles = {
-		root: {},
-		gridList: {
+		root: {
+			display: 'flex',
+			flexWrap: 'wrap',
+			justifyContent: 'space-around',
+			height: window.innerHeight - 64 + 'px'
+		},
+		posts: {
 			height: window.innerHeight - 64 + 'px',
 			width: '100%',
 			overflowY: 'auto'
@@ -66832,11 +66837,9 @@
 		}
 
 		_createClass(Posts, [{
-			key: 'componentWillMount',
-			value: function componentWillMount() {
+			key: 'componentDidMount',
+			value: function componentDidMount() {
 				var that = this;
-
-				console.log('data: ', this.state.posts, cachedState.data);
 
 				//use cached data if available
 				if (cachedState.data.length > 0) {
@@ -66860,18 +66863,32 @@
 				});
 			}
 		}, {
-			key: 'componentWillUnmount',
-			value: function componentWillUnmount() {}
-		}, {
 			key: 'render',
 			value: function render() {
+				var elem;
+
+				if (this.state.posts.length === 0) {
+					elem = _react2.default.createElement(
+						'p',
+						null,
+						'Loading...'
+					);
+				} else {
+					elem = _react2.default.createElement(_List2.default, { posts: this.state.posts });
+				}
+
 				return _react2.default.createElement(
-					_GridList.GridList,
-					{
-						cellHeight: 200,
-						style: styles.gridList
-					},
-					_react2.default.createElement(_List2.default, { posts: this.state.posts })
+					'div',
+					{ 'data-lala': true, style: styles.root },
+					_react2.default.createElement(
+						_GridList.GridList,
+						{
+							cellHeight: 200,
+							style: styles.posts,
+							cols: 1
+						},
+						elem
+					)
 				);
 			}
 		}]);
@@ -66929,7 +66946,9 @@
 		root: {
 			width: '100%'
 		},
-		gridList: {}
+		tile: {
+			position: 'relative'
+		}
 	};
 
 	var Posts = function (_React$Component) {
@@ -66953,17 +66972,6 @@
 			value: function openContentSection(tile) {
 				_reactRouter.hashHistory.push('/gridlist2/' + tile.title);
 			}
-		}, {
-			key: 'componentWillUpdate',
-			value: function componentWillUpdate() {
-				console.log('udpate');
-			}
-		}, {
-			key: 'componentWillMount',
-			value: function componentWillMount() {}
-		}, {
-			key: 'componentWillUnmount',
-			value: function componentWillUnmount() {}
 		}, {
 			key: 'render',
 			value: function render(props) {
@@ -66993,10 +67001,12 @@
 									null,
 									_react2.default.createElement(_starBorder2.default, { color: 'white' })
 								),
-								cols: 2,
-								rows: 1
+								cols: 1,
+								rows: 1,
+								style: styles.tile
 							},
-							_react2.default.createElement('img', { src: data.better_featured_image && data.better_featured_image.media_details.sizes.medium.source_url })
+							_react2.default.createElement('img', {
+								src: data.better_featured_image && data.better_featured_image.media_details.sizes.medium.source_url })
 						);
 					})
 				);
