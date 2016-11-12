@@ -13,6 +13,9 @@ const styles = {
 	},
 	tile: {
 		position: 'relative'
+	},
+	img: {
+		width: '100%'
 	}
 };
 
@@ -46,8 +49,10 @@ class Posts extends React.Component {
 							rows={1}
 							style={styles.tile}
 							>
-							<img
+							<div>
+								<img style={styles.img}
 								src={data.better_featured_image && data.better_featured_image.media_details.sizes.medium.source_url} />
+							</div>
 						</GridTile>
 					);
 					}

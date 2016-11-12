@@ -126,7 +126,7 @@ class SplashScreen extends React.Component {
 		var event = new Event(eventInst.SKIP_LOGIN);
 		document.dispatchEvent(event);
 
-		//browserHistory.push('/#/home?_k=15v0nx');
+		browserHistory.push('/#/home?_k=15v0nx');
 	}
 
 	render() {
@@ -177,7 +177,7 @@ class SplashScreen extends React.Component {
 								primary={true}
 								keyboardFocused={false}
 								onTouchTap={this.handleSkipLogin}
-							    href="/#/home"
+							    //href="/home"
 								/><br/>
 						</div>
 						<div style={style.slide}>

@@ -34,6 +34,7 @@ class AboutPage extends React.Component {
 		var loginName = generalStore().getUserLogin();
 		return  cookie.get(configuration.cookieKey + loginName);
 	}
+	//
 
 	render() {
 		const actions = [

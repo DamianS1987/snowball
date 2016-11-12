@@ -38662,6 +38662,8 @@
 				var loginName = (0, _GeneralStore2.default)().getUserLogin();
 				return _browserCookies2.default.get(_configuration2.default.cookieKey + loginName);
 			}
+			//
+
 		}, {
 			key: 'render',
 			value: function render() {
@@ -41102,7 +41104,11 @@
 		//These are the posts requested from Wordpress website using JSON WP REST API plugin
 		//plugin url: http://v2.wp-api.org/
 		//This data is available in Posts tab
-		wp_json_url: 'http://feeds.dstefaniak-staging.com/wp-json/wp/v2/posts'
+		wp_json_url: 'http://feeds.dstefaniak-staging.com/wp-json/wp/v2/posts',
+		//images url
+		img_url: function img_url() {
+			return '/android_asset/www/img/';
+		}
 	};
 
 /***/ },
@@ -46164,6 +46170,10 @@
 
 	var _starBorder2 = _interopRequireDefault(_starBorder);
 
+	var _configuration = __webpack_require__(460);
+
+	var _configuration2 = _interopRequireDefault(_configuration);
+
 	var _DescriptionDialog = __webpack_require__(493);
 
 	var _DescriptionDialog2 = _interopRequireDefault(_DescriptionDialog);
@@ -46175,6 +46185,8 @@
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	//config
+
 
 	//dialog with description
 
@@ -46193,59 +46205,59 @@
 	};
 
 	var tilesData = [{
-		img: 'img/grid-list/00-52-29-429_640.jpg',
+		img: _configuration2.default.img_url() + 'grid-list/00-52-29-429_640.jpg',
 		title: 'Breakfast',
-		author: 'John Snow'
+		author: 'John Snow www'
 	}, {
-		img: 'img/grid-list/burger-827309_640.jpg',
+		img: _configuration2.default.img_url() + 'grid-list/burger-827309_640.jpg',
 		title: 'Tasty burger 1',
 		author: 'pashminu'
 	}, {
-		img: 'img/grid-list/00-52-29-429_640.jpg',
+		img: _configuration2.default.img_url() + 'grid-list/00-52-29-429_640.jpg',
 		title: 'Breakfast',
 		author: 'Lorem ipsum'
 	}, {
-		img: 'img/grid-list/burger-827309_640.jpg',
+		img: _configuration2.default.img_url() + 'grid-list/burger-827309_640.jpg',
 		title: 'Tasty burger',
 		author: 'pashminu'
 	}, {
-		img: 'img/grid-list/camera-813814_640.jpg',
+		img: _configuration2.default.img_url() + 'grid-list/camera-813814_640.jpg',
 		title: 'Camera',
 		author: 'Danson67'
 	}, {
-		img: 'img/grid-list/morning-819362_640.jpg',
+		img: _configuration2.default.img_url() + 'grid-list/morning-819362_640.jpg',
 		title: 'Morning',
 		author: 'fancycrave1'
 	}, {
-		img: 'img/grid-list/hats-829509_640.jpg',
+		img: _configuration2.default.img_url() + 'grid-list/hats-829509_640.jpg',
 		title: 'Hats',
 		author: 'Hans'
 	}, {
-		img: 'img/grid-list/honey-823614_640.jpg',
+		img: _configuration2.default.img_url() + 'grid-list/honey-823614_640.jpg',
 		title: 'Honey',
 		author: 'fancycravel'
 	}, {
-		img: 'img/grid-list/vegetables-790022_640.jpg',
+		img: _configuration2.default.img_url() + 'grid-list/vegetables-790022_640.jpg',
 		title: 'Vegetables',
 		author: 'DaDaDaDa'
 	}, {
-		img: 'img/grid-list/water-plant-821293_640.jpg',
+		img: _configuration2.default.img_url() + 'grid-list/water-plant-821293_640.jpg',
 		title: 'Water plant',
 		author: 'John Lennon'
 	}, {
-		img: 'img/grid-list/vegetables-790022_640.jpg',
+		img: _configuration2.default.img_url() + 'grid-list/vegetables-790022_640.jpg',
 		title: 'Vegetables',
 		author: 'ABCD'
 	}, {
-		img: 'img/grid-list/water-plant-821293_640.jpg',
+		img: _configuration2.default.img_url() + 'grid-list/water-plant-821293_640.jpg',
 		title: 'Water plant',
 		author: 'Baran Karki'
 	}, {
-		img: 'img/grid-list/vegetables-790022_640.jpg',
+		img: _configuration2.default.img_url() + 'grid-list/vegetables-790022_640.jpg',
 		title: 'Vegetables',
 		author: 'AilAAl111'
 	}, {
-		img: 'img/grid-list/water-plant-821293_640.jpg',
+		img: _configuration2.default.img_url() + 'grid-list/water-plant-821293_640.jpg',
 		title: 'Water plant',
 		author: 'BkrmadtyaKarki'
 	}];
@@ -66948,6 +66960,9 @@
 		},
 		tile: {
 			position: 'relative'
+		},
+		img: {
+			width: '100%'
 		}
 	};
 
@@ -67005,8 +67020,12 @@
 								rows: 1,
 								style: styles.tile
 							},
-							_react2.default.createElement('img', {
-								src: data.better_featured_image && data.better_featured_image.media_details.sizes.medium.source_url })
+							_react2.default.createElement(
+								'div',
+								null,
+								_react2.default.createElement('img', { style: styles.img,
+									src: data.better_featured_image && data.better_featured_image.media_details.sizes.medium.source_url })
+							)
 						);
 					})
 				);
@@ -79314,7 +79333,7 @@
 				var event = new Event(eventInst.SKIP_LOGIN);
 				document.dispatchEvent(event);
 
-				//browserHistory.push('/#/home?_k=15v0nx');
+				_reactRouter.browserHistory.push('/#/home?_k=15v0nx');
 			}
 		}, {
 			key: 'render',
@@ -79370,8 +79389,8 @@
 									label: 'Skip (dev only)',
 									primary: true,
 									keyboardFocused: false,
-									onTouchTap: this.handleSkipLogin,
-									href: '/#/home'
+									onTouchTap: this.handleSkipLogin
+									//href="/home"
 								}),
 								_react2.default.createElement('br', null)
 							),
