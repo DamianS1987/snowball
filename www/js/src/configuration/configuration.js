@@ -8,6 +8,6 @@ export default {
 	wp_json_url: 'http://feeds.dstefaniak-staging.com/wp-json/wp/v2/posts',
 	//images url
 	img_url: function() {
-		return '/android_asset/www/img/';
+		return (!!window.cordova) ? '/android_asset/www/img/' : 'img/';
 	}
 };
