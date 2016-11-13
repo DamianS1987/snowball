@@ -104,6 +104,9 @@ class GridListExampleSimple extends React.Component {
 	}
 
 	render() {
+
+		//alert('ionic.Platform.isWebView(): ', ionic.Platform.isAndroid() );
+
 		return(
 			<div style={styles.root}>
 				<GridList

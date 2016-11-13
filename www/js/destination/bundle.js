@@ -41107,7 +41107,8 @@
 		wp_json_url: 'http://feeds.dstefaniak-staging.com/wp-json/wp/v2/posts',
 		//images url
 		img_url: function img_url() {
-			return !!window.cordova ? '/android_asset/www/img/' : 'img/';
+			//todo fix
+			return '/android_asset/www/img/'; //(ionic.Platform.isWebView()) ? '/android_asset/www/img/' : 'img/';
 		}
 	};
 
@@ -46278,6 +46279,9 @@
 		_createClass(GridListExampleSimple, [{
 			key: 'render',
 			value: function render() {
+
+				//alert('ionic.Platform.isWebView(): ', ionic.Platform.isAndroid() );
+
 				return _react2.default.createElement(
 					'div',
 					{ style: styles.root },
@@ -66996,7 +67000,7 @@
 			}
 		}, {
 			key: 'render',
-			value: function render(props) {
+			value: function render() {
 
 				return _react2.default.createElement(
 					'div',

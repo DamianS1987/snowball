@@ -33,7 +33,7 @@ class Posts extends React.Component {
 		hashHistory.push('/gridlist2/' + tile.title);
 	}
 
-	render(props) {
+	render() {
 
 		return(
 			<div style={styles.root}>
